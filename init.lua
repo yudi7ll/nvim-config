@@ -6,6 +6,3 @@ require('modules.blade')
 require('modules.compe')
 require('modules.lightline')
 require('modules.nvim-tree')
-
--- TODO
--- Convert all vim config to lua
