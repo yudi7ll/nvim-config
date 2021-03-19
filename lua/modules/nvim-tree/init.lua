@@ -2,9 +2,9 @@ vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', { noremap = true })
 
-vim.g.nvim_tree_width=40
+vim.g.nvim_tree_width=38
 vim.g.nvim_tree_indent_markers=1
-vim.g.nvim_tree_git_hl=1
+vim.g.nvim_tree_git_hl=0
 vim.g.nvim_tree_hijack_netrw=1
 vim.g.nvim_tree_follow=1
 

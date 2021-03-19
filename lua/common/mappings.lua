@@ -8,3 +8,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', ':tabnext<CR>', { noremap = true, silent =
 
 -- FZF
 vim.api.nvim_set_keymap('n', '<C-p>', ':<C-u>FZF<CR>', { noremap = true, silent = true })
+
+-- Stop the highlighting for `hlsearch`
+vim.api.nvim_set_keymap('n', '<space>h', ':noh<CR>', { noremap = true, silent = true })
