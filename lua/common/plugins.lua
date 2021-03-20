@@ -8,58 +8,48 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
--- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
-return require('packer').startup(function()
-  -- Packer can manage itself as an optional plugin
+return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
+
+  -- colorscheme
   use {'sjl/badwolf'}
   use {'morhetz/gruvbox'}
   use {'ghifarit53/tokyonight-vim'}
-  use {'itchyny/lightline.vim'}
-  use {'mengelbrecht/lightline-bufferline'}
 
-  use {'tomtom/tcomment_vim'}
+  -- LSP
+  use {'neovim/nvim-lspconfig'}
+  use {'glepnir/lspsaga.nvim', config = function () require('lspsaga').init_lsp_saga() end}
+  use {'onsails/lspkind-nvim', config = function () require('lspkind').init() end}
+  use {'kosayoda/nvim-lightbulb'}
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/vim-vsnip-integ'}
+
+  -- Autocomplete
+  use {'hrsh7th/nvim-compe'}
+
+  -- Tree Sitter
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master'}
+
+  -- General
+  use {'kyazdani42/nvim-web-devicons'}
+  use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
+  use {'andweeb/presence.nvim'}
+  use {'kyazdani42/nvim-tree.lua'}
+  use {'mattn/emmet-vim'}
+  use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end}
+  use {'glepnir/galaxyline.nvim', branch = 'main'}
+  use {'terrortylor/nvim-comment', config = function () require('nvim_comment').setup() end}
   use {'tpope/vim-surround'}
   use {'tpope/vim-fugitive'}
+  use {'airblade/vim-gitgutter'}
   use {'editorconfig/editorconfig-vim'}
   use {'Yggdroot/indentLine'}
-  -- use {'tommcdo/vim-lion'}
+  use {'tommcdo/vim-lion'}
   use {'nelstrom/vim-visual-star-search'}
-  -- use {'chaoren/vim-wordmotion'}
-  -- use {'lambdalisue/nerdfont.vim'}
-  -- use {'lambdalisue/fern.vim'}
-  -- use {'lambdalisue/fern-git-status.vim'}
-  -- use {'lambdalisue/fern-renderer-nerdfont.vim'}
-  -- use {'lambdalisue/fern-hijack.vim'}
   use {'antoinemadec/FixCursorHold.nvim'}
   use {'sheerun/vim-polyglot'}
-  -- use {'jackguo380/vim-lsp-cxx-highlight'}
-  -- use {'ervandew/supertab'}
-  -- use {'dense-analysis/ale'}
-  -- use {'tobyS/vmustache'}
-  -- use {'tobyS/pdv'}
-  -- use {'sumpygump/php-documentor-vim'}
-  -- use {'jwalton512/vim-blade'}
-  use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      {
-        'glepnir/lspsaga.nvim',
-        config = function () require('lspsaga').init_lsp_saga() end
-      }
-    }
-  }
-  use {'hrsh7th/nvim-compe'}
-  use {
-    'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup() end
-  }
-  -- use {'andweeb/presence.nvim'}
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
-  use {'mattn/emmet-vim'}
+  use {'akinsho/nvim-bufferline.lua'}
 end)
