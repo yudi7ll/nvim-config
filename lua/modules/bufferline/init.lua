@@ -6,7 +6,6 @@ require('bufferline').setup {
 			return " " .. icon .. count
 		end,
 		enforce_regular_tabs = true,
-		separator_style = "slant",
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		show_tab_indicators = true,

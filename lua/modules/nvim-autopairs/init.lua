@@ -1,17 +1,7 @@
-require('nvim-autopairs').setup()
-
-local pairs_map = {
-    ["'"] = "'",
-    ['"'] = '"',
-    ['('] = ')',
-    ['['] = ']',
-    ['{'] = '}',
-    ['`'] = '`',
-}
-local disable_filetype = { "TelescopePrompt" }
-local break_line_filetype = nil -- mean all file type
-local html_break_line_filetype = {'html' , 'vue' , 'typescriptreact' , 'svelte' , 'javascriptreact'}
-local ignored_next_char = "%w"
+require('nvim-autopairs').setup({
+    disable_filetype = {"TelescopePrompt"};
+    html_break_line_filetype = nil;
+})
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
@@ -36,4 +26,5 @@ MUtils.completion_confirm=function()
   end
 end
 
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+
+-- remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', { expr = true , noremap = true })

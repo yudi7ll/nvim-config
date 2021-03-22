@@ -1,1 +1,7 @@
--- vim.g.polyglot_disabled = { 'blade.plugin', 'autoindent', 'sensible' }
+vim.g.polyglot_disabled = { 'lua', 'autoindent' }
+
+-- Laravel Blade
+vim.g.blade_custom_directives = { 'csrf', 'method' }
+vim.g.blade_custom_directives_pairs = {
+  error = 'enderror'
+}
