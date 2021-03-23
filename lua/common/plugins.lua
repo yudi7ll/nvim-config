@@ -6,11 +6,10 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-  execute('packadd packer.nvim')
 end
-
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
@@ -20,34 +19,37 @@ return require('packer').startup(function(use)
   -- use {'morhetz/gruvbox'}
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig',
-    config = function() require('modules.lsp') end
-  }
-  use {
-    'glepnir/lspsaga.nvim',
-    config = function() require('lspsaga').init_lsp_saga() end
-  }
-  use {
-    'onsails/lspkind-nvim',
-    config = function() require('lspkind').init() end
-  }
-  use {
-    'kosayoda/nvim-lightbulb',
-    config = function() require('modules.nvim-lightbulb') end
-  }
+  -- use {
+  --   'neovim/nvim-lspconfig',
+  --   config = function() require('modules.lsp') end
+  -- }
+  -- use {
+  --   'glepnir/lspsaga.nvim',
+  --   config = function() require('lspsaga').init_lsp_saga() end
+  -- }
+  -- use {
+  --   'onsails/lspkind-nvim',
+  --   config = function() require('lspkind').init() end
+  -- }
+  -- use {
+  --   'kosayoda/nvim-lightbulb',
+  --   config = function() require('modules.nvim-lightbulb') end
+  -- }
 
   -- Autocomplete
+  -- use {
+  --   'hrsh7th/nvim-compe',
+  --   config = function() require('modules.compe') end,
+  --   requires = {
+  --     {'hrsh7th/vim-vsnip'},
+  --     {'hrsh7th/vim-vsnip-integ'}
+  --   }
+  -- }
   use {
-    'hrsh7th/nvim-compe',
-    config = function() require('modules.compe') end,
-    requires = {
-      {'hrsh7th/vim-vsnip'},
-      {'hrsh7th/vim-vsnip-integ'}
-    }
-  }
+  'neoclide/coc.nvim', branch = 'release',
+  config = function() require('modules.coc') end
+}
 
-  -- Tree Sitter
   -- use {
   --   'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master',
   --   config = function() require('modules.tree-sitter') end
@@ -58,23 +60,37 @@ return require('packer').startup(function(use)
   use {'ryanoasis/vim-devicons'}
 
   -- General
-  -- use {'windwp/nvim-autopairs',
-  --   config = function() require('modules.nvim-autopairs') end
-  -- }
-  use {
-    'cohama/lexima.vim',
-    config = function() require('modules.lexima') end 
+  use {'windwp/nvim-autopairs',
+    config = function() require('modules.nvim-autopairs') end
   }
+  use {'vijaymarupudi/nvim-fzf'}
   use {'andweeb/presence.nvim'}
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   config = function() require('modules.nvim-tree') end
+  -- }
+  -- use {
+  --   'Shougo/defx.nvim', run = ':UpdateRemoteuseins',
+  --   config = function() require('modules.defx') end
+  -- }
+  -- use {
+  --   'lambdalisue/fern.vim',
+  --   config = function() require('modules.fern') end
+  -- }
+  -- use {'lambdalisue/fern-git-status.vim'}
+  -- use {'antoinemadec/FixCursorHold.nvim'}
   use {
-    'kyazdani42/nvim-tree.lua',
-    config = function() require('modules.nvim-tree') end
+    'preservim/nerdtree',
+    config = function() require('modules.nerdtree') end,
+    requires = {
+      {'Xuyuanp/nerdtree-git-plugin'},
+      {'tiagofumo/vim-nerdtree-syntax-highlight'}
+    }
   }
-  use {'mattn/emmet-vim'}
-  use {
-    'norcalli/nvim-colorizer.lua',
-    config = function() require'colorizer'.setup() end
-  }
+  -- use {
+  --   'norcalli/nvim-colorizer.lua',
+  --   config = function() require'colorizer'.setup() end
+  -- }
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
     config = function() require('modules.galaxyline') end
@@ -91,8 +107,11 @@ return require('packer').startup(function(use)
     'Yggdroot/indentLine',
     config = function() require('modules.indentline') end
   }
+  -- use {
+  --   'glepnir/indent-guides.nvim',
+  --   config = function() require('indent_guides').setup({}) end
+  -- }
   use {'tommcdo/vim-lion'}
-  use {'antoinemadec/FixCursorHold.nvim'}
   use {
     'sheerun/vim-polyglot',
     config = function() require('modules.polyglot') end
@@ -101,5 +120,9 @@ return require('packer').startup(function(use)
     'akinsho/nvim-bufferline.lua',
     config = function() require('modules.bufferline') end
   }
+  -- use {
+  --   'romgrk/barbar.nvim',
+  --   config = function() require('modules.barbar') end
+  -- }
   use {'liuchengxu/vim-which-key'}
 end)

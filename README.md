@@ -5,3 +5,4 @@
 - [FZF](https://github.com/junegunn/fzf)
 - [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - [Tree Sitter (Optional)](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md)
+

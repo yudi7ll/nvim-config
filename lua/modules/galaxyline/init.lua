@@ -29,13 +29,14 @@ local mode_color = function()
     [''] = colors.magenta,
     v = colors.magenta,
     R = colors.red,
+    s = colors.blue,
     t = colors.yellow,
   }
 
   return mode_colors[vim.fn.mode()]
 end
 
-gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'terminal', '<empty>', 'help'}
+gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern', ''}
 
 -- Left side
 gls.left[1] = {
@@ -55,6 +56,7 @@ gls.left[2] = {
         [''] = 'VISUAL',
         v = 'VISUAL',
         R = 'REPLACE',
+        s = 'SNIPPET',
         t = 'TERMINAL',
       }
       vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
@@ -187,8 +189,16 @@ gls.right[2] = {
 }
 gls.right[3] = {
   Heart = {
-    provider = function() return '  ' end,
+    provider = function() return ' ' end,
     highlight = { colors.red, colors.section_bg },
+    separator = ' | ',
+    separator_highlight = { colors.bg, colors.section_bg },
+  }
+}
+gls.right[4] = {
+  CocStatus = {
+    provider = function() return vim.fn['coc#status']() end,
+    highlight = { colors.yellow, colors.section_bg },
     separator = ' | ',
     separator_highlight = { colors.bg, colors.section_bg },
   }
