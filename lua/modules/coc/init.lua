@@ -38,12 +38,12 @@ _G.confirm_selection = function()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, silent = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true, silent = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
-vim.api.nvim_set_keymap('i', '<CR>', "v:lua.confirm_selection()", { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")

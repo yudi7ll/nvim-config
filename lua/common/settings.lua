@@ -1,6 +1,7 @@
 vim.o.autoindent      = true
 vim.o.background      = "dark"
 vim.o.backup          = false
+vim.o.cindent         = true
 vim.o.clipboard       = "unnamedplus"
 vim.o.cmdheight       = 2
 vim.wo.colorcolumn    = "80"
@@ -24,6 +25,7 @@ vim.o.shiftwidth      = 2
 vim.o.showtabline     = 2
 vim.wo.signcolumn     = "yes"
 vim.o.scrolloff       = 12
+vim.o.softtabstop     = 2
 vim.o.tabstop         = 2
 vim.o.termguicolors   = true
 vim.o.textwidth       = 0
@@ -37,8 +39,13 @@ vim.o.wildmenu        = true
 vim.wo.wrap           = false
 vim.o.writebackup     = false
 
+vim.g.html_indent_script1 = "inc"
+vim.g.html_indent_style1 = "inc"
+
 vim.cmd('set iskeyword+=-')
 vim.cmd('set shortmess+=c')
 vim.cmd('set whichwrap+=<,>,[,],h,l')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
+vim.cmd('filetype plugin indent on')
+

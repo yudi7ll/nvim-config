@@ -36,7 +36,7 @@ local mode_color = function()
   return mode_colors[vim.fn.mode()]
 end
 
-gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern', ''}
+gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern'}
 
 -- Left side
 gls.left[1] = {
