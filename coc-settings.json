@@ -1,5 +1,8 @@
 {
 	"html.format.indentHandlebars": true,
+	"html.format.wrapAttributes": "auto",
+	"html.format.indentInnerHtml": true,
+	"html.format.wrapLineLength": 120,
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
@@ -19,7 +22,7 @@
 		"php": [
 			"phpstan",
 			"psalm"
-		],
+		]
 	},
 	"diagnostic-languageserver.formatFiletypes": {
 		"dart": "dartfmt",
@@ -32,5 +35,9 @@
 		"lua": "lua-format",
 		"sh": "shfmt",
 		"blade": "blade-formatter"
-	}
+	},
+	"Lua.diagnostics.globals": [
+		"vim"
+	],
+	"highlight.colorNames.enable": false
 }

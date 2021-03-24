@@ -9,16 +9,16 @@ local check_width = condition.hide_in_width;
 
 -- Colors
 local colors = {
-  bg = '#282a36',
-  fg = '#f8f8f2',
+  bg         = '#282a36',
+  fg         = '#f8f8f2',
   section_bg = '#38393f',
-  yellow = '#f1fa8c',
-  cyan = '#8be9fd',
-  green = '#50fa7b',
-  orange = '#ffb86c',
-  magenta = '#ff79c6',
-  blue = '#8be9fd',
-  red = '#ff5555'
+  yellow     = '#f1fa8c',
+  cyan       = '#8be9fd',
+  green      = '#50fa7b',
+  orange     = '#ffb86c',
+  magenta    = '#ff79c6',
+  blue       = '#8be9fd',
+  red        = '#ff5555'
 }
 
 local mode_color = function()
@@ -175,20 +175,27 @@ gls.left[16] = {
 gls.right[1] = {
   CocStatus = {
     provider = function() return vim.fn['coc#status']() end,
-    highlight = { colors.yellow, colors.section_bg },
+    highlight = { colors.blue, colors.section_bg },
     separator =  " ",
     separator_highlight = { colors.bg,colors.section_bg },
   }
 }
 gls.right[2] = {
-  FileFormat = {
-    provider = function() return vim.bo.filetype end,
-    highlight = { colors.fg,colors.section_bg },
-    separator = " ",
-    separator_highlight = { colors.section_bg, colors.section_bg }
-  },
+  FileFormatIcon = {
+    provider = 'FileIcon',
+    condition = buffer_not_empty,
+    highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.section_bg },
+    separator = " | ",
+    separator_highlight = { colors.bg, colors.section_bg }
+  }
 }
 gls.right[3] = {
+  FileFormat = {
+    provider = function() return vim.bo.filetype end,
+    highlight = { colors.fg, colors.section_bg },
+  },
+}
+gls.right[4] = {
   LineInfo = {
     provider = 'LineColumn',
     highlight = { colors.fg, colors.section_bg },
@@ -196,7 +203,7 @@ gls.right[3] = {
     separator_highlight = { colors.bg, colors.section_bg },
   },
 }
-gls.right[4] = {
+gls.right[5] = {
   Heart = {
     provider = function() return '  ' end,
     highlight = { colors.red, colors.section_bg },

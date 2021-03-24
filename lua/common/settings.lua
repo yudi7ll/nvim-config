@@ -47,4 +47,4 @@ vim.cmd('set whichwrap+=<,>,[,],h,l')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
-
+vim.cmd('colorscheme badwolf')

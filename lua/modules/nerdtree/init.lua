@@ -10,15 +10,16 @@ vim.cmd('autocmd BufWinEnter * silent NERDTreeMirror')
 vim.api.nvim_set_keymap('n', '<C-n>' , ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-f>' , ':NERDTreeFind<CR>', { noremap = true, silent = true })
 
-vim.g.NERDTreeMapCloseDir = 'h'
-vim.g.NERDTreeMapRefresh = 'R'
-vim.g.NERDTreeMapCWD = '<CR>'
-vim.g.NERDTreeMapToggleHidden = 'H'
+vim.g.NERDTreeMapCloseDir         = 'h'
+vim.g.NERDTreeMapRefresh          = 'R'
+vim.g.NERDTreeMapCWD              = '<CR>'
+vim.g.NERDTreeMapToggleHidden     = 'H'
 
 vim.g.NERDTreeHighlightCursorline = true
-vim.g.NERDTreeHijackNetrw = true
-vim.g.NERDTreeMinimalUI = true
-vim.g.NERDTreeWinSize = 38
-vim.g.NERDTreeAutoDeleteBuffer = true
--- vim.g.NERDTreeRemoveFileCmd = '/usr/bin/trash'
--- vim.g.NERDTreeRemoveDirCmd = '/usr/bin/trash'
+vim.g.NERDTreeHijackNetrw         = true
+vim.g.NERDTreeMinimalUI           = true
+vim.g.NERDTreeWinSize             = 38
+vim.g.NERDTreeAutoDeleteBuffer    = true
+vim.g.NERDTreeHighlightCursorline = true
+vim.g.NERDTreeRemoveFileCmd       = 'trash '
+vim.g.NERDTreeRemoveDirCmd        = 'trash '

@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {'sjl/badwolf'}
-  -- use {'morhetz/gruvbox'}
 
   -- LSP
   -- use {
@@ -88,10 +87,6 @@ return require('packer').startup(function(use)
       {'PhilRunninger/nerdtree-visual-selection'}
     }
   }
-  -- use {
-  --   'norcalli/nvim-colorizer.lua',
-  --   config = function() require'colorizer'.setup() end
-  -- }
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
     config = function() require('modules.galaxyline') end
