@@ -13,8 +13,8 @@ require('bufferline').setup {
 	}
 }
 
-vim.api.nvim_set_keymap('n', '<C-W>q', ':Bdelete<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-W><C-q>', ':Bdelete<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-W>q', ':bdelete<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-W><C-q>', ':bdelete<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })

@@ -7,7 +7,6 @@ local check_width = condition.hide_in_width;
 
 -- vim.cmd("set statusline=%#GalaxyBufferType#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferType\")}%#BufferTypeSeparator# %=%#BufferIconSeparator#%#GalaxyBufferIcon#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferIcon\")}")
 
-
 -- Colors
 local colors = {
   bg = '#282a36',
@@ -174,14 +173,22 @@ gls.left[16] = {
 
 -- Right side
 gls.right[1] = {
+  CocStatus = {
+    provider = function() return vim.fn['coc#status']() end,
+    highlight = { colors.yellow, colors.section_bg },
+    separator =  " ",
+    separator_highlight = { colors.bg,colors.section_bg },
+  }
+}
+gls.right[2] = {
   FileFormat = {
     provider = function() return vim.bo.filetype end,
     highlight = { colors.fg,colors.section_bg },
-    separator =  " ",
-    separator_highlight = { colors.bg,colors.section_bg },
+    separator = " ",
+    separator_highlight = { colors.section_bg, colors.section_bg }
   },
 }
-gls.right[2] = {
+gls.right[3] = {
   LineInfo = {
     provider = 'LineColumn',
     highlight = { colors.fg, colors.section_bg },
@@ -189,18 +196,10 @@ gls.right[2] = {
     separator_highlight = { colors.bg, colors.section_bg },
   },
 }
-gls.right[3] = {
-  Heart = {
-    provider = function() return ' ' end,
-    highlight = { colors.red, colors.section_bg },
-    separator = ' | ',
-    separator_highlight = { colors.bg, colors.section_bg },
-  }
-}
 gls.right[4] = {
-  CocStatus = {
-    provider = function() return vim.fn['coc#status']() end,
-    highlight = { colors.yellow, colors.section_bg },
+  Heart = {
+    provider = function() return '  ' end,
+    highlight = { colors.red, colors.section_bg },
     separator = ' | ',
     separator_highlight = { colors.bg, colors.section_bg },
   }
@@ -211,6 +210,12 @@ gls.short_line_left[1] = {
   BufferType = {
     provider = 'FileTypeName',
     highlight = { colors.fg, colors.section_bg },
+  }
+}
+gls.short_line_left[2] = {
+  ShortSpace = {
+    provider = function() return ' ' end,
+    highlight = { colors.section_bg, colors.section_bg },
     separator = ' ',
     separator_highlight = { colors.section_bg, colors.bg },
   }

@@ -1,1 +1,1 @@
-vim.api.nvim_set_keymap('n', '<space>tt', ':FloatermToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>t', ':FloatermToggle<CR>', { noremap = true, silent = true, nowait = true })

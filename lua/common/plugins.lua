@@ -84,7 +84,8 @@ return require('packer').startup(function(use)
     config = function() require('modules.nerdtree') end,
     requires = {
       {'Xuyuanp/nerdtree-git-plugin'},
-      {'tiagofumo/vim-nerdtree-syntax-highlight'}
+      {'tiagofumo/vim-nerdtree-syntax-highlight'},
+      {'PhilRunninger/nerdtree-visual-selection'}
     }
   }
   -- use {
@@ -103,15 +104,15 @@ return require('packer').startup(function(use)
   use {'tpope/vim-fugitive'}
   use {'airblade/vim-gitgutter'}
   use {'editorconfig/editorconfig-vim'}
-  use {
-    'Yggdroot/indentLine',
-    config = function() require('modules.indentline') end
-  }
+  -- use {
+  --   'Yggdroot/indentLine',
+  --   config = function() require('modules.indentline') end
+  -- }
   -- use {
   --   'glepnir/indent-guides.nvim',
   --   config = function() require('indent_guides').setup({}) end
   -- }
-  use {'tommcdo/vim-lion'}
+  use {'tommcdo/vim-lion', opt = true}
   use {
     'sheerun/vim-polyglot',
     config = function() require('modules.polyglot') end
@@ -124,7 +125,7 @@ return require('packer').startup(function(use)
   --   'romgrk/barbar.nvim',
   --   config = function() require('modules.barbar') end
   -- }
-  use {'moll/vim-bbye'}
+  -- use {'moll/vim-bbye'}
   use {'liuchengxu/vim-which-key'}
   use {'pangloss/vim-javascript'}
   use {
