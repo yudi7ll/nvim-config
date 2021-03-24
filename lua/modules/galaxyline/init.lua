@@ -5,6 +5,8 @@ local gls = gl.section
 local buffer_not_empty = condition.buffer_not_empty
 local check_width = condition.hide_in_width;
 
+-- vim.cmd("set statusline=%#GalaxyBufferType#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferType\")}%#BufferTypeSeparator# %=%#BufferIconSeparator#%#GalaxyBufferIcon#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferIcon\")}")
+
 
 -- Colors
 local colors = {
@@ -36,7 +38,7 @@ local mode_color = function()
   return mode_colors[vim.fn.mode()]
 end
 
-gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern'}
+gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern', 'floaterm'}
 
 -- Left side
 gls.left[1] = {

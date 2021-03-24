@@ -12,3 +12,6 @@ vim.api.nvim_set_keymap('n', '<space>h', ':noh<CR>', { noremap = true, silent = 
 
 -- Packer
 vim.api.nvim_set_keymap('n', '<F5>', ':PackerSync<CR>', { noremap = true })
+
+-- Vim which key
+vim.api.nvim_set_keymap('n', '<leader>', ":WhichKey '<Space>'<CR>", { noremap = true, silent = true })

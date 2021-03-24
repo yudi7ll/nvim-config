@@ -1,3 +1,24 @@
+-- keep installed
+vim.g.coc_global_extensions = {
+  'coc-blade-formatter',
+  'coc-css',
+  'coc-diagnostic',
+  'coc-emmet',
+  'coc-eslint',
+  'coc-git',
+  'coc-html',
+  'coc-htmlhint',
+  'coc-json',
+  'coc-marketplace',
+  'coc-pairs',
+  'coc-phpls',
+  'coc-python',
+  'coc-sh',
+  'coc-tsserver',
+  'coc-yaml',
+  'coc-xml',
+}
+
 local utils = require('common.utils')
 
 local t = function(str)
@@ -44,6 +65,32 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = tru
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
+
+-- Use `[g` and `]g` to navigate diagnostics
+-- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+vim.api.nvim_set_keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = true })
+vim.api.nvim_set_keymap('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true })
+
+-- GoTo code navigation.
+vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
+
+-- Use K to show documentation in preview window.
+-- nnoremap <silent> K :call <SID>show_documentation()<CR>
+vim.api.nvim_set_keymap('n', 'K', 'v:lua.show_documentation()', { noremap = true, silent = true })
+
+-- TODO
+-- function! s:show_documentation()
+--   if (index(['vim','help'], &filetype) >= 0)
+--     execute 'h '.expand('<cword>')
+--   elseif (coc#rpc#ready())
+--     call CocActionAsync('doHover')
+--   else
+--     execute '!' . &keywordprg . " " . expand('<cword>')
+--   endif
+-- endfunction
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
@@ -93,6 +140,8 @@ vim.cmd("set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}")
 vim.api.nvim_set_keymap('n', '<space>a', ':CocList diagnostics<CR>', { noremap = true, silent = true, nowait = true })
 -- Manage extensions
 vim.api.nvim_set_keymap('n', '<space>e', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
+-- Format current buffer
+vim.api.nvim_set_keymap('n', '<space>f', ':Format<CR>', { noremap = true, silent = true, nowait = true })
 -- Show commands.
 vim.api.nvim_set_keymap('n', '<space>c', ':CocList commands<CR>', { noremap = true, silent = true, nowait = true })
 -- Find symbol of current document
@@ -107,3 +156,8 @@ vim.api.nvim_set_keymap('n', '<space>j', ':CocNext<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<space>k', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
 -- Resume latest coc list.
 vim.api.nvim_set_keymap('n', '<space>p', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
+
+-- Mapping for CocCommand
+-- Toggle Terminal
+-- vim.api.nvim_set_keymap('n', '<space>tt', ':CocCommand terminal.Toggle<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<space>td', ':CocCommand terminal.Toggle<CR>', { noremap = true, silent = true })

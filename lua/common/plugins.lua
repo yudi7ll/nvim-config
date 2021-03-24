@@ -124,5 +124,11 @@ return require('packer').startup(function(use)
   --   'romgrk/barbar.nvim',
   --   config = function() require('modules.barbar') end
   -- }
+  use {'moll/vim-bbye'}
   use {'liuchengxu/vim-which-key'}
+  use {'pangloss/vim-javascript'}
+  use {
+    'voldikss/vim-floaterm',
+    config = function() require('modules.floaterm') end
+  }
 end)

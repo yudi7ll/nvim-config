@@ -1,6 +1,7 @@
 
 -- Open the existing NERDTree on each new tab
 -- vim.cmd('autocmd BufWinEnter * silent NERDTreeMirror')
+
 -- Exit Vim if NERDTree is the only window left.
 vim.cmd("autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif")
 
@@ -17,7 +18,6 @@ vim.g.NERDTreeHighlightCursorline = true
 vim.g.NERDTreeHijackNetrw = true
 vim.g.NERDTreeMinimalUI = true
 vim.g.NERDTreeWinSize = 38
--- vim.g.NERDTreeMinimalMenu = true
 vim.g.NERDTreeAutoDeleteBuffer = true
-vim.g.NERDTreeRemoveFileCmd = 'trash'
-vim.g.NERDTreeRemoveDirCmd = 'trash'
+-- vim.g.NERDTreeRemoveFileCmd = '/usr/bin/trash'
+-- vim.g.NERDTreeRemoveDirCmd = '/usr/bin/trash'
