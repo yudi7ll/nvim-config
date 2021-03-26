@@ -16,7 +16,6 @@ vim.o.ignorecase          = true
 vim.o.laststatus          = 2
 vim.wo.number             = true
 vim.wo.relativenumber     = true
-vim.o.ruler               = true
 vim.o.shell               = "/usr/bin/zsh"
 vim.o.smartcase           = true
 vim.bo.smartindent        = true
@@ -25,6 +24,7 @@ vim.o.shiftwidth          = 2
 vim.o.showtabline         = 2
 vim.wo.signcolumn         = "yes"
 vim.o.scrolloff           = 12
+vim.o.showmode            = false
 vim.o.softtabstop         = 2
 vim.o.tabstop             = 2
 vim.o.termguicolors       = true
@@ -43,8 +43,7 @@ vim.o.writebackup         = false
 
 vim.cmd('set iskeyword+=-')
 vim.cmd('set shortmess+=c')
-vim.cmd('set whichwrap+=<,>,[,],h,l')
+vim.cmd('set whichwrap+=<,>,[,]')
 vim.cmd('syntax enable')
-vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
 vim.cmd('colorscheme badwolf')

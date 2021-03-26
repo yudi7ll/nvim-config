@@ -4,8 +4,8 @@ vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, s
 
 vim.g.nvim_tree_width               = 38
 vim.g.nvim_tree_indent_markers      = 1
-vim.g.nvim_tree_git_hl              = 0
-vim.g.nvim_tree_hijack_netrw        = 0
+vim.g.nvim_tree_git_hl              = 1
+vim.g.nvim_tree_hijack_netrw        = 1
 vim.g.nvim_tree_follow              = 1
 vim.g.nvim_tree_hide_dotfiles       = 1
 
@@ -33,4 +33,24 @@ vim.g.nvim_tree_bindings = {
   ["]c"]             = tree_cb("next_git_item"),
   ["-"]              = tree_cb("dir_up"),
   ["q"]              = tree_cb("close"),
+}
+
+vim.g.nvim_tree_icons = {
+  default = '',
+  symlink = '',
+  git = {
+    unstaged = "",
+    staged = "",
+    unmerged = "",
+    renamed = "➜",
+    untracked = ""
+  },
+  folder = {
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
+  }
 }

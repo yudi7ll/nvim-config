@@ -17,42 +17,10 @@ return require('packer').startup(function(use)
   -- colorscheme
   use {'sjl/badwolf'}
 
-  -- LSP
-  -- use {
-  --   'neovim/nvim-lspconfig',
-  --   config = function() require('modules.lsp') end
-  -- }
-  -- use {
-  --   'glepnir/lspsaga.nvim',
-  --   config = function() require('lspsaga').init_lsp_saga() end
-  -- }
-  -- use {
-  --   'onsails/lspkind-nvim',
-  --   config = function() require('lspkind').init() end
-  -- }
-  -- use {
-  --   'kosayoda/nvim-lightbulb',
-  --   config = function() require('modules.nvim-lightbulb') end
-  -- }
-
-  -- Autocomplete
-  -- use {
-  --   'hrsh7th/nvim-compe',
-  --   config = function() require('modules.compe') end,
-  --   requires = {
-  --     {'hrsh7th/vim-vsnip'},
-  --     {'hrsh7th/vim-vsnip-integ'}
-  --   }
-  -- }
   use {
   'neoclide/coc.nvim', branch = 'release',
-  config = function() require('modules.coc') end
+  config = [[require('modules.coc')]]
 }
-
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master',
-  --   config = function() require('modules.tree-sitter') end
-  -- }
 
   -- Icons
   use {'kyazdani42/nvim-web-devicons'}
@@ -60,71 +28,47 @@ return require('packer').startup(function(use)
 
   -- General
   use {'windwp/nvim-autopairs',
-    config = function() require('modules.nvim-autopairs') end
+    config = [[require('modules.nvim-autopairs')]]
   }
   use {'vijaymarupudi/nvim-fzf'}
   use {'andweeb/presence.nvim'}
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   config = function() require('modules.nvim-tree') end
-  -- }
-  -- use {
-  --   'Shougo/defx.nvim', run = ':UpdateRemoteuseins',
-  --   config = function() require('modules.defx') end
-  -- }
-  -- use {
-  --   'lambdalisue/fern.vim',
-  --   config = function() require('modules.fern') end
-  -- }
-  -- use {'lambdalisue/fern-git-status.vim'}
-  -- use {'antoinemadec/FixCursorHold.nvim'}
   use {
-    'preservim/nerdtree',
-    config = function() require('modules.nerdtree') end,
-    requires = {
-      {'Xuyuanp/nerdtree-git-plugin'},
-      {'tiagofumo/vim-nerdtree-syntax-highlight'},
-      {'PhilRunninger/nerdtree-visual-selection'}
-    }
+    'kyazdani42/nvim-tree.lua',
+    config = [[require('modules.nvim-tree')]]
   }
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
-    config = function() require('modules.galaxyline') end
+    config = [[require('modules.galaxyline')]]
   }
   use {
     'terrortylor/nvim-comment',
-    config = function() require('nvim_comment').setup() end
+    config = [[require('nvim_comment').setup()]]
   }
   use {'tpope/vim-surround'}
   use {'tpope/vim-fugitive'}
   use {'airblade/vim-gitgutter'}
   use {'editorconfig/editorconfig-vim'}
-  -- use {
-  --   'Yggdroot/indentLine',
-  --   config = function() require('modules.indentline') end
-  -- }
-  -- use {
-  --   'glepnir/indent-guides.nvim',
-  --   config = function() require('indent_guides').setup({}) end
-  -- }
+  use {
+    'Yggdroot/indentLine',
+    opt = true,
+    config = [[require('modules.indentline')]],
+  }
   use {'tommcdo/vim-lion', opt = true}
   use {
     'sheerun/vim-polyglot',
-    config = function() require('modules.polyglot') end
+    config = [[require('modules.polyglot')]]
   }
   use {
     'akinsho/nvim-bufferline.lua',
-    config = function() require('modules.bufferline') end
+    config = [[require('modules.bufferline')]]
   }
-  -- use {
-  --   'romgrk/barbar.nvim',
-  --   config = function() require('modules.barbar') end
-  -- }
-  -- use {'moll/vim-bbye'}
-  use {'liuchengxu/vim-which-key'}
+  use {
+    'liuchengxu/vim-which-key',
+    config = [[require('modules.vim-which-key')]]
+  }
   use {'pangloss/vim-javascript'}
   use {
     'voldikss/vim-floaterm',
-    config = function() require('modules.floaterm') end
+    config = [[require('modules.floaterm')]]
   }
 end)
