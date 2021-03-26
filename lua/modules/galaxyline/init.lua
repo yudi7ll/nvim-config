@@ -5,14 +5,13 @@ local gls = gl.section
 local buffer_not_empty = condition.buffer_not_empty
 local check_width = condition.hide_in_width;
 
--- vim.cmd("set statusline=%#GalaxyBufferType#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferType\")}%#BufferTypeSeparator# %=%#BufferIconSeparator#%#GalaxyBufferIcon#%{luaeval('require(\"galaxyline\").component_decorator')(\"BufferIcon\")}")
-
 -- Colors
 local colors = {
   bg         = '#282a36',
   fg         = '#f8f8f2',
   section_bg = '#38393f',
   yellow     = '#f1fa8c',
+  dark_yellow   = '#D7BA7D',
   cyan       = '#8be9fd',
   green      = '#50fa7b',
   orange     = '#ffb86c',
@@ -42,12 +41,6 @@ gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help',
 -- Left side
 gls.left = {
   {
-    FirstElement = {
-      provider = function() return '▋' end,
-      highlight = { colors.cyan, colors.section_bg }
-    }
-  },
-  {
     ViMode = {
       provider = function()
         local alias = {
@@ -62,9 +55,9 @@ gls.left = {
           t = 'TERMINAL',
         }
         vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
-        return alias[vim.fn.mode()]..' '
+        return '▊ '..alias[vim.fn.mode()]..' '
       end,
-      highlight = { colors.bg, colors.bg },
+      highlight = { colors.red, colors.bg },
       separator = "  ",
       separator_highlight = {colors.bg, colors.section_bg},
     },
@@ -178,9 +171,9 @@ gls.right = {
   {
     CocStatus = {
       provider = function() return vim.fn['coc#status']() end,
-      highlight = { colors.orange, colors.section_bg },
+      highlight = { colors.dark_yellow, colors.section_bg },
       separator =  " ",
-      separator_highlight = { colors.bg,colors.section_bg },
+      separator_highlight = { colors.bg, colors.section_bg },
     }
   },
   {
@@ -202,20 +195,28 @@ gls.right = {
     },
   },
   {
+    FileEncode = {
+      provider = 'FileEncode',
+      condition = buffer_not_empty,
+      highlight = { colors.green, colors.section_bg },
+      separator = ' |',
+      separator_highlight = { colors.bg, colors.section_bg },
+    },
+  },
+  {
     FileFormatIcon = {
       provider = 'FileFormat',
-      condition = check_width,
-      highlight = { colors.fg, colors.section_bg },
-      separator = " | ",
-      separator_highlight = { colors.bg, colors.section_bg }
+      condition = buffer_not_empty,
+      highlight = { colors.green, colors.section_bg },
+      separator = ' ',
+      separator_highlight = { colors.bg, colors.section_bg },
     }
   },
   {
-    RightSpace = {
-      provider = function() return ' ' end,
-      condition = buffer_not_empty,
-      highlight = { colors.fg, colors.section_bg },
-    }
+    RightGap = {
+      provider = function() return '▊' end,
+      highlight = { colors.section_bg, colors.bg }
+    },
   },
 }
 
@@ -249,4 +250,4 @@ gls.short_line_right = {
 }
 
 -- Force manual load so that nvim boots with a status line
--- gl.load_galaxyline()
+gl.load_galaxyline()
