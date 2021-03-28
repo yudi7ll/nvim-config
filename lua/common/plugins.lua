@@ -7,6 +7,7 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
+
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 vim.cmd [[packadd packer.nvim]]
@@ -23,7 +24,10 @@ return require('packer').startup(function(use)
 }
 
   -- Icons
-  use {'kyazdani42/nvim-web-devicons'}
+  use {
+  'kyazdani42/nvim-web-devicons',
+  config = [[require('modules.nvim-web-devicons')]]
+}
   use {'ryanoasis/vim-devicons'}
 
   -- General
@@ -71,4 +75,5 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
+  use {'wsdjeg/notifications.vim'}
 end)
