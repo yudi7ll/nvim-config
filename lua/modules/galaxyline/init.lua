@@ -6,18 +6,18 @@ local buffer_not_empty = condition.buffer_not_empty
 local check_width = condition.hide_in_width;
 
 -- Colors
-local colors = {
-  bg         = '#282a36',
-  fg         = '#f8f8f2',
-  section_bg = '#38393f',
-  yellow     = '#f1fa8c',
+local colors    = {
+  bg            = '#282a36',
+  fg            = '#f8f8f2',
+  section_bg    = '#38393f',
+  yellow        = '#f1fa8c',
   dark_yellow   = '#D7BA7D',
-  cyan       = '#8be9fd',
-  green      = '#50fa7b',
-  orange     = '#ffb86c',
-  magenta    = '#ff79c6',
-  blue       = '#8be9fd',
-  red        = '#ff5555'
+  cyan          = '#8be9fd',
+  green         = '#50fa7b',
+  orange        = '#ffb86c',
+  magenta       = '#ff79c6',
+  blue          = '#8be9fd',
+  red           = '#ff5555'
 }
 
 local mode_color = function()
