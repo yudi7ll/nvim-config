@@ -1,36 +1,31 @@
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 
+-- Provider
+local buffer = require('galaxyline.provider_buffer')
+local fileinfo = require('modules.galaxyline.provider.fileinfo')
+
 local gls = gl.section
 local buffer_not_empty = condition.buffer_not_empty
-local check_width = condition.hide_in_width;
+local check_width = function()
+  return condition.hide_in_width and buffer_not_empty
+end
+
 
 -- Colors
-local colors    = {
-  bg            = '#282a36',
-  fg            = '#f8f8f2',
-  section_bg    = '#38393f',
-  yellow        = '#f1fa8c',
-  dark_yellow   = '#D7BA7D',
-  cyan          = '#8be9fd',
-  green         = '#50fa7b',
-  orange        = '#ffb86c',
-  magenta       = '#ff79c6',
-  blue          = '#8be9fd',
-  red           = '#ff5555'
-}
+local colors = require('modules.galaxyline.provider.theme').default
 
 local mode_color = function()
   local mode_colors = {
-    n = colors.cyan,
-    i = colors.green,
-    c = colors.orange,
-    V = colors.magenta,
-    [''] = colors.magenta,
-    v = colors.magenta,
-    R = colors.red,
-    s = colors.blue,
-    t = colors.yellow,
+    n = colors.Cyan,
+    i = colors.Green,
+    c = colors.Orange,
+    V = colors.Magenta,
+    [''] = colors.Magenta,
+    v = colors.Magenta,
+    R = colors.Red,
+    s = colors.Blue,
+    t = colors.Yellow,
   }
 
   return mode_colors[vim.fn.mode()]
@@ -57,7 +52,7 @@ gls.left = {
         vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
         return '▊ '..alias[vim.fn.mode()]..' '
       end,
-      highlight = { colors.red, colors.bg },
+      highlight = { colors.Red, colors.bg },
       separator = "  ",
       separator_highlight = {colors.bg, colors.section_bg},
     },
@@ -66,7 +61,7 @@ gls.left = {
     FileIcon = {
       provider = 'FileIcon',
       condition = buffer_not_empty,
-      highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.section_bg },
+      highlight = { fileinfo.get_file_icon_color, colors.section_bg },
     }
   },
   {
@@ -82,7 +77,7 @@ gls.left = {
     GitIcon = {
       provider = function() return '  ' end,
       condition = buffer_not_empty,
-      highlight = {colors.red,colors.bg},
+      highlight = {colors.Red,colors.bg},
     }
   },
   {
@@ -95,6 +90,7 @@ gls.left = {
   {
     SpaceInverted = {
       provider = function () return ' ' end,
+      condition = buffer_not_empty,
       highlight = {colors.bg,colors.bg},
     }
   },
@@ -103,7 +99,7 @@ gls.left = {
       provider = 'DiffAdd',
       condition = check_width,
       icon = '  ',
-      highlight = { colors.green, colors.bg },
+      highlight = { colors.Green, colors.bg },
     }
   },
   {
@@ -111,7 +107,7 @@ gls.left = {
       provider = 'DiffModified',
       condition = check_width,
       icon = '  ',
-      highlight = { colors.orange, colors.bg },
+      highlight = { colors.Orange, colors.bg },
     }
   },
   {
@@ -119,71 +115,77 @@ gls.left = {
       provider = 'DiffRemove',
       condition = check_width,
       icon = '  ',
-      highlight = { colors.red,colors.bg },
+      highlight = { colors.Red,colors.bg },
     }
   },
-  {
-    LeftEnd = {
-      provider = function() return '  ' end,
-      condition = check_width,
-      highlight = { colors.section_bg,colors.bg }
-    }
-  },
-  {
-    DiagnosticError = {
-      provider = 'DiagnosticError',
-      icon = '   ',
-      highlight = {colors.red,colors.section_bg}
-    }
-  },
-  {
-    Space = {
-      provider = function () return ' ' end,
-      highlight = {colors.section_bg,colors.section_bg},
-    }
-  },
-  {
-    DiagnosticWarn = {
-      provider = 'DiagnosticWarn',
-      icon = '  ',
-      highlight = {colors.orange,colors.section_bg},
-    }
-  },
-  {
-    Space = {
-      provider = function () return ' ' end,
-      highlight = {colors.section_bg,colors.section_bg},
-    }
-  },
-  {
-    DiagnosticInfo = {
-      provider = 'DiagnosticInfo',
-      icon = '  ',
-      highlight = {colors.blue,colors.section_bg},
-      separator = ' ',
-      separator_highlight = { colors.section_bg, colors.bg },
-    }
-  }
 }
 
 -- Right side
 gls.right = {
   {
-    CocStatus = {
-      provider = function() return vim.fn['coc#status']() end,
-      highlight = { colors.dark_yellow, colors.section_bg },
-      separator =  " ",
+    DiagnosticError = {
+      provider = 'DiagnosticError',
+      condition = buffer_not_empty,
+      icon = '  ',
+      highlight = {colors.Red,colors.bg}
+    },
+  },
+  {
+    DiagnosticWarn = {
+      provider = 'DiagnosticWarn',
+      condition = buffer_not_empty,
+      icon = '   ',
+      highlight = {colors.Orange,colors.bg},
+    },
+  },
+  {
+    DiagnosticInfo = {
+      provider = 'DiagnosticInfo',
+      condition = buffer_not_empty,
+      icon = '   ',
+      highlight = {colors.Blue,colors.bg},
+    },
+  },
+  {
+    DiagnosticHint = {
+      provider = 'DiagnosticHint',
+      condition = buffer_not_empty,
+      icon = '   ',
+      highlight = {colors.Blue,colors.bg},
+    },
+  },
+  {
+    Space = {
+      provider = function() return ' ' end,
+      highlight = { colors.bg, colors.bg }
+    }
+  },
+  {
+    FileEncode = {
+      provider = function() return fileinfo.get_file_encode():lower() end,
+      condition = buffer_not_empty,
+      highlight = { colors.fg, colors.section_bg },
+      separator =  "",
+      separator_highlight = { colors.bg, colors.section_bg },
+    },
+  },
+  {
+    FileFormatIcon = {
+      provider = function() return fileinfo.get_file_format():lower() end,
+      condition = buffer_not_empty,
+      highlight = { colors.fg, colors.section_bg },
+      separator = ' ',
       separator_highlight = { colors.bg, colors.section_bg },
     }
   },
   {
-    FileFormat = {
-      provider = 'FileTypeName',
-      condition = check_width,
+    Spaces = {
+      provider = function() return 'spaces '..vim.api.nvim_buf_get_option(0, 'shiftwidth') end,
+      condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
-      separator = " | ",
-      separator_highlight = { colors.bg, colors.section_bg }
-    }
+      separator = ' | ',
+      separator_highlight = { colors.bg, colors.section_bg },
+    },
   },
   {
     LineInfo = {
@@ -195,20 +197,30 @@ gls.right = {
     },
   },
   {
-    FileEncode = {
-      provider = 'FileEncode',
-      condition = buffer_not_empty,
-      highlight = { colors.green, colors.section_bg },
-      separator = ' |',
-      separator_highlight = { colors.bg, colors.section_bg },
+    Icon = {
+      provider = function ()
+        return fileinfo.get_file_icon()
+      end,
+      condition = check_width,
+      highlight = { fileinfo.get_file_icon_color, colors.section_bg },
+      separator = " | ",
+      separator_highlight = { colors.bg, colors.section_bg }
     },
   },
   {
-    FileFormatIcon = {
-      provider = 'FileFormat',
-      condition = buffer_not_empty,
-      highlight = { colors.green, colors.section_bg },
-      separator = ' ',
+    FileFormat = {
+      provider = function()
+        return buffer.get_buffer_filetype():lower()
+      end,
+      condition = check_width,
+      highlight = { colors.fg, colors.section_bg },
+    }
+  },
+  {
+    CocStatus = {
+      provider = function() return vim.fn['coc#status']() end,
+      highlight = { colors.fg, colors.section_bg },
+      separator = ' | ',
       separator_highlight = { colors.bg, colors.section_bg },
     }
   },
@@ -242,7 +254,7 @@ gls.short_line_right = {
   {
     BufferIcon = {
       provider= 'BufferIcon',
-      highlight = { colors.yellow, colors.section_bg },
+      highlight = { colors.Yellow, colors.section_bg },
       separator = '',
       separator_highlight = { colors.section_bg, colors.bg },
     }
