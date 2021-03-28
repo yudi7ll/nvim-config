@@ -161,25 +161,16 @@ gls.right = {
     }
   },
   {
-    FileEncode = {
-      provider = function() return fileinfo.get_file_encode():lower() end,
+    LineInfo = {
+      provider = 'LineColumn',
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
-      separator =  "",
+      separator =  " ",
       separator_highlight = { colors.bg, colors.section_bg },
     },
   },
   {
-    FileFormatIcon = {
-      provider = function() return fileinfo.get_file_format():lower() end,
-      condition = buffer_not_empty,
-      highlight = { colors.fg, colors.section_bg },
-      separator = ' ',
-      separator_highlight = { colors.bg, colors.section_bg },
-    }
-  },
-  {
-    Spaces = {
+    Spacing = {
       provider = function() return 'spaces '..vim.api.nvim_buf_get_option(0, 'shiftwidth') end,
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
@@ -188,8 +179,8 @@ gls.right = {
     },
   },
   {
-    LineInfo = {
-      provider = 'LineColumn',
+    FileEncode = {
+      provider = function() return fileinfo.get_file_encode():lower() end,
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
       separator = ' | ',
