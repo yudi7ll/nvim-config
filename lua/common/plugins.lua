@@ -62,10 +62,10 @@ return require('packer').startup(function(use)
     'sheerun/vim-polyglot',
     config = [[require('modules.polyglot')]]
   }
-  use {
-    'akinsho/nvim-bufferline.lua',
-    config = [[require('modules.bufferline')]]
-  }
+ use {
+   'akinsho/nvim-bufferline.lua',
+   config = [[require('modules.bufferline')]]
+ }
   use {
     'liuchengxu/vim-which-key',
     config = [[require('modules.vim-which-key')]]
@@ -75,5 +75,4 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  use {'wsdjeg/notifications.vim'}
 end)

@@ -78,9 +78,16 @@ vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = tru
 vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
 
+_G.show_documentation = function ()
+  if vim.fn['coc#rpc#ready']() then
+    return vim.fn["CocActionAsync('doHover')"]
+  end
+end
+
 -- Use K to show documentation in preview window.
 -- nnoremap <silent> K :call <SID>show_documentation()<CR>
-vim.api.nvim_set_keymap('n', 'K', 'v:lua.show_documentation()', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', "v:lua.show_documentation()", { noremap = true, silent = true })
+
 
 -- TODO convert to lua
 -- function! s:show_documentation()
@@ -92,6 +99,46 @@ vim.api.nvim_set_keymap('n', 'K', 'v:lua.show_documentation()', { noremap = true
 --     execute '!' . &keywordprg . " " . expand('<cword>')
 --   endif
 -- endfunction
+
+-- scroll float windows/popups
+_G.n_scroll_down = function ()
+  if vim.fn['coc#float#has_scroll']() then
+    return vim.fn['coc#float#scroll'](1)
+  else
+    return t "<Down>"
+  end
+end
+
+_G.i_scroll_down = function ()
+  if vim.fn['coc#float#has_scroll']() then
+    return t "<C-r>" .. vim.fn['coc#float#scroll'](1) .. t "<CR>"
+  else
+    return t "<Down>"
+  end
+end
+
+_G.n_scroll_up = function ()
+  if vim.fn['coc#float#has_scroll']() then
+    return vim.fn['coc#float#scroll'](0)
+  else
+    return t "<Up>"
+  end
+end
+
+_G.i_scroll_up = function ()
+  if vim.fn['coc#float#has_scroll']() then
+    return t "<C-r>" .. vim.fn['coc#float#scroll'](0) .. t "<CR>"
+  else
+    return t "<Up>"
+  end
+end
+
+vim.api.nvim_set_keymap('n', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+vim.api.nvim_set_keymap('v', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+vim.api.nvim_set_keymap('i', '<Down>', 'v:lua.i_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+vim.api.nvim_set_keymap('n', '<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
+vim.api.nvim_set_keymap('v', '<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
+vim.api.nvim_set_keymap('i', '<Up>', 'v:lua.i_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
