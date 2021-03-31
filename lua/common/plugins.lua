@@ -25,15 +25,18 @@ return require('packer').startup(function(use)
 
   -- Icons
   use {
-  'kyazdani42/nvim-web-devicons',
-  config = [[require('modules.nvim-web-devicons')]]
-}
+    'kyazdani42/nvim-web-devicons',
+    config = [[require('modules.nvim-web-devicons')]]
+  }
   use {'ryanoasis/vim-devicons'}
 
   -- General
-  use {'windwp/nvim-autopairs',
-    config = [[require('modules.nvim-autopairs')]]
-  }
+  use {'sheerun/vimrc'}
+  -- use {'windwp/nvim-autopairs',
+  --   config = [[require('modules.nvim-autopairs')]]
+  -- }
+  use {'jiangmiao/auto-pairs'}
+  use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use {'vijaymarupudi/nvim-fzf'}
   use {'andweeb/presence.nvim'}
   use {
@@ -67,12 +70,13 @@ return require('packer').startup(function(use)
    config = [[require('modules.bufferline')]]
  }
   use {
-    'liuchengxu/vim-which-key',
-    config = [[require('modules.vim-which-key')]]
+      'AckslD/nvim-whichkey-setup.lua',
+      requires = {'liuchengxu/vim-which-key'},
+      config = [[require('modules.vim-which-key')]]
   }
-  use {'pangloss/vim-javascript'}
   use {
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
+  use {'liuchengxu/vista.vim'}
 end)

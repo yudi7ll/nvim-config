@@ -53,7 +53,7 @@ gls.left = {
         return '▊ '..alias[vim.fn.mode()]..' '
       end,
       highlight = { colors.Red, colors.bg },
-      separator = "  ",
+      separator = " ",
       separator_highlight = {colors.bg, colors.section_bg},
     },
   },
@@ -66,10 +66,10 @@ gls.left = {
   },
   {
     FileName = {
-      provider = { 'FileName' },
+      provider = 'FileName',
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
-      separator = " ",
+      separator = "",
       separator_highlight = {colors.section_bg, colors.bg},
     }
   },
@@ -116,6 +116,22 @@ gls.left = {
       condition = check_width,
       icon = '  ',
       highlight = { colors.Red,colors.bg },
+    }
+  },
+  {
+    VistaPlugin = {
+      provider = function()
+        if (vim.b.vista_nearest_method_or_function == nil) then
+          return ''
+        elseif (vim.b.vista_nearest_method_or_function == '') then
+          return ''
+        else
+          return vim.b.vista_nearest_method_or_function .. ' '
+        end
+      end,
+      condition = check_width,
+      icon = '   -> ',
+      highlight = { colors.Orange, colors.bg, 'bold' },
     }
   },
 }
@@ -183,15 +199,13 @@ gls.right = {
       provider = function() return fileinfo.get_file_encode():lower() end,
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
-      separator = ' | ',
+      separator = ' |',
       separator_highlight = { colors.bg, colors.section_bg },
     },
   },
   {
     Icon = {
-      provider = function ()
-        return fileinfo.get_file_icon()
-      end,
+      provider = 'FileIcon',
       condition = check_width,
       highlight = { fileinfo.get_file_icon_color, colors.section_bg },
       separator = " | ",
@@ -200,9 +214,7 @@ gls.right = {
   },
   {
     FileFormat = {
-      provider = function()
-        return buffer.get_buffer_filetype():lower()
-      end,
+      provider = function() return buffer.get_buffer_filetype():lower() end,
       condition = check_width,
       highlight = { colors.fg, colors.section_bg },
     }
@@ -217,8 +229,8 @@ gls.right = {
   },
   {
     RightGap = {
-      provider = function() return '▊' end,
-      highlight = { colors.section_bg, colors.bg }
+      provider = function() return ' ' end,
+      highlight = { colors.section_bg, colors.section_bg }
     },
   },
 }
@@ -253,4 +265,5 @@ gls.short_line_right = {
 }
 
 -- Force manual load so that nvim boots with a status line
-gl.load_galaxyline()
+-- gl.load_galaxyline()
+vim.api.nvim_command('autocmd VimEnter * call vista#RunForNearestMethodOrFunction()')

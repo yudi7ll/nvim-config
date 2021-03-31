@@ -41,8 +41,8 @@ vim.o.wildmenu            = true
 vim.wo.wrap               = false
 vim.o.writebackup         = false
 
-vim.cmd('set iskeyword+=-')
 vim.cmd('set shortmess+=c')
+vim.cmd('set rtp+=/bin/fzf')
 vim.cmd('set whichwrap+=<,>,[,]')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')

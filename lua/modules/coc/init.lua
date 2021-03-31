@@ -8,10 +8,8 @@ vim.g.coc_global_extensions = {
   'coc-git',
   'coc-highlight',
   'coc-html',
-  'coc-htmlhint',
   'coc-json',
   'coc-marketplace',
-  'coc-pairs',
   'coc-phpls',
   'coc-python',
   'coc-sh',
@@ -133,6 +131,7 @@ _G.i_scroll_up = function ()
   end
 end
 
+-- scroll float windows/popup mappings
 vim.api.nvim_set_keymap('n', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
 vim.api.nvim_set_keymap('v', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
 vim.api.nvim_set_keymap('i', '<Down>', 'v:lua.i_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
@@ -205,3 +204,6 @@ vim.api.nvim_set_keymap('n', '<leader>j', ':CocNext<CR>', { noremap = true, sile
 vim.api.nvim_set_keymap('n', '<leader>k', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
 -- Resume latest coc list.
 vim.api.nvim_set_keymap('n', '<leader>p', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
+
+-- Mappings for CocCommand
+vim.api.nvim_set_keymap('n', '<leader>p', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true  })

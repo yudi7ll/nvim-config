@@ -5,7 +5,7 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':e <C-R>=expand("%:p:h") . "/"<CR>', 
 vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
 
 -- FZF
-vim.api.nvim_set_keymap('n', '<C-p>', ':<C-u>FZF<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', { noremap = true, silent = true })
 
 -- Stop the highlighting for `hlsearch`
 vim.api.nvim_set_keymap('n', '<space>h', ':noh<CR>', { noremap = true, silent = true })
