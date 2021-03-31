@@ -32,9 +32,6 @@ return require('packer').startup(function(use)
 
   -- General
   use {'sheerun/vimrc'}
-  -- use {'windwp/nvim-autopairs',
-  --   config = [[require('modules.nvim-autopairs')]]
-  -- }
   use {'jiangmiao/auto-pairs'}
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use {'vijaymarupudi/nvim-fzf'}
@@ -79,4 +76,9 @@ return require('packer').startup(function(use)
     config = [[require('modules.floaterm')]]
   }
   use {'liuchengxu/vista.vim'}
+  use {
+    'SirVer/ultisnips',
+    requires = {'honza/vim-snippets'},
+    config = [[require('modules.ultisnips')]]
+  }
 end)
