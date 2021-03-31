@@ -1,6 +1,0 @@
-require('modules.lsp.html')
-require('modules.lsp.intelephense')
-require('modules.lsp.sumneko_lua')
-require('modules.lsp.pyright')
-require('modules.lsp.tsserver')
-require('modules.lsp.vimls')
