@@ -1,5 +1,4 @@
 {
-  "html.format.indentHandlebars": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
@@ -20,6 +19,7 @@
       "mix_credo_compile"
     ],
     "php": [
+      "php-cs-fixer",
       "phpstan",
       "psalm"
     ]

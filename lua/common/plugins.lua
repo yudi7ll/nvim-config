@@ -2,36 +2,35 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute 'packadd packer.nvim'
 end
 
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
-vim.cmd [[packadd packer.nvim]]
+require('packer').init({display = {auto_clean = false}})
 
 return require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim', opt = true}
+  use {'wbthomason/packer.nvim'}
 
   -- colorscheme
   use {'sjl/badwolf'}
 
   use {
-  'neoclide/coc.nvim', branch = 'release',
-  config = [[require('modules.coc')]]
-}
+    'neoclide/coc.nvim', branch = 'release',
+    config = [[require('modules.coc')]]
+  }
 
   -- Icons
   use {
     'kyazdani42/nvim-web-devicons',
     config = [[require('modules.nvim-web-devicons')]]
   }
-  use {'ryanoasis/vim-devicons'}
 
   -- General
-  use {'sheerun/vimrc'}
   use {'jiangmiao/auto-pairs'}
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use {'vijaymarupudi/nvim-fzf'}
@@ -49,23 +48,17 @@ return require('packer').startup(function(use)
     config = [[require('nvim_comment').setup()]]
   }
   use {'tpope/vim-surround'}
-  use {'tpope/vim-fugitive'}
   use {'airblade/vim-gitgutter'}
   use {'editorconfig/editorconfig-vim'}
-  use {
-    'Yggdroot/indentLine',
-    opt = true,
-    config = [[require('modules.indentline')]],
-  }
   use {'tommcdo/vim-lion', opt = true}
   use {
     'sheerun/vim-polyglot',
     config = [[require('modules.polyglot')]]
   }
- use {
-   'akinsho/nvim-bufferline.lua',
-   config = [[require('modules.bufferline')]]
- }
+  use {
+    'akinsho/nvim-bufferline.lua',
+    config = [[require('modules.bufferline')]]
+  }
   use {
       'AckslD/nvim-whichkey-setup.lua',
       requires = {'liuchengxu/vim-which-key'},

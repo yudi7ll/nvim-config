@@ -3,7 +3,6 @@ vim.g.coc_global_extensions = {
   'coc-blade-formatter',
   'coc-css',
   'coc-diagnostic',
-  'coc-emmet',
   'coc-eslint',
   'coc-git',
   'coc-highlight',

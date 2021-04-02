@@ -1,1 +1,9 @@
 plugin
+
+# create by https://github.com/iamcco/coc-gitignore (Thu Apr 01 2021 08:02:49 GMT+0800 (Central Indonesia Time))
+# Ada.gitignore:
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
