@@ -75,27 +75,23 @@ vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = tru
 vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
 
-_G.show_documentation = function ()
-  if vim.fn['coc#rpc#ready']() then
-    return vim.fn["CocActionAsync('doHover')"]
-  end
-end
 
 -- Use K to show documentation in preview window.
--- nnoremap <silent> K :call <SID>show_documentation()<CR>
-vim.api.nvim_set_keymap('n', 'K', "v:lua.show_documentation()", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', ":call <SID>show_documentation()<CR>", { noremap = true, silent = true })
 
+vim .api.nvim_command(
+  [[
 
--- TODO convert to lua
--- function! s:show_documentation()
---   if (index(['vim','help'], &filetype) >= 0)
---     execute 'h '.expand('<cword>')
---   elseif (coc#rpc#ready())
---     call CocActionAsync('doHover')
---   else
---     execute '!' . &keywordprg . " " . expand('<cword>')
---   endif
--- endfunction
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+      else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+      endif
+    endfunction
+  ]])
 
 -- scroll float windows/popups
 _G.n_scroll_down = function ()
@@ -139,7 +135,7 @@ vim.api.nvim_set_keymap('v', '<Up>', 'v:lua.n_scroll_up()', { noremap = true, si
 vim.api.nvim_set_keymap('i', '<Up>', 'v:lua.i_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
 
 -- Highlight the symbol and its references when holding the cursor.
-vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
+vim.api.nvim_command("autocmd CursorHold * silent call CocActionAsync('highlight')")
 
 -- Symbol renaming
 vim.api.nvim_set_keymap('n', '<leader>rn', '<Plug>(coc-rename)', { silent = true })
