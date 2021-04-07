@@ -8,3 +8,5 @@ vim.api.nvim_command('hi FloatermBorder guibg=nil')
 vim.api.nvim_set_keymap('n', '<localleader>tg', ':FloatermNew --name=lazygit --autoclose=2 lazygit<CR>', { noremap = true, silent = true })
 -- lazydocker
 vim.api.nvim_set_keymap('n', '<localleader>td', ':FloatermNew --name=lazydocker --autoclose=2 lazydocker<CR>', { noremap = true, silent = true })
+-- ncdu
+vim.api.nvim_set_keymap('n', '<localleader>tu', ':FloatermNew --name=lazydocker --autoclose=2 ncdu<CR>', { noremap = true, silent = true })

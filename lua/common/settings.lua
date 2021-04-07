@@ -1,5 +1,4 @@
 vim.o.autoindent          = true
-vim.o.background          = "dark"
 vim.o.backup              = false
 vim.o.clipboard           = "unnamedplus"
 vim.o.cmdheight           = 2
@@ -32,8 +31,8 @@ vim.o.termguicolors       = true
 vim.o.textwidth           = 0
 vim.o.undofile            = true
 vim.o.undodir             = "/hdd/.cache/nvim/undodir"
-vim.o.updatetime          = 300
-vim.o.timeoutlen          = 500
+vim.o.updatetime          = 250
+vim.o.timeoutlen          = 250
 vim.o.title               = true
 vim.o.t_Co                = "256"
 vim.o.wildignorecase      = true
@@ -46,5 +45,5 @@ vim.cmd('au CursorHold * checktime')
 vim.cmd('set shortmess+=c')
 vim.cmd('set whichwrap+=<,>,[,]')
 vim.cmd('syntax enable')
-vim.cmd('filetype plugin indent on')
+vim.cmd('filetype plugin on')
 vim.cmd('colorscheme badwolf')

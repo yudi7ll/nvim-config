@@ -2,44 +2,52 @@
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade", "ejs"],
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
-    "markdown": [
-      "write-good",
-      "markdownlint"
-    ],
+    "markdown": ["write-good", "markdownlint"],
+    "css": "stylelint",
     "sh": "shellcheck",
-    "elixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ],
-    "eelixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ],
-    "php": [
-      "php-cs-fixer",
-      "phpstan",
-      "psalm"
-    ]
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "php": ["phpcs", "phpstan", "psalm"],
+    "javascript": "eslint",
+    "python": "pylint"
   },
   "diagnostic-languageserver.formatFiletypes": {
     "dart": "dartfmt",
     "elixir": "mix_format",
     "eelixir": "mix_format",
-    "python": [
-      "black",
-      "isort"
-    ],
+    "python": ["black", "isort"],
     "lua": "lua-format",
     "sh": "shfmt",
     "blade": "blade-formatter",
-    "javascript": "eslint"
+    "javascript": "eslint",
+    "php": ["phpcs", "phpstan", "psalm"]
   },
-  "Lua.diagnostics.globals": [
-    "vim"
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnTypeFiletypes": [
+    "javascript",
+    "json",
+    "php",
+    "html",
+    "css",
+    "blade",
+    "sh",
+    "python"
   ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "json",
+    "php",
+    "html",
+    "css",
+    "blade",
+    "sh",
+    "python"
+  ],
+  "Lua.diagnostics.globals": ["vim"],
   "highlight.colorNames.enable": false,
   "suggest.completionItemKindLabels": {
     "text": "",
@@ -68,5 +76,12 @@
     "event": "\ufacd",
     "typeParameter": "\uf728",
     "default": "\uf29c"
+  },
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.stylelintIntegration": true,
+  "emmet.includeLanguages": {
+    "ejs": "html"
   }
 }

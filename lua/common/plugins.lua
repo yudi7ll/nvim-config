@@ -11,7 +11,9 @@ end
 
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
-require('packer').init({display = {auto_clean = false}})
+require('packer').init({
+	git = { clone_timeout = 1000 }
+})
 
 return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
@@ -20,7 +22,7 @@ return require('packer').startup(function(use)
   use {'sjl/badwolf'}
 
   use {
-    'neoclide/coc.nvim', branch = 'release',
+    'neoclide/coc.nvim', run = 'yarn install --frozen-lockfile',
     config = [[require('modules.coc')]]
   }
 
@@ -74,4 +76,10 @@ return require('packer').startup(function(use)
     requires = {'honza/vim-snippets'},
     config = [[require('modules.ultisnips')]]
   }
+  use {'nikvdp/ejs-syntax'}
+  use {
+    'Yggdroot/indentLine',
+    config = [[require('modules.indentline')]]
+  }
+  use {'lukas-reineke/indent-blankline.nvim'}
 end)
