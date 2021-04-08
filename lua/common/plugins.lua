@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
   use {'nikvdp/ejs-syntax'}
   use {
     'Yggdroot/indentLine',
+    requires = {'lukas-reineke/indent-blankline.nvim'},
     config = [[require('modules.indentline')]]
   }
-  use {'lukas-reineke/indent-blankline.nvim'}
 end)
