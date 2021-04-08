@@ -12,7 +12,7 @@ end
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('packer').init({
-	git = { clone_timeout = 1000 }
+	git = { clone_timeout = 10000 }
 })
 
 return require('packer').startup(function(use)
