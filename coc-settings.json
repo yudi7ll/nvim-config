@@ -29,7 +29,7 @@
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnTypeFiletypes": [
     "javascript",
-    "json",
+    "jsonc",
     "php",
     "html",
     "css",
@@ -39,7 +39,7 @@
   ],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
-    "json",
+    "jsonc",
     "php",
     "html",
     "css",
@@ -82,6 +82,9 @@
   "prettier.jsxSingleQuote": true,
   "prettier.stylelintIntegration": true,
   "emmet.includeLanguages": {
-    "ejs": "html"
-  }
+    "ejs": "html",
+    "blade": "html"
+  },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true
 }
