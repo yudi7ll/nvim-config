@@ -12,7 +12,8 @@ end
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('packer').init({
-	git = { clone_timeout = 10000 }
+	git = { clone_timeout = 9999 },
+	auto_clean = { true }
 })
 
 return require('packer').startup(function(use)
@@ -78,8 +79,8 @@ return require('packer').startup(function(use)
   }
   use {'nikvdp/ejs-syntax'}
   use {
-    'Yggdroot/indentLine',
-    requires = {'lukas-reineke/indent-blankline.nvim'},
+    'lukas-reineke/indent-blankline.nvim',
+    branch = 'lua',
     config = [[require('modules.indentline')]]
   }
 end)
