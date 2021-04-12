@@ -83,8 +83,11 @@
   "prettier.stylelintIntegration": true,
   "emmet.includeLanguages": {
     "ejs": "html",
-    "blade": "html"
+    "blade": "html",
+    "jsx": "javascriptreact"
   },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "tsserver.typingsCacheLocation": "/hdd/.cache/tsserver",
+  "javascript.autoClosingTags": true
 }

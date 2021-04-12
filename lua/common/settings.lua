@@ -43,7 +43,6 @@ vim.o.writebackup         = false
 
 vim.cmd('au CursorHold * checktime')
 vim.cmd('set shortmess+=c')
-vim.cmd('set whichwrap+=<,>,[,]')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd('colorscheme badwolf')
