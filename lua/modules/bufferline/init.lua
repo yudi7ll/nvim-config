@@ -8,6 +8,7 @@ require('bufferline').setup {
 	}
 }
 
+vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-W>q', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-W><C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
