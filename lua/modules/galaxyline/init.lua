@@ -195,15 +195,6 @@ gls.right = {
     },
   },
   {
-    FileEncode = {
-      provider = function() return fileinfo.get_file_encode():lower() end,
-      condition = buffer_not_empty,
-      highlight = { colors.fg, colors.section_bg },
-      separator = ' |',
-      separator_highlight = { colors.bg, colors.section_bg },
-    },
-  },
-  {
     Icon = {
       provider = 'FileIcon',
       condition = check_width,
