@@ -46,3 +46,5 @@ vim.cmd('set shortmess+=c')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd('colorscheme badwolf')
+
+vim.cmd('autocmd FileType scss setl iskeyword+=@-@')

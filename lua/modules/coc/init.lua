@@ -171,16 +171,18 @@ vim.api.nvim_set_keymap('n', '<C-s>', '<Plug>(coc-range-select)', { silent = tru
 
 -- Add `:Format` command to format current buffer.
 vim.cmd("command! -nargs=0 Format :call CocAction('format')")
-
 -- Add `:Fold` command to fold current buffer.
-vim.cmd("command! -nargs=? Fold :call     CocAction('fold', <f-args>)")
-
+vim.cmd("command! -nargs=? Fold :call CocAction('fold', <f-args>)")
 -- Add `:OR` command for organize imports of the current buffer.
-vim.cmd("command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')")
+vim.cmd("command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')")
+-- Add `:Prettier` command for formatting file
+vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
 
 -- Mappings for CoCList
 -- Show all diagnostics
 vim.api.nvim_set_keymap('n', '<leader>ad', ':CocList diagnostics<CR>', { noremap = true, silent = true })
+-- Organize import
+vim.api.nvim_set_keymap('n', '<leader>ao', ':OR<CR>', { noremap = true, silent = true })
 -- Manage extensions
 vim.api.nvim_set_keymap('n', '<leader>e', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
 -- Format current buffer

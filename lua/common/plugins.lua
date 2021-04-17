@@ -34,8 +34,8 @@ return require('packer').startup(function(use)
 
   -- General
   use {'jiangmiao/auto-pairs'}
-  use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
-  use {'vijaymarupudi/nvim-fzf'}
+  -- use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
+  -- use {'vijaymarupudi/nvim-fzf'}
   use {'andweeb/presence.nvim'}
   use {
     'kyazdani42/nvim-tree.lua',
