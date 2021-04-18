@@ -70,7 +70,6 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  use {'liuchengxu/vista.vim'}
   use {
     'SirVer/ultisnips',
     requires = {'honza/vim-snippets'},

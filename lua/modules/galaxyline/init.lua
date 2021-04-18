@@ -118,22 +118,6 @@ gls.left = {
       highlight = { colors.Red,colors.bg },
     }
   },
-  {
-    VistaPlugin = {
-      provider = function()
-        if (vim.b.vista_nearest_method_or_function == nil) then
-          return ''
-        elseif (vim.b.vista_nearest_method_or_function == '') then
-          return ''
-        else
-          return vim.b.vista_nearest_method_or_function .. ' '
-        end
-      end,
-      condition = check_width,
-      icon = '   -> ',
-      highlight = { colors.Orange, colors.bg, 'bold' },
-    }
-  },
 }
 
 -- Right side
