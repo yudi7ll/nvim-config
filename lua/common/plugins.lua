@@ -70,11 +70,6 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  use {
-    'SirVer/ultisnips',
-    requires = {'honza/vim-snippets'},
-    config = [[require('modules.ultisnips')]]
-  }
   use {'nikvdp/ejs-syntax'}
   use {
     'lukas-reineke/indent-blankline.nvim',

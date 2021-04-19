@@ -1,4 +1,5 @@
 {
+  "codeLens.enable": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
@@ -9,49 +10,25 @@
     "blade",
     "ejs"
   ],
-  "diagnostic-languageserver.filetypes": {
-    "vim": "vint",
-    "email": "languagetool",
-    "markdown": [
-      "write-good",
-      "markdownlint"
-    ],
-    "css": "stylelint",
-    "sh": "shellcheck",
-    "elixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ],
-    "eelixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ],
-    "php": [
-      "phpcs",
-      "phpstan",
-      "psalm"
-    ],
-    "javascript": "eslint",
-    "python": "pylint"
+  "emmet.includeLanguages": {
+    "ejs": "html",
+    "blade": "html",
+    "jsx": "javascriptreact"
   },
-  "diagnostic-languageserver.formatFiletypes": {
-    "dart": "dartfmt",
-    "elixir": "mix_format",
-    "eelixir": "mix_format",
-    "python": [
-      "black",
-      "isort"
-    ],
-    "lua": "lua-format",
-    "sh": "shfmt",
-    "blade": "blade-formatter",
-    "javascript": "eslint",
-    "php": [
-      "phpcs",
-      "phpstan",
-      "psalm"
-    ]
-  },
+  "diagnostic.enableMessage": "never",
+  "diagnostic.virtualText": true,
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.hintSign": " ",
+  "diagnostic.infoSign": " ",
+  "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    ".editorconfig"
+  ],
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -69,6 +46,16 @@
     "vim"
   ],
   "highlight.colorNames.enable": false,
+  "suggest.timeout": 15000,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.invalidInsertCharacters": [
+    " ",
+    "(",
+    "{",
+    "[",
+    "\r",
+    "\n"
+  ],
   "suggest.completionItemKindLabels": {
     "text": "",
     "method": "ƒ",
@@ -104,16 +91,11 @@
   "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "es5",
   "prettier.bracketSpacing": true,
-  "emmet.includeLanguages": {
-    "ejs": "html",
-    "blade": "html",
-    "jsx": "javascriptreact"
-  },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
   "tsserver.typingsCacheLocation": "~/.cache",
   "tsserver.maxTsServerMemory": 500,
-  "tsserver.trace.server": "verbose",
+  "tsserver.npm": "~/.fnm/aliases/default/bin/npm",
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all"
 }

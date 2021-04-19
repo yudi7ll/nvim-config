@@ -118,6 +118,18 @@ gls.left = {
       highlight = { colors.Red,colors.bg },
     }
   },
+  {
+    CurrentFunction = {
+      provider = function()
+        if pcall(vim.api.nvim_buf_get_var,0,'coc_current_function') then
+          return vim.api.nvim_buf_get_var(0, 'coc_current_function')
+        end
+      end,
+      condition = check_width,
+      icon = ' f ',
+      highlight = { colors.Orange, colors.bg },
+    }
+  },
 }
 
 -- Right side
@@ -171,7 +183,7 @@ gls.right = {
   },
   {
     Spacing = {
-      provider = function() return 'spaces '..vim.api.nvim_buf_get_option(0, 'shiftwidth') end,
+      provider = function() return 'spaces '..vim.bo.shiftwidth end,
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
       separator = ' | ',
