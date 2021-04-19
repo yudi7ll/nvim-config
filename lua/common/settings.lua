@@ -41,6 +41,7 @@ vim.o.wildmenu            = true
 vim.wo.wrap               = false
 vim.o.writebackup         = false
 
+vim.cmd('set guifont=Hack\\ Nerd\\ Font:h14')
 vim.cmd('au CursorHold * checktime')
 vim.cmd('set shortmess+=c')
 vim.cmd('syntax enable')

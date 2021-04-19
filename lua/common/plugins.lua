@@ -20,10 +20,27 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {'sjl/badwolf'}
+  -- use {'nanotech/jellybeans.vim'}
+  -- use {'morhetz/gruvbox'}
 
+  -- use {
+  --   'neoclide/coc.nvim', run = 'yarn install --frozen-lockfile',
+  --   config = [[require('modules.coc')]]
+  -- }
   use {
-    'neoclide/coc.nvim', run = 'yarn install --frozen-lockfile',
-    config = [[require('modules.coc')]]
+    'hrsh7th/nvim-compe',
+    config = [[require('modules.compe')]]
+  }
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[require('modules.lspconfig')]]
+  }
+  use {
+    'hrsh7th/vim-vsnip'
+  }
+  use {
+    'onsails/lspkind-nvim',
+    config = [[require('lspkind').init()]]
   }
 
   -- Icons
@@ -33,7 +50,10 @@ return require('packer').startup(function(use)
   }
 
   -- General
-  use {'jiangmiao/auto-pairs'}
+  use {
+    'windwp/nvim-autopairs',
+    config = [[require('nvim-autopairs').setup()]]
+  }
   -- use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   -- use {'vijaymarupudi/nvim-fzf'}
   use {'andweeb/presence.nvim'}

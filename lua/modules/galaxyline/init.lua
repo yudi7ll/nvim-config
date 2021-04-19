@@ -194,14 +194,14 @@ gls.right = {
       highlight = { colors.fg, colors.section_bg },
     }
   },
-  {
-    CocStatus = {
-      provider = function() return vim.fn['coc#status']() end,
-      highlight = { colors.fg, colors.section_bg },
-      separator = ' | ',
-      separator_highlight = { colors.bg, colors.section_bg },
-    }
-  },
+  -- {
+  --   CocStatus = {
+  --     provider = function() return vim.fn['coc#status']() end,
+  --     highlight = { colors.fg, colors.section_bg },
+  --     separator = ' | ',
+  --     separator_highlight = { colors.bg, colors.section_bg },
+  --   }
+  -- },
   {
     RightGap = {
       provider = function() return ' ' end,
@@ -241,4 +241,3 @@ gls.short_line_right = {
 
 -- Force manual load so that nvim boots with a status line
 -- gl.load_galaxyline()
-vim.api.nvim_command('autocmd VimEnter * call vista#RunForNearestMethodOrFunction()')
