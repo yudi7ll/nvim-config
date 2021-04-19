@@ -241,4 +241,3 @@ gls.short_line_right = {
 
 -- Force manual load so that nvim boots with a status line
 -- gl.load_galaxyline()
-vim.api.nvim_command('autocmd VimEnter * call vista#RunForNearestMethodOrFunction()')
