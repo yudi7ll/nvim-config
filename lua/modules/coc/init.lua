@@ -53,13 +53,15 @@ _G.confirm_selection = function()
   if vim.fn.pumvisible() == 1 then
     return vim.fn['coc#_select_confirm']()
   else
-    return t "<C-g>u<CR><c-r>=coc#on_enter()<CR>"
+    return t "<C-g>u<CR>"
   end
 end
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
