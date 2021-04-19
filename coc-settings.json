@@ -111,7 +111,9 @@
   },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
-  "tsserver.typingsCacheLocation": "/hdd/.cache/tsserver",
+  "tsserver.typingsCacheLocation": "~/.cache",
+  "tsserver.maxTsServerMemory": 500,
+  "tsserver.trace.server": "verbose",
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all"
 }
