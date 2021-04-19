@@ -48,14 +48,6 @@
   "highlight.colorNames.enable": false,
   "suggest.timeout": 15000,
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.invalidInsertCharacters": [
-    " ",
-    "(",
-    "{",
-    "[",
-    "\r",
-    "\n"
-  ],
   "suggest.completionItemKindLabels": {
     "text": "",
     "method": "ƒ",

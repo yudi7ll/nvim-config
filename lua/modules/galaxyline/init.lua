@@ -69,6 +69,20 @@ gls.left = {
       provider = 'FileName',
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
+    }
+  },
+  {
+    CurrentFunction = {
+      provider = function()
+        if pcall(vim.api.nvim_buf_get_var,0,'coc_current_function') then
+          local current_function = vim.api.nvim_buf_get_var(0, 'coc_current_function')
+          if current_function ~= '' then
+            return ' ' ..current_function ..' '
+          end
+        end
+      end,
+      condition = check_width,
+      highlight = { colors.Cyan, colors.section_bg },
       separator = "",
       separator_highlight = {colors.section_bg, colors.bg},
     }
@@ -116,18 +130,6 @@ gls.left = {
       condition = check_width,
       icon = '  ',
       highlight = { colors.Red,colors.bg },
-    }
-  },
-  {
-    CurrentFunction = {
-      provider = function()
-        if pcall(vim.api.nvim_buf_get_var,0,'coc_current_function') then
-          return vim.api.nvim_buf_get_var(0, 'coc_current_function')
-        end
-      end,
-      condition = check_width,
-      icon = ' f ',
-      highlight = { colors.Orange, colors.bg },
     }
   },
 }
@@ -224,6 +226,12 @@ gls.right = {
 
 -- Short status line
 gls.short_line_left = {
+  {
+    LeftGap = {
+      provider = function() return ' ' end,
+      highlight = { colors.section_bg, colors.section_bg }
+    },
+  },
   {
     BufferType = {
       provider = 'FileTypeName',
