@@ -1,5 +1,4 @@
 {
-  "codeLens.enable": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
@@ -26,7 +25,7 @@
     ".git",
     ".hg",
     ".projections.json",
-    ".editorconfig"
+    ".env"
   ],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
@@ -48,14 +47,6 @@
   "highlight.colorNames.enable": false,
   "suggest.timeout": 15000,
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.invalidInsertCharacters": [
-    " ",
-    "(",
-    "{",
-    "[",
-    "\r",
-    "\n"
-  ],
   "suggest.completionItemKindLabels": {
     "text": "",
     "method": "ƒ",
