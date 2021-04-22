@@ -12,7 +12,7 @@ end
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('packer').init({
-	git = { clone_timeout = 9999 }
+  git = { clone_timeout = 9999 }
 })
 
 return require('packer').startup(function(use)
@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
   use {'sjl/badwolf'}
 
   use {
-    'neoclide/coc.nvim', run = 'yarn install --frozen-lockfile',
+    'neoclide/coc.nvim', branch = 'release',
     config = [[require('modules.coc')]]
   }
 
@@ -35,20 +35,26 @@ return require('packer').startup(function(use)
   -- General
   use {'jiangmiao/auto-pairs'}
   use {'andweeb/presence.nvim'}
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = [[require('modules.nvim-tree')]]
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   config = [[require('modules.nvim-tree')]]
+  -- }
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
     config = [[require('modules.galaxyline')]]
   }
   use {
     'terrortylor/nvim-comment',
-    config = [[require('nvim_comment').setup()]]
+    config = [[require('modules.nvim-comment')]]
   }
   use {'tpope/vim-surround'}
-  use {'airblade/vim-gitgutter'}
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = [[require('modules.gitsigns')]]
+  }
   use {'editorconfig/editorconfig-vim'}
   use {'tommcdo/vim-lion', opt = true}
   use {
@@ -60,9 +66,9 @@ return require('packer').startup(function(use)
     config = [[require('modules.bufferline')]]
   }
   use {
-      'AckslD/nvim-whichkey-setup.lua',
-      requires = {'liuchengxu/vim-which-key'},
-      config = [[require('modules.vim-which-key')]]
+    'AckslD/nvim-whichkey-setup.lua',
+    requires = {'liuchengxu/vim-which-key'},
+    config = [[require('modules.vim-which-key')]]
   }
   use {
     'voldikss/vim-floaterm',
