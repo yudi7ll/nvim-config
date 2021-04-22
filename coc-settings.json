@@ -88,5 +88,7 @@
   "tsserver.maxTsServerMemory": 500,
   "tsserver.npm": "~/.fnm/aliases/default/bin/npm",
   "eslint.autoFixOnSave": true,
-  "eslint.codeActionsOnSave.mode": "all"
+  "eslint.codeActionsOnSave.mode": "all",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.mouseMode": "singleclick"
 }
