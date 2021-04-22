@@ -5,8 +5,8 @@
 - [FZF](https://github.com/junegunn/fzf)
 - [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [Lazygit (Optional)](https://github.com/jesseduffield/lazygit)
-- [Lazydocker (Optional)](https://github.com/jesseduffield/lazydocker)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
+- [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - [NerdFonts](https://www.nerdfonts.com)
 
 ## Screenshots
