@@ -1,21 +1,3 @@
--- keep installed
-vim.g.coc_global_extensions = {
-  'coc-blade-formatter',
-  'coc-css',
-  'coc-diagnostic',
-  'coc-eslint',
-  'coc-git',
-  'coc-highlight',
-  'coc-html',
-  'coc-json',
-  'coc-marketplace',
-  'coc-phpls',
-  'coc-python',
-  'coc-sh',
-  'coc-tsserver',
-  'coc-yaml',
-  'coc-xml',
-}
 
 local utils = require('common.utils')
 
@@ -31,6 +13,26 @@ local check_back_space = function()
     return false
   end
 end
+
+-- keep installed
+vim.g.coc_global_extensions = {
+  'coc-css',
+  'coc-diagnostic',
+  'coc-eslint',
+  'coc-highlight',
+  'coc-html',
+  'coc-json',
+  'coc-marketplace',
+  'coc-phpls',
+  'coc-prettier',
+  'coc-python',
+  'coc-sh',
+  'coc-tslint',
+  'coc-tsserver',
+  'coc-yaml',
+  'coc-xml',
+}
+
 
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
@@ -53,35 +55,34 @@ _G.confirm_selection = function()
   if vim.fn.pumvisible() == 1 then
     return vim.fn['coc#_select_confirm']()
   else
-    return t "<C-g>u<CR>"
+    return t "<C-g>u<CR><c-r>=coc#on_enter()<CR>"
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
-vim.api.nvim_set_keymap('i', '<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
+utils.imap("<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+utils.imap("<C-j>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+utils.smap("<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
+utils.imap("<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+utils.imap("<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+utils.smap("<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+utils.imap('<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
+utils.imap('<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-vim.api.nvim_set_keymap('n', 'gn', '<Plug>(coc-diagnostic-prev)', { silent = true })
-vim.api.nvim_set_keymap('n', 'gp', '<Plug>(coc-diagnostic-next)', { silent = true })
+utils.nmap('gn', '<Plug>(coc-diagnostic-prev)')
+utils.nmap('gp', '<Plug>(coc-diagnostic-next)')
 
 -- GoTo code navigation.
-vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { silent = true })
-vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
-vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
-vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
-
+utils.nmap('gd', '<Plug>(coc-definition)')
+utils.nmap('gy', '<Plug>(coc-type-definition)')
+utils.nmap('gi', '<Plug>(coc-implementation)')
+utils.nmap('gr', '<Plug>(coc-references)')
 
 -- Use K to show documentation in preview window.
-vim.api.nvim_set_keymap('n', 'K', ":call <SID>show_documentation()<CR>", { noremap = true, silent = true })
+utils.nmap('K', ":call <SID>show_documentation()<CR>")
 
-vim .api.nvim_command(
+vim.cmd(
   [[
 
     function! s:show_documentation()
@@ -129,22 +130,22 @@ _G.i_scroll_up = function ()
 end
 
 -- scroll float windows/popup mappings
-vim.api.nvim_set_keymap('n', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
-vim.api.nvim_set_keymap('v', '<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
-vim.api.nvim_set_keymap('i', '<Down>', 'v:lua.i_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
-vim.api.nvim_set_keymap('n', '<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
-vim.api.nvim_set_keymap('v', '<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
-vim.api.nvim_set_keymap('i', '<Up>', 'v:lua.i_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.nmap('<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.vmap('<Down>', 'v:lua.n_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.imap('<Down>', 'v:lua.i_scroll_down()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.nmap('<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.vmap('<Up>', 'v:lua.n_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
+utils.imap('<Up>', 'v:lua.i_scroll_up()', { noremap = true, silent = true, nowait = true, expr = true })
 
 -- Highlight the symbol and its references when holding the cursor.
-vim.api.nvim_command("autocmd CursorHold * silent call CocActionAsync('highlight')")
+vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
 
 -- Symbol renaming
-vim.api.nvim_set_keymap('n', '<leader>rn', '<Plug>(coc-rename)', { silent = true })
+utils.nmap('<leader>rn', '<Plug>(coc-rename)')
 
 -- formatting selected code
-vim.api.nvim_set_keymap('x', '<leader>af', '<Plug>(coc-format-selected)', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>af', '<Plug>(coc-format-selected)', { silent = true })
+utils.xmap('<leader>af', '<Plug>(coc-format-selected)')
+utils.nmap('<leader>af', '<Plug>(coc-format-selected)')
 
 utils.create_augroup({
     -- Setup formatexpr specified filetype(s).
@@ -156,20 +157,20 @@ utils.create_augroup({
 
 -- Applying codeAction to the selected region.
 -- Example: `<leader>aap` for current paragraph
-vim.api.nvim_set_keymap('x', '<leader>as', '<Plug>(coc-codeaction-selected)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>as', '<Plug>(coc-codeaction-selected)', { noremap = true, silent = true })
+utils.xmap('<leader>as', '<Plug>(coc-codeaction-selected)')
+utils.nmap('<leader>as', '<Plug>(coc-codeaction-selected)')
 
-vim.api.nvim_set_keymap('x', '<leader>ac', '<Plug>(coc-codeaction)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ac', '<Plug>(coc-codeaction)', { noremap = true, silent = true })
+utils.xmap('<leader>ac', '<Plug>(coc-codeaction)')
+utils.nmap('<leader>ac', '<Plug>(coc-codeaction)')
 
 -- Remap keys for applying codeAction to the current buffer.
-vim.api.nvim_set_keymap('x', '<leader>gf', '<Plug>(coc-fix-current)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gf', '<Plug>(coc-fix-current)', { noremap = true, silent = true })
+utils.xmap('<leader>gf', '<Plug>(coc-fix-current)')
+utils.nmap('<leader>gf', '<Plug>(coc-fix-current)')
 
 -- Use CTRL-S for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
-vim.api.nvim_set_keymap('x', '<C-s>', '<Plug>(coc-range-select)', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-s>', '<Plug>(coc-range-select)', { silent = true })
+utils.xmap('<C-s>', '<Plug>(coc-range-select)')
+utils.nmap('<C-s>', '<Plug>(coc-range-select)')
 
 -- Add `:Format` command to format current buffer.
 vim.cmd("command! -nargs=0 Format :call CocAction('format')")
@@ -182,27 +183,28 @@ vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
 
 -- Mappings for CoCList
 -- Show all diagnostics
-vim.api.nvim_set_keymap('n', '<leader>ad', ':CocList diagnostics<CR>', { noremap = true, silent = true })
+utils.nmap('<leader>ad', ':CocList diagnostics<CR>')
 -- Organize import
-vim.api.nvim_set_keymap('n', '<leader>ao', ':OR<CR>', { noremap = true, silent = true })
+utils.nmap('<leader>ao', ':OR<CR>')
 -- Manage extensions
-vim.api.nvim_set_keymap('n', '<leader>e', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>e', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
 -- Format current buffer
-vim.api.nvim_set_keymap('n', '<leader>f', ':Format<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>f', ':Format<CR>', { noremap = true, silent = true, nowait = true })
 -- Show commands.
-vim.api.nvim_set_keymap('n', '<leader>c', ':CocList commands<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>c', ':CocList commands<CR>', { noremap = true, silent = true, nowait = true })
 -- Find symbol of current document
-vim.api.nvim_set_keymap('n', '<leader>o', ':CocList outline<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>o', ':CocList outline<CR>', { noremap = true, silent = true, nowait = true })
 -- Search workspace symbols
-vim.api.nvim_set_keymap('n', '<leader>s', ':CocList -I symbols<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>s', ':CocList -I symbols<CR>', { noremap = true, silent = true, nowait = true })
 -- Marketplace
-vim.api.nvim_set_keymap('n', '<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, nowait = true })
 -- Do default action for next item.
-vim.api.nvim_set_keymap('n', '<leader>j', ':CocNext<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>j', ':CocNext<CR>', { noremap = true, silent = true, nowait = true })
 -- Do default action for previous item.
-vim.api.nvim_set_keymap('n', '<leader>k', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>k', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
 -- Resume latest coc list.
-vim.api.nvim_set_keymap('n', '<leader>p', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
+utils.nmap('<leader>p', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
 
 -- Mappings for CocCommand
-vim.api.nvim_set_keymap('n', '<leader>p', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true  })
+utils.nmap('<leader>p', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true  })
+utils.nmap('<C-n>', ':CocCommand explorer<CR>')

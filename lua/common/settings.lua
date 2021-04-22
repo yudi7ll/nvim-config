@@ -6,7 +6,7 @@ vim.wo.colorcolumn        = "80"
 vim.o.compatible          = false
 vim.wo.cursorline         = true
 vim.o.encoding            = "UTF-8"
-vim.bo.expandtab          = true
+vim.o.expandtab           = true
 vim.o.hidden              = true
 vim.o.hlsearch            = true
 vim.o.incsearch           = true
@@ -19,20 +19,22 @@ vim.o.shell               = "/usr/bin/zsh"
 vim.o.smartcase           = true
 vim.bo.smartindent        = true
 vim.o.smarttab            = true
-vim.o.shiftwidth          = 2
+vim.bo.shiftwidth         = vim.o.tabstop
 vim.o.showtabline         = 2
 vim.wo.signcolumn         = "yes"
 vim.o.sidescrolloff       = 12
 vim.o.scrolloff           = 8
 vim.o.showmode            = false
-vim.o.softtabstop         = 2
+vim.o.softtabstop         = vim.o.tabstop
+vim.o.splitbelow          = true
+vim.o.splitright          = true
 vim.o.tabstop             = 2
 vim.o.termguicolors       = true
 vim.o.textwidth           = 0
 vim.o.undofile            = true
 vim.o.undodir             = "/hdd/.cache/nvim/undodir"
-vim.o.updatetime          = 300
-vim.o.timeoutlen          = 300
+vim.o.updatetime          = 250
+vim.o.timeoutlen          = 250
 vim.o.title               = true
 vim.o.t_Co                = "256"
 vim.o.wildignorecase      = true
@@ -41,10 +43,10 @@ vim.o.wildmenu            = true
 vim.wo.wrap               = false
 vim.o.writebackup         = false
 
+vim.cmd('autocmd FileType scss setl iskeyword+=@-@')
 vim.cmd('au CursorHold * checktime')
 vim.cmd('set shortmess+=c')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd('colorscheme badwolf')
 
-vim.cmd('autocmd FileType scss setl iskeyword+=@-@')
