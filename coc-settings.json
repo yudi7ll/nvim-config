@@ -1,5 +1,4 @@
 {
-  "codeLens.enable": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
@@ -15,8 +14,6 @@
     "blade": "html",
     "jsx": "javascriptreact"
   },
-  "diagnostic.enableMessage": "never",
-  "diagnostic.virtualText": true,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.hintSign": " ",
@@ -26,7 +23,7 @@
     ".git",
     ".hg",
     ".projections.json",
-    ".editorconfig"
+    ".env"
   ],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
@@ -89,5 +86,8 @@
   "tsserver.maxTsServerMemory": 500,
   "tsserver.npm": "~/.fnm/aliases/default/bin/npm",
   "eslint.autoFixOnSave": true,
-  "eslint.codeActionsOnSave.mode": "all"
+  "eslint.codeActionsOnSave.mode": "all",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.mouseMode": "singleclick",
+  "explorer.width": 38
 }

@@ -1,4 +1,4 @@
-local icon_colors = require('modules.galaxyline.provider.theme').default
+local icon_colors = require('modules.galaxyline.theme.colors')
 local vim = vim
 local M = {}
 
