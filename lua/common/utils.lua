@@ -5,7 +5,7 @@ local map = function(mode, key, cmd, config)
         mode,
         key,
         cmd,
-        config or { noremap = true, silent = true }
+        config or { silent = true }
     )
 end
 

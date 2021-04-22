@@ -5,15 +5,6 @@ local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-    return true
-  else
-    return false
-  end
-end
-
 -- keep installed
 vim.g.coc_global_extensions = {
   'coc-css',
@@ -34,6 +25,14 @@ vim.g.coc_global_extensions = {
   'coc-xml',
 }
 
+local check_back_space = function()
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
+end
 
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
@@ -60,12 +59,12 @@ _G.confirm_selection = function()
   end
 end
 
-utils.imap("<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-utils.imap("<C-j>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-utils.smap("<Tab>", "v:lua.tab_complete()", {noremap = true, expr = true, silent = true})
-utils.imap("<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
-utils.imap("<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
-utils.smap("<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true, silent = true})
+utils.imap("<Tab>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
+utils.imap("<C-j>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
+utils.smap("<Tab>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
+utils.imap("<S-Tab>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
+utils.imap("<C-k>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
+utils.smap("<S-Tab>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
 utils.imap('<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
 utils.imap('<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
 
