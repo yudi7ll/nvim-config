@@ -14,8 +14,6 @@
     "blade": "html",
     "jsx": "javascriptreact"
   },
-  "diagnostic.enableMessage": "never",
-  "diagnostic.virtualText": true,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.hintSign": " ",
@@ -90,5 +88,6 @@
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all",
   "explorer.icon.enableNerdfont": true,
-  "explorer.mouseMode": "singleclick"
+  "explorer.mouseMode": "singleclick",
+  "explorer.width": 38
 }
