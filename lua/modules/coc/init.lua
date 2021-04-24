@@ -17,7 +17,6 @@ vim.g.coc_global_extensions = {
   'coc-prettier',
   'coc-python',
   'coc-sh',
-  'coc-tslint',
   'coc-tsserver',
   'coc-yaml',
   'coc-xml',

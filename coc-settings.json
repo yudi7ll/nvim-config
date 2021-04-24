@@ -89,5 +89,6 @@
   "eslint.codeActionsOnSave.mode": "all",
   "explorer.icon.enableNerdfont": true,
   "explorer.mouseMode": "singleclick",
-  "explorer.width": 38
+  "explorer.width": 38,
+  "explorer.trash.command": "trash-put -r %s"
 }
