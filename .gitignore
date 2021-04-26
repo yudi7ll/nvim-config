@@ -7,3 +7,7 @@ plugin
 
 # Ada Library Information
 *.ali
+
+# editor config
+.vscode
+.vim

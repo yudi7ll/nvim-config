@@ -56,4 +56,3 @@ utils.create_augroup({
     { "User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')" };
   }, 'mygroup')
 
-
