@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
 
   -- General
   use {'jiangmiao/auto-pairs'}
-  use {'andweeb/presence.nvim'}
+  -- use {'andweeb/presence.nvim'}
   -- use {
   --   'kyazdani42/nvim-tree.lua',
   --   config = [[require('modules.nvim-tree')]]
