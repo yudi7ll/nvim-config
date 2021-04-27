@@ -1,43 +1,45 @@
 local utils = require('common.utils')
+local xmap = utils.xmap
+local nmap = utils.nmap
 
 -- a
-utils.xmap('<leader>ac', '<Plug>(coc-codeaction)')
-utils.nmap('<leader>ac', '<Plug>(coc-codeaction)')
-utils.xmap('<leader>af', '<Plug>(coc-fix-current)')
-utils.nmap('<leader>af', '<Plug>(coc-fix-current)')
-utils.xmap('<leader>aF', '<Plug>(coc-format-selected)')
-utils.nmap('<leader>aF', '<Plug>(coc-format-selected)')
-utils.xmap('<leader>aS', '<Plug>(coc-range-select)')
-utils.nmap('<leader>aS', '<Plug>(coc-range-select)')
-utils.xmap('<leader>as', '<Plug>(coc-codeaction-selected)')
-utils.nmap('<leader>as', '<Plug>(coc-codeaction-selected)')
-utils.nmap('<leader>ar', '<Plug>(coc-rename)')
+xmap('<leader>ac', '<Plug>(coc-codeaction)')
+nmap('<leader>ac', '<Plug>(coc-codeaction)')
+xmap('<leader>af', '<Plug>(coc-fix-current)')
+nmap('<leader>af', '<Plug>(coc-fix-current)')
+xmap('<leader>aF', '<Plug>(coc-format-selected)')
+nmap('<leader>aF', '<Plug>(coc-format-selected)')
+xmap('<leader>aS', '<Plug>(coc-range-select)')
+nmap('<leader>aS', '<Plug>(coc-range-select)')
+xmap('<leader>as', '<Plug>(coc-codeaction-selected)')
+nmap('<leader>as', '<Plug>(coc-codeaction-selected)')
+nmap('<leader>ar', '<Plug>(coc-rename)')
 
 -- c
-utils.nmap('<leader>cd', ':CocList diagnostics<CR>')
-utils.nmap('<leader>ce', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cf', ':Format<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cF', ':OR<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cc', ':CocList commands<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>co', ':CocList outline<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cs', ':CocList -I symbols<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cj', ':CocNext<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>ck', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<leader>cp', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cd', ':CocList diagnostics<CR>')
+nmap('<leader>ce', ':CocList extensions<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cf', ':Format<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cF', ':OR<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cc', ':CocList commands<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>co', ':CocList outline<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cs', ':CocList -I symbols<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cj', ':CocNext<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>ck', ':CocPrev<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>cp', ':CocListResume<CR>', { noremap = true, silent = true, nowait = true })
 
 -- GoTo code navigation.
-utils.nmap('gd', '<Plug>(coc-definition)')
-utils.nmap('gy', '<Plug>(coc-type-definition)')
-utils.nmap('gi', '<Plug>(coc-implementation)')
-utils.nmap('gr', '<Plug>(coc-references)')
+nmap('gd', '<Plug>(coc-definition)')
+nmap('gy', '<Plug>(coc-type-definition)')
+nmap('gi', '<Plug>(coc-implementation)')
+nmap('gr', '<Plug>(coc-references)')
 
 -- Navigate diagnostics of current buffer
-utils.nmap('gn', '<Plug>(coc-diagnostic-prev)')
-utils.nmap('gp', '<Plug>(coc-diagnostic-next)')
+nmap('gn', '<Plug>(coc-diagnostic-prev)')
+nmap('gp', '<Plug>(coc-diagnostic-next)')
 
 -- coc marketplace
-utils.nmap('<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, nowait = true })
 
 -- change color value
-utils.nmap('<localleader>c', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true })
-utils.nmap('<C-n>', ':CocCommand explorer<CR>')
+nmap('<localleader>c', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true })
+nmap('<C-n>', ':CocCommand explorer<CR>')

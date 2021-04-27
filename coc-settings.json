@@ -3,6 +3,7 @@
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
   "html.filetypes": [
+    "blade",
     "html",
     "handlebars",
     "htmldjango",
@@ -26,7 +27,6 @@
     ".env"
   ],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",

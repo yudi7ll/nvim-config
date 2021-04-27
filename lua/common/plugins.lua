@@ -12,8 +12,8 @@ end
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('packer').init({
-  git = { clone_timeout = 9999 }
-})
+    git = { clone_timeout = 9999 }
+  })
 
 return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
 
   -- General
   use {'jiangmiao/auto-pairs'}
-  -- use {'andweeb/presence.nvim'}
   -- use {
   --   'kyazdani42/nvim-tree.lua',
   --   config = [[require('modules.nvim-tree')]]
