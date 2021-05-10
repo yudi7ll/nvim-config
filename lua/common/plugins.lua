@@ -2,21 +2,21 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
   execute 'packadd packer.nvim'
 end
 
--- Auto compile when there are changes in plugins.lua
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+execute [[packadd packer.nvim]]
+
 require('packer').init({
     git = { clone_timeout = 9999 }
   })
 
 return require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim'}
+  use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
   use {'sjl/badwolf'}
@@ -34,14 +34,19 @@ return require('packer').startup(function(use)
 
   -- General
   use {'jiangmiao/auto-pairs'}
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   config = [[require('modules.nvim-tree')]]
-  -- }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = [[require('modules.nvim-tree')]]
+  }
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
     config = [[require('modules.galaxyline')]]
   }
+  -- use {
+  --   'romgrk/barbar.nvim',
+  --   config = [[require('modules.barbar')]]
+  -- }
+  -- use {'andweeb/presence.nvim'}
   use {
     'terrortylor/nvim-comment',
     config = [[require('modules.nvim-comment')]]
@@ -55,10 +60,10 @@ return require('packer').startup(function(use)
     config = [[require('modules.gitsigns')]]
   }
   use {'editorconfig/editorconfig-vim'}
-  use {'tommcdo/vim-lion', opt = true}
+  use {'tommcdo/vim-lion', opt = true, ft = 'lua'}
   use {
-    'sheerun/vim-polyglot',
-    config = [[require('modules.polyglot')]]
+   'sheerun/vim-polyglot',
+   config = [[require('modules.polyglot')]],
   }
   use {
     'akinsho/nvim-bufferline.lua',
@@ -73,7 +78,7 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  use {'nikvdp/ejs-syntax'}
+  use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = 'lua',
