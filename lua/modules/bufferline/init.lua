@@ -1,3 +1,6 @@
+local utils = require('common.utils')
+local nmap = utils.nmap
+
 require('bufferline').setup {
 	options = {
 		show_buffer_close_icons = false,
@@ -8,11 +11,12 @@ require('bufferline').setup {
 	}
 }
 
-vim.api.nvim_set_keymap('n', '<C-t>', ':enew<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-W>q', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-W><C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-h>', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
+nmap('<C-t>', ':enew<CR>', { noremap = true, silent = true })
+nmap('<C-W>q', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
+nmap('<C-W><C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
+nmap('<C-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
+nmap('<A-q>', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
+nmap('<A-,>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+nmap('<A-.>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+nmap('<C-<>', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
+nmap('<C->>', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })

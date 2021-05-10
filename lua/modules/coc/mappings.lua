@@ -42,4 +42,3 @@ nmap('<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, n
 
 -- change color value
 nmap('<localleader>c', ':CocCommand editor.action.pickColor<CR>', { noremap = true, silent = true, nowait = true })
-nmap('<C-n>', ':CocCommand explorer<CR>')

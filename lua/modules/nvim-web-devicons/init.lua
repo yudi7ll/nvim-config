@@ -1,4 +1,4 @@
-require'nvim-web-devicons'.setup {
+require('nvim-web-devicons').setup ({
   -- DevIcon will be appended to `name`
   override = {
     html = {
@@ -97,7 +97,4 @@ require'nvim-web-devicons'.setup {
       name = "xz"
     }
   };
-  -- globally enable default icons (default to false)
-  -- will get overriden by `get_icons` option
-  default = true;
-}
+})

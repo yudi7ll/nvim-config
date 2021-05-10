@@ -7,8 +7,8 @@ local utils = require('common.utils')
 vim.g.coc_global_extensions = {
   'coc-css',
   'coc-diagnostic',
+  'coc-emmet',
   'coc-eslint',
-  'coc-explorer',
   'coc-highlight',
   'coc-html',
   'coc-json',
@@ -23,7 +23,7 @@ vim.g.coc_global_extensions = {
 }
 
 vim.cmd([[
-    function! s:show_documentation()
+    function ShowDocumentation()
       if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
       elseif (coc#rpc#ready())
@@ -35,7 +35,7 @@ vim.cmd([[
   ]])
 
 -- Use K to show documentation in preview window.
-utils.nmap('K', ":call <SID>show_documentation()<CR>")
+utils.nmap('K', ":call ShowDocumentation()<CR>")
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")

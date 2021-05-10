@@ -11,8 +11,8 @@
     "ejs"
   ],
   "emmet.includeLanguages": {
-    "ejs": "html",
     "blade": "html",
+    "ejs": "html",
     "jsx": "javascriptreact"
   },
   "diagnostic.errorSign": " ",
@@ -34,7 +34,6 @@
     "php",
     "html",
     "css",
-    "blade",
     "sh",
     "python",
     "markdown"
