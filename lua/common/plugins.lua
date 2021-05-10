@@ -45,6 +45,11 @@ return require('packer').startup(function(use)
     'glepnir/galaxyline.nvim', branch = 'main',
     config = [[require('modules.galaxyline')]]
   }
+  -- use {
+  --   'romgrk/barbar.nvim',
+  --   config = [[require('modules.barbar')]]
+  -- }
+  -- use {'andweeb/presence.nvim'}
   use {
     'terrortylor/nvim-comment',
     config = [[require('modules.nvim-comment')]]
