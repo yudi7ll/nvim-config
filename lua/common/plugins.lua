@@ -12,14 +12,17 @@ end
 execute [[packadd packer.nvim]]
 
 require('packer').init({
-    git = { clone_timeout = 9999 }
-  })
+  git = { clone_timeout = 9999 }
+})
 
 return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
   use {'sjl/badwolf'}
+  use {'NLKNguyen/papercolor-theme'}
+  use {'ChristianChiarulli/nvcode-color-schemes.vim'}
+  use {'Iron-E/nvim-highlite'}
 
   use {
     'neoclide/coc.nvim', branch = 'release',
@@ -42,16 +45,12 @@ return require('packer').startup(function(use)
     'glepnir/galaxyline.nvim', branch = 'main',
     config = [[require('modules.galaxyline')]]
   }
-  -- use {
-  --   'romgrk/barbar.nvim',
-  --   config = [[require('modules.barbar')]]
-  -- }
-  -- use {'andweeb/presence.nvim'}
   use {
     'terrortylor/nvim-comment',
     config = [[require('modules.nvim-comment')]]
   }
   use {'tpope/vim-surround'}
+  use {'tpope/vim-sleuth'}
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -61,10 +60,6 @@ return require('packer').startup(function(use)
   }
   use {'editorconfig/editorconfig-vim'}
   use {'tommcdo/vim-lion', opt = true, ft = 'lua'}
-  use {
-   'sheerun/vim-polyglot',
-   config = [[require('modules.polyglot')]],
-  }
   use {
     'akinsho/nvim-bufferline.lua',
     config = [[require('modules.bufferline')]]
@@ -78,10 +73,21 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
+  -- use {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   branch = 'lua',
+  --   config = [[require('modules.indentline')]]
+  -- }
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    branch = 'lua',
-    config = [[require('modules.indentline')]]
+    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+    config = [[require('modules.treesitter')]]
   }
+  use {'p00f/nvim-ts-rainbow'}
+
+  -- Highlighting
+  use {
+    'jwalton512/vim-blade', opt = true, ft = 'blade',
+    config = [[require('modules.vim-blade')]]
+  }
+  use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
 end)

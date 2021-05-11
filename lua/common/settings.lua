@@ -43,10 +43,8 @@ vim.o.wildmenu            = true
 vim.wo.wrap               = false
 vim.o.writebackup         = false
 
-vim.cmd('autocmd FileType scss setl iskeyword+=@-@')
 vim.cmd('au CursorHold * checktime')
 vim.cmd('set shortmess+=c')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
-vim.cmd('colorscheme badwolf')
-
+vim.cmd('colorscheme PaperColor')
