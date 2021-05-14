@@ -1,4 +1,5 @@
 {
+  "rpc.workspaceElapsedTime": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,

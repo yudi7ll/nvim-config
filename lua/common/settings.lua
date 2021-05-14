@@ -19,13 +19,13 @@ vim.o.shell               = "/usr/bin/zsh"
 vim.o.smartcase           = true
 vim.bo.smartindent        = true
 vim.o.smarttab            = true
-vim.bo.shiftwidth         = vim.o.tabstop
+vim.bo.shiftwidth         = 2
 vim.o.showtabline         = 2
 vim.wo.signcolumn         = "yes"
 vim.o.sidescrolloff       = 12
 vim.o.scrolloff           = 8
 vim.o.showmode            = false
-vim.o.softtabstop         = vim.o.tabstop
+vim.o.softtabstop         = 2
 vim.o.splitbelow          = true
 vim.o.splitright          = true
 vim.o.tabstop             = 2
@@ -42,9 +42,3 @@ vim.o.wildmode            = "longest,full"
 vim.o.wildmenu            = true
 vim.wo.wrap               = false
 vim.o.writebackup         = false
-
-vim.cmd('au CursorHold * checktime')
-vim.cmd('set shortmess+=c')
-vim.cmd('syntax enable')
-vim.cmd('filetype plugin on')
-vim.cmd('colorscheme PaperColor')

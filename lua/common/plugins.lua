@@ -45,11 +45,6 @@ return require('packer').startup(function(use)
     'glepnir/galaxyline.nvim', branch = 'main',
     config = [[require('modules.galaxyline')]]
   }
-  -- use {
-  --   'romgrk/barbar.nvim',
-  --   config = [[require('modules.barbar')]]
-  -- }
-  -- use {'andweeb/presence.nvim'}
   use {
     'terrortylor/nvim-comment',
     config = [[require('modules.nvim-comment')]]
@@ -95,4 +90,6 @@ return require('packer').startup(function(use)
     config = [[require('modules.vim-blade')]]
   }
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
+  use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
+  use {'StanAngeloff/php.vim'}
 end)
