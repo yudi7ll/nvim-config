@@ -48,20 +48,11 @@ gls.right = {
     }
   },
   {
-    LineInfo = {
-      provider = 'LineColumn',
-      condition = buffer_not_empty,
-      highlight = { colors.fg, colors.section_bg },
-      separator =  " ",
-      separator_highlight = { colors.bg, colors.section_bg },
-    },
-  },
-  {
     Spacing = {
       provider = function() return 'spaces '..vim.bo.shiftwidth end,
       condition = buffer_not_empty,
       highlight = { colors.fg, colors.section_bg },
-      separator = ' | ',
+      separator =  " ",
       separator_highlight = { colors.bg, colors.section_bg },
     },
   },

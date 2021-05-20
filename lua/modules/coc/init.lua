@@ -15,7 +15,7 @@ vim.g.coc_global_extensions = {
   'coc-marketplace',
   'coc-phpls',
   'coc-prettier',
-  'coc-python',
+  'coc-pyright',
   'coc-sh',
   'coc-tsserver',
   'coc-yaml',

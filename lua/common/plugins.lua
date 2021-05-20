@@ -19,10 +19,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
-  use {'sjl/badwolf'}
-  use {'NLKNguyen/papercolor-theme'}
   use {'ChristianChiarulli/nvcode-color-schemes.vim'}
-  use {'Iron-E/nvim-highlite'}
 
   use {
     'neoclide/coc.nvim', branch = 'release',
@@ -73,11 +70,6 @@ return require('packer').startup(function(use)
     'voldikss/vim-floaterm',
     config = [[require('modules.floaterm')]]
   }
-  -- use {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   branch = 'lua',
-  --   config = [[require('modules.indentline')]]
-  -- }
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = [[require('modules.treesitter')]]
@@ -91,5 +83,4 @@ return require('packer').startup(function(use)
   }
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
-  use {'StanAngeloff/php.vim'}
 end)
