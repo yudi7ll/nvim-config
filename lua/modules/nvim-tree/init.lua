@@ -2,13 +2,13 @@ local utils = require('common.utils')
 local nmap = utils.nmap
 
 nmap('<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+nmap('<C-f>', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', { noremap = true })
 
 vim.g.nvim_tree_width               = 38
 vim.g.nvim_tree_indent_markers      = 1
 vim.g.nvim_tree_git_hl              = 0
-vim.g.nvim_tree_follow              = 1
+vim.g.nvim_tree_follow              = 0
 vim.g.nvim_tree_hide_dotfiles       = 1
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback

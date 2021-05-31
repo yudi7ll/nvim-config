@@ -12,6 +12,7 @@ vim.o.hlsearch            = true
 vim.o.incsearch           = true
 vim.o.ignorecase          = true
 vim.o.laststatus          = 2
+vim.o.lazyredraw          = true
 vim.o.mouse               = 'a'
 vim.wo.number             = true
 vim.wo.relativenumber     = true
