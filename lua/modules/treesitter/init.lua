@@ -8,7 +8,7 @@ require('nvim-treesitter.configs').setup ({
     enable = true,
   },
   rainbow = {
-    enable = true,
+    enable = false,
     max_file_lines = 1000,
   },
 })
