@@ -25,6 +25,10 @@ function utils.smap(key, cmd, config)
     map('s', key, cmd, config)
 end
 
+function utils.tmap(key, cmd, config)
+    map('t', key, cmd, config)
+end
+
 function utils.vmap(key, cmd, config)
     map('v', key, cmd, config)
 end
