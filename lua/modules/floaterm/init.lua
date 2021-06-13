@@ -6,6 +6,7 @@ vim.g.floaterm_keymap_toggle = '<silent><localleader>T'
 vim.g.floaterm_keymap_new    = '<localleader>tn'
 vim.g.floaterm_keymap_prev   = '<F8>'
 vim.g.floaterm_keymap_next   = '<F9>'
+vim.g.floaterm_keymap_kill   = '<localleader>tq'
 vim.g.floaterm_width         = 0.9
 vim.g.floaterm_height        = 0.9
 
