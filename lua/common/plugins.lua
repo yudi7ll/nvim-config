@@ -75,6 +75,10 @@ return require('packer').startup(function(use)
     config = [[require('modules.treesitter')]]
   }
   -- use {'p00f/nvim-ts-rainbow'}
+  use {
+    'andweeb/presence.nvim',
+    config = [[require('presence')]]
+  }
 
   -- Highlighting
   use {
