@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {'ChristianChiarulli/nvcode-color-schemes.vim'}
+  use {'navarasu/onedark.nvim'}
 
   use {
     'neoclide/coc.nvim', branch = 'release',
