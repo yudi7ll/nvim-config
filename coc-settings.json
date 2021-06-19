@@ -1,5 +1,4 @@
 {
-  "rpc.workspaceElapsedTime": true,
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 120,
@@ -87,8 +86,5 @@
   "tsserver.npm": "~/.fnm/aliases/default/bin/npm",
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.mouseMode": "singleclick",
-  "explorer.width": 38,
-  "explorer.trash.command": "trash-put -r %s"
+  "eslint.format.enable": true
 }

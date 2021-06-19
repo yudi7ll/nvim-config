@@ -75,7 +75,6 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = [[require('modules.treesitter')]]
   }
-  -- use {'p00f/nvim-ts-rainbow'}
   use {
     'andweeb/presence.nvim',
     config = [[require('presence')]]

@@ -1,11 +1,14 @@
+local utils = require('common.utils')
+local nmap = utils.nmap
+
 -- FZF
-vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', { noremap = true, silent = true })
+nmap('<C-p>', ':FZF<CR>', { noremap = true, silent = true })
 
 -- Stop the highlighting for `hlsearch`
-vim.api.nvim_set_keymap('n', '<localleader>h', ':noh<CR>', { noremap = true, silent = true })
+nmap('<localleader>h', ':noh<CR>', { noremap = true, silent = true })
 
 -- Packer
-vim.api.nvim_set_keymap('n', '<F5>', ':PackerSync<CR>', { noremap = true })
+nmap('<F5>', ':PackerSync<CR>', { noremap = true })
 
 -- prevent common mistake of pressing q: instead :q
-vim.api.nvim_set_keymap('n', 'q:', ':q', { noremap = true })
+nmap('q:', ':q', { noremap = true })

@@ -1,7 +1,7 @@
 vim.cmd('colorscheme onedark')
 
 vim.cmd([[
-  hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+  hi Normal ctermbg=NONE guibg=NONE
   hi SignColumn guibg=NONE
   hi LineNr guibg=NONE
   hi CursorLine guibg=#1c1e25

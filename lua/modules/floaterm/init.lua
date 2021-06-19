@@ -1,6 +1,5 @@
 local utils = require('common.utils')
 local nmap = utils.nmap
-local tmap = utils.tmap
 
 vim.g.floaterm_keymap_toggle = '<silent><localleader>T'
 vim.g.floaterm_keymap_new    = '<localleader>tn'
