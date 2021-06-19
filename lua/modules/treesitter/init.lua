@@ -5,7 +5,6 @@ require('nvim-treesitter.configs').setup ({
   ensure_installed = "maintained",
   highlight = {
     enable = true,
-    disable = { 'blade' }
   },
   indent = {
     enable = true,
@@ -14,4 +13,4 @@ require('nvim-treesitter.configs').setup ({
 
 create_augroup({
   {'FileType blade TSBufDisable highlight'},
-}, 'disable_treesitter_on_ft_blade')
+}, 'disable_treesitter')
