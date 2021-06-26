@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
-  use {'ChristianChiarulli/nvcode-color-schemes.vim'}
   use {'navarasu/onedark.nvim'}
 
   use {
