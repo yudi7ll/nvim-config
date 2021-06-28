@@ -12,5 +12,5 @@ require('nvim-treesitter.configs').setup ({
 })
 
 create_augroup({
-  {'FileType blade TSBufDisable highlight'},
+  {'FileType blade,ejs TSBufDisable highlight'},
 }, 'disable_treesitter')
