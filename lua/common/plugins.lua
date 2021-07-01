@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
-  use {'navarasu/onedark.nvim'}
+  use {'yudi7ll/onedark.nvim'}
 
   use {
     'neoclide/coc.nvim', branch = 'release',
