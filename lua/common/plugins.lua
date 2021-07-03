@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- colorscheme
-  use {'yudi7ll/onedark.nvim'}
+  use {'yudi7ll/onearc.nvim'}
 
   use {
     'neoclide/coc.nvim', branch = 'release',
@@ -86,4 +86,5 @@ return require('packer').startup(function(use)
   }
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
+  use {'2072/PHP-Indenting-for-VIm', opt = true, ft = 'php'}
 end)
