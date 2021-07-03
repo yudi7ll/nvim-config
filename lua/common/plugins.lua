@@ -86,5 +86,4 @@ return require('packer').startup(function(use)
   }
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
-  use {'2072/PHP-Indenting-for-VIm', opt = true, ft = 'php'}
 end)
