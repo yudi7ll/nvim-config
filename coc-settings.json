@@ -1,7 +1,7 @@
 {
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
-  "html.format.wrapLineLength": 120,
+  "html.format.wrapLineLength": 0,
   "html.filetypes": [
     "blade",
     "html",
@@ -10,6 +10,10 @@
     "blade",
     "ejs"
   ],
+  "bladeFormatter.format.wrapLineLength": 1000,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "emmet.includeLanguages": {
     "blade": "html",
     "ejs": "html",
@@ -32,7 +36,6 @@
     "javascriptreact",
     "jsonc",
     "php",
-    "html",
     "css",
     "sh",
     "python",
@@ -42,7 +45,7 @@
     "vim"
   ],
   "highlight.colorNames.enable": false,
-  "suggest.timeout": 15000,
+  "suggest.timeout": 5000,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.completionItemKindLabels": {
     "text": "",
@@ -81,10 +84,10 @@
   "prettier.bracketSpacing": true,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "tsserver.typingsCacheLocation": "~/.cache",
-  "tsserver.maxTsServerMemory": 500,
-  "tsserver.npm": "~/.fnm/aliases/default/bin/npm",
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all",
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "tailwindCSS.emmetCompletions": true
 }
