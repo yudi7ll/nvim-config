@@ -17,7 +17,8 @@
   "emmet.includeLanguages": {
     "blade": "html",
     "ejs": "html",
-    "jsx": "javascriptreact"
+    "jsx": "javascriptreact",
+    "javascript": "javascriptreact"
   },
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
