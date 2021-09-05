@@ -23,11 +23,6 @@ require("gitsigns").setup {
 
 local cmd = vim.cmd
 
-cmd "hi clear DiffAdd"
-cmd "hi clear DiffChange"
-cmd "hi clear DiffModified"
-cmd "hi clear DiffDelete"
-cmd "hi DiffAdd guifg=#406183 guibg=NONE"
-cmd "hi DiffChange guifg=#315551 guibg=NONE"
-cmd "hi DiffModified guifg=#315551 guibg=NONE"
-cmd "hi DiffDelete guifg=#b60909 guibg=NONE"
+cmd "hi GitSignsAdd guifg=#406183 guibg=NONE"
+cmd "hi GitSignsChange guifg=#315551 guibg=NONE"
+cmd "hi GitSignsDelete guifg=#b60909 guibg=NONE"
