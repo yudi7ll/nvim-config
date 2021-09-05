@@ -86,4 +86,5 @@ return require('packer').startup(function(use)
   }
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
+  use {'tomlion/vim-solidity', opt = true, ft = 'solidity'}
 end)
