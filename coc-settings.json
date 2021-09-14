@@ -91,13 +91,6 @@
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.format.enable": true,
   "tailwindCSS.emmetCompletions": true,
-  "languageserver": {
-    "solidity": {
-      "command": "solc-linux64",
-      "args": [ "--lsp" ],
-      "trace.server": "verbose",
-      "rootPatterns": [".git/"],
-      "filetypes": ["solidity"]
-    }
-  }
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true
 }

@@ -13,16 +13,14 @@ local check_back_space = function()
   end
 end
 
-_G.tab_complete = function()
+_G.next_selection = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif check_back_space() then
-    return t "<Tab>"
   else
     return vim.fn['coc#refresh']()
   end
 end
-_G.s_tab_complete = function()
+_G.prev_selection = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
   else
@@ -33,19 +31,25 @@ end
 _G.confirm_selection = function()
   if vim.fn.pumvisible() == 1 then
     return vim.fn['coc#_select_confirm']()
+  elseif check_back_space() then
+    return t "<Tab>"
   else
-    return t "<C-g>u<CR><c-r>=coc#on_enter()<CR>"
+    return vim.fn['coc#refresh']()
   end
 end
 
-utils.imap("<Tab>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
-utils.imap("<C-j>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
-utils.smap("<Tab>", "v:lua.tab_complete()", { noremap = true, expr = true, silent = true })
-utils.imap("<S-Tab>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
-utils.imap("<C-k>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
-utils.smap("<S-Tab>", "v:lua.s_tab_complete()", { noremap = true, expr = true, silent = true })
+-- force enter key to do newline only
+_G.on_enter = function()
+  return t "<C-g>u<CR><c-r>=coc#on_enter()<CR>"
+end
+
+utils.imap("<A-j>", "v:lua.next_selection()", { noremap = true, expr = true, silent = true })
+utils.imap("<A-k>", "v:lua.prev_selection()", { noremap = true, expr = true, silent = true })
+utils.imap("<ArrowDown>", "v:lua.next_selection()", { noremap = true, expr = true, silent = true })
+utils.imap("<ArrowUp>", "v:lua.prev_selection()", { noremap = true, expr = true, silent = true })
 utils.imap('<C-space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
-utils.imap('<CR>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
+utils.imap('<Tab>', "v:lua.confirm_selection()", {noremap = true, expr = true,  silent = true })
+utils.imap('<CR>', 'v:lua.on_enter()', {noremap = true, expr = true, silent = true})
 
 -- scroll float windows/popups
 _G.n_scroll_down = function ()
