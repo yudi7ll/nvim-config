@@ -74,6 +74,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = [[require('modules.treesitter')]]
   }
+  use {'JoosepAlviste/nvim-ts-context-commentstring'}
   use {
     'andweeb/presence.nvim',
     config = [[require('presence')]]

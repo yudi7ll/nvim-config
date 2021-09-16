@@ -87,10 +87,13 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "tsserver.typingsCacheLocation": "~/.cache",
+  "tsserver.implicitProjectConfig.experimentalDecorators": true,
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.format.enable": true,
   "tailwindCSS.emmetCompletions": true,
   "suggest.noselect": false,
+  "suggest.languageSourcePriority": 1,
+  "suggest.triggerCompletionWait": 0,
   "suggest.enablePreselect": true
 }
