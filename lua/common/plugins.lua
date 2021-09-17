@@ -76,6 +76,15 @@ return require('packer').startup(function(use)
   }
   use {'JoosepAlviste/nvim-ts-context-commentstring'}
   use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = [[require('modules.nvim-gps')]]
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter-refactor',
+    requires = 'nvim-treesitter/nvim-treesitter'
+  }
+  use {
     'andweeb/presence.nvim',
     config = [[require('presence')]]
   }

@@ -3,6 +3,7 @@ local gls = require('galaxyline').section
 local fileinfo = require('modules.galaxyline.provider.fileinfo')
 local colors = require('modules.galaxyline.theme.colors')
 local mode_color = require('modules.galaxyline.theme.mode-color')
+local gps = require('nvim-gps')
 
 local buffer_not_empty = condition.buffer_not_empty
 local check_width = function() return condition.hide_in_width and buffer_not_empty end
@@ -69,14 +70,11 @@ gls.left = {
   {
     CurrentFunction = {
       provider = function()
-        if pcall(vim.api.nvim_buf_get_var,0,'coc_current_function') then
-          local current_function = vim.api.nvim_buf_get_var(0, 'coc_current_function')
-          if current_function ~= '' then
-            return ' ' ..current_function ..' '
-          end
+        if (string.len(gps.get_location()) > 1) then
+          return ' ' .. gps.get_location() .. ' '
         end
       end,
-      condition = check_width,
+      condition = gps.is_available,
       highlight = { colors.Cyan, colors.section_bg },
       separator = "",
       separator_highlight = {colors.section_bg, colors.bg},

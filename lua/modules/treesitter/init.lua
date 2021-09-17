@@ -19,5 +19,5 @@ require('nvim-treesitter.configs').setup ({
       jsx_attribute = '// %s',
       comment = '// %s'
     }
-  }
+  },
 })

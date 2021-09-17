@@ -50,7 +50,7 @@ gls.right = {
   {
     Spacing = {
       provider = function() return 'spaces '..vim.bo.shiftwidth end,
-      condition = buffer_not_empty,
+      condition = check_width,
       highlight = { colors.fg, colors.section_bg },
       separator =  " ",
       separator_highlight = { colors.bg, colors.section_bg },
