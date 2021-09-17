@@ -5,7 +5,7 @@ nmap('<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 nmap('<C-f>', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 vim.g.nvim_tree_disable_window_picker   = 1
-vim.g.nvim_tree_follow                  = 0
+vim.g.nvim_tree_follow                  = 1
 vim.g.nvim_tree_hide_dotfiles           = 1
 vim.g.nvim_tree_highlight_opened_files  = 1
 vim.g.nvim_tree_hijack_cursor           = 0
