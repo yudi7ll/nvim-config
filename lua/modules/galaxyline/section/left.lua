@@ -74,7 +74,9 @@ gls.left = {
           return ' ' .. gps.get_location() .. ' '
         end
       end,
-      condition = gps.is_available,
+      condition = function ()
+       return gps.is_available() and check_width()
+      end,
       highlight = { colors.Cyan, colors.section_bg },
       separator = "",
       separator_highlight = {colors.section_bg, colors.bg},
