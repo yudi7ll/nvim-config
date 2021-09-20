@@ -33,7 +33,6 @@ return require('packer').startup(function(use)
   }
 
   -- General
-  use {'jiangmiao/auto-pairs'}
   use {
     'kyazdani42/nvim-tree.lua',
     config = [[require('modules.nvim-tree')]]
@@ -97,4 +96,5 @@ return require('packer').startup(function(use)
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
   use {'ChristianChiarulli/vim-solidity', opt = true, ft = 'solidity'}
+  use {'styled-components/vim-styled-components', branch = 'main'}
 end)
