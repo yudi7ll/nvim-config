@@ -40,27 +40,6 @@ gls.left = {
     }
   },
   {
-    FileInfo = {
-      provider = function ()
-        local head = '/' .. vim.fn.expand('%:h')
-        local length = string.len(head)
-        local lastpath = ''
-        for i = 0, length do
-          if string.sub(string.reverse(head),i,i) == '/' then
-            break
-          end
-          lastpath = string.sub(head, length - i, length - i) .. lastpath
-        end
-
-        if lastpath ~= '' or lastpath ~= '.' then
-          return string.sub(lastpath, 2, string.len(lastpath)) .. '/'
-        end
-      end,
-      condition = buffer_not_empty,
-      highlight = { colors.fg, colors.section_bg },
-    }
-  },
-  {
     FileName = {
       provider = 'FileName',
       condition = buffer_not_empty,
