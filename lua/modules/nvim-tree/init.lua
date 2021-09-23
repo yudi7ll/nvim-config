@@ -9,8 +9,8 @@ vim.g.nvim_tree_follow                  = 1
 vim.g.nvim_tree_hide_dotfiles           = 1
 vim.g.nvim_tree_highlight_opened_files  = 1
 vim.g.nvim_tree_hijack_cursor           = 0
-vim.g.nvim_tree_indent_markers          = 1
-vim.g.nvim_tree_refresh_wait            = 200
+vim.g.nvim_tree_indent_markers          = 0
+vim.g.nvim_tree_lsp_diagnostics         = 1
 vim.g.nvim_tree_root_folder_modifier    = ':t'
 vim.g.nvim_tree_width                   = 38
 

@@ -42,7 +42,7 @@ gls.right = {
     },
   },
   {
-    Space = {
+    Space2 = {
       provider = function() return ' ' end,
       highlight = { colors.bg, colors.bg }
     }

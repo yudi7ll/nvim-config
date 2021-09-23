@@ -48,17 +48,17 @@ gls.left = {
   },
   {
     CurrentFunction = {
-      provider = function()
-        if (string.len(gps.get_location()) > 1) then
-          return ' ' .. gps.get_location() .. ' '
-        end
-      end,
+      provider = function() return ' ' .. gps.get_location() .. ' ' end,
       condition = function ()
-       return gps.is_available() and check_width()
+        return string.len(gps.get_location()) > 1 and gps.is_available() and check_width()
       end,
       highlight = { colors.Cyan, colors.section_bg },
-      separator = "",
-      separator_highlight = {colors.section_bg, colors.bg},
+    }
+  },
+  {
+    Space1 = {
+      provider = function() return ' ' end,
+      highlight = { colors.section_bg, colors.bg }
     }
   },
   {

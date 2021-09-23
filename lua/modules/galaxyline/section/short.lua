@@ -2,7 +2,7 @@ local gl = require('galaxyline')
 local gls = gl.section
 local colors = require('modules.galaxyline.theme.colors')
 
-gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern', 'floaterm'}
+gl.short_line_list = {'nerdtree', 'NvimTree', 'vista', 'dbui', 'packer', 'help', 'fern', 'floaterm', 'coc-explorer'}
 
 -- Short status line
 gls.short_line_left = {
