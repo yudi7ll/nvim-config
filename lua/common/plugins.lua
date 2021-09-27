@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
     'neoclide/coc.nvim', branch = 'release',
     config = [[require('modules.coc')]]
   }
-  use {'xiyaowong/nvim-tree-coc-diagnostics'}
 
   -- Icons
   use {

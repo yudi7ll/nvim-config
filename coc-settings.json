@@ -40,7 +40,8 @@
     "css",
     "sh",
     "python",
-    "markdown"
+    "markdown",
+    "json"
   ],
   "Lua.diagnostics.globals": [
     "vim"
@@ -87,5 +88,6 @@
   "tailwindCSS.emmetCompletions": true,
   "suggest.noselect": false,
   "suggest.languageSourcePriority": 1,
-  "suggest.triggerCompletionWait": 0
+  "suggest.triggerCompletionWait": 0,
+  "list.previewSplitRight": true
 }

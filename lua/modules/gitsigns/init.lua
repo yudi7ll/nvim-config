@@ -28,10 +28,6 @@ require("gitsigns").setup {
     ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
   },
 
-  watch_index = {
-    interval = 1000,
-    follow_files = true
-  },
   attach_to_untracked = true,
   current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
