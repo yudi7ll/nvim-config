@@ -6,7 +6,7 @@ nmap('<C-f>', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_hide_dotfiles          = 1
-vim.g.nvim_tree_indent_markers         = 1
+vim.g.nvim_tree_indent_markers         = 0
 vim.g.nvim_tree_disable_window_picker  = 1
 vim.g.nvim_tree_refresh_wait           = 500
 vim.g.nvim_tree_icons = {
