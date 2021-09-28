@@ -1,7 +1,7 @@
 # Neovim Config Written In Lua
 
 ## Weapons
-- [Neovim Nightly ( >= 0.5.0 )](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [Neovim ( >= 0.5.0 )](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [FZF](https://github.com/junegunn/fzf)
 - [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)

@@ -41,7 +41,8 @@
     "sh",
     "python",
     "markdown",
-    "json"
+    "json",
+    "html"
   ],
   "Lua.diagnostics.globals": [
     "vim"
@@ -80,6 +81,7 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "tsserver.typingsCacheLocation": "~/.cache",
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
   "eslint.autoFixOnSave": true,
