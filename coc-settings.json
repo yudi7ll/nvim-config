@@ -35,13 +35,11 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
-    "jsonc",
     "php",
     "css",
     "sh",
     "python",
     "markdown",
-    "json",
     "html"
   ],
   "Lua.diagnostics.globals": [

@@ -9,3 +9,8 @@ vim.cmd('set shortmess+=c')
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd('colorscheme onearc')
+vim.cmd([[
+  augroup JsonToJsonc
+      autocmd! FileType json set filetype=jsonc
+  augroup END
+]])
