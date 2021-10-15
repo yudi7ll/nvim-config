@@ -70,8 +70,16 @@ require("nvim-tree").setup({
   open_on_tab              = false,
   hijack_cursor            = false,
   update_cwd               = false,
-  lsp_diagnostics          = true,
   root_folder_modifier     = false,
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
   update_focused_file = {
     enable      = true,
     update_cwd  = false,
@@ -84,9 +92,9 @@ require("nvim-tree").setup({
   },
 
   view = {
-    width       = 38,
-    auto_resize = false,
-    mappings = {
+    width         = 38,
+    auto_resize   = false,
+    mappings      = {
       custom_only = false,
       list        = list
     }
