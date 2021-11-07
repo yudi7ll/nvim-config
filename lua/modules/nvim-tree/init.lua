@@ -5,7 +5,6 @@ nmap('<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 nmap('<C-f>', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_hide_dotfiles          = 1
 vim.g.nvim_tree_indent_markers         = 0
 vim.g.nvim_tree_disable_window_picker  = 1
 vim.g.nvim_tree_refresh_wait           = 500
@@ -80,6 +79,11 @@ require("nvim-tree").setup({
       error = "",
     }
   },
+
+  filters = {
+    dotfiles = true,
+  },
+
   update_focused_file = {
     enable      = true,
     update_cwd  = false,
