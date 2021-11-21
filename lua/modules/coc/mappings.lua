@@ -34,8 +34,8 @@ nmap('gi', '<Plug>(coc-implementation)')
 nmap('gr', '<Plug>(coc-references)')
 
 -- Navigate diagnostics of current buffer
-nmap('gn', '<Plug>(coc-diagnostic-prev)')
-nmap('gp', '<Plug>(coc-diagnostic-next)')
+nmap('gp', '<Plug>(coc-diagnostic-prev)')
+nmap('gn', '<Plug>(coc-diagnostic-next)')
 
 -- coc marketplace
 nmap('<leader>m', ':CocList marketplace<CR>', { noremap = true, silent = true, nowait = true })

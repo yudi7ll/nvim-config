@@ -7,9 +7,6 @@ local keymap = {
 	a = {
 		name = '+coc-action',
 	},
-	g = {
-		name = '+git',
-	},
 	c = {
 		name = '+coc'
 	},
