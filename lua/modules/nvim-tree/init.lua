@@ -82,6 +82,13 @@ require("nvim-tree").setup({
 
   filters = {
     dotfiles = true,
+    custom = {}
+  },
+
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 1000
   },
 
   update_focused_file = {
@@ -98,9 +105,15 @@ require("nvim-tree").setup({
   view = {
     width         = 38,
     auto_resize   = false,
+    hide_root_foler = true,
     mappings      = {
       custom_only = false,
       list        = list
     }
   },
+
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
 })

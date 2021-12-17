@@ -10,7 +10,7 @@
     "blade",
     "ejs"
   ],
-  "bladeFormatter.format.wrapLineLength": 1000,
+  /* "bladeFormatter.format.wrapLineLength": 1000, */
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -20,10 +20,16 @@
     "jsx": "javascriptreact",
     "javascript": "javascriptreact"
   },
+  "emmet.priority": 1,
+  "coc.source.file.priority": 10,
+  "coc.source.around.priority": 10,
+  "coc.source.buffer.priority": 10,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.hintSign": " ",
   "diagnostic.infoSign": " ",
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "diagnostic.checkCurrentLine": true,
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.rootPatterns": [
     ".git",
@@ -35,6 +41,8 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "php",
     "css",
     "sh",
@@ -42,6 +50,8 @@
     "markdown",
     "html"
   ],
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.extensionUpdateCheck": "never",
   "Lua.diagnostics.globals": [
     "vim"
   ],
@@ -81,13 +91,27 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "tsserver.typingsCacheLocation": "~/.cache",
-  "tsserver.implicitProjectConfig.experimentalDecorators": true,
+  "tsserver.implicitProjectConfig.checkJs": false,
+  "tsserver.npm": "~/.local/bin/npm",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifier": "project-relative",
   "eslint.autoFixOnSave": true,
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.format.enable": true,
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
   "tailwindCSS.emmetCompletions": true,
+  "suggest.disableMenu": true,
   "suggest.noselect": false,
   "suggest.languageSourcePriority": 1,
-  "suggest.triggerCompletionWait": 0,
+  "suggest.triggerCompletionWait": 30,
+  "suggest.defaultSortMethod": "none",
+  "suggest.enablePreview": true,
   "list.previewSplitRight": true
 }
