@@ -1,100 +1,68 @@
--- Bootstrap
-local execute = vim.api.nvim_command
-local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-  execute 'packadd packer.nvim'
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
-
-execute [[packadd packer.nvim]]
 
 require('packer').init({
   git = { clone_timeout = 9999 }
 })
 
 return require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim', opt = true}
+  use {'wbthomason/packer.nvim'}
 
   -- colorscheme
   use {'yudi7ll/onearc.nvim'}
 
-  use {
-    'neoclide/coc.nvim', branch = 'release',
-    config = [[require('modules.coc')]]
-  }
+  -- coc
+  use { 'neoclide/coc.nvim', branch = 'release' }
 
   -- Icons
-  use {
-    'kyazdani42/nvim-web-devicons',
-    config = [[require('modules.nvim-web-devicons')]]
-  }
+  use { 'kyazdani42/nvim-web-devicons' }
 
   -- General
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = [[require('modules.nvim-tree')]]
-  }
-  use {
-    'glepnir/galaxyline.nvim', branch = 'main',
-    config = [[require('modules.galaxyline')]]
-  }
-  use {
-    'terrortylor/nvim-comment',
-    config = [[require('modules.nvim-comment')]]
-  }
+  use {'kyazdani42/nvim-tree.lua'}
+  use {'glepnir/galaxyline.nvim', branch = 'main' }
+  use {'terrortylor/nvim-comment'}
   use {'tpope/vim-surround'}
   use {'tpope/vim-sleuth'}
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
-    config = [[require('modules.gitsigns')]]
-  }
+  use {'nvim-lua/plenary.nvim'}
+  use {'lewis6991/gitsigns.nvim'}
   use {'editorconfig/editorconfig-vim'}
   use {'tommcdo/vim-lion', opt = true, ft = 'lua'}
-  use {
-    'akinsho/nvim-bufferline.lua',
-    config = [[require('modules.bufferline')]]
-  }
-  use {
-    'AckslD/nvim-whichkey-setup.lua',
-    requires = {'liuchengxu/vim-which-key'},
-    config = [[require('modules.vim-which-key')]]
-  }
-  use {
-    'voldikss/vim-floaterm',
-    config = [[require('modules.floaterm')]]
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-    config = [[require('modules.treesitter')]]
-  }
+  use {'akinsho/nvim-bufferline.lua'}
+  use {'liuchengxu/vim-which-key'}
+  use {'AckslD/nvim-whichkey-setup.lua'}
+  use {'voldikss/vim-floaterm'}
+  use {"SmiteshP/nvim-gps"}
+  use {'andweeb/presence.nvim'}
+
+  -- treesitter
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter-refactor'}
   use {'JoosepAlviste/nvim-ts-context-commentstring'}
-  use {
-    "SmiteshP/nvim-gps",
-    requires = "nvim-treesitter/nvim-treesitter",
-    config = [[require('modules.nvim-gps')]]
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter-refactor',
-    requires = 'nvim-treesitter/nvim-treesitter'
-  }
-  use {
-    'andweeb/presence.nvim',
-    config = [[require('presence')]]
-  }
 
   -- Highlighting
-  use {
-    'jwalton512/vim-blade', opt = true, ft = 'blade',
-    config = [[require('modules.vim-blade')]]
-  }
+  use {'jwalton512/vim-blade', opt = true, ft = 'blade'}
   use {'nikvdp/ejs-syntax', opt = true, ft = 'ejs'}
   use {'chr4/nginx.vim', opt = true, ft = 'nginx'}
-  use {'ChristianChiarulli/vim-solidity', opt = true, ft = 'solidity'}
   use {'styled-components/vim-styled-components', branch = 'main'}
+
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
