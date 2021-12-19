@@ -10,17 +10,13 @@
     "blade",
     "ejs"
   ],
-  /* "bladeFormatter.format.wrapLineLength": 1000, */
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
   "emmet.includeLanguages": {
     "blade": "html",
     "ejs": "html",
     "jsx": "javascriptreact",
     "javascript": "javascriptreact"
   },
-  "emmet.priority": 1,
+  "emmet.priority": 10,
   "coc.source.file.priority": 10,
   "coc.source.around.priority": 10,
   "coc.source.buffer.priority": 10,
@@ -30,7 +26,6 @@
   "diagnostic.infoSign": " ",
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "diagnostic.checkCurrentLine": true,
-  "coc.preferences.enableMessageDialog": true,
   "coc.preferences.rootPatterns": [
     ".git",
     ".hg",
@@ -56,6 +51,8 @@
     "vim"
   ],
   "highlight.colorNames.enable": false,
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
   "suggest.timeout": 5000,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.completionItemKindLabels": {
@@ -90,9 +87,9 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "tsserver.typingsCacheLocation": "~/.cache",
+  "tsserver.typingsCacheLocation": "/run/user/1000",
   "tsserver.implicitProjectConfig.checkJs": false,
-  "tsserver.npm": "~/.local/bin/npm",
+  "tsserver.npm": "$HOME/.local/bin/npm",
   "typescript.preferences.importModuleSpecifier": "project-relative",
   "javascript.preferences.importModuleSpecifier": "project-relative",
   "eslint.autoFixOnSave": true,

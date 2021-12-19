@@ -1,6 +1,6 @@
 require('common.plugins')
 require('common.general')
-require('common.settings')
+require('common.options')
 require('common.mappings')
 
 -- load plugin
@@ -15,7 +15,7 @@ require('modules.gitsigns')
 require('modules.nvim-comment')
 require('modules.nvim-gps')
 require('modules.nvim-tree')
-require('modules.web-devicons')
 require('modules.treesitter')
 require('modules.vim-blade')
 require('modules.vim-which-key')
+require('modules.web-devicons')
