@@ -16,7 +16,7 @@ end
 
 local packer = require("packer")
 
-require("packer").init({
+packer.init({
 	git = { clone_timeout = 9999 },
 })
 
@@ -31,7 +31,7 @@ return packer.startup(function(use)
 	-- Icons
 	use({ "kyazdani42/nvim-web-devicons" })
 	-- General
-	use({ "antoinemadec/FixCursorHold.nvim" })
+	-- use({ "antoinemadec/FixCursorHold.nvim" })
 	use({ "kyazdani42/nvim-tree.lua" })
 	use({ "glepnir/galaxyline.nvim", branch = "main" })
 	use({ "terrortylor/nvim-comment" })
@@ -44,10 +44,11 @@ return packer.startup(function(use)
 	use({ "folke/which-key.nvim" })
 	use({ "voldikss/vim-floaterm" })
 	use({ "SmiteshP/nvim-gps" })
-	use({ "andweeb/presence.nvim" })
+	use({ "andweeb/presence.nvim", config = [[require('presence')]] })
 	-- treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+	use({ "p00f/nvim-ts-rainbow" })
 	-- Highlighting
 	use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
 	use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })

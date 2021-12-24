@@ -16,7 +16,7 @@
     "jsx": "javascriptreact",
     "javascript": "javascriptreact"
   },
-  "emmet.priority": 10,
+  "emmet.priority": 20,
   "coc.source.file.priority": 10,
   "coc.source.around.priority": 10,
   "coc.source.buffer.priority": 10,
@@ -43,7 +43,8 @@
     "sh",
     "python",
     "markdown",
-    "html"
+    "html",
+    "lua"
   ],
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.extensionUpdateCheck": "never",
@@ -52,8 +53,8 @@
   ],
   "highlight.colorNames.enable": false,
   "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
-  "suggest.timeout": 5000,
+  "suggest.timeout": 15000,
+  "suggest.maxCompleteItemCount": 30,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.completionItemKindLabels": {
     "text": "",
@@ -98,6 +99,7 @@
   "eslint.validate": [
     "vue",
     "html",
+    "css",
     "javascript",
     "typescript",
     "javascriptreact",
@@ -110,5 +112,7 @@
   "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
   "suggest.enablePreview": true,
-  "list.previewSplitRight": true
+  "list.previewSplitRight": true,
+  "lightbulb.enableSign": true,
+  "lightbulb.enableVirtualText": false
 }
