@@ -16,7 +16,6 @@ nmap("<leader>as", "<Plug>(coc-codeaction-selected)")
 nmap("<leader>ar", "<Plug>(coc-rename)")
 
 -- c
-local nowait = { nowait = true }
 nmap("<leader>cd", ":CocList diagnostics<CR>")
 nmap("<leader>ce", ":CocList extensions<CR>", { noremap = true, silent = true, nowait = true })
 nmap("<leader>cf", ":Format<CR>", { noremap = true, silent = true, nowait = true })
@@ -40,4 +39,5 @@ nmap("gn", "<Plug>(coc-diagnostic-next)")
 
 -- coc marketplace
 nmap("<leader>m", ":CocList marketplace<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<localleader>c", ":CocCommand editor.action.pickColor<CR>", nowait)
+nmap("<localleader>cc", ":CocCommand editor.action.pickColor<CR>", { noremap = true, silent = true })
+nmap("<localleader>cm", ":CocCommand editor.action.colorPresentation<CR>", { noremap = true, silent = true })

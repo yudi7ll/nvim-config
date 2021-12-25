@@ -66,9 +66,6 @@ wk.setup({
 	},
 })
 
--- vim.api.nvim_set_keymap('n', '<leader>', ":<c-u>WhichKey '<Space>'<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<localleader>', ":<c-u>WhichKey ','<CR>", { noremap = true, silent = true })
-
 local keymap = {
 	["<leader>"] = {
 		a = {
@@ -100,7 +97,9 @@ local keymap = {
 local local_keymap = {
 	["<localleader>"] = {
 		c = {
-			name = "+pick color",
+			name = "color",
+			c = "pick color",
+			m = "change color presentation",
 		},
 		T = {
 			name = "+floaterm toggle",
