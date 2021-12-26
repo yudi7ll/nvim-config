@@ -1,8 +1,8 @@
 require("nvim-gps").setup({
 	icons = {
-		["class-name"] = ' ',      -- Classes and class-like objects
-		["function-name"] = ' ',   -- Functions
-		["method-name"] = ' '      -- Methods (functions inside class-like objects)
+		["class-name"] = " ", -- Classes and class-like objects
+		["function-name"] = " ", -- Functions
+		["method-name"] = " ", -- Methods (functions inside class-like objects)
 	},
 	-- Disable any languages individually over here
 	-- Any language not disabled here is enabled by default
@@ -10,5 +10,7 @@ require("nvim-gps").setup({
 		-- ["bash"] = false,
 		-- ["go"] = false,
 	},
-	separator = ' > ',
+	separator = " > ",
+	depth = 2,
+	depth_limit_indicator = "..",
 })
