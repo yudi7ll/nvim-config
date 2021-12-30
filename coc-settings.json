@@ -86,7 +86,7 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "tsserver.typingsCacheLocation": "/tmp",
+  "tsserver.typingsCacheLocation": "$HOME/.cache/type",
   "tsserver.implicitProjectConfig.checkJs": false,
   "tsserver.npm": "$HOME/.local/bin/npm",
   "typescript.preferences.importModuleSpecifier": "project-relative",
