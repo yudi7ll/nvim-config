@@ -8,6 +8,7 @@
 - [Lazygit](https://github.com/jesseduffield/lazygit)
 - [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - [NerdFonts](https://www.nerdfonts.com)
+- [Yarn](https://yarnpkg.com)
 
 ## Screenshots
 ![Screenshot-4](https://user-images.githubusercontent.com/35747911/135737422-a8f93665-5020-4ba8-8bba-195bfcb44903.png)
