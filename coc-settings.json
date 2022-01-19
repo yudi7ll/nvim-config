@@ -113,7 +113,7 @@
   "tailwindCSS.emmetCompletions": true,
   "suggest.disableMenu": true,
   "suggest.noselect": false,
-  "suggest.languageSourcePriority": 1,
+  "suggest.languageSourcePriority": -1,
   "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
   "suggest.enablePreview": true,

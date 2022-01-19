@@ -2,6 +2,9 @@ local utils = require("common.utils")
 local xmap = utils.xmap
 local nmap = utils.nmap
 
+-- coc
+nmap("<leader>rr", ":CocRestart<CR>")
+
 -- a
 xmap("<leader>ac", "<Plug>(coc-codeaction)")
 nmap("<leader>ac", "<Plug>(coc-codeaction)")
