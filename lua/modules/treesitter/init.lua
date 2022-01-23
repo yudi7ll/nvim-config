@@ -1,5 +1,8 @@
+require("nvim-treesitter.install").prefer_git = true
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "maintained",
+	ignore_install = { "ocaml", "ocaml_interface", "ocamllex" },
 	sync_install = false,
 	highlight = {
 		enable = true,

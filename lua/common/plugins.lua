@@ -31,7 +31,7 @@ return packer.startup(function(use)
 	-- Icons
 	use({ "kyazdani42/nvim-web-devicons" })
 	-- General
-	use({ "antoinemadec/FixCursorHold.nvim" })
+	-- use({ "antoinemadec/FixCursorHold.nvim" })
 	use({ "kyazdani42/nvim-tree.lua" })
 	use({ "glepnir/galaxyline.nvim", branch = "main" })
 	use({ "terrortylor/nvim-comment" })

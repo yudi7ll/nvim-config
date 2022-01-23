@@ -17,7 +17,6 @@ vim.g.coc_global_extensions = {
   'coc-phpls',
   'coc-pyright',
   'coc-sh',
-  'coc-stylua',
   'coc-svg',
   'coc-tsserver',
   'coc-yaml',
