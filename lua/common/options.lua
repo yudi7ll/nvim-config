@@ -12,7 +12,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.laststatus = 2
-vim.opt.lazyredraw = false
+vim.opt.lazyredraw = true
 -- vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -34,7 +34,7 @@ vim.opt.tabstop = 2
 vim.opt.termguicolors = true
 vim.opt.textwidth = 0
 vim.opt.undofile = true
-vim.opt.undodir = "/hdd/.cache/nvim/undodir"
+-- vim.opt.undodir = "/hdd/.cache/nvim/undodir"
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 vim.opt.title = true
@@ -47,3 +47,4 @@ vim.opt.writebackup = false
 
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")
+

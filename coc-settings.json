@@ -96,11 +96,9 @@
   "tsserver.npm": "$HOME/.local/bin/npm",
   "typescript.preferences.importModuleSpecifier": "project-relative",
   "javascript.preferences.importModuleSpecifier": "project-relative",
+  "eslint.autoFixOnSave": true,
   "eslint.onIgnoredFiles": "off",
   "eslint.quiet": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.codeActionsOnSave.mode": "problems",
-  "eslint.format.enable": true,
   "eslint.validate": [
     "vue",
     "html",
