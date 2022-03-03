@@ -6,7 +6,6 @@ nmap("<C-f>", ":NvimTreeFindFile<CR>", { noremap = true, silent = true })
 
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_indent_markers = 0
-vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_refresh_wait = 500
 vim.g.nvim_tree_icons = {
 	default = "",
@@ -115,4 +114,17 @@ require("nvim-tree").setup({
 		cmd = "trash",
 		require_confirm = true,
 	},
+
+  actions = {
+    change_dir = {
+      enable = true,
+      global = false
+    },
+    open_file = {
+      quit_on_open = false,
+      window_picker = {
+        enable = false
+      }
+    }
+  }
 })
