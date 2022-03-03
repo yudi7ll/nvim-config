@@ -50,7 +50,7 @@ gls.left = {
     CurrentFunction = {
       provider = function() return ' ' .. gps.get_location() .. ' ' end,
       condition = function ()
-        return string.len(gps.get_location()) > 1 and gps.is_available() and check_width()
+        return check_width() and gps.is_available() and string.len(gps.get_location()) > 1
       end,
       highlight = { colors.Cyan, colors.section_bg },
     }
