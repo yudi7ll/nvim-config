@@ -8,6 +8,7 @@
     "blade",
     "ejs"
   ],
+  "blade.bladeFormatter.optWrapAttributes": "force-expand-multiline",
   "emmet.includeLanguages": {
     "blade": "html",
     "ejs": "html",
