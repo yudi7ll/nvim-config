@@ -5,7 +5,6 @@ nmap("<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 nmap("<C-f>", ":NvimTreeFindFile<CR>", { noremap = true, silent = true })
 
 vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_refresh_wait = 500
 vim.g.nvim_tree_icons = {
 	default = "",
@@ -63,11 +62,9 @@ require("nvim-tree").setup({
 	hijack_netrw = true,
 	open_on_setup = false,
 	ignore_ft_on_setup = {},
-	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = false,
-	root_folder_modifier = false,
 	diagnostics = {
 		enable = true,
 		icons = {
@@ -103,7 +100,6 @@ require("nvim-tree").setup({
 	view = {
 		width = 38,
 		auto_resize = false,
-		hide_root_foler = true,
 		mappings = {
 			custom_only = false,
 			list = list,
@@ -125,6 +121,12 @@ require("nvim-tree").setup({
       window_picker = {
         enable = false
       }
+    }
+  },
+
+  renderer = {
+    indent_markers = {
+      enable = false
     }
   }
 })

@@ -6,10 +6,10 @@ local utils = require('common.utils')
 -- keep installed
 vim.g.coc_global_extensions = {
   'coc-css',
-  'coc-diagnostic',
+  -- 'coc-diagnostic',
   'coc-emmet',
-  'coc-eslint',
-  'coc-highlight',
+  -- 'coc-eslint',
+  -- 'coc-highlight',
   'coc-html',
   'coc-json',
   'coc-marketplace',
@@ -18,7 +18,7 @@ vim.g.coc_global_extensions = {
   'coc-pyright',
   'coc-sh',
   'coc-svg',
-  'coc-tsserver',
+  -- 'coc-tsserver',
   'coc-yaml',
   'coc-xml',
 }
