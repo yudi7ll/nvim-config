@@ -66,7 +66,7 @@ require("nvim-tree").setup({
 	hijack_cursor = false,
 	update_cwd = false,
 	diagnostics = {
-		enable = true,
+		enable = false, -- crash
 		icons = {
 			hint = "",
 			info = "",
