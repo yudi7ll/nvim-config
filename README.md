@@ -11,6 +11,8 @@
 - [Yarn](https://yarnpkg.com)
 
 ## Screenshots
+![Screenshot-6](https://user-images.githubusercontent.com/35747911/169698182-d418da89-03b7-4906-b9d2-11f0b99334d2.png)
+![Screenshot-5](https://user-images.githubusercontent.com/35747911/169698186-1bdcfe27-7e05-4ea1-a4c0-3fba1ad05830.png)
 ![Screenshot-4](https://user-images.githubusercontent.com/35747911/135737422-a8f93665-5020-4ba8-8bba-195bfcb44903.png)
 ![Screenshot-5](https://user-images.githubusercontent.com/35747911/135737450-51969dc3-76f0-4760-911c-a92134597750.png)
 ![screenshot-1](https://user-images.githubusercontent.com/35747911/118928244-8cd4ca80-b975-11eb-83eb-d6b00a4ebf73.png)
