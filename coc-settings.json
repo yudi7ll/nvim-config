@@ -1,4 +1,9 @@
 {
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "javascript": "html",
+    "typescript": "html"
+  },
   "html.format.wrapAttributes": "auto",
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 0,
