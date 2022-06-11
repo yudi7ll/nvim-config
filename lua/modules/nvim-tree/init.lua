@@ -111,22 +111,22 @@ require("nvim-tree").setup({
 		require_confirm = true,
 	},
 
-  actions = {
-    change_dir = {
-      enable = true,
-      global = false
-    },
-    open_file = {
-      quit_on_open = false,
-      window_picker = {
-        enable = false
-      }
-    }
-  },
+	actions = {
+		change_dir = {
+			enable = true,
+			global = false,
+		},
+		open_file = {
+			quit_on_open = false,
+			window_picker = {
+				enable = false,
+			},
+		},
+	},
 
-  renderer = {
-    indent_markers = {
-      enable = false
-    }
-  }
+	renderer = {
+		indent_markers = {
+			enable = false,
+		},
+	},
 })
