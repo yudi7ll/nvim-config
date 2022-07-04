@@ -24,6 +24,7 @@ nmap("<leader>ce", ":CocList extensions<CR>", { noremap = true, silent = true, n
 nmap("<leader>cf", ":Format<CR>", { noremap = true, silent = true, nowait = true })
 nmap("<leader>cF", ":OR<CR>", { noremap = true, silent = true, nowait = true })
 nmap("<leader>cc", ":CocList commands<CR>", { noremap = true, silent = true, nowait = true })
+nmap("<leader>cl", "<Plug>(coc-codelens-action)", { noremap = true, silent = true })
 nmap("<leader>co", ":CocList outline<CR>", { noremap = true, silent = true, nowait = true })
 nmap("<leader>cs", ":CocList -I symbols<CR>", { noremap = true, silent = true, nowait = true })
 nmap("<leader>cj", ":CocNext<CR>", { noremap = true, silent = true, nowait = true })

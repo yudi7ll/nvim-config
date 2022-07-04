@@ -15,7 +15,6 @@ vim.g.coc_global_extensions = {
 	"coc-json",
 	"coc-marketplace",
 	"coc-pairs",
-	"coc-phpls",
 	"coc-pyright",
 	"coc-sh",
 	"coc-svg",
