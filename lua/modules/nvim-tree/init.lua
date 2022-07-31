@@ -23,7 +23,7 @@ require("nvim-tree").setup({
 	reload_on_bufenter = true,
 	respect_buf_cwd = false,
 	view = {
-		adaptive_size = true,
+		adaptive_size = false,
 		centralize_selection = false,
 		width = 38,
 		height = 30,
@@ -45,7 +45,7 @@ require("nvim-tree").setup({
 		add_trailing = false,
 		group_empty = false,
 		highlight_git = false,
-		full_name = false,
+		full_name = true,
 		highlight_opened_files = "icon",
 		root_folder_modifier = ":~",
 		indent_markers = {
@@ -147,7 +147,7 @@ require("nvim-tree").setup({
 			quit_on_open = false,
 			resize_window = true,
 			window_picker = {
-				enable = true,
+				enable = false,
 				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 				exclude = {
 					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
