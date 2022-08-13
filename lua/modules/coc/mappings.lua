@@ -17,6 +17,7 @@ nmap("<leader>aS", "<Plug>(coc-range-select)")
 xmap("<leader>as", "<Plug>(coc-codeaction-selected)")
 nmap("<leader>as", "<Plug>(coc-codeaction-selected)")
 nmap("<leader>ar", "<Plug>(coc-rename)")
+nmap("<leader>al", "<Plug>(coc-codelens-action)")
 
 -- c
 nmap("<leader>cd", ":CocList diagnostics<CR>")
