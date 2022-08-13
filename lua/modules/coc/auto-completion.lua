@@ -15,14 +15,14 @@ end
 
 _G.next_selection = function()
 	if vim.fn["coc#pum#visible"]() == 1 then
-		return t("<C-n>")
+		return vim.fn["coc#pum#next"](1)
 	else
 		return vim.fn["coc#refresh"]()
 	end
 end
 _G.prev_selection = function()
 	if vim.fn["coc#pum#visible"]() == 1 then
-		return t("<C-p>")
+		return vim.fn["coc#pum#prev"](1)
 	else
 		return t("<S-Tab>")
 	end
