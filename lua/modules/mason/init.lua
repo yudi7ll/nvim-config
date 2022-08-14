@@ -14,5 +14,5 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
   ensure_installed = { 'tsserver', 'emmet_ls' },
-  automatic_installation = true
+  automatic_installation = true,
 })

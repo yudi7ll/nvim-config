@@ -27,11 +27,12 @@ return packer.startup(function(use)
   use({ "glepnir/lspsaga.nvim" })
   use({ "neovim/nvim-lspconfig" })
   use({ "hrsh7th/nvim-cmp" })
-  use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "williamboman/mason.nvim" })
   use({ 'williamboman/mason-lspconfig.nvim' })
   use({ 'onsails/lspkind.nvim' })
-  -- snippets
+  -- lsp sources & snippets
+  use({ "hrsh7th/cmp-nvim-lua" })
+  use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "L3MON4D3/LuaSnip" })
   use({ "saadparwaiz1/cmp_luasnip" })
   -- telescope
@@ -39,8 +40,8 @@ return packer.startup(function(use)
   -- Icons
   use({ "kyazdani42/nvim-web-devicons" })
   -- General
-  use({ "antoinemadec/FixCursorHold.nvim" })
-  use({ "windwp/nvim-autopairs", config = [[require('nvim-autopairs').setup()]] })
+  -- use({ "antoinemadec/FixCursorHold.nvim" })
+  use({ "windwp/nvim-autopairs" })
   use({ "windwp/nvim-ts-autotag", config = [[require('nvim-ts-autotag').setup()]] })
   use({ "kyazdani42/nvim-tree.lua" })
   use({ "glepnir/galaxyline.nvim", branch = "main" })
