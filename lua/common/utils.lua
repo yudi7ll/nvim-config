@@ -1,7 +1,7 @@
 local utils = {}
 
 local map = function(mode, key, cmd, config)
-	vim.api.nvim_set_keymap(mode, key, cmd, config or { silent = true })
+	vim.keymap.set(mode, key, cmd, config or { silent = true })
 end
 
 function utils.nmap(key, cmd, config)
@@ -38,6 +38,20 @@ function utils.create_augroup(autocmds, name)
 		cmd("autocmd " .. table.concat(autocmd, " "))
 	end
 	cmd("augroup END")
+end
+
+function utils.merge(template)
+  local result = {}
+  for key, value in pairs(template) do
+    result[key] = value
+  end
+
+  return function(table)
+    for key, value in pairs(table) do
+      result[key] = value
+    end
+    return result
+  end
 end
 
 return utils

@@ -8,6 +8,7 @@ vim.cmd("set shortmess+=c")
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin on")
 vim.cmd("colorscheme onearc")
+vim.cmd("set completeopt=menu,menuone,noselect")
 
 vim.cmd([[
   augroup JsonToJsonc

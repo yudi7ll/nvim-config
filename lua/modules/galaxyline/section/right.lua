@@ -4,6 +4,7 @@ local gls = require('galaxyline').section
 local fileinfo = require('modules.galaxyline.provider.fileinfo')
 local buffer = require('galaxyline.provider_buffer')
 local colors = require('modules.galaxyline.theme.colors')
+local lspclient = require('galaxyline.provider_lsp')
 
 local buffer_not_empty = condition.buffer_not_empty
 local check_width = function() return condition.hide_in_width and buffer_not_empty end
@@ -73,8 +74,8 @@ gls.right = {
     }
   },
   {
-    CocStatus = {
-      provider = function() return vim.fn['coc#status']() end,
+    LspStatus = {
+      provider = lspclient.get_lsp_client,
       highlight = { colors.fg, colors.section_bg },
       separator = ' | ',
       separator_highlight = { colors.bg, colors.section_bg },
