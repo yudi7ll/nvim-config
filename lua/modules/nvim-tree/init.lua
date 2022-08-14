@@ -38,6 +38,7 @@ require("nvim-tree").setup({
 			list = {
 				{ key = "l", action = "edit" },
 				{ key = "h", action = "close_node" },
+				{ key = "<CR>", action = "cd" },
 			},
 		},
 	},
