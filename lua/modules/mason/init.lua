@@ -27,10 +27,9 @@ require("mason-lspconfig").setup({
     "yamlls",
     "eslint",
     "prettierd",
-    "emmet_ls",
     "jsonls",
     "vimls",
     "prismals",
   },
-  automatic_installation = false,
+  automatic_installation = true,
 })

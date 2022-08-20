@@ -1,8 +1,8 @@
 local utils = require("common.utils")
 local nmap = utils.nmap
 
-nmap("<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-nmap("<C-f>", ":NvimTreeFindFile<CR>", { noremap = true, silent = true })
+nmap("<C-n>", "<CMD>NvimTreeToggle<CR>")
+nmap("<C-f>", "<CMD>NvimTreeFindFile<CR>")
 
 require("nvim-tree").setup({
   auto_reload_on_write = true,
@@ -39,6 +39,7 @@ require("nvim-tree").setup({
         { key = "l", action = "edit" },
         { key = "h", action = "close_node" },
         { key = "<CR>", action = "cd" },
+        { key = "<BS>", action = "dir_up" },
       },
     },
   },

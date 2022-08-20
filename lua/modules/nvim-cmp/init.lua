@@ -96,8 +96,8 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
-    { name = "nvim_lsp_signature_help" },
     { name = "luasnip" },
+    { name = "nvim_lsp_signature_help" },
     { name = "null-ls" },
   }, {
     { name = "path" },
@@ -115,15 +115,17 @@ cmp.setup({
     ghost_text = true,
   },
   sorting = {
-    priority_weight = 2,
+    priority_weight = 1,
     comparators = {
       cmp.config.compare.offset,
-      cmp.config.compare.exact,
+      cmp.config.compare.locality,
+      cmp.config.compare.recently_used,
       cmp.config.compare.score,
-      require("cmp-under-comparator").under,
-      cmp.config.compare.kind,
-      cmp.config.compare.length,
       cmp.config.compare.order,
+      require("cmp-under-comparator").under,
+      -- cmp.config.compare.exact,
+      -- cmp.config.compare.kind,
+      -- cmp.config.compare.length,
     },
   },
   view = {
