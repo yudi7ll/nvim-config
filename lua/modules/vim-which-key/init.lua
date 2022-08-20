@@ -66,35 +66,40 @@ wk.setup({
   },
 })
 
-local keymap = {
+local keymaps = {
   ["<leader>"] = {
     a = {
-      name = "+coc action",
+      name = "+refactoring",
       c = "codeaction",
-      f = "fix current",
-      F = "format selected",
+      f = "auto format",
+      F = "format",
       r = "rename",
-      s = "codeaction selected",
-      S = "range select",
     },
-    c = {
-      name = "+coc",
-      c = "commands",
-      d = "diagnostics",
-      e = "extensions",
-      f = "format",
-      F = "organize import",
-      j = "next",
-      k = "prev",
-      o = "outline",
-      p = "resume",
-      s = "symbols",
+    h = {
+      name = "+git",
+      b = "blame",
+      p = "preview hunk",
+      R = "reset buffer",
+      r = "reset hunk",
+      S = "stage buffer",
+      s = "stage hunk",
+      u = "undo stage hunk",
+      U = "reset buffer index",
     },
     m = "mason",
+    l = {
+      name = "+lsp",
+      i = "lsp info",
+      r = "restart lsp",
+    },
+    t = {
+      name = '+telescope',
+      g = 'live grep',
+      h = 'highlights',
+      t = 'telescope',
+      k = 'keymaps',
+    }
   },
-}
-
-local local_keymap = {
   ["<localleader>"] = {
     c = {
       name = "color",
@@ -116,6 +121,18 @@ local local_keymap = {
       name = "clear highlight",
     },
   },
+  g = {
+    name = "+go",
+    d = "definition",
+    D = "declaration",
+    r = "reference",
+    t = "type definition",
+    i = "implementation",
+    s = "document symbol",
+    w = "workspace symbol",
+    n = "next diagnostic",
+    N = "previous diagnostic",
+  },
 }
 
-wk.register(vim.tbl_extend("error", keymap, local_keymap))
+wk.register(keymaps)

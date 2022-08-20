@@ -1,14 +1,44 @@
 # Neovim Config Written In Lua
 
-## Weapons
-- [Neovim ( >= 0.5.0 )](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-- [FZF](https://github.com/junegunn/fzf)
-- [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [Lazygit](https://github.com/jesseduffield/lazygit)
-- [Lazydocker](https://github.com/jesseduffield/lazydocker)
-- [NerdFonts](https://www.nerdfonts.com)
-- [Yarn](https://yarnpkg.com)
+Neovim 0.8.0-dev
+
+## TODO:
+- [ ] LSP Support:
+    - [x] typescript
+      - [x] eslint
+      - [x] prettier
+    - [x] php
+    - [x] jsonc
+    - [x] lua
+      - [x] stylua
+    - [x] html
+    - [x] css
+    - [x] tailwindcss
+    - [ ] laravel blade
+    - [x] dockerfile
+    - [ ] python
+    - [ ] bash
+    - [ ] markdown
+    - [x] yaml
+    - [x] prisma
+- [x] LSP Manager
+- [x] Syntax Highlighting
+  - [x] treesitter
+  - [x] laravel blade
+  - [x] nginx
+  - [x] ejs
+  - [x] JSX styled components
+- [ ] Statusline
+- [x] Winbar
+- [ ] Debugging tools
+- [ ] Git:
+  - [x] git blame
+  - [x] git status
+  - [ ] conflict resolve
+- [x] Terminal
+- Refactoring:
+  - [ ] File & Reference rename
+  
 
 ## Screenshots
 ![Screenshot-6](https://user-images.githubusercontent.com/35747911/169698182-d418da89-03b7-4906-b9d2-11f0b99334d2.png)

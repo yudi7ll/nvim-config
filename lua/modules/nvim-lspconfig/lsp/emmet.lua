@@ -1,9 +1,9 @@
-local lspconfig = require('lspconfig')
-local utils = require('common.utils')
-local opts = utils.merge(require('modules.nvim-lspconfig.opts'))
+local lspconfig = require("lspconfig")
+local opts = require("modules.nvim-lspconfig.opts")
 
-lspconfig.emmet_ls.setup(opts {
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+lspconfig.emmet_ls.setup(vim.tbl_extend("force", opts, {
+  -- filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+  filetypes = { "html" },
   init_options = {
     html = {
       options = {
@@ -11,5 +11,5 @@ lspconfig.emmet_ls.setup(opts {
         ["bem.enabled"] = true,
       },
     },
-  }
-})
+  },
+}))

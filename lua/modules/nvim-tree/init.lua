@@ -121,7 +121,7 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
     custom = {},
-    exclude = { "node_modules", "vendor" },
+    exclude = { "node_modules", "vendor", "*.cs.meta" },
   },
   filesystem_watchers = {
     enable = true,

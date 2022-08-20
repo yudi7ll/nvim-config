@@ -3,7 +3,7 @@ local gls = require('galaxyline').section
 local fileinfo = require('modules.galaxyline.provider.fileinfo')
 local colors = require('modules.galaxyline.theme.colors')
 local mode_color = require('modules.galaxyline.theme.mode-color')
-local gps = require('nvim-gps')
+-- local gps = require('nvim-gps')
 
 local buffer_not_empty = condition.buffer_not_empty
 local check_width = function() return condition.hide_in_width and buffer_not_empty end
@@ -46,15 +46,16 @@ gls.left = {
       highlight = { colors.fg, colors.section_bg },
     }
   },
-  {
-    CurrentFunction = {
-      provider = function() return ' ' .. gps.get_location() .. ' ' end,
-      condition = function ()
-        return check_width() and gps.is_available() and string.len(gps.get_location()) > 1
-      end,
-      highlight = { colors.Cyan, colors.section_bg },
-    }
-  },
+  -- {
+  --   CurrentFunction = {
+  --     provider = require('lsp-status').current_function,
+  --     condition = function ()
+  --       buffer_not_empty()
+  --       -- return check_width() and gps.is_available() and string.len(gps.get_location()) > 1
+  --     end,
+  --     highlight = { colors.Cyan, colors.section_bg },
+  --   }
+  -- },
   {
     Space1 = {
       provider = function() return ' ' end,

@@ -12,9 +12,10 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.laststatus = 2
--- vim.opt.lazyredraw = false
--- vim.opt.mouse = 'a'
+vim.opt.lazyredraw = false
+vim.opt.mouse = ""
 vim.opt.number = true
+-- vim.opt.pumblend = 5
 vim.opt.relativenumber = true
 vim.opt.shell = "/bin/zsh"
 vim.opt.smartcase = true
@@ -37,12 +38,10 @@ vim.opt.undofile = true
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 vim.opt.title = true
--- vim.opt.ttyfast = true
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest,full"
 vim.opt.wildmenu = true
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")

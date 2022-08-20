@@ -1,8 +1,7 @@
-local lspconfig = require('lspconfig')
-local utils = require('common.utils')
-local opts = utils.merge(require('modules.nvim-lspconfig.opts'))
+local lspconfig = require("lspconfig")
+local opts = require("modules.nvim-lspconfig.opts")
 
-lspconfig.tailwindcss.setup(opts {
+lspconfig.tailwindcss.setup(vim.tbl_extend("force", opts, {
   settings = {
     tailwindCSS = {
       classAttributes = { "class", "className", "classList", "ngClass" },
@@ -13,9 +12,9 @@ lspconfig.tailwindcss.setup(opts {
         invalidScreen = "error",
         invalidTailwindDirective = "error",
         invalidVariant = "error",
-        recommendedVariantOrder = "warning"
+        recommendedVariantOrder = "warning",
       },
-      validate = true
-    }
-  }
-})
+      validate = true,
+    },
+  },
+}))

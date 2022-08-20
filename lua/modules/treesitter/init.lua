@@ -2,7 +2,7 @@ require("nvim-treesitter.install").prefer_git = true
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
-  ignore_install = { "ocaml", "ocaml_interface", "ocamllex" },
+  ignore_install = { "ocaml", "ocaml_interface", "ocamllex", "bibtex", "cooklang", "cuda", "haskell" },
   sync_install = false,
   highlight = {
     enable = true,
@@ -11,9 +11,6 @@ require("nvim-treesitter.configs").setup({
   indent = {
     enable = true,
     disable = { "yaml" },
-  },
-  autotag = {
-    enable = true,
   },
   context_commenting = {
     enable = true,
@@ -31,3 +28,9 @@ require("nvim-treesitter.configs").setup({
     max_file_lines = nil,
   },
 })
+
+vim.cmd([[
+  set nofen
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+]])

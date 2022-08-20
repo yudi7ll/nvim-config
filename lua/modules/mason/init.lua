@@ -1,18 +1,36 @@
-local nmap = require('common.utils').nmap
+local nmap = require("common.utils").nmap
 
-nmap("<leader>m", ":Mason<CR>", { noremap = true, silent = true, nowait = true })
+nmap("<leader>m", "<CMD>Mason<CR>", { noremap = true, silent = true, nowait = true })
 
-require('mason').setup({
+require("mason").setup({
   ui = {
     icons = {
       package_installed = "✓",
       package_pending = "➜",
-      package_uninstalled = "✗"
-    }
-  }
+      package_uninstalled = "✗",
+    },
+  },
 })
 
-require('mason-lspconfig').setup({
-  ensure_installed = { 'tsserver', 'emmet_ls' },
-  automatic_installation = true,
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "tsserver",
+    "eslint",
+    "html",
+    "css",
+    "emmet_ls",
+    "intelephense",
+    "dockerls",
+    "sumneko_lua",
+    "stylua",
+    "tailwindcss",
+    "yamlls",
+    "eslint",
+    "prettierd",
+    "emmet_ls",
+    "jsonls",
+    "vimls",
+    "prismals",
+  },
+  automatic_installation = false,
 })
