@@ -45,6 +45,7 @@ return packer.startup(function(use)
 	use({ "voldikss/vim-floaterm" })
 	use({ "SmiteshP/nvim-gps" })
 	use({ "andweeb/presence.nvim", config = [[require('presence')]] })
+  use({ "dstein64/vim-startuptime" })
 	-- treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })

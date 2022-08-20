@@ -1,7 +1,7 @@
 local utils = {}
 
 local map = function(mode, key, cmd, config)
-	vim.api.nvim_set_keymap(mode, key, cmd, config or { silent = true })
+	vim.api.nvim_set_keymap(mode, key, cmd, vim.tbl_extend("force", { noremap = true, silent = true }, config or {}))
 end
 
 function utils.nmap(key, cmd, config)
