@@ -10,6 +10,9 @@ require("lualine").setup({
 		disabled_filetypes = {
 			winbar = { "floaterm", "NvimTree", "packer" },
 		},
+		refresh = {
+			statusline = 100,
+		},
 		ignore_focus = {
 			"",
 			"NvimTree",
