@@ -13,4 +13,10 @@ vim.cmd([[
   augroup JsonToJsonc
       autocmd! FileType json set filetype=jsonc
   augroup END
+
+  " augroup vimrc-incsearch-highlight
+  "   autocmd!
+  "   autocmd CmdlineEnter /,\? :set hlsearch
+  "   autocmd CmdlineLeave /,\? :set nohlsearch
+  " augroup END
 ]])

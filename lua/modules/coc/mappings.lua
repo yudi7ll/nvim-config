@@ -3,6 +3,8 @@ local xmap = utils.xmap
 local nmap = utils.nmap
 
 nmap("<leader>lr", "<CMD>CocRestart<CR>")
+nmap("<leader>lc", "<CMD>CocConfig<CR>")
+nmap("<leader>ls", "<CMD>CocLocalConfig<CR>")
 
 -- a
 xmap("<leader>ac", "<Plug>(coc-codeaction)")
