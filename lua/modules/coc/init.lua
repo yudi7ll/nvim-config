@@ -14,7 +14,6 @@ vim.g.coc_global_extensions = {
 	"coc-html",
 	"coc-json",
 	"coc-marketplace",
-	"coc-pairs",
 	"coc-pyright",
 	"coc-sh",
 	"coc-svg",
@@ -36,7 +35,7 @@ vim.cmd([[
   ]])
 
 -- Use K to show documentation in preview window.
-utils.nmap("K", ":call ShowDocumentation()<CR>")
+utils.nmap("K", "<CMD>call ShowDocumentation()<CR>")
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
@@ -50,9 +49,10 @@ vim.cmd("command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organ
 -- Add `:Prettier` command for formatting file
 vim.cmd("command! -nargs=0 Prettier :CocCommand prettier.formatFile")
 
-utils.create_augroup({
-	-- Setup formatexpr specified filetype(s).
-	{ "FileType typescript,json setl formatexpr=CocAction('formatSelected')" },
-	-- Update signature help on jump placeholder.
-	{ "User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')" },
-}, "mygroup")
+vim.cmd([[
+  augroup CocSignatureHelp
+  autocmd!
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup END
+]])

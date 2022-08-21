@@ -2,16 +2,15 @@ local utils = require("common.utils")
 local xmap = utils.xmap
 local nmap = utils.nmap
 
--- coc
-nmap("<leader>rr", ":CocRestart<CR>")
+nmap("<leader>lr", "<CMD>CocRestart<CR>")
 
 -- a
 xmap("<leader>ac", "<Plug>(coc-codeaction)")
 nmap("<leader>ac", "<Plug>(coc-codeaction)")
-xmap("<leader>af", "<Plug>(coc-fix-current)")
-nmap("<leader>af", "<Plug>(coc-fix-current)")
+nmap("<leader>af", "<CMD>Format<CR>", { nowait = true })
 xmap("<leader>aF", "<Plug>(coc-format-selected)")
 nmap("<leader>aF", "<Plug>(coc-format-selected)")
+nmap("<leader>ao", "<CMR>OR<CR>", { nowait = true })
 xmap("<leader>aS", "<Plug>(coc-range-select)")
 nmap("<leader>aS", "<Plug>(coc-range-select)")
 xmap("<leader>as", "<Plug>(coc-codeaction-selected)")
@@ -20,17 +19,17 @@ nmap("<leader>ar", "<Plug>(coc-rename)")
 nmap("<leader>al", "<Plug>(coc-codelens-action)")
 
 -- c
-nmap("<leader>cd", ":CocList diagnostics<CR>")
-nmap("<leader>ce", ":CocList extensions<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cf", ":Format<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cF", ":OR<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cc", ":CocList commands<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cl", "<Plug>(coc-codelens-action)", { noremap = true, silent = true })
-nmap("<leader>co", ":CocList outline<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cs", ":CocList -I symbols<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cj", ":CocNext<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>ck", ":CocPrev<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<leader>cp", ":CocListResume<CR>", { noremap = true, silent = true, nowait = true })
+xmap("<leader>cf", "<Plug>(coc-fix-current)")
+nmap("<leader>cf", "<Plug>(coc-fix-current)")
+nmap("<leader>cd", "<CMD>CocList diagnostics<CR>")
+nmap("<leader>ce", "<CMD>CocList extensions<CR>", { nowait = true })
+nmap("<leader>cc", "<CMD>CocList commands<CR>", { nowait = true })
+nmap("<leader>cl", "<Plug>(coc-codelens-action)")
+nmap("<leader>co", "<CMD>CocList outline<CR>", { nowait = true })
+nmap("<leader>cs", "<CMD>CocList -I symbols<CR>", { nowait = true })
+nmap("<leader>cj", "<CMD>CocNext<CR>", { nowait = true })
+nmap("<leader>ck", "<CMD>CocPrev<CR>", { nowait = true })
+nmap("<leader>cp", "<CMD>CocListResume<CR>", { nowait = true })
 
 -- GoTo code navigation.
 nmap("gd", "<Plug>(coc-definition)")
@@ -43,6 +42,6 @@ nmap("gN", "<Plug>(coc-diagnostic-prev)")
 nmap("gn", "<Plug>(coc-diagnostic-next)")
 
 -- coc marketplace
-nmap("<leader>m", ":CocList marketplace<CR>", { noremap = true, silent = true, nowait = true })
-nmap("<localleader>cc", ":CocCommand editor.action.pickColor<CR>", { noremap = true, silent = true })
-nmap("<localleader>cm", ":CocCommand editor.action.colorPresentation<CR>", { noremap = true, silent = true })
+nmap("<leader>m", "<CMD>CocList marketplace<CR>", { nowait = true })
+nmap("<localleader>cc", "<CMD>CocCommand editor.action.pickColor<CR>")
+nmap("<localleader>cm", "<CMD>CocCommand editor.action.colorPresentation<CR>")

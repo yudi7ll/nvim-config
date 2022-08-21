@@ -3,7 +3,9 @@
   "html.format.indentInnerHtml": true,
   "html.format.wrapLineLength": 0,
   "html.filetypes": [
-    "blade", "html", "handlebars",
+    "blade",
+    "html",
+    "handlebars",
     "htmldjango",
     "blade",
     "ejs"
@@ -25,12 +27,7 @@
   "diagnostic.infoSign": " ",
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "diagnostic.checkCurrentLine": true,
-  "coc.preferences.rootPatterns": [
-    ".git",
-    ".hg",
-    ".projections.json",
-    ".env"
-  ],
+  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".env"],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -46,12 +43,9 @@
     "lua"
   ],
   "coc.preferences.jumpCommand": "drop",
-  "coc.preferences.extensionUpdateCheck": "never",
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "Lua.diagnostics.globals": ["vim"],
   "highlight.colorNames.enable": false,
-  "suggest.echodocSupport": true,
   "suggest.timeout": 15000,
   "suggest.maxCompleteItemCount": 30,
   "suggest.acceptSuggestionOnCommitCharacter": true,
@@ -110,13 +104,12 @@
     "typescriptreact"
   ],
   "tailwindCSS.emmetCompletions": true,
-  "suggest.disableMenu": true,
   "suggest.noselect": false,
   "suggest.languageSourcePriority": -1,
   "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
-  "suggest.enablePreview": true,
   "list.previewSplitRight": true,
   "lightbulb.enableSign": true,
-  "lightbulb.enableVirtualText": false
+  "lightbulb.enableVirtualText": false,
+  "colors.filetypes": ["*"]
 }

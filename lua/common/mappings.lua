@@ -1,7 +1,7 @@
 local utils = require("common.utils")
 local nmap = utils.nmap
 
-nmap("<C-p>", ":Files<CR>", { noremap = true, silent = true })
-nmap("<localleader>h", ":noh<CR>", { noremap = true, silent = true })
-nmap("<F5>", ":PackerSync<CR>", { noremap = true })
-nmap("q:", ":q", { noremap = true, silent = true })
+nmap("<C-p>", "<CMD>Files<CR>")
+nmap("<localleader>h", "<CMD>noh<CR>")
+nmap("<F5>", "<CMD>PackerSync<CR>")
+nmap("q:", ":q", { silent = false })

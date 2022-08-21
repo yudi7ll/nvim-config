@@ -1,13 +1,13 @@
 require("nvim-gps").setup({
 
-	disable_icons = false,           -- Setting it to true will disable all icons
+	disable_icons = false, -- Setting it to true will disable all icons
 
 	icons = {
-		["class-name"] = ' ',      -- Classes and class-like objects
-		["function-name"] = ' ',   -- Functions
-		["method-name"] = ' ',     -- Methods (functions inside class-like objects)
-		["container-name"] = '⛶ ',  -- Containers (example: lua tables)
-		["tag-name"] = '炙'         -- Tags (example: html tags)
+		["class-name"] = " ", -- Classes and class-like objects
+		["function-name"] = " ", -- Functions
+		["method-name"] = " ", -- Methods (functions inside class-like objects)
+		["container-name"] = "⛶ ", -- Containers (example: lua tables)
+		["tag-name"] = "炙", -- Tags (example: html tags)
 	},
 
 	-- Add custom configuration per language or
@@ -17,65 +17,47 @@ require("nvim-gps").setup({
 		-- Some languages have custom icons
 		["json"] = {
 			icons = {
-				["array-name"] = ' ',
-				["object-name"] = ' ',
-				["null-name"] = '[] ',
-				["boolean-name"] = 'ﰰﰴ ',
-				["number-name"] = '# ',
-				["string-name"] = ' '
-			}
+				["array-name"] = " ",
+				["object-name"] = " ",
+				["null-name"] = "[] ",
+				["boolean-name"] = "ﰰﰴ ",
+				["number-name"] = "# ",
+				["string-name"] = " ",
+			},
 		},
 		["toml"] = {
 			icons = {
-				["table-name"] = ' ',
-				["array-name"] = ' ',
-				["boolean-name"] = 'ﰰﰴ ',
-				["date-name"] = ' ',
-				["date-time-name"] = ' ',
-				["float-name"] = ' ',
-				["inline-table-name"] = ' ',
-				["integer-name"] = '# ',
-				["string-name"] = ' ',
-				["time-name"] = ' '
-			}
+				["table-name"] = " ",
+				["array-name"] = " ",
+				["boolean-name"] = "ﰰﰴ ",
+				["date-name"] = " ",
+				["date-time-name"] = " ",
+				["float-name"] = " ",
+				["inline-table-name"] = " ",
+				["integer-name"] = "# ",
+				["string-name"] = " ",
+				["time-name"] = " ",
+			},
 		},
 		["verilog"] = {
 			icons = {
-				["module-name"] = ' '
-			}
+				["module-name"] = " ",
+			},
 		},
 		["yaml"] = {
 			icons = {
-				["mapping-name"] = ' ',
-				["sequence-name"] = ' ',
-				["null-name"] = '[] ',
-				["boolean-name"] = 'ﰰﰴ ',
-				["integer-name"] = '# ',
-				["float-name"] = ' ',
-				["string-name"] = ' '
-			}
+				["mapping-name"] = " ",
+				["sequence-name"] = " ",
+				["null-name"] = "[] ",
+				["boolean-name"] = "ﰰﰴ ",
+				["integer-name"] = "# ",
+				["float-name"] = " ",
+				["string-name"] = " ",
+			},
 		},
-
-		-- Disable for particular languages
-		-- ["bash"] = false, -- disables nvim-gps for bash
-		-- ["go"] = false,   -- disables nvim-gps for golang
-
-		-- Override default setting for particular languages
-		-- ["ruby"] = {
-		--	separator = '|', -- Overrides default separator with '|'
-		--	icons = {
-		--		-- Default icons not specified in the lang config
-		--		-- will fallback to the default value
-		--		-- "container-name" will fallback to default because it's not set
-		--		["function-name"] = '',    -- to ensure empty values, set an empty string
-		--		["tag-name"] = ''
-		--		["class-name"] = '::',
-		--		["method-name"] = '#',
-		--	}
-		--}
 	},
 
-	separator = ' > ',
+	separator = " > ",
 
 	-- limit for amount of context shown
 	-- 0 means no limit
@@ -84,5 +66,5 @@ require("nvim-gps").setup({
 	depth = 0,
 
 	-- indicator used when context is hits depth limit
-	depth_limit_indicator = ".."
+	depth_limit_indicator = "..",
 })

@@ -28,16 +28,4 @@ function utils.vmap(key, cmd, config)
 	map("v", key, cmd, config)
 end
 
-function utils.create_augroup(autocmds, name)
-	local cmd = vim.cmd
-
-	cmd("augroup " .. name)
-	cmd("autocmd!")
-
-	for _, autocmd in ipairs(autocmds) do
-		cmd("autocmd " .. table.concat(autocmd, " "))
-	end
-	cmd("augroup END")
-end
-
 return utils
