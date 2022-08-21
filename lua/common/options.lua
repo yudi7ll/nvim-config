@@ -45,3 +45,4 @@ vim.opt.wrap = false
 vim.opt.writebackup = false
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")
+vim.opt.iskeyword:append('-')

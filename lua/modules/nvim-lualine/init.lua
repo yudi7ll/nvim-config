@@ -1,13 +1,13 @@
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
-local lsp_status = require("modules.nvim-lualine.lsp-status")
+local lsp_status = require("modules.nvim-lualine.status")
 
 require("lualine").setup({
   options = {
     theme = theme,
     component_separators = "|",
     section_separators = { left = "", right = "" },
-    globalstatus = false,
+    globalstatus = true,
     disabled_filetypes = {
       winbar = { "floaterm", "NvimTree", "packer" },
     },
@@ -47,7 +47,10 @@ require("lualine").setup({
     },
   },
   inactive_winbar = {
-    lualine_a = {},
+    lualine_b = { "filetype" },
+    lualine_c = {
+      { navic.get_location, cond = navic.is_available },
+    },
   },
   inactive_sections = {
     lualine_a = { "filetype" },

@@ -2,6 +2,7 @@ local nmap = require('common.utils').nmap
 
 require("modules.nvim-lspconfig.lsp.css")
 require("modules.nvim-lspconfig.lsp.dockerfile")
+require("modules.nvim-lspconfig.lsp.emmet")
 require("modules.nvim-lspconfig.lsp.eslint")
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.intelephense")
