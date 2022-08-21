@@ -46,8 +46,8 @@ end
 local opts = { noremap = true, expr = true, silent = true }
 utils.imap("<A-j>", "v:lua.next_selection()", opts)
 utils.imap("<A-k>", "v:lua.prev_selection()", opts)
-utils.imap("<ArrowDown>", "v:lua.next_selection()", opts)
-utils.imap("<ArrowUp>", "v:lua.prev_selection()", opts)
+utils.imap("<Down>", "v:lua.next_selection()", opts)
+utils.imap("<Up>", "v:lua.prev_selection()", opts)
 utils.imap("<C-space>", "coc#refresh()", opts)
 utils.imap("<Tab>", "v:lua.confirm_selection()", opts)
 utils.imap("<CR>", "v:lua.on_enter()", opts)

@@ -18,6 +18,12 @@
     "javascript": "javascriptreact"
   },
   "emmet.priority": 20,
+  "suggest.formatItems": [
+    "kind",
+    "abbr",
+    "menu",
+    "shortcut"
+  ],
   "coc.source.file.priority": 10,
   "coc.source.around.priority": 15,
   "coc.source.buffer.priority": 15,
