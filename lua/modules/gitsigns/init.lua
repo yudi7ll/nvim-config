@@ -33,14 +33,27 @@ require("gitsigns").setup({
 	current_line_blame_opts = {
 		virt_text = true,
 		virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-		delay = 1000,
+		delay = 300,
 	},
 	current_line_blame_formatter_opts = {
 		relative_time = true,
 	},
 	sign_priority = 6,
 	update_debounce = 100,
-	status_formatter = nil, -- Use default
+	status_formatter = function(status)
+		local added, changed, removed = status.added, status.changed, status.removed
+		local status_txt = {}
+		if added and added > 0 then
+			table.insert(status_txt, " " .. added)
+		end
+		if changed and changed > 0 then
+			table.insert(status_txt, " " .. changed)
+		end
+		if removed and removed > 0 then
+			table.insert(status_txt, "-" .. removed)
+		end
+		return table.concat(status_txt, " ")
+	end,
 	max_file_length = 40000,
 	preview_config = {
 		-- Options passed to nvim_open_win
@@ -54,9 +67,3 @@ require("gitsigns").setup({
 		enable = true,
 	},
 })
-
-local cmd = vim.cmd
-
-cmd("hi GitSignsAdd guifg=#406183 guibg=NONE")
-cmd("hi GitSignsChange guifg=#315551 guibg=NONE")
-cmd("hi GitSignsDelete guifg=#b60909 guibg=NONE")

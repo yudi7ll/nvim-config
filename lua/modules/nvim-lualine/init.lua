@@ -1,10 +1,6 @@
 local gps = require("nvim-gps")
 local theme = require("modules.nvim-lualine.theme")
 
-local lsp_status = function()
-	return vim.fn["coc#status"]()
-end
-
 require("lualine").setup({
 	options = {
 		theme = theme,
@@ -33,25 +29,16 @@ require("lualine").setup({
 	},
 	winbar = {
 		lualine_b = { "filetype" },
-		lualine_c = {
-			{
-				function()
-					return gps.get_location()
-				end,
-				cond = function()
-					return gps.is_available()
-				end,
-			},
-		},
+		lualine_c = { "b:coc_current_function" },
 	},
 	sections = {
 		lualine_a = {
 			{ "mode", separator = { left = "" }, right_padding = 2 },
 		},
-		lualine_b = { "filename", "branch" },
-		lualine_c = { "fileformat" },
-		lualine_x = { "diagnostics", lsp_status },
-		lualine_y = { "progress" },
+		lualine_b = { "fileformat", "filename", "branch", "b:gitsigns_status" },
+		lualine_c = { "diagnostics" },
+		lualine_x = { "g:coc_status" },
+		lualine_y = { "encoding", "progress" },
 		lualine_z = {
 			{ "location", separator = { right = "" }, left_padding = 2 },
 		},

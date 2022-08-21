@@ -4,8 +4,8 @@
 
 ## Dependencies
 
-- For file search, install [FZF cli](https://github.com/junegunn/fzf)
-- For string search: [the_silver_searcher](https://github.com/ggreer/the_silver_searcher), [ripgrep](https://github.com/BurntSushi/ripgrep)
+- For file search, install [FZF cli](https://github.com/junegunn/fzf), [ripgrep](https://github.com/BurntSushi/ripgrep)
+- For string search: [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - Git interface: [Lazygit](https://github.com/jesseduffield/lazygit)
 - Docker interface: [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - For the icon: [NerdFonts](https://www.nerdfonts.com)

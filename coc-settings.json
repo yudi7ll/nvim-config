@@ -28,7 +28,17 @@
   "diagnostic.infoSign": " ",
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "diagnostic.checkCurrentLine": true,
-  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".env"],
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    ".env",
+    "package.json",
+    "tailwind.config.js",
+    "tailwind.config.cjs",
+    "tsconfig.json",
+    "jsconfig.json"
+  ],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
