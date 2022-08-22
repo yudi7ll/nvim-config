@@ -1,6 +1,6 @@
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
-local lsp_status = require("lsp-status.statusline").status
+local lsp_status = require("modules.nvim-lualine.status")
 
 require("lualine").setup({
 	options = {

@@ -4,9 +4,6 @@ local navic = require("nvim-navic")
 local colorizer = require("colorizer")
 local keymaps = require("modules.nvim-lspconfig.keymaps")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = { "documentation", "detail", "additionalTextEdits" },
-}
 local au_lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
 local format_on_save = function(client, bufnr)
 	if client.supports_method("textDocument/formatting") then
@@ -15,7 +12,9 @@ local format_on_save = function(client, bufnr)
 			group = au_lsp_formatting,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format({ bufnr = bufnr })
+				if client.name == "sumneko_lua" or client.name == "tsserver" then
+					vim.lsp.buf.format({ bufnr = bufnr })
+				end
 			end,
 		})
 	end
