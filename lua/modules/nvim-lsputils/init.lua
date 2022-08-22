@@ -30,7 +30,12 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
   group = au_cursor_diagnostic,
 })
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    scope = "cursor"
+  }
+})
 
 -- vim.lsp.handlers['textDocument/codeAction'] = require('lsputil.locations').code_action_handler
 vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
