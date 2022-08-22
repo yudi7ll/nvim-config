@@ -40,6 +40,7 @@ require("nvim-tree").setup({
         { key = "h", action = "close_node" },
         { key = "<CR>", action = "cd" },
         { key = "<BS>", action = "dir_up" },
+        { key = "?", action = "toggle_help" },
       },
     },
   },
@@ -143,7 +144,7 @@ require("nvim-tree").setup({
     },
     expand_all = {
       max_folder_discovery = 300,
-      exclude = {},
+      exclude = {"node_modules"},
     },
     open_file = {
       quit_on_open = false,

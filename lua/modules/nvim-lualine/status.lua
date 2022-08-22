@@ -8,5 +8,9 @@ return function()
 
   msg = clients[#clients].name
 
+  if msg == 'null-ls' then
+    msg = clients[1].name
+  end
+
   return "  " .. msg
 end
