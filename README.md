@@ -38,6 +38,12 @@ Neovim 0.8.0 nightly-dev
 - [x] Terminal
 - [ ] Refactoring:
   - [ ] File & Reference rename
+
+## Dependencies
+- [Bat](https://github.com/sharkdp/bat) for syntax highlighting at some place
+- `<localleader>tg` require [Lazygit](https://github.com/jesseduffield/lazygit)
+- `<localleader>td` require [Lazydocker](https://github.com/jesseduffield/lazydocker)
+- `<localleader>tu` require [NCDU](https://dev.yorhel.nl/ncdu)
   
 
 ## Screenshots
