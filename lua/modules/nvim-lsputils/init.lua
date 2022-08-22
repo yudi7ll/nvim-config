@@ -43,7 +43,7 @@ vim.g.lsp_utils_location_opts = {
 		border = true,
 		border_chars = border_chars,
 		highlight = "NormalFloat",
-		preview_highlight = "Visual",
+		preview_highlight = "NormalFloat",
 	},
 }
 
