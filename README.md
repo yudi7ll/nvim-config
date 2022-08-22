@@ -1,6 +1,6 @@
 # Neovim Config Written In Lua
 
-Neovim 0.8.0-dev
+Neovim 0.8.0 nightly-dev
 
 ## TODO:
 - [ ] LSP Support:
@@ -28,7 +28,7 @@ Neovim 0.8.0-dev
   - [x] nginx
   - [x] ejs
   - [x] JSX styled components
-- [ ] Statusline
+- [x] Statusline
 - [x] Winbar
 - [ ] Debugging tools
 - [ ] Git:
@@ -36,7 +36,7 @@ Neovim 0.8.0-dev
   - [x] git status
   - [ ] conflict resolve
 - [x] Terminal
-- Refactoring:
+- [ ] Refactoring:
   - [ ] File & Reference rename
   
 
