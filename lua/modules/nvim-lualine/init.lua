@@ -1,10 +1,9 @@
-local utils = require('common.utils')
+local utils = require("common.utils")
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
 local lsp_status = function()
 	return require("lsp-status").status()
 end
-local status = require('modules.nvim-lualine.status')
 
 require("lualine").setup({
 	options = {

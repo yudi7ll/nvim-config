@@ -1,4 +1,5 @@
 local M = {}
+local cosmic_ui = require('cosmic-ui')
 local utils = require("common.utils")
 local nmap = utils.nmap
 local vmap = utils.vmap
@@ -12,9 +13,9 @@ nmap("q:", "<CMD>q", { noremap = true, silent = true })
 M.setup_lsp_mapping = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	nmap("<leader>ar", require("cosmic-ui").rename, bufopts)
-	nmap("<leader>ac", require("cosmic-ui").code_actions, bufopts)
-	vmap("<leader>ac", require("cosmic-ui").range_code_actions, bufopts)
+	nmap("<leader>ar", cosmic_ui.rename, bufopts)
+	nmap("<leader>ac", cosmic_ui.code_actions, bufopts)
+	vmap("<leader>ac", cosmic_ui.range_code_actions, bufopts)
 	nmap("<leader>af", vim.lsp.buf.format, bufopts)
 	nmap("<leader>aF", vim.lsp.buf.formatting, bufopts)
 	nmap("gd", vim.lsp.buf.definition, bufopts)

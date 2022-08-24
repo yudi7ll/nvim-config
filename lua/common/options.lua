@@ -15,7 +15,6 @@ vim.opt.laststatus = 2
 vim.opt.lazyredraw = false
 vim.opt.mouse = ""
 vim.opt.number = true
--- vim.opt.pumblend = 5
 vim.opt.relativenumber = true
 vim.opt.shell = "/bin/zsh"
 vim.opt.smartcase = true
@@ -45,4 +44,4 @@ vim.opt.wrap = false
 vim.opt.writebackup = false
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")
-vim.opt.iskeyword:append('-')
+vim.opt.iskeyword:append("-")
