@@ -1,17 +1,17 @@
 local M = {}
-local cosmic_ui = require('cosmic-ui')
+local cosmic_ui = require("cosmic-ui")
 local utils = require("common.utils")
 local nmap = utils.nmap
 local vmap = utils.vmap
 
 -- Global mapping
-nmap("<localleader>h", "<CMD>noh<CR>", { noremap = true, silent = true })
-nmap("<F5>", "<CMD>PackerSync<CR>", { noremap = true })
-nmap("q:", "<CMD>q", { noremap = true, silent = true })
+nmap("<localleader>h", "<CMD>noh<CR>")
+nmap("<F5>", "<CMD>PackerSync<CR>")
+nmap("q:", "<CMD>q")
 
 -- lsp mapping
 M.setup_lsp_mapping = function(bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local bufopts = { buffer = bufnr }
 
 	nmap("<leader>ar", cosmic_ui.rename, bufopts)
 	nmap("<leader>ac", cosmic_ui.code_actions, bufopts)

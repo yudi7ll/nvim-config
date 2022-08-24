@@ -18,7 +18,6 @@ mason.setup({
 mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
-		"eslint",
 		"html",
 		"css",
 		"intelephense",
@@ -27,7 +26,6 @@ mason_lspconfig.setup({
 		"stylua",
 		"tailwindcss",
 		"yamlls",
-		"eslint",
 		"prettierd",
 		"jsonls",
 		"vimls",
