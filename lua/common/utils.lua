@@ -52,17 +52,15 @@ M.show_diagnostic_under_cursor = function(bufnr)
 	})
 end
 
+local au_lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 M.format_on_save = function(client, bufnr)
-	local au_lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = au_lsp_formatting, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = au_lsp_formatting,
 			buffer = bufnr,
 			callback = function()
-				if client.name == "sumneko_lua" or client.name == "tsserver" then
-					vim.lsp.buf.format({ bufnr = bufnr })
-				end
+				return vim.lsp.buf.format({ bufnr = bufnr })
 			end,
 		})
 	end
