@@ -1,8 +1,10 @@
+local utils = require('common.utils')
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
 local lsp_status = function()
-	return require('lsp-status').status()
+	return require("lsp-status").status()
 end
+local status = require('modules.nvim-lualine.status')
 
 require("lualine").setup({
 	options = {
@@ -44,10 +46,10 @@ require("lualine").setup({
 		lualine_a = {
 			{ "mode", separator = { left = "" }, right_padding = 2 },
 		},
-		lualine_b = { "filename", "branch" },
-		lualine_c = { "fileformat" },
+		lualine_b = { "fileformat", "filename", "branch", "diff" },
+		lualine_c = { "diagnostics" },
 		lualine_x = { lsp_status },
-		lualine_y = { "progress" },
+		lualine_y = { utils.show_tab_size, "encoding", "progress" },
 		lualine_z = {
 			{ "location", separator = { right = "" }, left_padding = 2 },
 		},

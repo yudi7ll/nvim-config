@@ -6,4 +6,5 @@ lsp_status.config({
   status = "",
   indicator_ok = "",
 	current_function = false,
+  diagnostics = false,
 })
