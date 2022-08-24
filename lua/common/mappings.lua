@@ -10,7 +10,7 @@ nmap("q:", "<CMD>q", { noremap = true, silent = true })
 
 -- lsp mapping
 M.setup_lsp_mapping = function(bufnr)
-	local bufopts = { noremap = false, silent = true, buffer = bufnr }
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	nmap("<leader>ar", require("cosmic-ui").rename, bufopts)
 	nmap("<leader>ac", require("cosmic-ui").code_actions, bufopts)
