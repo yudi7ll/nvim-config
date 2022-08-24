@@ -1,15 +1,21 @@
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
-local lsp_status = require("modules.nvim-lualine.status")
+local lsp_status = function()
+	return require('lsp-status').status()
+end
 
 require("lualine").setup({
 	options = {
+		icons_enabled = true,
 		theme = theme,
 		component_separators = "|",
 		section_separators = { left = "", right = "" },
 		globalstatus = true,
 		disabled_filetypes = {
 			winbar = { "floaterm", "NvimTree", "packer" },
+		},
+		refresh = {
+			statusline = 100,
 		},
 		ignore_focus = {
 			"",
@@ -40,7 +46,7 @@ require("lualine").setup({
 		},
 		lualine_b = { "filename", "branch" },
 		lualine_c = { "fileformat" },
-		lualine_x = { "diagnostics", lsp_status },
+		lualine_x = { lsp_status },
 		lualine_y = { "progress" },
 		lualine_z = {
 			{ "location", separator = { right = "" }, left_padding = 2 },

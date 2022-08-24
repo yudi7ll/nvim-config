@@ -15,11 +15,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = group,
 })
 
-local lsp_restart = vim.api.nvim_create_augroup("LspRestart", {})
-vim.api.nvim_clear_autocmds({ group = lsp_restart })
-vim.api.nvim_create_autocmd("TermLeave", {
-	group = lsp_restart,
-	callback = function()
-		vim.cmd([[LspRestart]])
-	end,
-})
+-- local lsp_restart = vim.api.nvim_create_augroup("LspRestart", { clear = true })
+-- vim.api.nvim_clear_autocmds({ group = lsp_restart })
+-- vim.api.nvim_create_autocmd("TermResponse", {
+-- 	group = lsp_restart,
+-- 	callback = function()
+-- 		vim.cmd([[LspRestart]])
+-- 	end,
+-- })
+
+vim.g.navic_silence = true
