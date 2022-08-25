@@ -10,9 +10,9 @@ vim.cmd("set completeopt=menu,menuone,noselect")
 
 local group = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "json" },
-	command = "set filetype=jsonc",
-	group = group,
+  pattern = { "json" },
+  command = "set filetype=jsonc",
+  group = group,
 })
 
 -- local lsp_restart = vim.api.nvim_create_augroup("LspRestart", { clear = true })

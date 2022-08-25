@@ -54,9 +54,3 @@ require("gitsigns").setup({
     enable = true,
   },
 })
-
-local cmd = vim.cmd
-
-cmd("hi GitSignsAdd guifg=#406183 guibg=NONE")
-cmd("hi GitSignsChange guifg=#315551 guibg=NONE")
-cmd("hi GitSignsDelete guifg=#b60909 guibg=NONE")

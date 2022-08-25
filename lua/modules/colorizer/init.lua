@@ -1,7 +1,9 @@
+local nmap = require('common.utils').nmap
+
 require("colorizer").setup({
   html = { names = false },
   lua = { names = false },
 })
 
-vim.keymap.set("n", "<localleader>ct", "<CMD>ColorizerToggle<CR>")
-vim.keymap.set("n", "<localleader>cc", "<CMD>PickColor<CR>")
+nmap("<localleader>ct", "<CMD>ColorizerToggle<CR>")
+nmap("<localleader>cc", "<CMD>PickColor<CR>")

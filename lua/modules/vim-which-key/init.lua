@@ -93,12 +93,12 @@ local keymaps = {
       r = "restart lsp",
     },
     t = {
-      name = '+telescope',
-      g = 'live grep',
-      h = 'highlights',
-      t = 'telescope',
-      k = 'keymaps',
-    }
+      name = "+telescope",
+      g = "live grep",
+      h = "highlights",
+      t = "telescope",
+      k = "keymaps",
+    },
   },
   ["<localleader>"] = {
     c = {

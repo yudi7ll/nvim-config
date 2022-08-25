@@ -40,7 +40,8 @@ local nmap = utils.nmap
 
 nmap("<C-/>", "<CMD>Telescope current_buffer_fuzzy_find<CR>")
 nmap("<C-p>", "<CMD>Telescope find_files<CR>")
-nmap("<leader>tg", "<CMD>Telescope live_grep<CR>")
-nmap("<leader>th", "<CMD>Telescope highlights<CR>")
-nmap("<leader>tt", "<CMD>Telescope<CR>")
-nmap("<leader>tk", "<CMD>Telescope keymaps<CR>")
+nmap("<leader>ss", "<CMD>Telescope grep_string<CR>")
+nmap("<leader>sg", "<CMD>Telescope live_grep<CR>")
+nmap("<leader>sh", "<CMD>Telescope highlights<CR>")
+nmap("<leader>st", "<CMD>Telescope<CR>")
+nmap("<leader>sk", "<CMD>Telescope keymaps<CR>")

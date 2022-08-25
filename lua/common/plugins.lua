@@ -24,11 +24,12 @@ packer.init({
 packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "yudi7ll/onearc.nvim" })
+  use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" })
   -- lsp
   use({ "neovim/nvim-lspconfig" })
   use({ "onsails/lspkind.nvim" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
-  use({ "nvim-lua/lsp-status.nvim" })
   use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
   -- completion
   use({ "hrsh7th/nvim-cmp" })
@@ -43,18 +44,18 @@ packer.startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
   use({ "b0o/schemastore.nvim" })
   use({ "davidsierradz/cmp-conventionalcommits" })
-  -- debugging
+  -- wip: debugging
   use({ "mfussenegger/nvim-dap" })
   use({ "rcarriga/nvim-dap-ui" })
   use({ "mxsdev/nvim-dap-vscode-js" })
-  -- General
+  -- statusline
+  use({ "nvim-lualine/lualine.nvim" })
+  use({ "arkav/lualine-lsp-progress" })
+  -- other
   use({ "kyazdani42/nvim-web-devicons" })
-  use({ "williamboman/mason.nvim" })
-  use({ "williamboman/mason-lspconfig.nvim" })
   use({ "antoinemadec/FixCursorHold.nvim" })
   use({ "windwp/nvim-autopairs" })
   use({ "kyazdani42/nvim-tree.lua" })
-  use({ "nvim-lualine/lualine.nvim" })
   use({ "terrortylor/nvim-comment" })
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-sleuth" })

@@ -3,7 +3,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local opts = require("modules.nvim-lspconfig.opts")
 local nmap = require("common.utils").nmap
 
-nmap("<leader>m", "<CMD>Mason<CR>", { noremap = true, silent = true, nowait = true })
+nmap("<leader>m", "<CMD>Mason<CR>", { nowait = true })
 
 mason.setup({
   ui = {
@@ -17,7 +17,6 @@ mason.setup({
 
 mason_lspconfig.setup({
   ensure_installed = {
-    "editorconfig_checker",
     "tsserver",
     "html",
     "css",
@@ -26,11 +25,10 @@ mason_lspconfig.setup({
     "sumneko_lua",
     "tailwindcss",
     "yamlls",
-    "prettierd",
-    "eslint",
     "jsonls",
     "vimls",
     "prismals",
+    "taplo",
   },
   automatic_installation = true,
 })
