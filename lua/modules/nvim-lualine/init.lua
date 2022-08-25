@@ -45,7 +45,7 @@ require("lualine").setup({
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
-    lualine_b = { "fileformat", "filename", "branch", "diff" },
+    lualine_b = { "fileformat", "filename", "branch" },
     lualine_c = { "diagnostics" },
     lualine_x = { lsp_status },
     lualine_y = { utils.show_tab_size, "encoding", "progress" },
