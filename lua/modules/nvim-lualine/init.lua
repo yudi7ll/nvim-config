@@ -2,6 +2,8 @@ local utils = require("common.utils")
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
 
+vim.g.navic_silence = true
+
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -33,7 +35,7 @@ require("lualine").setup({
     },
   },
   winbar = {
-    lualine_b = { "filetype" },
+    lualine_b = { utils.show_file_path },
     lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },

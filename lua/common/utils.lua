@@ -92,4 +92,9 @@ M.show_tab_size = function()
   return "spaces " .. vim.bo.shiftwidth
 end
 
+M.show_file_path = function()
+  local full_path = string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd() .. '/', "")
+  return string.gsub(full_path, '/', ' > ')
+end
+
 return M

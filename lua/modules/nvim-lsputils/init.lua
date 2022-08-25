@@ -1,3 +1,5 @@
+require("modules.nvim-lsputils.handlers")
+
 require("cosmic-ui").setup({
   border_style = "single",
   rename = {

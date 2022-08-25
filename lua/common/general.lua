@@ -1,12 +1,10 @@
 vim.g.python3_host_prog = "/usr/bin/python3"
-vim.g.cursorhold_updatetime = 200
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin on")
 vim.cmd("colorscheme onearc")
-vim.cmd("set completeopt=menu,menuone,noselect")
 
 local group = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -14,14 +12,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   command = "set filetype=jsonc",
   group = group,
 })
-
--- local lsp_restart = vim.api.nvim_create_augroup("LspRestart", { clear = true })
--- vim.api.nvim_clear_autocmds({ group = lsp_restart })
--- vim.api.nvim_create_autocmd("TermResponse", {
--- 	group = lsp_restart,
--- 	callback = function()
--- 		vim.cmd([[LspRestart]])
--- 	end,
--- })
-
-vim.g.navic_silence = true

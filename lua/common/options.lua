@@ -4,6 +4,7 @@ vim.opt.backup = false
 vim.opt.cmdheight = 2
 vim.opt.colorcolumn = "80"
 vim.opt.compatible = false
+vim.opt.completeopt = "menu,menuone,noinsert"
 vim.opt.cursorline = true
 vim.opt.encoding = "UTF-8"
 vim.opt.expandtab = true
