@@ -8,6 +8,7 @@ end
 
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.jsonls")
+require("modules.nvim-lspconfig.lsp.liquid")
 require("modules.nvim-lspconfig.lsp.lua")
 require("modules.nvim-lspconfig.lsp.tailwindcss")
 require("modules.nvim-lspconfig.lsp.tsserver")
