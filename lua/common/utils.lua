@@ -93,8 +93,8 @@ M.show_tab_size = function()
 end
 
 M.show_file_path = function()
-  local full_path = string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd() .. '/', "")
-  return string.gsub(full_path, '/', ' > ')
+---@diagnostic disable-next-line: missing-parameter
+  return string.gsub(vim.fn.fnamemodify(vim.fn.expand('%'), ':p:~:.'), '/', ' > ')
 end
 
 return M

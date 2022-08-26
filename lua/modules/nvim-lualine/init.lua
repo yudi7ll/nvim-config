@@ -62,7 +62,7 @@ require("lualine").setup({
     },
   },
   inactive_winbar = {
-    lualine_b = { "filetype" },
+    lualine_b = { utils.show_file_path },
     lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },
