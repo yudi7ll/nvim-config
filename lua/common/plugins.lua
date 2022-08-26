@@ -44,6 +44,7 @@ packer.startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
   use({ "b0o/schemastore.nvim" })
   use({ "davidsierradz/cmp-conventionalcommits" })
+  use({ "mattn/emmet-vim" })
   -- wip: debugging
   use({ "mfussenegger/nvim-dap" })
   use({ "rcarriga/nvim-dap-ui" })
