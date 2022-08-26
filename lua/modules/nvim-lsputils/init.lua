@@ -1,4 +1,4 @@
-require("modules.nvim-lsputils.handlers")
+require("modules.nvim-lsputils.handlers").setup()
 
 require("cosmic-ui").setup({
   border_style = "single",
