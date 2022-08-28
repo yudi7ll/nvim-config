@@ -2,7 +2,15 @@ require("nvim-treesitter.install").prefer_git = true
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
-  ignore_install = { "ocaml", "ocaml_interface", "ocamllex", "bibtex", "cooklang", "cuda", "haskell" },
+  ignore_install = {
+    "ocaml",
+    "ocaml_interface",
+    "ocamllex",
+    "bibtex",
+    "cooklang",
+    "cuda",
+    "haskell",
+  },
   sync_install = false,
   highlight = {
     enable = true,
@@ -35,6 +43,9 @@ require("nvim-treesitter.configs").setup({
       [";"] = "textsubjects-container-outer",
       ["i;"] = "textsubjects-container-inner",
     },
+  },
+  autotag = {
+    enable = true,
   },
 })
 

@@ -1,7 +1,11 @@
 local lspconfig = require("lspconfig")
 local opts = require("modules.nvim-lspconfig.opts")
+local defaultSchemas = vim.list_extend(
+  require("schemastore").json.schemas({}),
+  require("nlspsettings").get_default_schemas()
+)
 
-lspconfig.jsonls.setup(vim.tbl_extend("force", opts, {
+lspconfig.jsonls.setup(vim.tbl_deep_extend("force", opts, {
   settings = {
     json = {
       schemas = vim.list_extend({
@@ -11,7 +15,7 @@ lspconfig.jsonls.setup(vim.tbl_extend("force", opts, {
           name = ".luarc.json",
           url = "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
         },
-      }, require("schemastore").json.schemas({})),
+      }, defaultSchemas),
       validate = { enable = true },
     },
   },

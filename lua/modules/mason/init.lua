@@ -23,18 +23,20 @@ mason_lspconfig.setup({
     "intelephense",
     "dockerls",
     "sumneko_lua",
+    "stylua",
     "tailwindcss",
     "yamlls",
     "jsonls",
     "vimls",
     "prismals",
     "taplo",
+    "eslint",
   },
   automatic_installation = true,
 })
 
 mason_lspconfig.setup_handlers({
   function(server_name)
-    require("lspconfig")[server_name].setup(opts)
+    require("lspconfig")[server_name].setup(vim.deepcopy(opts))
   end,
 })

@@ -26,11 +26,14 @@ packer.startup(function(use)
   use({ "yudi7ll/onearc.nvim" })
   use({ "williamboman/mason.nvim" })
   use({ "williamboman/mason-lspconfig.nvim" })
-  -- lsp
+  -- lsp & utilities
   use({ "neovim/nvim-lspconfig" })
   use({ "onsails/lspkind.nvim" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
   use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
+  use({ "tamago324/nlsp-settings.nvim" })
+  use({ "RRethy/vim-illuminate" })
+  use({ "j-hui/fidget.nvim" })
   -- completion
   use({ "hrsh7th/nvim-cmp" })
   use({ "hrsh7th/cmp-nvim-lua" })
@@ -49,14 +52,12 @@ packer.startup(function(use)
   use({ "mfussenegger/nvim-dap" })
   use({ "rcarriga/nvim-dap-ui" })
   use({ "mxsdev/nvim-dap-vscode-js" })
-  -- statusline
-  use({ "nvim-lualine/lualine.nvim" })
-  use({ "arkav/lualine-lsp-progress" })
   -- other
+  use({ "nvim-lualine/lualine.nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "antoinemadec/FixCursorHold.nvim" })
   use({ "windwp/nvim-autopairs" })
-  use({ "kyazdani42/nvim-tree.lua" })
+  use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
   use({ "terrortylor/nvim-comment" })
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-sleuth" })
@@ -77,6 +78,8 @@ packer.startup(function(use)
     requires = "MunifTanjim/nui.nvim",
     config = [[require('competitest').setup()]],
   })
+  use({ "lewis6991/impatient.nvim" })
+  use({ "junegunn/vim-slash" })
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })

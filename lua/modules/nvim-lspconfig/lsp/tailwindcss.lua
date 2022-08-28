@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 local opts = require("modules.nvim-lspconfig.opts")
 
-lspconfig.tailwindcss.setup(vim.tbl_extend("force", opts, {
+lspconfig.tailwindcss.setup(vim.tbl_deep_extend("force", opts, {
   settings = {
     tailwindCSS = {
       classAttributes = { "class", "className", "classList", "ngClass" },

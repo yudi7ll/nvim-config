@@ -15,7 +15,8 @@ require("lualine").setup({
       winbar = { "floaterm", "NvimTree", "packer" },
     },
     refresh = {
-      statusline = 50,
+      statusline = 100,
+      winbar = 100,
     },
     ignore_focus = {
       "",
@@ -46,17 +47,17 @@ require("lualine").setup({
     },
     lualine_b = { "fileformat", "filename", "branch" },
     lualine_c = {
-      {
-        "lsp_progress",
-        timer = {
-          progress_enddelay = 1000,
-          spinner = 1000,
-          lsp_client_name_enddelay = 1000,
-        },
-      },
+      -- {
+      --   "lsp_progress",
+      --   timer = {
+      --     progress_enddelay = 1000,
+      --     spinner = 1000,
+      --     lsp_client_name_enddelay = 1000,
+      --   },
+      -- },
     },
     lualine_x = { "diagnostics" },
-    lualine_y = { utils.show_tab_size, "encoding", "progress" },
+    lualine_y = { utils.show_tab_size, "encoding", "filetype" },
     lualine_z = {
       { "location", separator = { right = "" }, left_padding = 2 },
     },

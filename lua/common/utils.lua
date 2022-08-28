@@ -42,7 +42,13 @@ M.show_diagnostic_under_cursor = function(bufnr)
     callback = function()
       local opts = {
         focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost", "DiffUpdated" },
+        close_events = {
+          "BufLeave",
+          "CursorMoved",
+          "InsertEnter",
+          "FocusLost",
+          "DiffUpdated",
+        },
         source = "always",
         prefix = " ",
         scope = "cursor",
@@ -52,35 +58,17 @@ M.show_diagnostic_under_cursor = function(bufnr)
   })
 end
 
-M.highlight_symbol_under_cursor = function(client, bufnr)
-  if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_create_augroup("lsp_document_highlight", {
-      clear = false,
-    })
-    vim.api.nvim_clear_autocmds({
-      buffer = bufnr,
-      group = "lsp_document_highlight",
-    })
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      group = "lsp_document_highlight",
-      buffer = bufnr,
-      callback = vim.lsp.buf.document_highlight,
-    })
-    vim.api.nvim_create_autocmd("CursorMoved", {
-      group = "lsp_document_highlight",
-      buffer = bufnr,
-      callback = vim.lsp.buf.clear_references,
-    })
-  end
-end
-
 M.show_tab_size = function()
   return "spaces " .. vim.bo.shiftwidth
 end
 
 M.show_file_path = function()
-  ---@diagnostic disable-next-line: missing-parameter
-  return string.gsub(vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:."), "/", " > ")
+  return string.gsub(
+    ---@diagnostic disable-next-line: missing-parameter
+    vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:."),
+    "/",
+    " > "
+  )
 end
 
 return M

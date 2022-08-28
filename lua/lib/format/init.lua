@@ -1,9 +1,16 @@
 local M = {}
 
 -- used if `whitelist_only` is set to false
-M.blacklists = { "html" }
-M.whitelists = {}
-M.whitelist_only = false
+M.blacklists = {}
+M.whitelists = {
+  "typescript",
+  "javascript",
+  "typescriptreact",
+  "javascriptreact",
+  "html",
+  "lua",
+}
+M.whitelist_only = true
 
 M.setup = function()
   for _, ft in ipairs(M.blacklists) do
