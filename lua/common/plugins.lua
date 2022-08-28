@@ -72,10 +72,16 @@ packer.startup(function(use)
   use({ "dstein64/vim-startuptime" })
   use({ "SmiteshP/nvim-navic" })
   use({ "CosmicNvim/cosmic-ui", requires = "MunifTanjim/nui.nvim" })
+  use({
+    "xeluxee/competitest.nvim",
+    requires = "MunifTanjim/nui.nvim",
+    config = [[require('competitest').setup()]],
+  })
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
+  use({ "RRethy/nvim-treesitter-textsubjects" })
   -- Highlighting
   use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
   use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })

@@ -6,7 +6,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-require("modules.nvim-lspconfig.lsp.eslint")
+-- require("modules.nvim-lspconfig.lsp.eslint")
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.jsonls")
 require("modules.nvim-lspconfig.lsp.liquid")

@@ -52,20 +52,6 @@ M.show_diagnostic_under_cursor = function(bufnr)
   })
 end
 
-local au_lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
-M.format_on_save = function(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = au_lsp_formatting, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = au_lsp_formatting,
-      buffer = bufnr,
-      callback = function()
-        return vim.lsp.buf.format({ bufnr = bufnr })
-      end,
-    })
-  end
-end
-
 M.highlight_symbol_under_cursor = function(client, bufnr)
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup("lsp_document_highlight", {
@@ -93,8 +79,8 @@ M.show_tab_size = function()
 end
 
 M.show_file_path = function()
----@diagnostic disable-next-line: missing-parameter
-  return string.gsub(vim.fn.fnamemodify(vim.fn.expand('%'), ':p:~:.'), '/', ' > ')
+  ---@diagnostic disable-next-line: missing-parameter
+  return string.gsub(vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:."), "/", " > ")
 end
 
 return M
