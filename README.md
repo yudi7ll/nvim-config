@@ -16,9 +16,9 @@ Neovim 0.8.0 nightly-dev
     - [x] tailwindcss
     - [ ] laravel blade
     - [x] dockerfile
-    - [ ] python
-    - [ ] bash
-    - [ ] markdown
+    - [x] python
+    - [x] bash
+    - [x] markdown
     - [x] yaml
     - [x] prisma
 - [x] LSP Manager
@@ -38,6 +38,7 @@ Neovim 0.8.0 nightly-dev
 - [x] Terminal
 - [ ] Refactoring:
   - [ ] File & Reference rename
+- [ ] Per project LSP Config
 
 ## Dependencies
 - [Bat](https://github.com/sharkdp/bat) for syntax highlighting at some place
