@@ -1,8 +1,8 @@
-require("impatient")
 require("common.plugins")
 require("common.general")
 require("common.options")
 require("common.mappings")
+require("impatient")
 
 -- load modules
 require("presence")
