@@ -16,6 +16,8 @@ require("illuminate").configure({
   filetypes_denylist = {
     "dirvish",
     "fugitive",
+    "NvimTree",
+    "floaterm",
   },
   -- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
   filetypes_allowlist = {},
@@ -36,7 +38,7 @@ require("illuminate").configure({
 })
 
 vim.cmd([[
-hi link IlluminatedWordText CocHighlightText
-hi link IlluminatedWordRead CocHighlightText
-hi link IlluminatedWordWrite CocHighlightText
+  hi link IlluminatedWordText CocHighlightText
+  hi link IlluminatedWordRead CocHighlightText
+  hi link IlluminatedWordWrite CocHighlightText
 ]])
