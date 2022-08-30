@@ -27,7 +27,7 @@ require("nvim-tree").setup({
     centralize_selection = false,
     width = 38,
     height = 30,
-    hide_root_folder = true,
+    hide_root_folder = false,
     side = "right",
     preserve_window_proportions = true,
     number = true,
@@ -52,7 +52,7 @@ require("nvim-tree").setup({
     highlight_git = false,
     full_name = true,
     highlight_opened_files = "icon",
-    root_folder_modifier = ":~",
+    root_folder_modifier = ":t",
     indent_markers = {
       enable = false,
       icons = {

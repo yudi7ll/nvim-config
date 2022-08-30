@@ -6,7 +6,12 @@ local WIDE_HEIGHT = 40
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  return col ~= 0
+    and vim.api
+        .nvim_buf_get_lines(0, line - 1, line, true)[1]
+        :sub(col, col)
+        :match("%s")
+      == nil
 end
 
 local cmp_kinds = {
@@ -117,13 +122,13 @@ cmp.setup({
   sorting = {
     priority_weight = 1,
     comparators = {
+      cmp.config.compare.exact,
       cmp.config.compare.offset,
       cmp.config.compare.locality,
       cmp.config.compare.recently_used,
       cmp.config.compare.score,
       cmp.config.compare.order,
       require("cmp-under-comparator").under,
-      -- cmp.config.compare.exact,
       -- cmp.config.compare.kind,
       -- cmp.config.compare.length,
     },
@@ -140,7 +145,9 @@ cmp.setup({
     },
     documentation = {
       max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
-      max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
+      max_width = math.floor(
+        (WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))
+      ),
       border = { "", "", "", " ", "", "", "", " " },
       winhighlight = "FloatBorder:NormalFloat",
       side_padding = 1,
@@ -148,4 +155,7 @@ cmp.setup({
   },
 })
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp.event:on(
+  "confirm_done",
+  cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })
+)
