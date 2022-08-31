@@ -2,9 +2,9 @@ local nmap = require("common.utils").nmap
 
 local signs = {
   Error = " ",
-  Warning = " ",
+  Warn = " ",
   Hint = " ",
-  Information = " ",
+  Info = " ",
 }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type

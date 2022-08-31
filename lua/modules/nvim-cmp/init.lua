@@ -90,9 +90,11 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     ["<A-j>"] = select_next_item,
+    ["<C-j>"] = select_next_item,
     ["<A-k>"] = select_prev_item,
-    ["<C-j>"] = scroll_docs_down,
-    ["<C-k>"] = scroll_docs_up,
+    ["<C-k>"] = select_prev_item,
+    ["<Down>"] = scroll_docs_down,
+    ["<Up>"] = scroll_docs_up,
     ["<Tab>"] = confirm_selection,
     ["<C-Space>"] = refresh,
     ["<C-e>"] = cmp.mapping.abort(),

@@ -50,7 +50,7 @@ require("nvim-tree").setup({
     add_trailing = false,
     group_empty = false,
     highlight_git = false,
-    full_name = true,
+    full_name = false,
     highlight_opened_files = "icon",
     root_folder_modifier = ":t",
     indent_markers = {

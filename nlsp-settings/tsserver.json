@@ -1,0 +1,6 @@
+{
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifier": "project-relative"
+}
