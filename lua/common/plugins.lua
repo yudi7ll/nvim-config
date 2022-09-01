@@ -30,9 +30,7 @@ packer.startup(function(use)
   use({ "neovim/nvim-lspconfig" })
   use({ "onsails/lspkind.nvim" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
-  use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
   use({ "tamago324/nlsp-settings.nvim" })
-  use({ "RRethy/vim-illuminate" })
   use({ "j-hui/fidget.nvim" })
   -- completion
   use({ "hrsh7th/nvim-cmp" })
@@ -55,9 +53,18 @@ packer.startup(function(use)
   -- git
   use({ "lewis6991/gitsigns.nvim" })
   use({ "rhysd/conflict-marker.vim" })
-  -- other
+  -- ui
+  use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
+  use({ "CosmicNvim/cosmic-ui", requires = "MunifTanjim/nui.nvim" })
   use({ "nvim-lualine/lualine.nvim" })
-  use({ "kyazdani42/nvim-web-devicons" })
+  use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+  use({ "voldikss/vim-floaterm" })
+  use({ "ziontee113/color-picker.nvim" })
+  -- other
+  use({
+    "yamatsum/nvim-nonicons",
+    requires = { "kyazdani42/nvim-web-devicons" },
+  })
   use({ "antoinemadec/FixCursorHold.nvim" })
   use({ "windwp/nvim-autopairs" })
   use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
@@ -66,21 +73,16 @@ packer.startup(function(use)
   use({ "tpope/vim-sleuth" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "editorconfig/editorconfig-vim" })
-  use({ "akinsho/bufferline.nvim", tag = "v2.*" })
   use({ "folke/which-key.nvim" })
-  use({ "voldikss/vim-floaterm" })
   use({ "andweeb/presence.nvim" })
-  use({ "nvim-telescope/telescope.nvim" })
-  use({ "ziontee113/color-picker.nvim" })
   use({ "dstein64/vim-startuptime" })
   use({ "SmiteshP/nvim-navic" })
-  use({ "CosmicNvim/cosmic-ui", requires = "MunifTanjim/nui.nvim" })
+  use({ "nvim-telescope/telescope.nvim" })
   use({
     "xeluxee/competitest.nvim",
     requires = "MunifTanjim/nui.nvim",
     config = [[require('competitest').setup()]],
   })
-  use({ "lewis6991/impatient.nvim" })
   use({ "junegunn/vim-slash" })
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

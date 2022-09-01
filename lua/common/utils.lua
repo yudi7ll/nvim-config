@@ -36,39 +36,4 @@ M.vmap = function(key, cmd, config)
   map("v", key, cmd, config)
 end
 
-M.show_diagnostic_under_cursor = function(bufnr)
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local opts = {
-        focusable = false,
-        close_events = {
-          "BufLeave",
-          "CursorMoved",
-          "InsertEnter",
-          "FocusLost",
-          "DiffUpdated",
-        },
-        source = "always",
-        prefix = " ",
-        scope = "cursor",
-      }
-      vim.diagnostic.open_float(nil, opts)
-    end,
-  })
-end
-
-M.show_tab_size = function()
-  return "spaces " .. vim.bo.shiftwidth
-end
-
-M.show_file_path = function()
-  return string.gsub(
-    ---@diagnostic disable-next-line: missing-parameter
-    vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:."),
-    "/",
-    " > "
-  )
-end
-
 return M

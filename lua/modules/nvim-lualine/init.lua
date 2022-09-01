@@ -1,4 +1,4 @@
-local utils = require("common.utils")
+local utils = require("modules.nvim-lualine.utils")
 local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
 
@@ -46,16 +46,7 @@ require("lualine").setup({
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
     lualine_b = { "fileformat", "filename", "branch" },
-    lualine_c = {
-      -- {
-      --   "lsp_progress",
-      --   timer = {
-      --     progress_enddelay = 1000,
-      --     spinner = 1000,
-      --     lsp_client_name_enddelay = 1000,
-      --   },
-      -- },
-    },
+    lualine_c = {},
     lualine_x = { "diagnostics" },
     lualine_y = { utils.show_tab_size, "encoding", "filetype" },
     lualine_z = {

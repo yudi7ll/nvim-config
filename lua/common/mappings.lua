@@ -12,7 +12,7 @@ nmap("<leader>ls", ":LspSettings local ", { silent = false })
 nmap("<leader>lS", ":LspSettings ", { silent = false })
 
 -- lsp mapping
-M.setup_lsp_mapping = function(bufnr)
+M.attach_mapping = function(bufnr)
   local bufopts = { buffer = bufnr }
 
   nmap("<leader>ar", cosmic_ui.rename, bufopts)

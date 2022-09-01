@@ -33,7 +33,7 @@ M.format = function()
   return vim.lsp.buf.format()
 end
 
-M.on_attach = function(client)
+M.attach = function(client)
   if client.supports_method("textDocument/formatting") then
     M.setup()
 
