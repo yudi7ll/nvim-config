@@ -10,7 +10,7 @@ local global_capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-global_capabilities.textDocument.completion.completionItem.snippetSupport = true
+---@diagnostic disable-next-line: assign-type-mismatch
 lspconfig.util.default_config =
   vim.tbl_extend("force", lspconfig.util.default_config, {
     capabilities = global_capabilities,

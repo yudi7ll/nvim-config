@@ -61,10 +61,7 @@ packer.startup(function(use)
   use({ "voldikss/vim-floaterm" })
   use({ "ziontee113/color-picker.nvim" })
   -- other
-  use({
-    "yamatsum/nvim-nonicons",
-    requires = { "kyazdani42/nvim-web-devicons" },
-  })
+  use({ "kyazdani42/nvim-web-devicons" })
   use({ "antoinemadec/FixCursorHold.nvim" })
   use({ "windwp/nvim-autopairs" })
   use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
