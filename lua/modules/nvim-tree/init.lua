@@ -145,7 +145,7 @@ require("nvim-tree").setup({
       restrict_above_cwd = false,
     },
     expand_all = {
-      max_folder_discovery = 300,
+      max_folder_discovery = 100,
       exclude = { "node_modules" },
     },
     open_file = {

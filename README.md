@@ -41,7 +41,7 @@ Neovim 0.8.0 nightly-dev
 - [ ] Per project LSP Config
 
 ## Dependencies
-- [Bat](https://github.com/sharkdp/bat) for syntax highlighting at some place
+- [Bat](https://github.com/sharkdp/bat) for syntax highlighting at some places
 - `<localleader>tg` require [Lazygit](https://github.com/jesseduffield/lazygit)
 - `<localleader>td` require [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - `<localleader>tu` require [NCDU](https://dev.yorhel.nl/ncdu)
