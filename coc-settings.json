@@ -112,5 +112,7 @@
   "list.previewSplitRight": true,
   "lightbulb.enableSign": true,
   "lightbulb.enableVirtualText": false,
-  "colors.filetypes": ["*"]
+  "colors.filetypes": ["*"],
+  "inlayHint.enableParameter": false,
+  "Lua.telemetry.enable": false
 }

@@ -1,22 +1,14 @@
 vim.g.python3_host_prog = "/usr/bin/python3"
-vim.g.cursorhold_updatetime = 100
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- vim.cmd("au CursorHold * checktime")
--- vim.cmd("set shortmess+=c")
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin on")
 vim.cmd("colorscheme onearc")
 
-vim.cmd([[
-  augroup JsonToJsonc
-      autocmd! FileType json set filetype=jsonc
-  augroup END
-
-  " augroup vimrc-incsearch-highlight
-  "   autocmd!
-  "   autocmd CmdlineEnter /,\? :set hlsearch
-  "   autocmd CmdlineLeave /,\? :set nohlsearch
-  " augroup END
-]])
+local group = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "json" },
+  command = "set filetype=jsonc",
+  group = group,
+})

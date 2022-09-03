@@ -19,16 +19,16 @@ require("nvim-tree").setup({
   sort_by = "name",
   root_dirs = {},
   prefer_startup_root = true,
-  sync_root_with_cwd = false,
+  sync_root_with_cwd = true,
   reload_on_bufenter = true,
-  respect_buf_cwd = false,
+  respect_buf_cwd = true,
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     centralize_selection = false,
     width = 38,
     height = 30,
-    hide_root_folder = true,
-    side = "left",
+    hide_root_folder = false,
+    side = "right",
     preserve_window_proportions = true,
     number = true,
     relativenumber = true,
@@ -36,10 +36,13 @@ require("nvim-tree").setup({
     mappings = {
       custom_only = false,
       list = {
+        { key = "d", action = "trash" },
         { key = "l", action = "edit" },
         { key = "h", action = "close_node" },
+        { key = "H", action = "toggle_dotfiles" },
         { key = "<CR>", action = "cd" },
-        { key = "<BS>", action = "dir_up" }
+        { key = "<BS>", action = "dir_up" },
+        { key = "?", action = "toggle_help" },
       },
     },
   },
@@ -47,9 +50,9 @@ require("nvim-tree").setup({
     add_trailing = false,
     group_empty = false,
     highlight_git = false,
-    full_name = true,
+    full_name = false,
     highlight_opened_files = "icon",
-    root_folder_modifier = ":~",
+    root_folder_modifier = ":t",
     indent_markers = {
       enable = false,
       icons = {
@@ -61,7 +64,7 @@ require("nvim-tree").setup({
     },
     icons = {
       webdev_colors = true,
-      git_placement = "before",
+      git_placement = "after",
       padding = " ",
       symlink_arrow = " ➛ ",
       show = {
@@ -101,7 +104,7 @@ require("nvim-tree").setup({
   update_focused_file = {
     enable = true,
     update_root = false,
-    ignore_list = { "node_modules", "vendor" },
+    ignore_list = {},
   },
   ignore_ft_on_setup = {},
   system_open = {
@@ -110,7 +113,7 @@ require("nvim-tree").setup({
   },
   diagnostics = {
     enable = true,
-    show_on_dirs = true,
+    show_on_dirs = false,
     debounce_delay = 50,
     icons = {
       hint = "",
@@ -121,8 +124,8 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = true,
-    custom = {},
-    exclude = { "node_modules", "vendor" },
+    custom = { "node_modules" },
+    exclude = { ".env*" },
   },
   filesystem_watchers = {
     enable = true,
@@ -143,7 +146,7 @@ require("nvim-tree").setup({
     },
     expand_all = {
       max_folder_discovery = 300,
-      exclude = {},
+      exclude = { "node_modules" },
     },
     open_file = {
       quit_on_open = false,
@@ -152,7 +155,14 @@ require("nvim-tree").setup({
         enable = false,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
         exclude = {
-          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+          filetype = {
+            "notify",
+            "packer",
+            "qf",
+            "diff",
+            "fugitive",
+            "fugitiveblame",
+          },
           buftype = { "nofile", "terminal", "help" },
         },
       },

@@ -5,21 +5,21 @@ local utils = require("common.utils")
 
 -- keep installed
 vim.g.coc_global_extensions = {
-	"@yaegassy/coc-tailwindcss3",
-	"coc-css",
-	"coc-diagnostic",
-	"coc-emmet",
-	"coc-eslint",
-	"coc-highlight",
-	"coc-html",
-	"coc-json",
-	"coc-marketplace",
-	"coc-pyright",
-	"coc-sh",
-	"coc-svg",
-	"coc-tsserver",
-	"coc-yaml",
-	"coc-xml",
+  "@yaegassy/coc-tailwindcss3",
+  "coc-css",
+  "coc-diagnostic",
+  "coc-emmet",
+  "coc-eslint",
+  "coc-highlight",
+  "coc-html",
+  "coc-json",
+  "coc-marketplace",
+  "coc-pyright",
+  "coc-sh",
+  "coc-svg",
+  "coc-tsserver",
+  "coc-yaml",
+  "coc-xml",
 }
 
 vim.cmd([[
@@ -45,7 +45,9 @@ vim.cmd("command! -nargs=0 Format :call CocAction('format')")
 -- Add `:Fold` command to fold current buffer.
 vim.cmd("command! -nargs=? Fold :call CocAction('fold', <f-args>)")
 -- Add `:OR` command for organize imports of the current buffer.
-vim.cmd("command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')")
+vim.cmd(
+  "command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')"
+)
 -- Add `:Prettier` command for formatting file
 vim.cmd("command! -nargs=0 Prettier :CocCommand prettier.formatFile")
 
