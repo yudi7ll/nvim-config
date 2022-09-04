@@ -1,6 +1,7 @@
 local M = {}
 local cosmic_ui = require("cosmic-ui")
 local utils = require("common.utils")
+local toggle_diagnostics = require("lib.toggle-diagnostics")
 local nmap = utils.nmap
 local vmap = utils.vmap
 
@@ -32,7 +33,7 @@ M.attach_mapping = function(bufnr)
   nmap("K", vim.lsp.buf.hover, bufopts)
   nmap("H", vim.lsp.buf.signature_help, bufopts)
   nmap("<leader>lr", "<CMD>LspRestart<CR>", bufopts)
-  nmap("<leader>lt", "<CMD>ToggleDiag<CR>", bufopts)
+  nmap("<leader>lt", toggle_diagnostics.toggle)
 end
 
 return M

@@ -46,5 +46,3 @@ vim.g.lsp_utils_location_opts = {
     preview_highlight = "NormalFloat",
   },
 }
-
-vim.diagnostic.config({ virtual_text = false })
