@@ -1,4 +1,6 @@
 local M = {}
+local sources = require("null-ls.sources")
+local methods = require("null-ls.methods")
 
 -- used if `whitelist_only` is set to false
 M.blacklists = {}
@@ -24,7 +26,6 @@ end
 
 M.format = function()
   local filetype = vim.bo.filetype
-  local clients = vim.lsp.get_active_clients()
 
   if M.whitelist_only and not M.whitelists[filetype] then
     return
@@ -32,9 +33,23 @@ M.format = function()
     return
   end
 
-  for _, c in ipairs(clients) do
-    -- use null-ls if available
-    if c.name == "null-ls" then
+  local get_methods_per_source = function(source)
+    local available_methods = vim.tbl_keys(source.methods)
+    return vim.tbl_map(methods.get_readable_name, available_methods)
+  end
+
+  local get_active_methods = function()
+    local active_methods
+    for _, source in ipairs(sources.get_available(filetype)) do
+      active_methods = get_methods_per_source(source)
+    end
+
+    return active_methods
+  end
+
+  -- use null-ls if available for formatting
+  for _, method in ipairs(get_active_methods()) do
+    if method == "formatting" or method == "range_formatting" then
       return vim.lsp.buf.format({
         filter = function(client)
           return client.name == "null-ls"

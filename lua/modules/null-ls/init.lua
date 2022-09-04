@@ -9,9 +9,10 @@ nmap("<leader>nl", "<CMD>NullLsLog<CR>")
 
 null_ls.setup({
   sources = {
-    formatting.eslint,
+    formatting.eslint.with({ prefer_local = "./node_modules/.bin" }),
     formatting.blade_formatter,
     formatting.stylua,
+    diagnostics.phpstan.with({ prefer_local = "./vendor/bin" }),
     diagnostics.zsh,
   },
 })
