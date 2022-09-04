@@ -1,11 +1,11 @@
 local lspconfig = require("lspconfig")
-local opts = require("modules.nvim-lspconfig.opts")
+local configs = require("modules.nvim-lspconfig.configs")
 local defaultSchemas = vim.list_extend(
   require("schemastore").json.schemas({}),
   require("nlspsettings").get_default_schemas()
 )
 
-lspconfig.jsonls.setup(vim.tbl_deep_extend("force", opts, {
+lspconfig.jsonls.setup(vim.tbl_deep_extend("force", configs, {
   settings = {
     json = {
       schemas = vim.list_extend({

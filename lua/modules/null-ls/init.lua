@@ -9,7 +9,7 @@ nmap("<leader>nl", "<CMD>NullLsLog<CR>")
 
 null_ls.setup({
   sources = {
-    formatting.eslint_d,
+    formatting.eslint,
     formatting.blade_formatter,
     formatting.stylua,
     diagnostics.zsh,

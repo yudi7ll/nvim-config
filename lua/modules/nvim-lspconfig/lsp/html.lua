@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
-local opts = require("modules.nvim-lspconfig.opts")
+local configs = require("modules.nvim-lspconfig.configs")
 
-lspconfig.html.setup(vim.tbl_deep_extend("force", opts, {
+lspconfig.html.setup(vim.tbl_deep_extend("force", configs, {
   init_options = {
     filetypes = { "html", "php", "javascriptreact", "blade" },
     configurationSection = { "html", "css", "javascript" },

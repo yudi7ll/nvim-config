@@ -1,4 +1,6 @@
 local nmap = require("common.utils").nmap
+local mason_lspconfig = require("mason-lspconfig")
+local configs = require("modules.nvim-lspconfig.configs")
 
 local signs = {
   Error = " ",
@@ -19,3 +21,9 @@ require("modules.nvim-lspconfig.lsp.theme_check")
 require("modules.nvim-lspconfig.lsp.tsserver")
 
 nmap("<leader>li", "<CMD>LspInfo<CR>")
+
+mason_lspconfig.setup_handlers({
+  function(server_name)
+    require("lspconfig")[server_name].setup(vim.fn.deepcopy(configs))
+  end,
+})

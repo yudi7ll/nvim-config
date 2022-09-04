@@ -9,6 +9,7 @@ M.whitelists = {
   "javascriptreact",
   "html",
   "lua",
+  "php",
 }
 M.whitelist_only = true
 
@@ -23,11 +24,23 @@ end
 
 M.format = function()
   local filetype = vim.bo.filetype
+  local clients = vim.lsp.get_active_clients()
 
   if M.whitelist_only and not M.whitelists[filetype] then
     return
   elseif not M.whitelist_only and M.blacklists[filetype] then
     return
+  end
+
+  for _, c in ipairs(clients) do
+    -- use null-ls if available
+    if c.name == "null-ls" then
+      return vim.lsp.buf.format({
+        filter = function(client)
+          return client.name == "null-ls"
+        end,
+      })
+    end
   end
 
   return vim.lsp.buf.format()
