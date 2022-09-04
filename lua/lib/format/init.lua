@@ -44,7 +44,7 @@ M.format = function()
       active_methods = get_methods_per_source(source)
     end
 
-    return active_methods
+    return active_methods or {}
   end
 
   -- use null-ls if available for formatting
