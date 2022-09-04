@@ -5,7 +5,7 @@ local navic = require("nvim-navic")
 local colorizer = require("colorizer")
 local format = require("lib.format")
 local highlight_symbol = require("lib.highlight-symbol")
-local show_diagnostics = require("lib.show-diagnostics")
+local cursor_diagnostics = require("lib.cursor-diagnostics")
 
 local global_capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
@@ -24,7 +24,7 @@ M.on_attach = function(client, bufnr)
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   format.attach(client)
-  show_diagnostics.attach(bufnr)
+  cursor_diagnostics.attach(bufnr)
   highlight_symbol.attach(client, bufnr)
   mappings.attach_mapping(bufnr)
   navic.attach(client, bufnr)

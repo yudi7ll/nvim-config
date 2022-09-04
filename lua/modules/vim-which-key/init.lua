@@ -87,10 +87,16 @@ local keymaps = {
       U = "reset buffer index",
     },
     m = "mason",
+    n = {
+      name = "+null ls",
+      i = "info",
+      l = "log",
+    },
     l = {
       name = "+lsp",
       i = "lsp info",
       r = "restart lsp",
+      t = "toggle diagnostics",
     },
     t = {
       name = "+telescope",

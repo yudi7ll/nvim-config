@@ -32,6 +32,7 @@ M.attach_mapping = function(bufnr)
   nmap("K", vim.lsp.buf.hover, bufopts)
   nmap("H", vim.lsp.buf.signature_help, bufopts)
   nmap("<leader>lr", "<CMD>LspRestart<CR>", bufopts)
+  nmap("<leader>lt", "<CMD>ToggleDiag<CR>", bufopts)
 end
 
 return M
