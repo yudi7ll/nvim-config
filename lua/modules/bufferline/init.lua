@@ -3,7 +3,6 @@ local nmap = utils.nmap
 
 require("bufferline").setup({
   options = {
-    ---@diagnostic disable-next-line: assign-type-mismatch
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level)
@@ -26,7 +25,6 @@ require("bufferline").setup({
   },
 })
 
--- nmap("<C-t>", ":enew<CR>")
 nmap("<C-W>q", "<CMD>bp <BAR> bd #<CR>")
 nmap("<C-W><C-q>", "<CMD>bp <BAR> bd #<CR>")
 nmap("<C-q>", "<CMD>bp <BAR> bd #<CR>")
@@ -34,5 +32,3 @@ nmap("<A-q>", "<CMD>bp <BAR> bd #<CR>")
 nmap("<A-,>", "<CMD>BufferLineCyclePrev<CR>")
 nmap("<A-.>", "<CMD>BufferLineCycleNext<CR>")
 nmap("<A-a>", "<CMD>BufferLineCloseLeft<CR> <CMD>BufferLineCloseRight<CR>")
--- nmap("<A-<>", ":BufferLineMovePrev<CR>")
--- nmap("<A->>", ":BufferLineMoveNext<CR>")
