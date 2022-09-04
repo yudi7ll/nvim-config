@@ -2,6 +2,7 @@ local M = {}
 
 M.diagnostic_active = true
 
+-- toggle diagnostic display
 M.toggle = function()
   if M.diagnostic_active then
     M.diagnostic_active = false

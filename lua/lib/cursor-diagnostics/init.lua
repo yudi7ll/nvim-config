@@ -1,5 +1,6 @@
 local M = {}
 
+-- on_attach: show diagnostic on CursorHold
 M.attach = function(bufnr)
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,

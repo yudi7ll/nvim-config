@@ -2,6 +2,7 @@ local M = {}
 local cosmic_ui = require("cosmic-ui")
 local utils = require("common.utils")
 local toggle_diagnostics = require("lib.toggle-diagnostics")
+local format = require("lib.format").format
 local nmap = utils.nmap
 local vmap = utils.vmap
 
@@ -19,7 +20,7 @@ M.attach_mapping = function(bufnr)
   nmap("<leader>ar", cosmic_ui.rename, bufopts)
   nmap("<leader>ac", cosmic_ui.code_actions, bufopts)
   vmap("<leader>ac", cosmic_ui.range_code_actions, bufopts)
-  nmap("<leader>af", vim.lsp.buf.format, bufopts)
+  nmap("<leader>af", format, bufopts)
   nmap("<leader>aF", vim.lsp.buf.formatting, bufopts)
   nmap("gd", vim.lsp.buf.definition, bufopts)
   nmap("gD", vim.lsp.buf.declaration, bufopts)

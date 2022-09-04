@@ -1,5 +1,6 @@
 local M = {}
 
+-- on_attach: highlight symbol on CursorHold
 M.attach = function(client, bufnr)
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup("lsp_document_highlight", {

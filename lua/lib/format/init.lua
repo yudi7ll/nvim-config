@@ -2,8 +2,10 @@ local M = {}
 local sources = require("null-ls.sources")
 local methods = require("null-ls.methods")
 
+M.whitelist_only = true
 -- used if `whitelist_only` is set to false
 M.blacklists = {}
+-- used if `whitelist_only` is set to true
 M.whitelists = {
   "typescript",
   "javascript",
@@ -12,9 +14,11 @@ M.whitelists = {
   "html",
   "lua",
   "php",
+  "json",
+  "jsonc",
 }
-M.whitelist_only = true
 
+-- config setup: temporary solution
 M.setup = function()
   for _, ft in ipairs(M.blacklists) do
     M.blacklists[ft] = true
@@ -24,6 +28,7 @@ M.setup = function()
   end
 end
 
+-- auto format buffer but prefer using null-ls if enabled
 M.format = function()
   local filetype = vim.bo.filetype
 
@@ -61,6 +66,7 @@ M.format = function()
   return vim.lsp.buf.format()
 end
 
+-- on_attach auto format on save
 M.attach = function(client)
   if client.supports_method("textDocument/formatting") then
     M.setup()
