@@ -37,7 +37,7 @@ require("lualine").setup({
   },
   winbar = {
     lualine_b = {
-      { utils.filepath, separator = ">" },
+      { utils.filepath, separator = ">", cond = utils.filepath },
       { utils.filename_with_icon, separator = ">" },
     },
     lualine_c = {
@@ -63,7 +63,7 @@ require("lualine").setup({
   },
   inactive_winbar = {
     lualine_b = {
-      { utils.filepath, separator = ">" },
+      { utils.filepath, separator = ">", cond = utils.filepath },
       { utils.filename_with_icon, separator = ">" },
     },
     lualine_c = {

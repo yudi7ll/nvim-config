@@ -18,7 +18,7 @@ require("bufferline").setup({
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
+        text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
         text_align = "center",
       },
     },

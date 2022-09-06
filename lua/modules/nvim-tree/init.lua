@@ -27,7 +27,7 @@ require("nvim-tree").setup({
     centralize_selection = false,
     width = 38,
     height = 30,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = "right",
     preserve_window_proportions = true,
     number = true,
@@ -37,7 +37,7 @@ require("nvim-tree").setup({
       custom_only = false,
       list = {
         { key = "d", action = "trash" },
-        { key = "l", action = "edit" },
+        { key = "l", action = "preview" },
         { key = "h", action = "close_node" },
         { key = "H", action = "toggle_dotfiles" },
         { key = "<CR>", action = "cd" },
