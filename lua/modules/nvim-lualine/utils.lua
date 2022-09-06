@@ -7,8 +7,8 @@ M.show_tab_size = function()
   return "spaces " .. vim.bo.shiftwidth
 end
 
-M.filetype_with_icon = filename:extend()
-M.filetype_with_icon.apply_icon = filetype.apply_icon
+M.filename_with_icon = filename:extend()
+M.filename_with_icon.apply_icon = filetype.apply_icon
 
 M.show_file_path = function()
   local fn = string.gsub(
