@@ -13,13 +13,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-require("modules.nvim-lspconfig.lsp.html")
-require("modules.nvim-lspconfig.lsp.jsonls")
-require("modules.nvim-lspconfig.lsp.sumneko_lua")
-require("modules.nvim-lspconfig.lsp.tailwindcss")
-require("modules.nvim-lspconfig.lsp.theme_check")
-require("modules.nvim-lspconfig.lsp.tsserver")
-
 nmap("<leader>li", "<CMD>LspInfo<CR>")
 
 mason_lspconfig.setup_handlers({
@@ -27,3 +20,10 @@ mason_lspconfig.setup_handlers({
     require("lspconfig")[server_name].setup(vim.fn.deepcopy(configs))
   end,
 })
+
+require("modules.nvim-lspconfig.lsp.html")
+require("modules.nvim-lspconfig.lsp.jsonls")
+require("modules.nvim-lspconfig.lsp.sumneko_lua")
+require("modules.nvim-lspconfig.lsp.tailwindcss")
+require("modules.nvim-lspconfig.lsp.theme_check")
+require("modules.nvim-lspconfig.lsp.tsserver")

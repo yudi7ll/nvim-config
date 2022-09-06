@@ -14,12 +14,8 @@ end
 M.filename_with_icon.apply_icon = filetype.apply_icon
 
 M.filepath = function()
-  local fn = string.gsub(
-    ---@diagnostic disable-next-line: missing-parameter
-    vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"),
-    "/",
-    " > "
-  )
+  local fn =
+    string.gsub(vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"), "/", " > ")
 
   return fn == "." and "" or fn
 end

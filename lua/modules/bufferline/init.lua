@@ -3,6 +3,7 @@ local nmap = utils.nmap
 
 require("bufferline").setup({
   options = {
+    ---@diagnostic disable-next-line: assign-type-mismatch
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level)

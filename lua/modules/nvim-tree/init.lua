@@ -37,7 +37,7 @@ require("nvim-tree").setup({
       custom_only = false,
       list = {
         { key = "d", action = "trash" },
-        { key = "l", action = "preview" },
+        { key = "l", action = "edit" },
         { key = "h", action = "close_node" },
         { key = "H", action = "toggle_dotfiles" },
         { key = "<CR>", action = "cd" },
@@ -114,7 +114,7 @@ require("nvim-tree").setup({
   diagnostics = {
     enable = true,
     show_on_dirs = false,
-    debounce_delay = 50,
+    debounce_delay = 1000,
     icons = {
       hint = "",
       info = "",
@@ -145,7 +145,7 @@ require("nvim-tree").setup({
       restrict_above_cwd = false,
     },
     expand_all = {
-      max_folder_discovery = 100,
+      max_folder_discovery = 50,
       exclude = { "node_modules" },
     },
     open_file = {
