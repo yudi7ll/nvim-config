@@ -1,4 +1,4 @@
-local filename = require("lualine.components.filename")
+local component = require("lualine.component")
 local filetype = require("lualine.components.filetype")
 
 local M = {}
@@ -7,10 +7,13 @@ M.show_tab_size = function()
   return "spaces " .. vim.bo.shiftwidth
 end
 
-M.filename_with_icon = filename:extend()
+M.filename_with_icon = component:extend()
+M.filename_with_icon.update_status = function()
+  return vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
+end
 M.filename_with_icon.apply_icon = filetype.apply_icon
 
-M.show_file_path = function()
+M.filepath = function()
   local fn = string.gsub(
     ---@diagnostic disable-next-line: missing-parameter
     vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"),

@@ -37,8 +37,10 @@ require("lualine").setup({
   },
   winbar = {
     lualine_b = {
-      { utils.show_file_path, separator = ">" },
-      { utils.filetype_with_icon, separator = ">" },
+      { utils.filepath, separator = ">" },
+      { utils.filename_with_icon, separator = ">" },
+    },
+    lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },
   },
@@ -46,7 +48,7 @@ require("lualine").setup({
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
-    lualine_b = { "filename", "branch" },
+    lualine_b = { utils.filename_with_icon, "branch" },
     lualine_c = {},
     lualine_x = { "diagnostics" },
     lualine_y = {
@@ -61,8 +63,10 @@ require("lualine").setup({
   },
   inactive_winbar = {
     lualine_b = {
-      { utils.show_file_path, separator = ">" },
-      { utils.filetype_with_icon, separator = ">" },
+      { utils.filepath, separator = ">" },
+      { utils.filename_with_icon, separator = ">" },
+    },
+    lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },
   },
