@@ -18,7 +18,8 @@ mason_lspconfig.setup({
   ensure_installed = {
     "tsserver",
     "html",
-    "css",
+    "cssls",
+    "cssmodules_ls",
     "intelephense",
     "dockerls",
     "sumneko_lua",
