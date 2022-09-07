@@ -9,15 +9,22 @@ end
 
 M.filename_with_icon = component:extend()
 M.filename_with_icon.update_status = function()
+  ---@diagnostic disable-next-line: missing-parameter
   return vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
 end
 M.filename_with_icon.apply_icon = filetype.apply_icon
 
 M.filepath = function()
-  local fn =
-    string.gsub(vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"), "/", " > ")
+  return string.gsub(
+    ---@diagnostic disable-next-line: missing-parameter
+    vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"),
+    "/",
+    " > "
+  )
+end
 
-  return fn == "." and "" or fn
+M.filepath_available = function()
+  return M.filepath() ~= "."
 end
 
 return M
