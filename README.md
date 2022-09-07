@@ -48,5 +48,6 @@ Neovim 0.8.0 nightly-dev
   
 
 ## Screenshots
+![image](https://user-images.githubusercontent.com/35747911/188807011-d21af06b-3554-4e85-8419-e20cc23ed916.png)
 ![image](https://user-images.githubusercontent.com/35747911/188193724-52d1c367-fe87-4da8-9dea-daedee10bedd.png)
 
