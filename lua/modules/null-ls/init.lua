@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   group = group,
   pattern = {
     "package.json",
-    "package-lock.json",
+    "*prettier*",
     "*eslint*",
   },
   callback = function()

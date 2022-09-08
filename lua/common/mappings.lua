@@ -5,6 +5,9 @@ local toggle_diagnostics = require("lib.toggle-diagnostics")
 local format = require("lib.format").format
 local nmap = utils.nmap
 local vmap = utils.vmap
+local formatting = function()
+  vim.lsp.buf.format({ async = true })
+end
 
 -- Global mapping
 nmap("<localleader>h", "<CMD>noh<CR>")
@@ -21,7 +24,7 @@ M.attach_mapping = function(bufnr)
   nmap("<leader>ac", cosmic_ui.code_actions, bufopts)
   vmap("<leader>ac", cosmic_ui.range_code_actions, bufopts)
   nmap("<leader>af", format, bufopts)
-  nmap("<leader>aF", vim.lsp.buf.formatting, bufopts)
+  nmap("<leader>aF", formatting, bufopts)
   nmap("gd", vim.lsp.buf.definition, bufopts)
   nmap("gD", vim.lsp.buf.declaration, bufopts)
   nmap("gr", vim.lsp.buf.references, bufopts)
