@@ -16,6 +16,7 @@ M.whitelists = {
   "php",
   "json",
   "jsonc",
+  "blade",
 }
 
 -- config setup: temporary solution
@@ -31,12 +32,6 @@ end
 -- auto format buffer but prefer using null-ls if enabled
 M.format = function()
   local filetype = vim.bo.filetype
-
-  if M.whitelist_only and not M.whitelists[filetype] then
-    return
-  elseif not M.whitelist_only and M.blacklists[filetype] then
-    return
-  end
 
   local get_methods_per_source = function(source)
     local available_methods = vim.tbl_keys(source.methods)
@@ -66,6 +61,18 @@ M.format = function()
   return vim.lsp.buf.format()
 end
 
+M.auto_format = function()
+  local filetype = vim.bo.filetype
+
+  if M.whitelist_only and not M.whitelists[filetype] then
+    return
+  elseif not M.whitelist_only and M.blacklists[filetype] then
+    return
+  end
+
+  M.format()
+end
+
 -- on_attach auto format on save
 M.attach = function(client)
   if client.supports_method("textDocument/formatting") then
@@ -74,7 +81,7 @@ M.attach = function(client)
     local group = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = group,
-      callback = M.format,
+      callback = M.auto_format,
     })
   end
 end
