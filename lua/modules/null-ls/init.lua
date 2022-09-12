@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     "*eslint*",
   },
   callback = function()
-    vim.notify("restarting eslint_d")
+    vim.notify("restarting eslint_d", 3)
     vim.cmd("silent exec '!eslint_d restart'")
   end,
 })
