@@ -26,7 +26,6 @@ null_ls.setup({
     formatting.eslint_d,
     formatting.blade_formatter,
     formatting.stylua,
-    diagnostics.phpstan.with({ prefer_local = "./vendor/bin" }),
     diagnostics.zsh,
   },
 })
