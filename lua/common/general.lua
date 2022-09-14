@@ -6,9 +6,17 @@ vim.cmd("syntax enable")
 vim.cmd("filetype plugin on")
 vim.cmd("colorscheme onearc")
 
-local group = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
+local jsonToJsoncGroup =
+  vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json" },
   command = "set filetype=jsonc",
-  group = group,
+  group = jsonToJsoncGroup,
+})
+
+local envToSh = vim.api.nvim_create_augroup("EnvToSh", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = ".env.*",
+  command = "set filetype=sh",
+  group = envToSh,
 })
