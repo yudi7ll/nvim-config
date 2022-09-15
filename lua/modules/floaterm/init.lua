@@ -10,6 +10,12 @@ vim.g.floaterm_keymap_kill = "<localleader>tq"
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
+local floatermResized = vim.api.nvim_create_augroup("FloatermResized", { clear = true })
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  command = ":FloatermUpdate<CR>",
+  group = floatermResized,
+})
+
 -- Lazygit
 nmap("<localleader>tg", "<CMD>FloatermNew --name=lazygit --autoclose=2 lazygit<CR>")
 -- lazydocker

@@ -123,8 +123,8 @@ require("nvim-tree").setup({
     },
   },
   filters = {
-    dotfiles = true,
-    custom = { "node_modules", "vendor" },
+    dotfiles = false,
+    custom = { "^.git$" },
     exclude = { ".env*" },
   },
   filesystem_watchers = {
@@ -135,7 +135,7 @@ require("nvim-tree").setup({
     enable = true,
     ignore = false,
     show_on_dirs = true,
-    timeout = 400,
+    timeout = 500,
   },
   actions = {
     use_system_clipboard = true,
