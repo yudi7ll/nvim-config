@@ -64,7 +64,7 @@ packer.startup(function(use)
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "antoinemadec/FixCursorHold.nvim" })
   use({ "windwp/nvim-autopairs" })
-  use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
+  use({ "kyazdani42/nvim-tree.lua" })
   use({ "terrortylor/nvim-comment" })
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-sleuth" })
@@ -75,6 +75,7 @@ packer.startup(function(use)
   use({ "dstein64/vim-startuptime" })
   use({ "SmiteshP/nvim-navic" })
   use({ "nvim-telescope/telescope.nvim" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({
     "xeluxee/competitest.nvim",
     requires = "MunifTanjim/nui.nvim",
