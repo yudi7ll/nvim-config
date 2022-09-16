@@ -87,6 +87,7 @@ packer.startup(function(use)
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
   use({ "RRethy/nvim-treesitter-textsubjects" })
+  use({ "nvim-treesitter/nvim-treesitter-textobjects" })
   -- Highlighting
   use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
   use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })

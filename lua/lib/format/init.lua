@@ -17,6 +17,7 @@ M.whitelists = {
   "json",
   "jsonc",
   "blade",
+  "prisma",
 }
 
 -- config setup: temporary solution
