@@ -8,10 +8,7 @@ local has_words_before = function()
   ---@diagnostic disable-next-line: deprecated
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0
-    and vim.api
-        .nvim_buf_get_lines(0, line - 1, line, true)[1]
-        :sub(col, col)
-        :match("%s")
+    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
       == nil
 end
 
@@ -127,14 +124,13 @@ cmp.setup({
     comparators = {
       cmp.config.compare.exact,
       cmp.config.compare.offset,
-      cmp.config.compare.length,
       cmp.config.compare.locality,
       cmp.config.compare.score,
+      cmp.config.compare.length,
       cmp.config.compare.recently_used,
       cmp.config.compare.order,
       require("cmp-under-comparator").under,
       cmp.config.compare.kind,
-      -- cmp.config.compare.length,
     },
   },
   view = {
@@ -159,7 +155,4 @@ cmp.setup({
   },
 })
 
-cmp.event:on(
-  "confirm_done",
-  cmp_autopairs.on_confirm_done({ map_char = { tex = "" } })
-)
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
