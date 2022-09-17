@@ -21,6 +21,7 @@ mason_lspconfig.setup_handlers({
   end,
 })
 
+require("modules.nvim-lspconfig.lsp.blade")
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.jsonls")
 require("modules.nvim-lspconfig.lsp.sumneko_lua")

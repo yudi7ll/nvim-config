@@ -77,6 +77,11 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "junegunn/vim-slash" })
+  use({
+    "tpope/vim-repeat",
+    config = [[vim.cmd('silent! call repeat#set("<Plug>MyWonderfulMap", v:count)')]],
+  })
+
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
