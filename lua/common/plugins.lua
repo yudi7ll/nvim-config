@@ -76,11 +76,6 @@ packer.startup(function(use)
   use({ "SmiteshP/nvim-navic" })
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({
-    "xeluxee/competitest.nvim",
-    requires = "MunifTanjim/nui.nvim",
-    config = [[require('competitest').setup()]],
-  })
   use({ "junegunn/vim-slash" })
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -92,7 +87,7 @@ packer.startup(function(use)
   use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
   use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })
   use({ "chr4/nginx.vim", opt = true, ft = "nginx" })
-  use({ "styled-components/vim-styled-components", branch = "main" })
+  use({ "styled-components/vim-styled-components" })
   use({ "norcalli/nvim-colorizer.lua" })
 
   -- Automatically set up your configuration after cloning packer.nvim
