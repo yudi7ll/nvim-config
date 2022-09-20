@@ -9,7 +9,7 @@ telescope.setup({
       theme = "dropdown",
     },
     live_grep = {
-      theme = "dropdown",
+      theme = "ivy",
     },
     current_buffer_fuzzy_find = {
       theme = "dropdown",
