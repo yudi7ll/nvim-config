@@ -5,7 +5,6 @@ local lspkind = require("lspkind")
 local WIDE_HEIGHT = 40
 
 local has_words_before = function()
-  ---@diagnostic disable-next-line: deprecated
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0
     and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
@@ -120,7 +119,7 @@ cmp.setup({
     ghost_text = true,
   },
   sorting = {
-    priority_weight = 1,
+    priority_weight = 2,
     comparators = {
       cmp.config.compare.exact,
       cmp.config.compare.offset,
