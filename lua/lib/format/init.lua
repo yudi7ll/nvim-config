@@ -30,8 +30,14 @@ M.setup = function()
   end
 end
 
--- auto format buffer but prefer using null-ls if enabled
-M.format = function()
+M.eslint_is_active = function()
+  return vim.lsp.get_active_clients({
+    name = "eslint",
+    bufnr = vim.api.nvim_get_current_buf(),
+  })[1]
+end
+
+M.get_active_methods = function()
   local filetype = vim.bo.filetype
 
   local get_methods_per_source = function(source)
@@ -39,7 +45,7 @@ M.format = function()
     return vim.tbl_map(methods.get_readable_name, available_methods)
   end
 
-  local get_active_methods = function()
+  return function()
     local active_methods
     for _, source in ipairs(sources.get_available(filetype)) do
       active_methods = get_methods_per_source(source)
@@ -47,9 +53,17 @@ M.format = function()
 
     return active_methods or {}
   end
+end
+
+-- auto format buffer but prefer using eslint or null-ls if enabled
+M.format = function()
+  -- use eslint fix for formatting
+  if M.eslint_is_active() then
+    return vim.cmd("EslintFixAll")
+  end
 
   -- use null-ls if available for formatting
-  for _, method in ipairs(get_active_methods()) do
+  for _, method in ipairs(M.get_active_methods()) do
     if method == "formatting" or method == "range_formatting" then
       return vim.lsp.buf.format({
         filter = function(client)
