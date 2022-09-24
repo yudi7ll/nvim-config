@@ -39,7 +39,7 @@ end
 -- auto format buffer but prefer using eslint or null-ls if enabled
 M.format = function()
   -- use eslint fix for formatting
-  if vim.fn.exists(":EslintFixAll") then
+  if vim.fn.exists(":EslintFixAll") > 0 then
     vim.lsp.buf.format()
     return vim.cmd("EslintFixAll")
   end
