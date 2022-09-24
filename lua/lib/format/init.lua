@@ -45,14 +45,12 @@ M.get_active_methods = function()
     return vim.tbl_map(methods.get_readable_name, available_methods)
   end
 
-  return function()
-    local active_methods
-    for _, source in ipairs(sources.get_available(filetype)) do
-      active_methods = get_methods_per_source(source)
-    end
-
-    return active_methods or {}
+  local active_methods
+  for _, source in ipairs(sources.get_available(filetype)) do
+    active_methods = get_methods_per_source(source)
   end
+
+  return active_methods or {}
 end
 
 -- auto format buffer but prefer using eslint or null-ls if enabled
