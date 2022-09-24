@@ -7,28 +7,18 @@ M.whitelist_only = true
 M.blacklists = {}
 -- used if `whitelist_only` is set to true
 M.whitelists = {
-  "typescript",
-  "javascript",
-  "typescriptreact",
-  "javascriptreact",
-  "html",
-  "lua",
-  "php",
-  "json",
-  "jsonc",
-  "blade",
-  "prisma",
+  typescript = true,
+  javascript = true,
+  typescriptreact = true,
+  javascriptreact = true,
+  html = true,
+  lua = true,
+  php = true,
+  json = true,
+  jsonc = true,
+  blade = true,
+  prisma = true,
 }
-
--- config setup: temporary solution
-M.setup = function()
-  for _, ft in ipairs(M.blacklists) do
-    M.blacklists[ft] = true
-  end
-  for _, ft in ipairs(M.whitelists) do
-    M.whitelists[ft] = true
-  end
-end
 
 M.eslint_is_active = function()
   return vim.lsp.get_active_clients({
@@ -89,8 +79,6 @@ end
 -- on_attach auto format on save
 M.attach = function(client)
   if client.supports_method("textDocument/formatting") then
-    M.setup()
-
     local group = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = group,
