@@ -40,7 +40,7 @@ end
 M.format = function()
   -- use eslint fix for formatting
   if vim.fn.exists(":EslintFixAll") > 0 then
-    vim.lsp.buf.format()
+    -- vim.lsp.buf.format()
     return vim.cmd("EslintFixAll")
   end
 
