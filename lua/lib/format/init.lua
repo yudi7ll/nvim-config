@@ -20,6 +20,13 @@ M.whitelists = {
   prisma = true,
 }
 
+M.eslint_is_active = function()
+  return vim.lsp.get_active_clients({
+    name = "eslint",
+    bufnr = vim.api.nvim_get_current_buf(),
+  })[1]
+end
+
 M.get_active_methods = function()
   local filetype = vim.bo.filetype
 
@@ -39,8 +46,7 @@ end
 -- auto format buffer but prefer using eslint or null-ls if enabled
 M.format = function()
   -- use eslint fix for formatting
-  if vim.fn.exists(":EslintFixAll") > 0 then
-    -- vim.lsp.buf.format()
+  if M.eslint_is_active() then
     return vim.cmd("EslintFixAll")
   end
 
