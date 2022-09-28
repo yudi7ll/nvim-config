@@ -21,7 +21,4 @@ nmap("<localleader>tg", "<CMD>FloatermNew --name=lazygit --autoclose=2 lazygit<C
 -- lazydocker
 nmap("<localleader>td", "<CMD>FloatermNew --name=lazydocker --autoclose=2 lazydocker<CR>")
 -- ncdu
-nmap(
-  "<localleader>tu",
-  "<CMD>FloatermNew --name=lazydocker --autoclose=2 ncdu --color dark<CR>"
-)
+nmap("<localleader>tu", "<CMD>FloatermNew --name=lazydocker --autoclose=2 ncdu --color dark<CR>")
