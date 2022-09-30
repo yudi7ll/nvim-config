@@ -10,6 +10,9 @@ lspconfig.tsserver.setup(vim.tbl_deep_extend("force", configs, {
     "typescriptreact",
     "typescript.tsx",
   },
+  init_options = {
+    hostinfo = "neovim",
+  },
   compilerOptions = {
     module = "commonjs",
     target = "es6",

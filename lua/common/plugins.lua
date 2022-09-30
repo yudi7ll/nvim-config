@@ -19,6 +19,7 @@ local packer = require("packer")
 
 packer.init({
   git = { clone_timeout = 9999 },
+  autoremove = true,
 })
 
 packer.startup(function(use)
@@ -57,7 +58,7 @@ packer.startup(function(use)
   use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
   use({ "CosmicNvim/cosmic-ui", requires = "MunifTanjim/nui.nvim" })
   use({ "nvim-lualine/lualine.nvim" })
-  use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+  use({ "akinsho/bufferline.nvim" })
   use({ "voldikss/vim-floaterm" })
   use({ "ziontee113/color-picker.nvim" })
   -- other
@@ -89,7 +90,7 @@ packer.startup(function(use)
   use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
   use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })
   use({ "chr4/nginx.vim", opt = true, ft = "nginx" })
-  use({ "styled-components/vim-styled-components" })
+  use({ "styled-components/vim-styled-components", opt = true, ft = { "javascriptreact", "typescriptreact" } })
   use({ "norcalli/nvim-colorizer.lua" })
 
   -- Automatically set up your configuration after cloning packer.nvim

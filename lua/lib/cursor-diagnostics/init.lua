@@ -1,4 +1,5 @@
 local M = {}
+local toggle_diagnostics = require("lib.toggle-diagnostics")
 
 -- on_attach: show diagnostic on CursorHold
 M.attach = function(bufnr)
@@ -18,7 +19,10 @@ M.attach = function(bufnr)
         prefix = " ",
         scope = "cursor",
       }
-      vim.diagnostic.open_float(nil, opts)
+
+      if toggle_diagnostics.diagnostic_active then
+        vim.diagnostic.open_float(nil, opts)
+      end
     end,
   })
 end
