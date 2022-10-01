@@ -13,7 +13,7 @@ require("bufferline").setup({
     show_close_icon = false,
     show_tab_indicators = true,
     persist_buffer_sort = true,
-    separator_style = "slant",
+    separator_style = "thin",
     sort_by = "insert_at_end",
     offsets = {
       {
