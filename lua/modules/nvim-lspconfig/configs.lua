@@ -6,16 +6,13 @@ local colorizer = require("colorizer")
 local format = require("lib.format")
 local highlight_symbol = require("lib.highlight-symbol")
 local cursor_diagnostics = require("lib.cursor-diagnostics")
-local global_capabilities = require("cmp_nvim_lsp").update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local global_capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 vim.diagnostic.config({ virtual_text = false })
 
-lspconfig.util.default_config =
-  vim.tbl_extend("force", lspconfig.util.default_config, {
-    capabilities = global_capabilities,
-  })
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+  capabilities = global_capabilities,
+})
 
 M.on_attach = function(client, bufnr)
   local function buf_set_option(...)
