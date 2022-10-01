@@ -98,7 +98,7 @@ local keymaps = {
       r = "restart lsp",
       t = "toggle diagnostics",
     },
-    t = {
+    s = {
       name = "+telescope",
       g = "live grep",
       h = "highlights",
