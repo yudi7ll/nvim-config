@@ -1,8 +1,8 @@
 local lspconfig = require("lspconfig")
 local configs = require("modules.nvim-lspconfig.configs")
-local luadev = require("lua-dev").setup()
+require("neodev").setup({})
 
-lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", configs, luadev, {
+lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", configs, {
   settings = {
     Lua = {
       runtime = {

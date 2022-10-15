@@ -6,7 +6,7 @@ local colorizer = require("colorizer")
 local format = require("lib.format")
 local highlight_symbol = require("lib.highlight-symbol")
 local cursor_diagnostics = require("lib.cursor-diagnostics")
-local global_capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local global_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.diagnostic.config({ virtual_text = false })
 

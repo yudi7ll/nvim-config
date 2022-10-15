@@ -36,7 +36,7 @@ packer.startup(function(use)
   -- completion
   use({ "hrsh7th/nvim-cmp" })
   use({ "hrsh7th/cmp-nvim-lua" })
-  use({ "folke/lua-dev.nvim" })
+  use({ "folke/neodev.nvim" })
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "lukas-reineke/cmp-under-comparator" })
   use({ "hrsh7th/cmp-buffer" })
