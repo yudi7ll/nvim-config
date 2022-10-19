@@ -1,5 +1,6 @@
 {
   "eslint.format.enable": true,
   "eslint.quiet": true,
-  "eslint.codeActionsOnSave.mode": "all"
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.nodePath": "node_modules/bin/eslint"
 }
