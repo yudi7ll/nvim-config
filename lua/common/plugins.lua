@@ -81,7 +81,7 @@ packer.startup(function(use)
   use({ "tpope/vim-repeat" })
 
   -- treesitter
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0' })
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0" })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
   use({ "RRethy/nvim-treesitter-textsubjects" })
