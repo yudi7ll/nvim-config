@@ -31,6 +31,7 @@ mason_lspconfig.setup({
     "prismals",
     "taplo",
     "eslint",
+    "stylua",
   },
   automatic_installation = true,
 })
