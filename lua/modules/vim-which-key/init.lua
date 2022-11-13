@@ -105,6 +105,10 @@ local keymaps = {
       t = "telescope",
       k = "keymaps",
     },
+    t = {
+      name = "+treesitter",
+      h = "highlight capture under cursor",
+    },
   },
   ["<localleader>"] = {
     c = {
