@@ -5,7 +5,7 @@ local configs = require("modules.nvim-lspconfig.configs")
 lspconfig_configs.blade = {
   default_config = {
     cmd = { vim.fn.getenv("HOME") .. "/.config/nvim/bin/laravel-dev-tools", "lsp" },
-    filetypes = { "blade", "php" },
+    filetypes = { "blade" },
     root_dir = function(fname)
       return lspconfig.util.find_git_ancestor(fname)
     end,
