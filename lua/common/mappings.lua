@@ -5,6 +5,7 @@ local toggle_diagnostics = require("lib.toggle-diagnostics")
 local format = require("lib.format").format
 local nmap = utils.nmap
 local vmap = utils.vmap
+local xmap = utils.xmap
 local formatting = function()
   vim.lsp.buf.format({ async = true })
 end
@@ -15,6 +16,7 @@ nmap("<F5>", "<CMD>PackerSync<CR>")
 nmap("q:", "<CMD>q")
 nmap("<leader>ls", ":LspSettings local ", { silent = false })
 nmap("<leader>lS", ":LspSettings ", { silent = false })
+xmap("<leader>p", '"_dP')
 
 -- lsp mapping
 M.attach_mapping = function(bufnr)
