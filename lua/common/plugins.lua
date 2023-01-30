@@ -33,6 +33,9 @@ packer.startup(function(use)
   use({ "jose-elias-alvarez/null-ls.nvim" })
   use({ "tamago324/nlsp-settings.nvim" })
   use({ "j-hui/fidget.nvim" })
+  -- flutter
+  use({ "dart-lang/dart-vim-plugin" })
+  use({ "akinsho/flutter-tools.nvim" })
   -- completion
   use({ "hrsh7th/nvim-cmp" })
   use({ "hrsh7th/cmp-nvim-lua" })

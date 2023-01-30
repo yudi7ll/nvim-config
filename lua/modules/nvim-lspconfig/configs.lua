@@ -10,9 +10,11 @@ local global_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.diagnostic.config({ virtual_text = false })
 
-lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+M.capabilities = vim.tbl_extend("force", lspconfig.util.default_config, {
   capabilities = global_capabilities,
 })
+
+lspconfig.util.default_config = M.capabilities
 
 M.on_attach = function(client, bufnr)
   local function buf_set_option(...)

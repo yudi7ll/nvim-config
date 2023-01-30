@@ -18,6 +18,7 @@ M.whitelists = {
   jsonc = true,
   blade = true,
   prisma = true,
+  dart = true,
 }
 
 M.eslint_is_active = function()

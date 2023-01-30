@@ -12,5 +12,6 @@ null_ls.setup({
     formatting.blade_formatter,
     formatting.stylua,
     diagnostics.zsh,
+    formatting.dart_format,
   },
 })
