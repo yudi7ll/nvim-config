@@ -21,6 +21,7 @@ Neovim 0.8.0 nightly-dev
     - [x] markdown
     - [x] yaml
     - [x] prisma
+    - [x] dart
 - [x] LSP Manager
 - [x] Syntax Highlighting
   - [x] treesitter
@@ -34,7 +35,7 @@ Neovim 0.8.0 nightly-dev
 - [ ] Git:
   - [x] git blame
   - [x] git status
-  - [ ] conflict resolve
+  - [x] conflict resolve
 - [x] Terminal
 - [ ] Refactoring:
   - [ ] File & Reference rename
