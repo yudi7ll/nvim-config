@@ -23,7 +23,6 @@ mason_lspconfig.setup({
     "intelephense",
     "dockerls",
     "sumneko_lua",
-    "stylua",
     "tailwindcss",
     "yamlls",
     "jsonls",
