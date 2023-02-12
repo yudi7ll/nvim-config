@@ -55,7 +55,6 @@ require("lazy").setup({
   { "ziontee113/color-picker.nvim" },
   -- other
   { "kyazdani42/nvim-web-devicons" },
-  -- { "antoinemadec/FixCursorHold.nvim" },
   { "windwp/nvim-autopairs" },
   { "kyazdani42/nvim-tree.lua" },
   { "terrortylor/nvim-comment" },

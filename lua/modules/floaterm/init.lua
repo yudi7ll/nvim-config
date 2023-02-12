@@ -1,12 +1,7 @@
 local utils = require("common.utils")
-local nmap = utils.nmap
+local nmap, tmap = utils.nmap, utils.tmap
 
 vim.g.floaterm_title = "Terminal [$1/$2]"
-vim.g.floaterm_keymap_toggle = "<silent><localleader>T"
-vim.g.floaterm_keymap_new = "<localleader>tn"
-vim.g.floaterm_keymap_prev = "<F8>"
-vim.g.floaterm_keymap_next = "<F9>"
-vim.g.floaterm_keymap_kill = "<localleader>tq"
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
@@ -15,6 +10,20 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   command = ":FloatermUpdate<CR>",
   group = floatermResized,
 })
+
+nmap("<localleader>T", "<CMD>FloatermToggle<CR>")
+tmap("<localleader>T", "<CMD>FloatermToggle<CR>")
+
+nmap("<localleader>tn", "<CMD>FloatermNew<CR>")
+
+nmap("<F8>", "<CMD>FloatermPrev<CR>")
+tmap("<F8>", "<CMD>FloatermPrev<CR>")
+
+nmap("<F9>", "<CMD>FloatermNext<CR>")
+tmap("<F9>", "<CMD>FloatermNext<CR>")
+
+tmap("<localleader>tn", "<CMD>FloatermNew --name=floaterm --autoclose=2<CR>")
+tmap("<localleader>tq", "<CMD>FloatermKill --name=floaterm --autoclose=2<CR>")
 
 -- Lazygit
 nmap("<localleader>tg", "<CMD>FloatermNew --name=lazygit --autoclose=2 lazygit<CR>")

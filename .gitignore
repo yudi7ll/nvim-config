@@ -11,3 +11,4 @@ plugin
 # editor config
 .vscode
 .vim
+lazy-lock.json
