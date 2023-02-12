@@ -20,6 +20,7 @@ require("lualine").setup({
     },
     ignore_focus = {
       "",
+      "lazy",
       "NvimTree",
       "packer",
       "LspsagaHover",

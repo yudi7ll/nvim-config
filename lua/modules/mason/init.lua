@@ -22,7 +22,7 @@ mason_lspconfig.setup({
     "cssmodules_ls",
     "intelephense",
     "dockerls",
-    -- "sumneko_lua",
+    "lua_ls",
     "tailwindcss",
     "yamlls",
     "jsonls",
@@ -30,6 +30,7 @@ mason_lspconfig.setup({
     "prismals",
     "taplo",
     "eslint",
+    "haringsrob/laravel-dev-tools",
   },
   automatic_installation = true,
 })

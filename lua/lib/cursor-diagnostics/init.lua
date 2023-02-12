@@ -14,10 +14,19 @@ M.attach = function(bufnr)
           "InsertEnter",
           "FocusLost",
           "DiffUpdated",
+          "BufHidden",
+          "WinLeave",
+          "VimLeavePre",
         },
+        on_close = function()
+          vim.api.nvim_buf_clear_namespace(bufnr, 0, 0, -1)
+        end,
         source = "always",
         prefix = " ",
         scope = "cursor",
+        anchor = "NW",
+        row = 1,
+        col = 1,
       }
 
       if toggle_diagnostics.diagnostic_active then

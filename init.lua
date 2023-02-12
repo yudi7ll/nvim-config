@@ -3,10 +3,6 @@ require("common.general")
 require("common.options")
 require("common.mappings")
 
--- load modules
-require("presence")
-require("color-picker")
-
 -- load plugin config
 require("modules.web-devicons")
 require("modules.bufferline")

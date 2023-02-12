@@ -24,7 +24,7 @@ mason_lspconfig.setup_handlers({
 require("modules.nvim-lspconfig.lsp.blade")
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.jsonls")
-require("modules.nvim-lspconfig.lsp.sumneko_lua")
+require("modules.nvim-lspconfig.lsp.lua_ls")
 require("modules.nvim-lspconfig.lsp.tailwindcss")
 require("modules.nvim-lspconfig.lsp.theme_check")
 require("modules.nvim-lspconfig.lsp.tsserver")

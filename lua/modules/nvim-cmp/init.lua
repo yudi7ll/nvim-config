@@ -6,9 +6,7 @@ local WIDE_HEIGHT = 40
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0
-    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
-      == nil
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local cmp_kinds = {
@@ -115,7 +113,6 @@ cmp.setup({
     }),
   },
   experimental = {
-    native_menu = false,
     ghost_text = true,
   },
   sorting = {
@@ -133,23 +130,21 @@ cmp.setup({
     },
   },
   view = {
-    entries = { name = "custom", selection_order = "top_down" },
+    entries = "native",
   },
 
   window = {
     completion = {
       border = { "", "", "", "", "", "", "", "" },
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-      col_offset = 0,
+      col_offset = 5,
     },
     documentation = {
       max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
-      max_width = math.floor(
-        (WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))
-      ),
+      max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
       border = { "", "", "", " ", "", "", "", " " },
       winhighlight = "FloatBorder:NormalFloat",
-      side_padding = 1,
+      side_padding = 5,
     },
   },
 })
