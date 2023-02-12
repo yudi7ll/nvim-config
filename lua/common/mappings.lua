@@ -12,7 +12,8 @@ end
 
 -- Global mapping
 nmap("<localleader>h", "<CMD>noh<CR>")
-nmap("<F5>", "<CMD>PackerSync<CR>")
+nmap("<leader>ll", "<CMD>Lazy<CR>")
+nmap("<F5>", "<CMD>Lazy sync<CR>")
 nmap("q:", "<CMD>q")
 nmap("<leader>ls", ":LspSettings local ", { silent = false })
 nmap("<leader>lS", ":LspSettings ", { silent = false })

@@ -1,105 +1,88 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
----@diagnostic disable-next-line: missing-parameter
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer = require("packer")
-
-packer.init({
-  git = { clone_timeout = 9999 },
-  autoremove = true,
-})
-
-packer.startup(function(use)
-  use({ "wbthomason/packer.nvim" })
-  use({ "yudi7ll/onearc.nvim" })
-  use({ "williamboman/mason.nvim" })
-  use({ "williamboman/mason-lspconfig.nvim" })
+require("lazy").setup({
+  { "yudi7ll/onearc.nvim" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
   -- lsp & utilities
-  use({ "neovim/nvim-lspconfig" })
-  use({ "onsails/lspkind.nvim" })
-  use({ "jose-elias-alvarez/null-ls.nvim" })
-  use({ "tamago324/nlsp-settings.nvim" })
-  use({ "j-hui/fidget.nvim" })
+  { "neovim/nvim-lspconfig" },
+  { "onsails/lspkind.nvim" },
+  { "jose-elias-alvarez/null-ls.nvim" },
+  { "tamago324/nlsp-settings.nvim" },
+  { "j-hui/fidget.nvim" },
+  { "tzachar/local-highlight.nvim" },
   -- flutter
-  use({ "dart-lang/dart-vim-plugin" })
-  use({ "akinsho/flutter-tools.nvim" })
+  { "dart-lang/dart-vim-plugin" },
+  { "akinsho/flutter-tools.nvim" },
   -- completion
-  use({ "hrsh7th/nvim-cmp" })
-  use({ "hrsh7th/cmp-nvim-lua" })
-  use({ "folke/neodev.nvim" })
-  use({ "hrsh7th/cmp-nvim-lsp" })
-  use({ "lukas-reineke/cmp-under-comparator" })
-  use({ "hrsh7th/cmp-buffer" })
-  use({ "hrsh7th/cmp-path" })
-  use({ "L3MON4D3/LuaSnip" })
-  use({ "saadparwaiz1/cmp_luasnip" })
-  use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
-  use({ "b0o/schemastore.nvim" })
-  use({ "davidsierradz/cmp-conventionalcommits" })
-  use({ "mattn/emmet-vim" })
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "folke/neodev.nvim" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "lukas-reineke/cmp-under-comparator" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
+  { "L3MON4D3/LuaSnip" },
+  { "saadparwaiz1/cmp_luasnip" },
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  { "b0o/schemastore.nvim" },
+  { "davidsierradz/cmp-conventionalcommits" },
+  { "mattn/emmet-vim" },
   -- wip: debugging
-  use({ "mfussenegger/nvim-dap" })
-  use({ "rcarriga/nvim-dap-ui" })
-  use({ "mxsdev/nvim-dap-vscode-js" })
+  { "mfussenegger/nvim-dap" },
+  { "rcarriga/nvim-dap-ui" },
+  { "mxsdev/nvim-dap-vscode-js" },
   -- git
-  use({ "lewis6991/gitsigns.nvim" })
-  use({ "rhysd/conflict-marker.vim" })
+  { "lewis6991/gitsigns.nvim" },
+  { "rhysd/conflict-marker.vim" },
   -- ui
-  use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
-  use({ "CosmicNvim/cosmic-ui", requires = "MunifTanjim/nui.nvim" })
-  use({ "nvim-lualine/lualine.nvim" })
-  use({ "akinsho/bufferline.nvim" })
-  use({ "voldikss/vim-floaterm" })
-  use({ "ziontee113/color-picker.nvim" })
+  { "RishabhRD/nvim-lsputils", dependencies = { "RishabhRD/popfix" } },
+  { "CosmicNvim/cosmic-ui", dependencies = { "MunifTanjim/nui.nvim" } },
+  { "nvim-lualine/lualine.nvim" },
+  { "akinsho/bufferline.nvim" },
+  { "voldikss/vim-floaterm" },
+  { "ziontee113/color-picker.nvim" },
   -- other
-  use({ "kyazdani42/nvim-web-devicons" })
-  use({ "antoinemadec/FixCursorHold.nvim" })
-  use({ "windwp/nvim-autopairs" })
-  use({ "kyazdani42/nvim-tree.lua" })
-  use({ "terrortylor/nvim-comment" })
-  use({ "tpope/vim-surround" })
-  use({ "tpope/vim-sleuth" })
-  use({ "nvim-lua/plenary.nvim" })
-  use({ "editorconfig/editorconfig-vim" })
-  use({ "folke/which-key.nvim" })
-  use({ "andweeb/presence.nvim" })
-  use({ "dstein64/vim-startuptime" })
-  use({ "SmiteshP/nvim-navic" })
-  use({ "nvim-telescope/telescope.nvim" })
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "junegunn/vim-slash" })
-  use({ "tpope/vim-repeat" })
+  { "kyazdani42/nvim-web-devicons" },
+  -- { "antoinemadec/FixCursorHold.nvim" },
+  { "windwp/nvim-autopairs" },
+  { "kyazdani42/nvim-tree.lua" },
+  { "terrortylor/nvim-comment" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-sleuth" },
+  { "nvim-lua/plenary.nvim" },
+  { "editorconfig/editorconfig-vim" },
+  { "folke/which-key.nvim" },
+  { "andweeb/presence.nvim" },
+  { "dstein64/vim-startuptime" },
+  { "SmiteshP/nvim-navic" },
+  { "nvim-telescope/telescope.nvim" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = false },
+  { "junegunn/vim-slash" },
+  { "tpope/vim-repeat" },
 
   -- treesitter
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use({ "JoosepAlviste/nvim-ts-context-commentstring" })
-  use({ "p00f/nvim-ts-rainbow" })
-  use({ "RRethy/nvim-treesitter-textsubjects" })
-  use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-  use({ "nvim-treesitter/playground" })
+  { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
+  { "p00f/nvim-ts-rainbow" },
+  { "RRethy/nvim-treesitter-textsubjects" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "nvim-treesitter/playground" },
   -- Highlighting
-  use({ "jwalton512/vim-blade", opt = true, ft = "blade" })
-  use({ "nikvdp/ejs-syntax", opt = true, ft = "ejs" })
-  use({ "chr4/nginx.vim", opt = true, ft = "nginx" })
-  use({ "styled-components/vim-styled-components", opt = true, ft = { "javascriptreact", "typescriptreact" } })
-  use({ "norcalli/nvim-colorizer.lua" })
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    packer.sync()
-  end
-end)
+  { "jwalton512/vim-blade", ft = "blade" },
+  { "nikvdp/ejs-syntax", ft = "ejs" },
+  { "chr4/nginx.vim", ft = "nginx" },
+  { "styled-components/vim-styled-components", ft = { "javascriptreact", "typescriptreact" } },
+  { "norcalli/nvim-colorizer.lua" },
+})
