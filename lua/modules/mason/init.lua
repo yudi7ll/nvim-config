@@ -30,7 +30,6 @@ mason_lspconfig.setup({
     "prismals",
     "taplo",
     "eslint",
-    "haringsrob/laravel-dev-tools",
   },
   automatic_installation = true,
 })
