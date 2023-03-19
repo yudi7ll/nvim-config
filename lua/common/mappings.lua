@@ -17,6 +17,7 @@ nmap("<F5>", "<CMD>Lazy sync<CR>")
 nmap("q:", "<CMD>q")
 nmap("<leader>ls", ":LspSettings local ", { silent = false })
 nmap("<leader>lS", ":LspSettings ", { silent = false })
+nmap("<leader>k", "<CMD>w<CR>")
 xmap("<leader>p", '"_dP')
 
 -- lsp mapping
