@@ -23,6 +23,7 @@ mason_lspconfig.setup_handlers({
 
 require("modules.nvim-lspconfig.lsp.blade")
 require("modules.nvim-lspconfig.lsp.html")
+require("modules.nvim-lspconfig.lsp.intelephense")
 require("modules.nvim-lspconfig.lsp.jsonls")
 require("modules.nvim-lspconfig.lsp.lua_ls")
 require("modules.nvim-lspconfig.lsp.tailwindcss")
