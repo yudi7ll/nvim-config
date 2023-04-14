@@ -11,9 +11,6 @@ require("nvim-tree").setup({
   hijack_cursor = false,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  open_on_setup = false,
-  open_on_setup_file = false,
   open_on_tab = false,
   ignore_buf_on_tab_change = {},
   sort_by = "name",
@@ -26,7 +23,6 @@ require("nvim-tree").setup({
     adaptive_size = true,
     centralize_selection = false,
     width = 38,
-    hide_root_folder = true,
     side = "right",
     preserve_window_proportions = true,
     number = true,
@@ -52,6 +48,7 @@ require("nvim-tree").setup({
     full_name = false,
     highlight_opened_files = "icon",
     root_folder_modifier = ":t",
+    root_folder_label = true,
     indent_markers = {
       enable = false,
       icons = {
@@ -105,7 +102,6 @@ require("nvim-tree").setup({
     update_root = false,
     ignore_list = {},
   },
-  ignore_ft_on_setup = {},
   system_open = {
     cmd = "",
     args = {},
