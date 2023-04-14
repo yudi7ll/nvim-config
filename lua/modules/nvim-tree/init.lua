@@ -48,7 +48,7 @@ require("nvim-tree").setup({
     full_name = false,
     highlight_opened_files = "icon",
     root_folder_modifier = ":t",
-    root_folder_label = true,
+    root_folder_label = false,
     indent_markers = {
       enable = false,
       icons = {
