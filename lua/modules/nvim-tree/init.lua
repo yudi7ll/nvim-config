@@ -4,7 +4,26 @@ local nmap = utils.nmap
 nmap("<C-n>", "<CMD>NvimTreeToggle<CR>")
 nmap("<C-f>", "<CMD>NvimTreeFindFile<CR>")
 
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  nmap("d", api.fs.trash, opts("Trash"))
+  nmap("l", api.node.open.edit, opts("Open"))
+  nmap("h", api.node.navigate.parent_close, opts("Close Directory"))
+  nmap("H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
+  nmap("<CR>", api.tree.change_root_to_node, opts("CD"))
+  nmap("<BS>", api.tree.change_root_to_parent, opts("Dir Up"))
+  nmap("?", api.tree.toggle_help, opts("Help"))
+end
+
 require("nvim-tree").setup({
+  on_attach = on_attach,
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -28,18 +47,6 @@ require("nvim-tree").setup({
     number = true,
     relativenumber = true,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = "d", action = "trash" },
-        { key = "l", action = "edit" },
-        { key = "h", action = "close_node" },
-        { key = "H", action = "toggle_dotfiles" },
-        { key = "<CR>", action = "cd" },
-        { key = "<BS>", action = "dir_up" },
-        { key = "?", action = "toggle_help" },
-      },
-    },
   },
   renderer = {
     add_trailing = false,
