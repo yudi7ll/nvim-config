@@ -60,7 +60,6 @@ require("lazy").setup({
   { "terrortylor/nvim-comment" },
   { "tpope/vim-surround" },
   { "tpope/vim-sleuth" },
-  { "editorconfig/editorconfig-vim" },
   { "folke/which-key.nvim" },
   { "andweeb/presence.nvim", config = true },
   { "SmiteshP/nvim-navic" },
