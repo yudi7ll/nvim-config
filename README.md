@@ -1,6 +1,6 @@
 # Neovim Config Written In Lua
 
-Neovim >= 0.8.0
+Neovim >= 0.9.0
 
 ## TODO:
 - [ ] LSP Support:
