@@ -27,7 +27,7 @@ require("nvim-web-devicons").setup({
       name = "jpeg",
     },
     mp3 = {
-      icon = "",
+      icon = "󰫔",
       color = "#C8CCD4",
       name = "mp3",
     },
@@ -52,7 +52,7 @@ require("nvim-web-devicons").setup({
       name = "rb",
     },
     vue = {
-      icon = "﵂",
+      icon = "󰡄",
       color = "#7eca9c",
       name = "vue",
     },
@@ -67,7 +67,7 @@ require("nvim-web-devicons").setup({
       name = "toml",
     },
     lock = {
-      icon = "",
+      icon = "󰌾",
       color = "#DE6B74",
       name = "lock",
     },

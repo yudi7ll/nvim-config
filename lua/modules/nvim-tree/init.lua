@@ -77,9 +77,9 @@ require("nvim-tree").setup({
         git = true,
       },
       glyphs = {
-        default = "",
+        default = "󰈤",
         symlink = "",
-        bookmark = "",
+        bookmark = "󰃃",
         git = {
           unstaged = "",
           staged = "",
