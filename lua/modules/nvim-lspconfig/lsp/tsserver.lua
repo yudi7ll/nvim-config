@@ -16,7 +16,8 @@ lspconfig.tsserver.setup(vim.tbl_deep_extend("force", configs, {
   compilerOptions = {
     module = "commonjs",
     target = "es6",
-    checkJs = false,
+    allowJs = true,
+    checkJs = true,
   },
   exclude = {
     "node_modules",

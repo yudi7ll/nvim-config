@@ -1,5 +1,5 @@
 local utils = require("modules.nvim-lualine.utils")
-local navic = require("nvim-navic")
+-- local navic = require("nvim-navic")
 local theme = require("modules.nvim-lualine.theme")
 
 vim.g.navic_silence = true
@@ -36,15 +36,22 @@ require("lualine").setup({
       "TelescopeResults",
     },
   },
-  winbar = {
-    lualine_b = {
-      { utils.filepath, separator = ">", cond = utils.filepath_available },
-      { utils.filename_with_icon, separator = ">" },
-    },
-    lualine_c = {
-      { navic.get_location, cond = navic.is_available },
-    },
-  },
+  -- winbar = {
+  --   lualine_b = {
+  --     { utils.filepath, separator = ">", cond = utils.filepath_available },
+  --     { utils.filename_with_icon, separator = ">" },
+  --   },
+  --   lualine_c = {
+  --     {
+  --       function()
+  --         return navic.get_location()
+  --       end,
+  --       cond = function()
+  --         return navic.is_available()
+  --       end,
+  --     },
+  --   },
+  -- },
   sections = {
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
@@ -62,15 +69,22 @@ require("lualine").setup({
       { "location", separator = { right = "" }, left_padding = 2 },
     },
   },
-  inactive_winbar = {
-    lualine_b = {
-      { utils.filepath, separator = ">", cond = utils.filepath_available },
-      { utils.filename_with_icon, separator = ">" },
-    },
-    lualine_c = {
-      { navic.get_location, cond = navic.is_available },
-    },
-  },
+  -- inactive_winbar = {
+  --   lualine_b = {
+  --     { utils.filepath, separator = ">", cond = utils.filepath_available },
+  --     { utils.filename_with_icon, separator = ">" },
+  --   },
+  --   lualine_c = {
+  --     {
+  --       function()
+  --         return navic.get_location()
+  --       end,
+  --       cond = function()
+  --         return navic.is_available()
+  --       end,
+  --     },
+  --   },
+  -- },
   inactive_sections = {
     lualine_a = { "filetype" },
     lualine_b = {},

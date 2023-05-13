@@ -2,49 +2,13 @@ local luasnip = require("luasnip")
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local lspkind = require("lspkind")
+local cmp_kinds = require("lib.lsp-icons")
 local WIDE_HEIGHT = 40
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-
-local cmp_kinds = {
-  File = "󰈙 ",
-  Module = " ",
-  Namespace = "󰌗 ",
-  Package = " ",
-  Class = "󰌗 ",
-  Method = "󰆧 ",
-  Property = " ",
-  Field = " ",
-  Constructor = " ",
-  Enum = "󰕘",
-  Interface = "󰕘",
-  Function = "󰊕 ",
-  Variable = "󰆧 ",
-  Constant = "󰏿 ",
-  String = "󰀬 ",
-  Number = "󰎠 ",
-  Boolean = "◩ ",
-  Array = "󰅪 ",
-  Object = "󰅩 ",
-  Key = "󰌋 ",
-  Null = "󰟢 ",
-  EnumMember = " ",
-  Struct = "󰌗 ",
-  Event = " ",
-  Operator = "󰆕 ",
-  TypeParameter = "󰊄 ",
-  Color = " ",
-  Folder = " ",
-  Keyword = "󰌆 ",
-  Text = " ",
-  Unit = " ",
-  Value = "󰎠 ",
-  Snippet = " ",
-  Reference = "󰈇 ",
-}
 
 local select_next_item = cmp.mapping(function()
   if cmp.visible() then
