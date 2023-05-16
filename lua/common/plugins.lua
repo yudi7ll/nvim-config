@@ -69,6 +69,7 @@ require("lazy").setup({
   { "junegunn/vim-slash" },
   { "tpope/vim-repeat" },
   { "Aasim-A/scrollEOF.nvim", config = true },
+  { "lewis6991/satellite.nvim", config = true },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
