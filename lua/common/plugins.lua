@@ -70,6 +70,7 @@ require("lazy").setup({
   { "tpope/vim-repeat" },
   { "Aasim-A/scrollEOF.nvim", config = true },
   { "lewis6991/satellite.nvim", config = true },
+  { 'goolord/alpha-nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },

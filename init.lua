@@ -4,6 +4,7 @@ require("common.options")
 require("common.mappings")
 
 -- load plugin config
+require('modules.alpha-nvim')
 require("modules.web-devicons")
 require("modules.bufferline")
 require("modules.fidget")
