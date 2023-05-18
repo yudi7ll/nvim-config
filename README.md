@@ -49,6 +49,8 @@ Neovim >= 0.9.0
   
 
 ## Screenshots
+![Screenshot from 2023-05-18 14-41-50](https://github.com/yudi7ll/nvim-config/assets/35747911/27f64174-5ed6-4b46-850b-d84f6cb895fe)
+![Screenshot from 2023-05-18 14-42-15](https://github.com/yudi7ll/nvim-config/assets/35747911/c3e18981-4df4-446c-bc87-b491dded1f2f)
 ![image](https://user-images.githubusercontent.com/35747911/188807011-d21af06b-3554-4e85-8419-e20cc23ed916.png)
 ![image](https://user-images.githubusercontent.com/35747911/188193724-52d1c367-fe87-4da8-9dea-daedee10bedd.png)
 
