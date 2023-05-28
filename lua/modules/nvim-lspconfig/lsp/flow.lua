@@ -6,8 +6,8 @@ lspconfig_configs.flow = {
   default_config = {
     cmd = { "npx", "--no-install", "flow", "lsp" },
     filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
-    root_dir = [[root_pattern(".flowconfig")]],
+    root_dir = lspconfig.util.root_pattern('.flowconfig')
   },
 }
 
-lspconfig.blade.setup(vim.tbl_deep_extend("force", configs, {}))
+lspconfig.flow.setup(vim.tbl_deep_extend("force", configs, {}))
