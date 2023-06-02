@@ -22,7 +22,7 @@ M.on_attach = function(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  format.attach(client)
+  -- format.attach(client)
   cursor_diagnostics.attach(bufnr)
   mappings.attach_mapping(bufnr)
   navic.attach(client, bufnr)
