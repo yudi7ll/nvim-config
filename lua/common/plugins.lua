@@ -74,7 +74,7 @@ require("lazy").setup({
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
-  { "p00f/nvim-ts-rainbow" },
+  { "HiPhish/nvim-ts-rainbow2" },
   { "nvim-treesitter/playground" },
   -- Highlighting
   { "jwalton512/vim-blade", ft = "blade" },
