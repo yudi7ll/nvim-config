@@ -69,7 +69,8 @@ require("lazy").setup({
   { "junegunn/vim-slash" },
   { "tpope/vim-repeat" },
   { "Aasim-A/scrollEOF.nvim", config = true },
-  { "petertriho/nvim-scrollbar", config = true },
+  { "kevinhwang91/nvim-hlslens" },
+  { "petertriho/nvim-scrollbar", dependencies = { "kevinhwang91/nvim-hlslens" } },
   { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },

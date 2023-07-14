@@ -72,7 +72,7 @@ require("nvim-treesitter.configs").setup({
   },
   rainbow = {
     enable = true,
-    query = 'rainbow-parens-react'
+    query = 'rainbow-parens'
   },
   autotag = {
     enable = true,
