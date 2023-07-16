@@ -15,6 +15,7 @@ lspconfig.emmet_language_server.setup(vim.tbl_deep_extend("force", configs, {
     "pug",
     "typescriptreact",
     "vue",
+    "php",
     "blade",
   },
   init_options = {
