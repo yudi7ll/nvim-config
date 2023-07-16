@@ -13,6 +13,7 @@ lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", configs, {
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
       },
       telemetry = { enable = false },
     },
