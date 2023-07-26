@@ -20,7 +20,7 @@ require("lazy").setup({
   { "onsails/lspkind.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
   { "tamago324/nlsp-settings.nvim" },
-  { "j-hui/fidget.nvim" },
+  { "vigoux/notifier.nvim" },
   { "tzachar/local-highlight.nvim" },
   -- flutter
   { "dart-lang/dart-vim-plugin" },
@@ -38,7 +38,6 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "b0o/schemastore.nvim" },
   { "davidsierradz/cmp-conventionalcommits" },
-  { "mattn/emmet-vim" },
   -- wip: debugging
   -- { "mfussenegger/nvim-dap" },
   -- { "rcarriga/nvim-dap-ui" },
@@ -70,13 +69,12 @@ require("lazy").setup({
   { "tpope/vim-repeat" },
   { "Aasim-A/scrollEOF.nvim", config = true },
   { "kevinhwang91/nvim-hlslens" },
-  { "petertriho/nvim-scrollbar", dependencies = { "kevinhwang91/nvim-hlslens" } },
+  { "petertriho/nvim-scrollbar" },
   { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
-  { "HiPhish/nvim-ts-rainbow2" },
-  { "nvim-treesitter/playground" },
+  -- { "HiPhish/nvim-ts-rainbow2" },
   -- Highlighting
   { "jwalton512/vim-blade", ft = "blade" },
   { "nikvdp/ejs-syntax", ft = "ejs" },

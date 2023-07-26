@@ -25,7 +25,6 @@ end
 require("nvim-tree").setup({
   on_attach = on_attach,
   auto_reload_on_write = true,
-  create_in_closed_folder = false,
   disable_netrw = true,
   hijack_cursor = false,
   hijack_netrw = true,
@@ -143,12 +142,21 @@ require("nvim-tree").setup({
     use_system_clipboard = true,
     change_dir = {
       enable = true,
-      global = false,
+      global = true,
       restrict_above_cwd = false,
     },
     expand_all = {
       max_folder_discovery = 50,
       exclude = { "node_modules" },
+    },
+    file_popup = {
+      open_win_config = {
+        col = 1,
+        row = 1,
+        relative = "cursor",
+        border = "",
+        style = "minimal",
+      },
     },
     open_file = {
       quit_on_open = false,
