@@ -4,9 +4,10 @@ require("common.options")
 require("common.mappings")
 
 -- load plugin config
-require('modules.alpha-nvim')
+require("modules.alpha-nvim")
 require("modules.web-devicons")
 require("modules.bufferline")
+require("modules.config-local")
 require("modules.floaterm")
 require("modules.flutter")
 require("modules.gitsigns")

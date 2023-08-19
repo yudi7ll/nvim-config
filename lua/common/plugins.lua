@@ -20,6 +20,7 @@ require("lazy").setup({
   { "onsails/lspkind.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
   { "tamago324/nlsp-settings.nvim" },
+  { "klen/nvim-config-local" },
   { "vigoux/notifier.nvim" },
   { "tzachar/local-highlight.nvim" },
   -- flutter
