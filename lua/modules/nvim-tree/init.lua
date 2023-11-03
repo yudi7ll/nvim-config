@@ -182,7 +182,7 @@ require("nvim-tree").setup({
     },
   },
   trash = {
-    cmd = "gio trash",
+    cmd = "trash",
     require_confirm = true,
   },
   live_filter = {

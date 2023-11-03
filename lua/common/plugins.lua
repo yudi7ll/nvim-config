@@ -81,5 +81,5 @@ require("lazy").setup({
   { "nikvdp/ejs-syntax", ft = "ejs" },
   { "chr4/nginx.vim", ft = "nginx" },
   { "styled-components/vim-styled-components", ft = { "javascriptreact", "typescriptreact" } },
-  { "norcalli/nvim-colorizer.lua" },
+  { "NvChad/nvim-colorizer.lua" },
 })
