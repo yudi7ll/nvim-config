@@ -4,7 +4,9 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local lspkind = require("lspkind")
 local cmp_kinds = require("lib.lsp-icons")
 local WIDE_HEIGHT = 40
+local handlers = require("nvim-autopairs.completion.handlers")
 
+local abort = cmp.mapping.abort()
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -41,6 +43,16 @@ local confirm_selection = cmp.mapping(function(fallback)
   end
 end)
 
+local cr = cmp.mapping({
+  i = function(fallback)
+    if cmp.visible() and has_words_before() then
+      abort()
+    end
+
+    fallback()
+  end,
+})
+
 local refresh = cmp.mapping(function()
   if has_words_before() then
     cmp.complete()
@@ -64,8 +76,9 @@ cmp.setup({
     ["<Down>"] = scroll_docs_down,
     ["<Up>"] = scroll_docs_up,
     ["<Tab>"] = confirm_selection,
+    ["<CR>"] = cr,
     ["<C-Space>"] = refresh,
-    ["<C-e>"] = cmp.mapping.abort(),
+    ["<C-e>"] = abort,
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -122,4 +135,38 @@ cmp.setup({
   },
 })
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp.event:on(
+  "confirm_done",
+  cmp_autopairs.on_confirm_done({
+    filetypes = {
+      -- "*" is a alias to all filetypes
+      ["*"] = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method,
+          },
+          handler = handlers["*"],
+        },
+      },
+      lua = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method,
+          },
+          ---@param char string
+          ---@param item table item completion
+          ---@param bufnr number buffer number
+          ---@param rules table
+          ---@param commit_character table<string>
+          handler = function(char, item, bufnr, rules, commit_character)
+            -- Your handler function. Inpect with print(vim.inspect{char, item, bufnr, rules, commit_character})
+          end,
+        },
+      },
+      -- Disable for tex
+      tex = false,
+    },
+  })
+)
