@@ -6,8 +6,10 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-nmap("zR", require("ufo").openAllFolds)
-nmap("zM", require("ufo").closeAllFolds)
+nmap("<localleader>fR", require("ufo").openAllFolds)
+nmap("<localleader>fM", require("ufo").closeAllFolds)
+nmap("<localleader>fo", "zo")
+nmap("<localleader>fO", "zO")
 
 require("ufo").setup({
   provider_selector = function(bufnr, filetype, buftype)
