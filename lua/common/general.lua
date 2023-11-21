@@ -7,7 +7,7 @@ vim.loader.enable()
 
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin on")
-vim.cmd("colorscheme onearc")
+vim.cmd("colorscheme saria-one")
 
 local jsonToJsoncGroup = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {

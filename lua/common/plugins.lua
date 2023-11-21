@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "yudi7ll/onearc.nvim" },
+  { "yudi7ll/saria-one" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   -- lsp & utilities
