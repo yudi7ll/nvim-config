@@ -24,7 +24,7 @@ mason_lspconfig.setup_handlers({
 
 require("modules.nvim-lspconfig.lsp.blade")
 require("modules.nvim-lspconfig.lsp.emmet")
-require("modules.nvim-lspconfig.lsp.flow")
+-- require("modules.nvim-lspconfig.lsp.flow")
 require("modules.nvim-lspconfig.lsp.html")
 require("modules.nvim-lspconfig.lsp.intelephense")
 require("modules.nvim-lspconfig.lsp.jsonls")

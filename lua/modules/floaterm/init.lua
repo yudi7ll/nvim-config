@@ -16,11 +16,11 @@ tmap("<localleader>T", "<CMD>FloatermToggle<CR>")
 
 nmap("<localleader>tn", "<CMD>FloatermNew<CR>")
 
-nmap("<F8>", "<CMD>FloatermPrev<CR>")
-tmap("<F8>", "<CMD>FloatermPrev<CR>")
+nmap("<C-,>", "<CMD>FloatermPrev<CR>")
+tmap("<C-,>", "<CMD>FloatermPrev<CR>")
 
-nmap("<F9>", "<CMD>FloatermNext<CR>")
-tmap("<F9>", "<CMD>FloatermNext<CR>")
+nmap("<C-.>", "<CMD>FloatermNext<CR>")
+tmap("<C-.>", "<CMD>FloatermNext<CR>")
 
 tmap("<localleader>tn", "<CMD>FloatermNew --name=floaterm --autoclose=2<CR>")
 tmap("<localleader>tq", "<CMD>FloatermKill --name=floaterm --autoclose=2<CR>")
