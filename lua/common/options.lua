@@ -15,6 +15,7 @@ vim.opt.ignorecase = true
 vim.opt.laststatus = 2
 vim.opt.lazyredraw = false
 vim.opt.mouse = ""
+vim.opt.fixeol = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.shell = "/bin/zsh"
