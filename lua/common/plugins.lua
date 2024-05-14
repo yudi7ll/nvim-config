@@ -54,7 +54,6 @@ require("lazy").setup({
   { "voldikss/vim-floaterm" },
   { "ziontee113/color-picker.nvim", config = true },
   -- other
-  { "nvim-tree/nvim-web-devicons" },
   { "windwp/nvim-autopairs" },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -92,7 +91,13 @@ require("lazy").setup({
   { "andweeb/presence.nvim", config = true },
   { "SmiteshP/nvim-navic" },
   { "utilyre/barbecue.nvim", config = true, dependencies = { "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" } },
-  { "nvim-telescope/telescope.nvim" },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "Snikimonkd/telescope-git-conflicts.nvim",
+    },
+  },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "junegunn/vim-slash" },
   { "tpope/vim-repeat" },
@@ -103,7 +108,7 @@ require("lazy").setup({
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
-  -- { "HiPhish/nvim-ts-rainbow2" },
+  { "HiPhish/nvim-ts-rainbow2" },
   -- Highlighting
   { "jwalton512/vim-blade", ft = "blade" },
   { "nikvdp/ejs-syntax", ft = "ejs" },

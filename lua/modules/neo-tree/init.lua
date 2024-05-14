@@ -10,11 +10,10 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
 neotree.setup({
-  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+  close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
-  enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
   open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
   sort_function = nil, -- use a custom function for sorting files and directories in the tree
@@ -78,19 +77,19 @@ neotree.setup({
     },
     -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
     file_size = {
-      enabled = true,
+      enabled = false,
       required_width = 64, -- min width of window required to show this column
     },
     type = {
-      enabled = true,
+      enabled = false,
       required_width = 122, -- min width of window required to show this column
-   },
+    },
     last_modified = {
-      enabled = true,
+      enabled = false,
       required_width = 88, -- min width of window required to show this column
     },
     created = {
-      enabled = true,
+      enabled = false,
       required_width = 110, -- min width of window required to show this column
     },
     symlink_target = {
@@ -104,6 +103,7 @@ neotree.setup({
   window = {
     position = "right",
     width = 40,
+    auto_expand_width = false,
     mapping_options = {
       noremap = true,
       nowait = true,
@@ -129,7 +129,7 @@ neotree.setup({
       ["w"] = "open_with_window_picker",
       --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
       ["h"] = "close_node",
-      ['W'] = 'close_all_subnodes',
+      ["W"] = "close_all_subnodes",
       ["z"] = "close_all_nodes",
       --["Z"] = "expand_all_nodes",
       ["a"] = {
@@ -198,7 +198,7 @@ neotree.setup({
     -- "open_current",  -- netrw disabled, opening a directory opens within the
     -- window like netrw would, regardless of window.position
     -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+    use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
     -- instead of relying on nvim autocmd events.
     window = {
       mappings = {
@@ -224,13 +224,54 @@ neotree.setup({
       },
       fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
         ["<down>"] = "move_cursor_down",
-        ["<C-n>"] = "move_cursor_down",
+        ["<C-j>"] = "move_cursor_down",
         ["<up>"] = "move_cursor_up",
-        ["<C-p>"] = "move_cursor_up",
+        ["<C-k>"] = "move_cursor_up",
       },
     },
 
-    commands = {}, -- Add a custom command or override a global one using the same function name
+    commands = {
+      -- over write default 'delete' command to 'trash'.
+      delete = function(state)
+        local inputs = require("neo-tree.ui.inputs")
+        local path = state.tree:get_node().path
+        local msg = "Are you sure you want to trash " .. path
+        inputs.confirm(msg, function(confirmed)
+          if not confirmed then
+            return
+          end
+
+          vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+          require("neo-tree.sources.manager").refresh(state.name)
+        end)
+      end,
+
+      -- over write default 'delete_visual' command to 'trash' x n.
+      delete_visual = function(state, selected_nodes)
+        local inputs = require("neo-tree.ui.inputs")
+
+        -- get table items count
+        function GetTableLen(tbl)
+          local len = 0
+          for n in pairs(tbl) do
+            len = len + 1
+          end
+          return len
+        end
+
+        local count = GetTableLen(selected_nodes)
+        local msg = "Are you sure you want to trash " .. count .. " files ?"
+        inputs.confirm(msg, function(confirmed)
+          if not confirmed then
+            return
+          end
+          for _, node in ipairs(selected_nodes) do
+            vim.fn.system({ "trash", vim.fn.fnameescape(node.path) })
+          end
+          require("neo-tree.sources.manager").refresh(state.name)
+        end)
+      end,
+    }, -- Add a custom command or override a global one using the same function name
   },
   buffers = {
     follow_current_file = {
@@ -277,4 +318,3 @@ neotree.setup({
     },
   },
 })
-

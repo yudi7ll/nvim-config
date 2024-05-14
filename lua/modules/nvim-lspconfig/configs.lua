@@ -1,19 +1,19 @@
 local M = {}
 local mappings = require("common.mappings")
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 local navic = require("nvim-navic")
 local colorizer = require("colorizer")
 local format = require("lib.format")
 local cursor_diagnostics = require("lib.cursor-diagnostics")
-local global_capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local global_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.diagnostic.config({ virtual_text = false })
 
-M.capabilities = vim.tbl_extend("force", lspconfig.util.default_config, {
-  capabilities = global_capabilities,
-})
+-- M.capabilities = vim.tbl_extend("force", lspconfig.util.default_config, {
+--   capabilities = global_capabilities,
+-- })
 
-lspconfig.util.default_config = M.capabilities
+-- lspconfig.util.default_config = M.capabilities
 
 M.on_attach = function(client, bufnr)
   local function buf_set_option(...)
@@ -22,6 +22,7 @@ M.on_attach = function(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+---@diagnostic disable-next-line: undefined-field
   if _G.format_on_save then
     format.attach(client)
   end

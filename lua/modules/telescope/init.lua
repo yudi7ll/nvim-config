@@ -46,6 +46,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("conflicts")
 
 nmap("<C-/>", "<CMD>Telescope current_buffer_fuzzy_find<CR>")
 nmap("<C-p>", "<CMD>Telescope find_files<CR>")

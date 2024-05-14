@@ -23,9 +23,9 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   group = envToSh,
 })
 
-local logToConfig = vim.api.nvim_create_augroup('LogToConfig', { clear = true })
+local logToConfig = vim.api.nvim_create_augroup("LogToConfig", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = "*.log",
   command = "set filetype=config",
-  group = logToConfig
+  group = logToConfig,
 })

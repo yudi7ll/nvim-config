@@ -3,9 +3,9 @@ local configs = require("modules.nvim-lspconfig.configs")
 
 lspconfig.tsserver.setup(vim.tbl_deep_extend("force", configs, {
   root_dir = function(fname)
-    return lspconfig.util.root_pattern("tsconfig.json")(fname)
+    return lspconfig.util.root_pattern("jsconfig.json", "tsconfig.json")(fname)
       or not lspconfig.util.root_pattern(".flowconfig")(fname)
-        and lspconfig.util.root_pattern("package.json", "jsconfig.json", ".git")(fname)
+        and lspconfig.util.root_pattern("package.json", ".git")(fname)
   end,
   filetypes = {
     "javascript",
@@ -26,5 +26,6 @@ lspconfig.tsserver.setup(vim.tbl_deep_extend("force", configs, {
   },
   exclude = {
     "node_modules",
+    "lib",
   },
 }))
