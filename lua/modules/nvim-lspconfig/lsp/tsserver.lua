@@ -28,4 +28,7 @@ lspconfig.tsserver.setup(vim.tbl_deep_extend("force", configs, {
     "node_modules",
     "lib",
   },
+  include = {
+    "**/*.js",
+  },
 }))

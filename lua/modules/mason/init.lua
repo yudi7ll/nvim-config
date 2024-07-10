@@ -16,7 +16,6 @@ mason.setup({
 
 mason_lspconfig.setup({
   ensure_installed = {
-    "tsserver",
     "html",
     "cssls",
     "cssmodules_ls",
