@@ -1,12 +1,13 @@
 local lspconfig = require("lspconfig")
 local configs = require("modules.nvim-lspconfig.configs")
+local vtslsDefaultConfig = require("vtsls").lspconfig
 
-lspconfig.vtsls.setup(vim.tbl_deep_extend("force", configs, {
-  -- root_dir = function(fname)
-  --   return lspconfig.util.root_pattern("jsconfig.json", "tsconfig.json")(fname)
-  --     or not lspconfig.util.root_pattern(".flowconfig")(fname)
-  --       and lspconfig.util.root_pattern("package.json", ".git")(fname)
-  -- end,
+lspconfig.vtsls.setup(vim.tbl_deep_extend("force", configs, vtslsDefaultConfig, {
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("package.json", "jsconfig.json", "tsconfig.json")(fname)
+      or not lspconfig.util.root_pattern(".flowconfig")(fname)
+        and lspconfig.util.root_pattern("package.json", ".git")(fname)
+  end,
   -- filetypes = {
   --   "javascript",
   --   "javascriptreact",
@@ -15,24 +16,37 @@ lspconfig.vtsls.setup(vim.tbl_deep_extend("force", configs, {
   --   "typescriptreact",
   --   "typescript.tsx",
   -- },
-  -- init_options = {
-  --   hostinfo = "neovim",
-  -- },
-  -- compilerOptions = {
-  --   module = "commonjs",
-  --   target = "es6",
-  --   allowJs = true,
-  --   checkJs = false,
-  -- },
-  -- exclude = {
-  --   "node_modules",
-  --   "lib",
-  -- },
-  vtsls = {
-    autoUseWorkspaceTsdk = true,
-    experimental = {
-      completion = {
-        enableServerSideFuzzyMatch = true,
+  settings = {
+    init_options = {
+      hostinfo = "neovim",
+    },
+    compilerOptions = {
+      module = "commonjs",
+      target = "es6",
+      allowJs = true,
+      checkJs = false,
+    },
+    exclude = {
+      "node_modules",
+      "lib",
+      "dist",
+    },
+    typescript = {
+      tsserver = {
+        maxTsServerMemory = 10000,
+      },
+    },
+    javascript = {
+      tsserver = {
+        maxTsServerMemory = 10000,
+      },
+    },
+    vtsls = {
+      autoUseWorkspaceTsdk = true,
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+        },
       },
     },
   },

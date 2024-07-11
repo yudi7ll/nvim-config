@@ -39,6 +39,7 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "b0o/schemastore.nvim" },
   { "davidsierradz/cmp-conventionalcommits" },
+  { "yioneko/nvim-vtsls" },
   -- wip: debugging
   -- { "mfussenegger/nvim-dap" },
   -- { "rcarriga/nvim-dap-ui" },
