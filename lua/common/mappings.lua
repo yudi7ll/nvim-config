@@ -6,6 +6,8 @@ local format = require("lib.format").format
 local nmap = utils.nmap
 local vmap = utils.vmap
 local xmap = utils.xmap
+local imap = utils.imap
+local tmap = utils.tmap
 local formatting = function()
   vim.lsp.buf.format({ async = true })
 end
@@ -19,6 +21,8 @@ nmap("<leader>ls", ":LspSettings local ", { silent = false })
 nmap("<leader>lS", ":LspSettings ", { silent = false })
 nmap("<leader>k", "<CMD>w<CR>")
 xmap("<leader>p", '"_dP')
+imap("<S-Space>", "<Space>", { silent = true })
+tmap("<S-Space>", "<Space>", { silent = true })
 
 -- lsp mapping
 M.attach_mapping = function(bufnr)
