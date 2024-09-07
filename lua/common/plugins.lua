@@ -12,7 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "yudi7ll/saria-one" },
+  {
+    "yudi7ll/saria-one",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme saria-one]])
+    end,
+  },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   -- lsp & utilities
@@ -45,7 +52,13 @@ require("lazy").setup({
   -- { "rcarriga/nvim-dap-ui" },
   -- { "mxsdev/nvim-dap-vscode-js" },
   -- git
-  { "lewis6991/gitsigns.nvim" },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("modules.gitsigns")
+    end,
+  },
   { "rhysd/conflict-marker.vim" },
   -- ui
   { "RishabhRD/nvim-lsputils", dependencies = { "RishabhRD/popfix" } },
@@ -55,7 +68,8 @@ require("lazy").setup({
   { "voldikss/vim-floaterm" },
   { "ziontee113/color-picker.nvim", config = true },
   -- other
-  { "windwp/nvim-autopairs" },
+  { "dstein64/vim-startuptime" },
+  { "windwp/nvim-autopairs", lazy = true, config = true },
   {
     "antosha417/nvim-lsp-file-operations",
     dependencies = {
@@ -115,6 +129,11 @@ require("lazy").setup({
   { "petertriho/nvim-scrollbar" },
   { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = [[require('modules.harpoon')]],
+  },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },

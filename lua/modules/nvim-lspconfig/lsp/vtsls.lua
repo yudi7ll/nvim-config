@@ -3,11 +3,11 @@ local configs = require("modules.nvim-lspconfig.configs")
 local vtslsDefaultConfig = require("vtsls").lspconfig
 
 lspconfig.vtsls.setup(vim.tbl_deep_extend("force", configs, vtslsDefaultConfig, {
-  root_dir = function(fname)
-    return lspconfig.util.root_pattern("package.json", "jsconfig.json", "tsconfig.json")(fname)
-      or not lspconfig.util.root_pattern(".flowconfig")(fname)
-        and lspconfig.util.root_pattern("package.json", ".git")(fname)
-  end,
+  -- root_dir = function(fname)
+  --   return lspconfig.util.root_pattern("package.json", "jsconfig.json", "tsconfig.json")(fname)
+  --     or not lspconfig.util.root_pattern(".flowconfig")(fname)
+  --       and lspconfig.util.root_pattern("package.json", ".git")(fname)
+  -- end,
   -- filetypes = {
   --   "javascript",
   --   "javascriptreact",
