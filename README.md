@@ -1,8 +1,11 @@
+<div align="center">
+    
 ![Last Commit](https://img.shields.io/github/last-commit/yudi7ll/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
 
-# Neovim Config Written In Lua
-
 ![Screenshot from 2023-05-18 14-41-50](https://github.com/yudi7ll/nvim-config/assets/35747911/27f64174-5ed6-4b46-850b-d84f6cb895fe)
+
+</div>
+
 
 
 Neovim >= 0.9.0
