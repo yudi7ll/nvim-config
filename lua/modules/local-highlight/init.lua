@@ -1,3 +1,3 @@
 require("local-highlight").setup({
-  hlgroup = "CursorLine",
+  hlgroup = "CocHighlightText",
 })

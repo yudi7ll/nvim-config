@@ -30,6 +30,10 @@ require("lazy").setup({
   { "klen/nvim-config-local" },
   { "vigoux/notifier.nvim" },
   { "tzachar/local-highlight.nvim" },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
   -- flutter
   { "dart-lang/dart-vim-plugin" },
   { "akinsho/flutter-tools.nvim" },
@@ -120,9 +124,9 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
       "Snikimonkd/telescope-git-conflicts.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "junegunn/vim-slash" },
   { "tpope/vim-repeat" },
   { "Aasim-A/scrollEOF.nvim", config = true },
@@ -131,8 +135,15 @@ require("lazy").setup({
   { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
   {
     "ThePrimeagen/harpoon",
+    branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = [[require('modules.harpoon')]],
+  },
+  {
+    "k2589/LLuMinate.nvim",
+    config = function()
+      require("lluminate").setup()
+    end,
   },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
@@ -143,5 +154,48 @@ require("lazy").setup({
   { "nikvdp/ejs-syntax", ft = "ejs" },
   { "chr4/nginx.vim", ft = "nginx" },
   { "styled-components/vim-styled-components", ft = { "javascriptreact", "typescriptreact" } },
-  { "NvChad/nvim-colorizer.lua" },
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {
+      filetypes = { "*" },
+      user_default_options = {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        names = true, -- "Name" codes like Blue or blue
+        RRGGBBAA = false, -- #RRGGBBAA hex codes
+        AARRGGBB = false, -- 0xAARRGGBB hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        -- Highlighting mode.  'background'|'foreground'|'virtualtext'
+        mode = "background", -- Set the display mode
+        -- Tailwind colors.  boolean|'normal'|'lsp'|'both'.  True is same as normal
+        -- True is same as normal
+        tailwind = "both", -- Enable tailwind colors
+        -- parsers can contain values used in |user_default_options|
+        sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
+        -- Virtualtext character to use
+        virtualtext = "■",
+        -- Display virtualtext inline with color
+        virtualtext_inline = false,
+        -- Virtualtext highlight mode: 'background'|'foreground'
+        virtualtext_mode = "foreground",
+        -- update color values even if buffer is not focused
+        -- example use: cmp_menu, cmp_docs
+        always_update = false,
+      },
+      -- all the sub-options of filetypes apply to buftypes
+      buftypes = {},
+      -- Boolean | List of usercommands to enable
+      user_commands = true, -- Enable all or some usercommands
+    },
+  },
+  {
+    "tzachar/highlight-undo.nvim",
+    lazy = true,
+    keys = { { "u" }, { "<C-r>" } },
+    config = true,
+  },
 })
