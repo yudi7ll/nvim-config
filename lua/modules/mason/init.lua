@@ -1,10 +1,10 @@
-local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
+local mason = require "mason"
+local mason_lspconfig = require "mason-lspconfig"
 local nmap = require("common.utils").nmap
 
 nmap("<leader>m", "<CMD>Mason<CR>", { nowait = true })
 
-mason.setup({
+mason.setup {
   ui = {
     icons = {
       package_installed = "✓",
@@ -12,9 +12,9 @@ mason.setup({
       package_uninstalled = "✗",
     },
   },
-})
+}
 
-mason_lspconfig.setup({
+mason_lspconfig.setup {
   ensure_installed = {
     "html",
     "cssls",
@@ -31,4 +31,4 @@ mason_lspconfig.setup({
     "eslint",
   },
   automatic_installation = true,
-})
+}

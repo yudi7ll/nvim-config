@@ -1,34 +1,37 @@
-require("common.plugins")
-require("common.general")
-require("common.options")
-require("common.mappings")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
--- load plugin config
-require("modules.alpha-nvim")
-require("modules.web-devicons")
-require("modules.bufferline")
-require("modules.config-local")
-require("modules.floaterm")
-require("modules.flutter")
--- require("modules.gitsigns")
-require("modules.local-highlight")
-require("modules.mason")
-require("modules.neo-tree")
-require("modules.nlsp-settings")
-require("modules.notifier")
-require("modules.null-ls")
--- require("modules.nvim-autopairs")
-require("modules.nvim-cmp")
-require("modules.nvim-comment")
--- require("modules.nvim-colorizer")
--- require("modules.nvim-dap")
-require("modules.nvim-lualine")
-require("modules.nvim-lspconfig")
-require("modules.nvim-lsputils")
-require("modules.nvim-navic")
-require("modules.nvim-scrollbar")
-require("modules.nvim-ufo")
-require("modules.telescope")
-require("modules.treesitter")
-require("modules.vim-blade")
-require("modules.vim-which-key")
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)

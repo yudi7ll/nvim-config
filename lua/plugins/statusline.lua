@@ -1,0 +1,3 @@
+---@type NvPluginSpec
+return {
+}
