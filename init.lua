@@ -1,34 +1,21 @@
-require("common.plugins")
-require("common.general")
-require("common.options")
-require("common.mappings")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- load plugin config
-require("modules.alpha-nvim")
-require("modules.web-devicons")
-require("modules.bufferline")
-require("modules.config-local")
-require("modules.floaterm")
-require("modules.flutter")
--- require("modules.gitsigns")
-require("modules.local-highlight")
-require("modules.mason")
-require("modules.neo-tree")
-require("modules.nlsp-settings")
-require("modules.notifier")
-require("modules.null-ls")
--- require("modules.nvim-autopairs")
-require("modules.nvim-cmp")
-require("modules.nvim-comment")
--- require("modules.nvim-colorizer")
--- require("modules.nvim-dap")
-require("modules.nvim-lualine")
-require("modules.nvim-lspconfig")
-require("modules.nvim-lsputils")
-require("modules.nvim-navic")
-require("modules.nvim-scrollbar")
-require("modules.nvim-ufo")
-require("modules.telescope")
-require("modules.treesitter")
-require("modules.vim-blade")
-require("modules.vim-which-key")
+require 'general'
+require 'mappings'
+require "options"
+
+require("lazy").setup({
+  { import = "plugins" },
+  { import = "plugins.lsp" }
+})

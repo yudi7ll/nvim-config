@@ -12,3 +12,4 @@ plugin
 .vscode
 .vim
 lazy-lock.json
+Session.vim
