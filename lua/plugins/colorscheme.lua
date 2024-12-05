@@ -26,20 +26,13 @@ return {
   {
     "folke/tokyonight.nvim",
     enabled = true,
+    specs = {
+      "rose-pine/neovim",
+    },
     lazy = false,
     priority = 1000,
     config = function()
       vim.cmd [[colorscheme tokyonight]]
     end,
   },
-  {
-    "rose-pine/neovim",
-    enabled = false,
-    name = "rose-pine",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd [[colorscheme rose-pine-moon]]
-    end,
-  }
 }

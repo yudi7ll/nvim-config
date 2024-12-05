@@ -5,8 +5,8 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 vim.loader.enable()
 
-vim.cmd("syntax enable")
-vim.cmd("filetype plugin on")
+vim.cmd "syntax enable"
+vim.cmd "filetype plugin on"
 
 local jsonToJsoncGroup = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
