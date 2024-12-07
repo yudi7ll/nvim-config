@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
-  "stevearc/flow-coverage.nvim",
   enabled = false,
+  "stevearc/flow-coverage.nvim",
   event = "BufReadPost",
   config = function()
     require("flow").get_coverage_percent()

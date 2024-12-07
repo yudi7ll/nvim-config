@@ -1,8 +1,8 @@
 ---@type LazySpec
 return {
   {
-    "vigoux/notifier.nvim",
     enabled = false,
+    "vigoux/notifier.nvim",
     event = "VeryLazy",
     keys = {
       { "<leader>nn", "<cmd>NotifierReplay<cr>", desc = "Notifier | Replay" },
@@ -24,7 +24,6 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    enabled = true,
     event = "VeryLazy",
     opts = {
       progress = {

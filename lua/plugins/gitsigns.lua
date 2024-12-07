@@ -2,19 +2,27 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = "BufReadPost",
+  ---@type Gitsigns.Config
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     signs = {
+      ---@diagnostic disable-next-line: missing-fields
       add = { text = "│" },
+      ---@diagnostic disable-next-line: missing-fields
       change = { text = "│" },
+      ---@diagnostic disable-next-line: missing-fields
       delete = { text = "󰍵" },
+      ---@diagnostic disable-next-line: missing-fields
       topdelete = { text = "‾" },
+      ---@diagnostic disable-next-line: missing-fields
       changedelete = { text = "~" },
+      ---@diagnostic disable-next-line: missing-fields
       untracked = { text = "│" },
     },
-    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_opts = {
       virt_text = true,
-      virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
+      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
       delay = 300,
     },
     on_attach = function(bufnr)

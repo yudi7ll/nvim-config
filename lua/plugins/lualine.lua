@@ -1,11 +1,11 @@
 ---@type LazySpec
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = function()
-    local theme = require("lualine.themes.auto")
-    local component = require("lualine.component")
-    local filetype = require("lualine.components.filetype")
+    local theme = require "lualine.themes.auto"
+    local component = require "lualine.component"
+    local filetype = require "lualine.components.filetype"
 
     local utils = {}
 
@@ -15,15 +15,11 @@ return {
 
     utils.filename_with_icon = component:extend()
     utils.filename_with_icon.update_status = function()
-      return vim.fn.fnamemodify(vim.fn.expand("%"), ":t")
+      return vim.fn.fnamemodify(vim.fn.expand "%", ":t")
     end
     utils.filename_with_icon.apply_icon = filetype.apply_icon
     utils.filepath = function()
-      return string.gsub(
-        vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.:h"),
-        "/",
-        " > "
-      )
+      return string.gsub(vim.fn.fnamemodify(vim.fn.expand "%", ":p:~:.:h"), "/", " > ")
     end
     utils.filepath_available = function()
       return M.filepath() ~= "."
@@ -90,7 +86,7 @@ return {
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
-      }
+      },
     }
-  end
+  end,
 }

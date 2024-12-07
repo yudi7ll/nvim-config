@@ -1,8 +1,7 @@
----@module 'lazy'
 ---@type LazySpec
 return {
-  'stevearc/dressing.nvim',
-  event = 'VeryLazy',
+  "stevearc/dressing.nvim",
+  event = "VeryLazy",
   opts = {
     input = {
       -- Set to false to disable the vim.ui.input implementation

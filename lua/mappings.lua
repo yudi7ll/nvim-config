@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>k", "<CMD>w<CR>", { desc = "Write buffer", noremap = true })
-vim.keymap.set("n", "<localleader>e", "<CMD>w<CR>", { desc = "Write buffer", noremap = true })
+vim.keymap.set("n", "<localleader>w", "<CMD>w<CR>", { desc = "Write buffer", noremap = true })
 vim.keymap.set("n", "<leader>ll", "<CMD>Lazy<CR>", { desc = "Lazy" })
 vim.keymap.set("n", "<esc>", "<CMD>noh<CR>", { desc = "Clear Highlights" })
 vim.keymap.set("n", "<localleader>h", "<CMD>noh<CR>", { desc = "Clear Highlights" })

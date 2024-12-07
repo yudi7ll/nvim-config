@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "chentoast/marks.nvim",
+  "max397574/better-escape.nvim",
   event = "VeryLazy",
-  config = true,
+  opts = {},
 }

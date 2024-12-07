@@ -32,11 +32,11 @@ return {
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
     local mason_tool_installer = require "mason-tool-installer"
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    ---@type lspconfig.Options
     local server_opts = {
       on_init = require("plugins.lsp.configs.server-opts").on_init,
       on_attach = require("plugins.lsp.configs.server-opts").on_attach,
-      capabilities = capabilities,
+      capabilities = require("plugins.lsp.configs.server-opts").capabilities(),
     }
 
     mason.setup(opts)

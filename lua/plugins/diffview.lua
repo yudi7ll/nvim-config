@@ -1,10 +1,10 @@
 ---@type LazySpec
 return {
   "sindrets/diffview.nvim",
-  event = "BufReadPost",
+  cmd = { "DiffviewOpen", "DiffviewClose" },
   keys = {
     {
-      '<leader>gg',
+      "<leader>gg",
       function()
         if next(require("diffview.lib").views) == nil then
           vim.cmd "DiffviewOpen"
@@ -12,8 +12,7 @@ return {
           vim.cmd "DiffviewClose"
         end
       end,
-      desc = "Diffview | Toggle Diffview"
-    }
+      desc = "Diffview | Toggle Diffview",
+    },
   },
-  cmd = { "DiffviewOpen", "DiffviewClose" },
 }
