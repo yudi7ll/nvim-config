@@ -4,7 +4,7 @@ return {
   lazy = false,
   keys = {
     -- Will use Telescope if installed or a vim.ui.select picker otherwise
-    { "<leader>wr", "<cmd>SessionSearch<CR>", desc = "Auto Session | Session search" },
+    { "<leader>wr", "<cmd>SessionRestore<CR>", desc = "Auto Session | Session restore" },
     { "<leader>ws", "<cmd>SessionSave<CR>", desc = "Auto Session | Save session" },
     { "<leader>wa", "<cmd>SessionToggleAutoSave<CR>", desc = "Auto Session | Toggle autosave" },
     { "<leader>wd", "<cmd>SessionDelete<cr>", desc = "Auto Session | Delete" },

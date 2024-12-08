@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
@@ -6,10 +7,27 @@ return {
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
+    "davidsierradz/cmp-conventionalcommits",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "SergioRibera/cmp-dotenv",
     "hrsh7th/cmp-nvim-lua",
+    {
+      "folke/lazydev.nvim",
+      ft = "lua", -- only load on lua files
+      dependencies = {
+        "Bilal2453/luvit-meta", -- optional `vim.uv` typings
+      },
+      opts = {
+        library = {
+          -- Library items can be absolute paths
+          -- "~/projects/my-awesome-lib",
+          -- Or relative, which means they will be resolved as a plugin
+          -- When relative, you can also provide a path to the library in the plugin dir
+          "luvit-meta/library", -- see below
+        },
+      },
+    },
     {
       "hrsh7th/cmp-cmdline",
       config = function()
@@ -69,7 +87,7 @@ return {
       },
     },
   },
-  opts = function()
+  config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
     local lspkind = require "lspkind"
@@ -115,8 +133,7 @@ return {
     end
     require("luasnip.loaders.from_vscode").lazy_load()
 
-    ---@type cmp.ConfigSchema
-    local options = {
+    require("cmp").setup {
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
@@ -165,17 +182,14 @@ return {
       },
 
       sources = cmp.config.sources {
-        {
-          name = "lazydev",
-          group_index = 0,
-        },
+        { name = "lazydev" },
         { name = "nvim_lua" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "dotenv" },
         { name = "nvim_lsp_signature_help" },
         { name = "path" },
-        -- { name = "conventionalcommits" },
+        { name = "conventionalcommits" },
         { name = "buffer" },
       },
       formatting = {
@@ -194,7 +208,5 @@ return {
         documentation = cmp.config.window.bordered(),
       },
     }
-
-    return options
   end,
 }

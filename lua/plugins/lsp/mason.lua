@@ -32,7 +32,6 @@ return {
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
     local mason_tool_installer = require "mason-tool-installer"
-    ---@type lspconfig.Options
     local server_opts = {
       on_init = require("plugins.lsp.configs.server-opts").on_init,
       on_attach = require("plugins.lsp.configs.server-opts").on_attach,

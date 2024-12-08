@@ -1,4 +1,4 @@
----@module 'lazy'
+---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
@@ -13,7 +13,8 @@ return {
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end
       end,
-      { desc = "LSP | Toggle Inlay Hints", silent = true },
+      desc = "LSP | Toggle Inlay Hints",
+      silent = true,
     },
   },
   config = function()
