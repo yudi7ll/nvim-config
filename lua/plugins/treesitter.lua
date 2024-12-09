@@ -2,6 +2,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
+    ---@diagnostic disable-next-line: missing-fields
     { "windwp/nvim-ts-autotag", config = true },
   },
   event = "BufReadPost",

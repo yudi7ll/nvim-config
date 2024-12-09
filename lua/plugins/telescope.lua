@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "Snikimonkd/telescope-git-conflicts.nvim",
+    ---@diagnostic disable-next-line: missing-fields
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = {

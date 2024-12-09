@@ -9,6 +9,7 @@ return {
         require("treesj").join()
       end,
       desc = "Treesj | Join",
+      mode = { "n", "x" },
     },
     {
       "<leader>cs",
@@ -16,6 +17,7 @@ return {
         require("treesj").split()
       end,
       desc = "Treesj | Split",
+      mode = { "n", "x" },
     },
     {
       "<leader>ct",
@@ -23,6 +25,7 @@ return {
         require("treesj").toggle()
       end,
       desc = "Treesj | Toggle",
+      mode = { "n", "x" },
     },
   },
   config = true,

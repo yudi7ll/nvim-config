@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "mfussenegger/nvim-lint",
   event = "BufReadPost",
   config = function()
