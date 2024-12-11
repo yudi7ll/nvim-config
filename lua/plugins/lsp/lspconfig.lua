@@ -5,7 +5,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   keys = {
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP | Info" },
-    { "<leader>lR", "<cmd>LspRestart<cr>", desc = "LSP | Restart" },
+    { "<leader>lr", "<cmd>LspRestart<cr>", desc = "LSP | Restart" },
     {
       "<leader>lh",
       function()

@@ -39,6 +39,7 @@ vim.opt.undofile = true
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 vim.opt.title = true
+vim.opt.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest,full"
 vim.opt.wildmenu = true

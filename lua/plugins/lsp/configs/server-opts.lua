@@ -1,10 +1,13 @@
 local M = {}
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
+  -- local navic = require "nvim-navic"
   local map = function(keys, func, desc, mode)
     mode = mode or "n"
     vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
   end
+
+  -- navic.attach(client, bufnr)
 
   map("<leader>ac", "<cmd>Lspsaga code_action<cr>", "Lspsaga | Code Action", { "n", "x" })
   map("<leader>ao", "<cmd>Lspsaga outline<cr>", "Lspsaga | Code Outline")

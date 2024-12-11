@@ -7,50 +7,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
   },
-  -- keys = {
-  --   {
-  --     "<leader>ha",
-  --     function()
-  --       require("harpoon"):list():add()
-  --     end,
-  --     desc = "Harpoon | Add to list",
-  --   },
-  --   {
-  --     "<leader>ht",
-  --     function()
-  --       require("harpoon.ui"):toggle_quick_menu(require("harpoon"):list())
-  --     end,
-  --     desc = "Harpoon | Toggle quick menu",
-  --   },
-  --   {
-  --     "<leader>hn",
-  --     function()
-  --       require("harpoon"):list():next()
-  --     end,
-  --     desc = "Harpoon | Next",
-  --   },
-  --   {
-  --     "<c-l>",
-  --     function()
-  --       require("harpoon"):list():next()
-  --     end,
-  --     desc = "Harpoon | Next",
-  --   },
-  --   {
-  --     "<leader>hp",
-  --     function()
-  --       require("harpoon"):list():prev()
-  --     end,
-  --     desc = "Harpoon | Previous",
-  --   },
-  --   {
-  --     "<c-h>",
-  --     function()
-  --       require("harpoon"):list():prev()
-  --     end,
-  --     desc = "Harpoon | Previous",
-  --   },
-  -- },
   config = function()
     local harpoon = require "harpoon"
     harpoon:setup {}

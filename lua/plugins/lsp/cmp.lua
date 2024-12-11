@@ -11,7 +11,7 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "SergioRibera/cmp-dotenv",
-    "hrsh7th/cmp-nvim-lua",
+    { "hrsh7th/cmp-nvim-lua", ft = "lua" },
     {
       "folke/lazydev.nvim",
       ft = "lua", -- only load on lua files

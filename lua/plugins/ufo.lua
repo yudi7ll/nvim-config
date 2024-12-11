@@ -12,6 +12,7 @@ return {
     local map = vim.keymap.set
     map("n", "<localleader>fc", "zc", { desc = "Close folds" })
     map("n", "<localleader>fo", "zo", { desc = "Open folds" })
+    map("n", "<localleader>fO", "zO", { desc = "Open all folds" })
     map("n", "<localleader>fr", require("ufo").openFoldsExceptKinds, { desc = "UFO | Open folds except kinds" })
     map("n", "<localleader>fR", require("ufo").openAllFolds, { desc = "UFO | Open all folds" })
     map("n", "<localleader>fm", require("ufo").closeFoldsWith, { desc = "UFO | Close folds with" })
