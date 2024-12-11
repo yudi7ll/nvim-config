@@ -2,13 +2,13 @@
     
 ![Last Commit](https://img.shields.io/github/last-commit/yudi7ll/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
 
-![Screenshot from 2023-05-18 14-41-50](https://github.com/yudi7ll/nvim-config/assets/35747911/27f64174-5ed6-4b46-850b-d84f6cb895fe)
+![screenshot 1](https://github.com/user-attachments/assets/88d6cda2-3e99-4afe-8876-738c0eaa953e)
 
 </div>
 
 
 
-Neovim >= 0.9.0
+Neovim v0.10.2
 
 ## TODO:
 - [ ] LSP Support:
@@ -40,7 +40,7 @@ Neovim >= 0.9.0
 - [x] Statusline
 - [x] Winbar
 - [ ] Debugging tools
-- [ ] Git:
+- [x] Git:
   - [x] git blame
   - [x] git status
   - [x] conflict resolve
@@ -54,14 +54,3 @@ Neovim >= 0.9.0
 - `<localleader>tg` require [Lazygit](https://github.com/jesseduffield/lazygit)
 - `<localleader>td` require [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - `<localleader>tu` require [NCDU](https://dev.yorhel.nl/ncdu)
-  
-
-## Screenshots
-![Screenshot from 2023-05-18 14-42-15](https://github.com/yudi7ll/nvim-config/assets/35747911/c3e18981-4df4-446c-bc87-b491dded1f2f)
-![image](https://github.com/yudi7ll/nvim-config/assets/35747911/07dcf833-3651-4d8b-b964-537c67139cb3)
-![image](https://github.com/yudi7ll/nvim-config/assets/35747911/080d5224-e353-4b5f-beb1-74676c203449)
-![image](https://github.com/yudi7ll/nvim-config/assets/35747911/f4bc8432-ac16-46df-97e3-765f1bef6c7c)
-![image](https://github.com/yudi7ll/nvim-config/assets/35747911/8e16d274-283e-4b3b-ac0a-29cc7763a673)
-
-
-
