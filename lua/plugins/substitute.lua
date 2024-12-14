@@ -4,28 +4,28 @@ return {
   event = "BufReadPost",
   keys = {
     {
-      "s",
+      "<leader>ps",
       function()
         require("substitute").operator()
       end,
       desc = "Substitute with motion",
     },
     {
-      "ss",
+      "<leader>pss",
       function()
         require("substitute").line()
       end,
       desc = "Substitute with line",
     },
     {
-      "S",
+      "<leader>pS",
       function()
         require("substitute").eol()
       end,
       desc = "Substitute to end of line",
     },
     {
-      "s",
+      "<leader>ps",
       function()
         require("substitute").visual()
       end,

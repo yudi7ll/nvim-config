@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
