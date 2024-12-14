@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "ggandor/leap.nvim",
   event = "BufReadPost",
   config = function()

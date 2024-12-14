@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
@@ -30,15 +29,13 @@ return {
     },
     {
       "hrsh7th/cmp-cmdline",
+      keys = { { ":" } },
       config = function()
-        local cmdline_mappings = vim.tbl_extend("force", {}, require("cmp").mapping.preset.cmdline(), {
-          ["<Tab>"] = {
-            c = require("cmp").mapping.confirm { select = false },
-          },
-        })
-
         require("cmp").setup.cmdline(":", {
-          mapping = cmdline_mappings,
+          completion = {
+            completeopt = "menu,menuone,noselect",
+          },
+          mapping = require("cmp.config.mapping").preset.cmdline(),
           sources = {
             { name = "cmdline" },
           },
@@ -192,6 +189,7 @@ return {
         { name = "conventionalcommits" },
         { name = "buffer", keyword_length = 3 },
       },
+      ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = lspkind.cmp_format {
           preset = "codicons",

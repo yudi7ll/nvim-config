@@ -1,31 +1,31 @@
 local M = {}
 
-M.on_attach = function(client, bufnr)
-  -- local navic = require "nvim-navic"
-  local map = function(keys, func, desc, mode)
-    mode = mode or "n"
-    vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
+M.on_attach = function(_, bufnr)
+  local map = require "custom.map"
+  local ufo_peek = function()
+    local winid = require("ufo").peekFoldedLinesUnderCursor()
+    if not winid then
+      vim.cmd "Lspsaga hover_doc"
+    end
   end
 
-  -- navic.attach(client, bufnr)
-
-  map("<leader>ac", "<cmd>Lspsaga code_action<cr>", "Lspsaga | Code Action", { "n", "x" })
-  map("<leader>ao", "<cmd>Lspsaga outline<cr>", "Lspsaga | Code Outline")
-  map("<leader>aO", "<cmd>Lspsaga outgoing_calls<cr>", "Lspsaga | Outgoing Calls")
-  map("<leader>aI", "<cmd>Lspsaga incoming_calls<cr>", "Lspsaga | Incoming Calls")
-  map("<leader>ar", "<cmd>Lspsaga rename <cr>", "Lspsaga | Rename")
-  map("K", "<cmd>Lspsaga hover_doc<cr>", "Lspsaga | Hover")
-  map("gn", "<cmd>Lspsaga diagnostic_jump_next<cr>", "Lspsaga | Next Diagnostic")
-  map("gN", "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Lspsaga | Prev Diagnostic")
-  map("gd", require("telescope.builtin").lsp_definitions, "LSP | Goto Definition")
-  map("gr", require("telescope.builtin").lsp_references, "LSP | Goto References")
-  map("gI", require("telescope.builtin").lsp_implementations, "LSP | Goto Implementation")
-  map("<leader>aD", require("telescope.builtin").lsp_type_definitions, "LSP | Type Definition")
-  map("<leader>as", require("telescope.builtin").lsp_document_symbols, "LSP | Document Symbols")
-  map("<leader>aw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "LSP | Workspace Symbols")
-  -- map('<leader>ar', vim.lsp.buf.rename, '[R]e[n]ame')
-  -- map('<leader>ac', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-  map("gD", vim.lsp.buf.declaration, "LSP | Goto Declaration")
+  map {
+    { "<leader>ac", "<cmd>Lspsaga code_action<cr>", desc = "Lspsaga | Code Action" },
+    { "<leader>ao", "<cmd>Lspsaga outline<cr>", desc = "Lspsaga | Code Outline" },
+    { "<leader>aO", "<cmd>Lspsaga outgoing_calls<cr>", desc = "Lspsaga | Outgoing Calls" },
+    { "<leader>aI", "<cmd>Lspsaga incoming_calls<cr>", desc = "Lspsaga | Incoming Calls" },
+    { "<leader>ar", "<cmd>Lspsaga rename <cr>", desc = "Lspsaga | Rename" },
+    { "gn", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga | Next Diagnostic" },
+    { "gN", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Lspsaga | Prev Diagnostic" },
+    { "gd", require("telescope.builtin").lsp_definitions, desc = "LSP | Goto Definition" },
+    { "gr", require("telescope.builtin").lsp_references, desc = "LSP | Goto References" },
+    { "gI", require("telescope.builtin").lsp_implementations, desc = "LSP | Goto Implementation" },
+    { "<leader>aD", require("telescope.builtin").lsp_type_definitions, desc = "LSP | Type Definition" },
+    { "<leader>as", require("telescope.builtin").lsp_document_symbols, desc = "LSP | Document Symbols" },
+    { "<leader>aw", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "LSP | Workspace Symbols" },
+    { "gD", vim.lsp.buf.declaration, desc = "LSP | Goto Declaration" },
+    { "K", ufo_peek, desc = "UFO or Lspsaga | Hover" },
+  }
 end
 
 M.on_init = function(client, _)

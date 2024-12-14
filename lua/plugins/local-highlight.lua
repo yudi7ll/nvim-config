@@ -2,7 +2,9 @@
 return {
   "tzachar/local-highlight.nvim",
   event = "BufReadPost",
-  opts = {
-    hlgroup = "CursorColumn",
-  },
+  config = function()
+    require("local-highlight").setup({
+      hlgroup = "CursorColumn",
+    })
+  end
 }

@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-telescope/telescope.nvim",
   },
+  event = "VimEnter",
   keys = {
     {
       "<leader>pf",

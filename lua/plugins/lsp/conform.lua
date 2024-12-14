@@ -30,7 +30,7 @@ return {
     {
       "<leader>af",
       "<cmd>Format<cr>",
-      desc = "Format",
+      desc = "Conform | Format",
     },
   },
   config = function()

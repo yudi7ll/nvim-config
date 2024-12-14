@@ -2,6 +2,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "BufReadPost",
   opts = function()
     local theme = require "lualine.themes.auto"
     local component = require "lualine.component"
@@ -21,9 +22,9 @@ return {
     utils.filepath = function()
       return string.gsub(vim.fn.fnamemodify(vim.fn.expand "%", ":p:~:.:h"), "/", " > ")
     end
-    utils.filepath_available = function()
-      return M.filepath() ~= "."
-    end
+    -- utils.filepath_available = function()
+    --   return M.filepath() ~= "."
+    -- end
 
     -- TODO: update theme
     local theme = vim.tbl_extend("keep", theme, {

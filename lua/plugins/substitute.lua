@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "gbprod/substitute.nvim",
-  event = "BufReadPost",
   keys = {
     {
       "<leader>ps",

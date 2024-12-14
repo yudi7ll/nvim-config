@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "f-person/git-blame.nvim",
-  event = "BufReadPost",
   keys = {
     { "<leader>gbo", "<cmd>GitBlameOpenCommitURL<cr>", desc = "GitBlame | Open Commit Url" },
     { "<leader>gbc", "<cmd>GitBlameCopyCommitURL<cr>", desc = "GitBlame | Copy Commit Url" },
