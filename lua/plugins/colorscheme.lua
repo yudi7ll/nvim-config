@@ -24,43 +24,10 @@ return {
     end,
   },
   {
+    enabled = false,
     "folke/tokyonight.nvim",
     specs = {
       "rose-pine/neovim",
-      {
-        enabled = false,
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = function()
-          require("gruvbox").setup {
-            terminal_colors = true, -- add neovim terminal colors
-            undercurl = true,
-            underline = true,
-            bold = true,
-            italic = {
-              strings = true,
-              emphasis = true,
-              comments = true,
-              operators = false,
-              folds = true,
-            },
-            strikethrough = true,
-            invert_selection = false,
-            invert_signs = false,
-            invert_tabline = false,
-            invert_intend_guides = false,
-            inverse = true, -- invert background for search, diffs, statuslines and errors
-            contrast = "hard", -- can be "hard", "soft" or empty string
-            palette_overrides = {},
-            dim_inactive = false,
-            transparent_mode = false,
-            overrides = {
-              SignColumn = { bg = "NONE" },
-              CursorLineNr = { fg = "NONE" },
-            },
-          }
-        end,
-      },
       {
         "sainnhe/gruvbox-material",
         priority = 1000,
@@ -117,6 +84,125 @@ return {
     config = function(_, opts)
       require("kanagawa").setup(opts)
       vim.cmd [[colorscheme kanagawa]]
+    end,
+  },
+  {
+    "echasnovski/mini.base16",
+    lazy = false,
+    version = false,
+    priority = 1000,
+    config = function()
+      require("mini.base16").setup {
+        -- Table with names from `base00` to `base0F` and values being strings of
+        -- HEX colors with format "#RRGGBB". NOTE: this should be explicitly
+        -- supplied in `setup()`.
+        palette = {
+          base00 = "#1e222a",
+          -- base01 = "#2d3139",
+          base01 = "#23272f",
+          base02 = "#3e4451",
+          base03 = "#545862",
+          base04 = "#565c64",
+          base05 = "#abb2bf",
+          base06 = "#b6bdca",
+          base07 = "#c8ccd4",
+          base08 = "#e06c75",
+          base09 = "#d19a66",
+          base0A = "#e5c07b",
+          base0B = "#98c379",
+          base0C = "#56b6c2",
+          base0D = "#61afef",
+          base0E = "#c678dd",
+          base0F = "#be5046",
+        },
+
+        -- Whether to support cterm colors. Can be boolean, `nil` (same as
+        -- `false`), or table with cterm colors. See `setup()` documentation for
+        -- more information.
+        use_cterm = nil,
+
+        -- Plugin integrations. Use `default = false` to disable all integrations.
+        -- Also can be set per plugin (see |MiniBase16.config|).
+        plugins = { default = true },
+      }
+    end,
+  },
+  {
+    enabled = false,
+    "GnRlLeclerc/dynamic-base16.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local dynamic_base16 = require "dynamic-base16"
+      dynamic_base16.setup {
+        module = "base16_colors", -- default: nil
+        transparent = false, -- Transparent background
+        watch = false, -- Watch the module file for live reloads
+      }
+      -- dynamic_base16.set_colors {
+      --   base00 = "#1e222a",
+      --   -- base01 = "#2d3139",
+      --   base01 = "#23272f",
+      --   base02 = "#3e4451",
+      --   base03 = "#545862",
+      --   base04 = "#565c64",
+      --   base05 = "#abb2bf",
+      --   base06 = "#b6bdca",
+      --   base07 = "#c8ccd4",
+      --   base08 = "#e06c75",
+      --   base09 = "#d19a66",
+      --   base0A = "#e5c07b",
+      --   base0B = "#98c379",
+      --   base0C = "#56b6c2",
+      --   base0D = "#61afef",
+      --   base0E = "#c678dd",
+      --   base0F = "#be5046",
+      -- }
+
+      dynamic_base16.set_colors {
+        base00 = "#1e222a",
+        base01 = "#353b45",
+        base02 = "#3e4451",
+        base03 = "#545862",
+        base04 = "#565c64",
+        base05 = "#abb2bf",
+        base06 = "#b6bdca",
+        base07 = "#c8ccd4",
+        base08 = "#e06c75",
+        base09 = "#d19a66",
+        base0A = "#e5c07b",
+        base0B = "#98c379",
+        base0C = "#56b6c2",
+        base0D = "#61afef",
+        base0E = "#c678dd",
+        base0F = "#be5046",
+      }
+    end,
+  },
+  {
+    enabled = false,
+    "RRethy/base16-nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("base16-colorscheme").setup {
+        base00 = "#1e222a",
+        base01 = "#353b45",
+        base02 = "#3e4451",
+        base03 = "#545862",
+        base04 = "#565c64",
+        base05 = "#abb2bf",
+        base06 = "#b6bdca",
+        base07 = "#c8ccd4",
+        base08 = "#e06c75",
+        base09 = "#d19a66",
+        base0A = "#e5c07b",
+        base0B = "#98c379",
+        base0C = "#56b6c2",
+        base0D = "#61afef",
+        base0E = "#c678dd",
+        base0F = "#be5046",
+      }
     end,
   },
 }

@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "stevearc/quicker.nvim",
-  event = "FileType qf",
+  ft = "qf",
   config = true,
 }

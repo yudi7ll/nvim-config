@@ -1,3 +1,9 @@
+vim.g.format_on_save = false
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
+vim.o.background = "dark"
+
 vim.opt.autoindent = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.backup = false

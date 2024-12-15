@@ -4,8 +4,5 @@
     "_G"
   ],
   "Lua.workspace.checkThirdParty": false,
-  "workspace.checkThirdParty": false,
-    "diagnostics.disable": [
-        "param-type-mismatch"
-    ]
+  "workspace.checkThirdParty": false
 }

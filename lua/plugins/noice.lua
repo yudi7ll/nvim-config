@@ -17,9 +17,19 @@ return {
       desc = "Noice | Notification History",
     },
     {
-      "<leader>nd",
+      "<leader>nr",
       "<cmd>Noice dismiss<cr>",
       desc = "Noice | Dismiss Notification",
+    },
+    {
+      "<leader>nd",
+      "<cmd>NoiceDisable<cr>",
+      desc = "Noice | Disable",
+    },
+    {
+      "<leader>ne",
+      "<cmd>NoiceEnable<cr>",
+      desc = "Noice | Enable",
     },
   },
   config = function()

@@ -2,9 +2,9 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  event = "BufReadPost",
+  event = "VeryLazy",
   opts = function()
-    local theme = require "lualine.themes.auto"
+    local theme = require "lualine.themes.onedark"
     local component = require "lualine.component"
     local filetype = require "lualine.components.filetype"
 

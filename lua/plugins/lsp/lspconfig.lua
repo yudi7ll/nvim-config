@@ -3,7 +3,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   keys = {
-    { "<leader>li", "<cmd>LspInfo<cr>",    desc = "LSP | Info" },
+    { "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP | Info" },
     { "<leader>lr", "<cmd>LspRestart<cr>", desc = "LSP | Restart" },
     {
       "<leader>lh",

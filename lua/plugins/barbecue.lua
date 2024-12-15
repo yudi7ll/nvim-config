@@ -1,13 +1,21 @@
 ---@type LazySpec
 return {
   "utilyre/barbecue.nvim",
-  name = "barbecue",
   version = "*",
   dependencies = {
     "SmiteshP/nvim-navic",
     "nvim-tree/nvim-web-devicons", -- optional dependency
   },
-  event = "BufReadPre",
+  event = "BufReadPost",
+  keys = {
+    {
+      "<leader>cp",
+      function()
+        require("barbecue.ui").navigate(2)
+      end,
+      desc = "Barbecue | Navigate to second entry",
+    },
+  },
   config = function()
     require("barbecue").setup {
       theme = {

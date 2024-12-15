@@ -1,17 +1,17 @@
 ---@type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
-  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "Snikimonkd/telescope-git-conflicts.nvim",
-    ---@diagnostic disable-next-line: missing-fields
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = {
-    { "<c-p>", "<cmd>Telescope find_files<cr>" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>" },
-    { "<leader>sh", "<cmd>Telescope highlights<cr>" },
+    { "<c-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
+    { "<leader>st", "<cmd>Telescope<cr>", desc = "Telescope" },
+    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Telescope | Live Grep" },
+    { "<leader>sh", "<cmd>Telescope highlights<cr>", desc = "Telescope | Highlights" },
+    { "<leader>gc", "<cmd>Telescope conflicts<cr>", desc = "Telescope Git Conflicts" },
   },
   config = function()
     local telescope = require "telescope"

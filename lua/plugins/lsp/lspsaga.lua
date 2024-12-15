@@ -23,6 +23,7 @@ return {
         quit = "q",
         exec = "<CR>",
       },
+      extend_gitsigns = true,
     },
 
     scroll_preview = {
