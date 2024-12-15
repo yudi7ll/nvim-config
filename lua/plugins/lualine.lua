@@ -26,11 +26,6 @@ return {
     --   return M.filepath() ~= "."
     -- end
 
-    -- TODO: update theme
-    local theme = vim.tbl_extend("keep", theme, {
-      visual = theme.visual,
-    })
-
     return {
       options = {
         icons_enabled = true,
