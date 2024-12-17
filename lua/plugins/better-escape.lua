@@ -4,30 +4,26 @@ return {
   event = "VeryLazy",
   config = function()
     require("better_escape").setup {
+      default_mappings = false,
       mappings = {
         i = {
-          k = {
-            j = "<Esc>",
+          j = {
+            k = "<Esc>",
           },
         },
         c = {
-          k = {
-            j = "<Esc>",
+          j = {
+            k = "<Esc>",
           },
         },
         t = {
-          k = {
-            j = "<C-\\><C-n>",
-          },
-        },
-        v = {
-          k = {
-            j = "<Esc>",
+          j = {
+            k = "<C-\\><C-n>",
           },
         },
         s = {
-          k = {
-            j = "<Esc>",
+          j = {
+            k = "<Esc>",
           },
         },
       },
