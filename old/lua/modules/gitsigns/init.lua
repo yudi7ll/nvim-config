@@ -1,4 +1,4 @@
-require("gitsigns").setup({
+require("gitsigns").setup {
   -- signs = {
   --   add = {
   --     hl = "GitSignsAdd",
@@ -65,22 +65,22 @@ require("gitsigns").setup({
     map("n", "<leader>hs", gs.stage_hunk)
     map("n", "<leader>hr", gs.reset_hunk)
     map("v", "<leader>hs", function()
-      gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
     end)
     map("v", "<leader>hr", function()
-      gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
     end)
     map("n", "<leader>hS", gs.stage_buffer)
     map("n", "<leader>hu", gs.undo_stage_hunk)
     map("n", "<leader>hR", gs.reset_buffer)
     map("n", "<leader>hp", gs.preview_hunk)
     map("n", "<leader>hb", function()
-      gs.blame_line({ full = true })
+      gs.blame_line { full = true }
     end)
     map("n", "<leader>tb", gs.toggle_current_line_blame)
     map("n", "<leader>hd", gs.diffthis)
     map("n", "<leader>hD", function()
-      gs.diffthis("~")
+      gs.diffthis "~"
     end)
     map("n", "<leader>td", gs.toggle_deleted)
 
@@ -112,4 +112,4 @@ require("gitsigns").setup({
   -- yadm = {
   --   enable = true,
   -- },
-})
+}

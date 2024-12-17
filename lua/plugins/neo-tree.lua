@@ -109,7 +109,7 @@ return {
       -- see `:h neo-tree-custom-commands-global`
       commands = {},
       window = {
-        position = "left",
+        position = "right",
         width = 40,
         auto_expand_width = false,
         mapping_options = {

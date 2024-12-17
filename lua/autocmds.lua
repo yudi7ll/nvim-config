@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 })
 
 -- Array of file names indicating root directory. Modify to your liking.
-local root_names = { ".git", "Makefile", "package.json" }
+local root_names = { "package.json", "Makefile", ".git" }
 
 -- Cache to use for speed up (at cost of possibly outdated results)
 local root_cache = {}
@@ -46,8 +46,8 @@ local set_root = function()
 
   -- Set current directory
   vim.fn.chdir(root)
-  print("Project root changed to " .. root)
+  -- print("Project root changed to " .. root)
 end
 
-local root_augroup = vim.api.nvim_create_augroup("MyAutoRoot", {})
-vim.api.nvim_create_autocmd("BufEnter", { group = root_augroup, callback = set_root })
+-- local root_augroup = vim.api.nvim_create_augroup("MyAutoRoot", {})
+-- vim.api.nvim_create_autocmd("BufEnter", { group = root_augroup, callback = set_root })

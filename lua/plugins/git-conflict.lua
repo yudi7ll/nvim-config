@@ -2,7 +2,7 @@
 return {
   "akinsho/git-conflict.nvim",
   version = "*",
-  event = "BufReadPost",
+  event = "VeryLazy",
   cmd = {
     "GitConflictChooseOurs",
     "GitConflictChooseTheirs",

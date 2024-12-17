@@ -7,11 +7,11 @@ return {
   opts = {
     signs = {
       ---@diagnostic disable-next-line: missing-fields
-      add = { text = "│" },
+      add = { text = " " },
       ---@diagnostic disable-next-line: missing-fields
-      change = { text = "│" },
+      change = { text = " " },
       ---@diagnostic disable-next-line: missing-fields
-      delete = { text = "󰍵" },
+      delete = { text = "󰍵 " },
       ---@diagnostic disable-next-line: missing-fields
       topdelete = { text = "‾" },
       ---@diagnostic disable-next-line: missing-fields

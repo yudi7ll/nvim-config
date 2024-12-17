@@ -187,7 +187,7 @@ return {
         { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "conventionalcommits" },
-        { name = "buffer", keyword_length = 3 },
+        { name = "buffer", keyword_length = 3, max_item_count = 5 },
       },
       ---@diagnostic disable-next-line: missing-fields
       formatting = {

@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "ahmedkhalf/project.nvim",
   dependencies = {
     "nvim-telescope/telescope.nvim",
