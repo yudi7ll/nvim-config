@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "nvimdev/lspsaga.nvim",
   event = "LspAttach",
   dependencies = {
