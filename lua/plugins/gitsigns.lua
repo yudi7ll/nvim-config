@@ -29,7 +29,7 @@ return {
       local gs = package.loaded.gitsigns
       local map = require "custom.map"
 
-      map {
+      map({
         { "<leader>gs", gs.stage_hunk, desc = "Gitsigns | Stage Hunk" },
         { "<leader>gr", gs.reset_hunk, desc = "Gitsigns | Reset Hunk" },
         {
@@ -69,8 +69,13 @@ return {
           desc = "Gitsigns | Diff This",
         },
         { "<leader>gt", gs.toggle_deleted, desc = "Gitsigns | Toggle Deleted" },
-        { "ih", ":<C-U>Gitsigns select_hunk<CR>", mode = { "o", "x" }, desc = "Gitsigns | Select Hunk" },
-      }
+        {
+          "ih",
+          ":<C-U>Gitsigns select_hunk<CR>",
+          mode = { "o", "x" },
+          desc = "Gitsigns | Select Hunk",
+        },
+      }, { buffer = bufnr })
     end,
   },
 }

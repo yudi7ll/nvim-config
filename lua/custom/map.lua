@@ -11,6 +11,10 @@
 ---@field callback? function
 ---@field desc? string
 ---@field replace_keycodes? boolean
+---Creates buffer-local mapping, `0` or `true` for current buffer.
+---@field buffer? integer|boolean
+---(Default: `false`)
+---@field remap? boolean
 
 ---@type vim.keymap.set.Opts
 local default_opts = {
@@ -19,15 +23,16 @@ local default_opts = {
 }
 
 ---@param mapping Map
-local set = function(mapping)
+---@param global_opts vim.keymap.set.Opts
+local set = function(mapping, global_opts)
   if type(mapping) ~= "table" then
     error "Parameter mapping must be a table"
   end
   local keys = mapping[1]
   local func = mapping[2]
-  local mode = mapping.mode or "n" -- Default to "n" (normal mode)
+  local mode = mapping.mode or "n"
 
-  local opts = default_opts
+  local opts = vim.tbl_deep_extend("force", default_opts, global_opts or {})
   for key, value in pairs(mapping) do
     if key ~= 1 and key ~= 2 and key ~= "mode" then
       opts[key] = value
@@ -38,13 +43,14 @@ local set = function(mapping)
 end
 
 ---@param mapping Map|Map[]
-return function(mapping)
+---@param global_opts vim.keymap.set.Opts
+return function(mapping, global_opts)
   if type(mapping) == "table" and #mapping > 0 then
     for _, map in ipairs(mapping) do
-      set(map)
+      set(map, global_opts)
     end
   elseif type(mapping) == "table" then
-    set(mapping)
+    set(mapping, global_opts)
   else
     error "Parameter mapping must be a table or an array of tables"
   end
