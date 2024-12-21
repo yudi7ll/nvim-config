@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
   event = "VeryLazy",
