@@ -9,5 +9,8 @@ return {
       rules = false,
       separator = "-",
     },
+    win = {
+      border = "rounded",
+    },
   },
 }
