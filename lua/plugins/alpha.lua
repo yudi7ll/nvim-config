@@ -41,7 +41,7 @@ return {
       dashboard.button("CTRL n", "  > Toggle file explorer"),
       dashboard.button("CTRL p", "󰱼  > Find File"),
       dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
-      dashboard.button("SPC pf", "  > Open Recent Projects", "<cmd>Telescope projects<CR>"),
+      -- dashboard.button("SPC pf", "  > Open Recent Projects", "<cmd>Telescope projects<CR>"),
       dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
     }
 

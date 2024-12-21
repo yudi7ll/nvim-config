@@ -1,3 +1,5 @@
+local map = require "custom.map"
+
 local jsonToJsoncGroup = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json" },
@@ -17,6 +19,16 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = "*.log",
   command = "set filetype=config",
   group = logToConfig,
+})
+
+local qfQuit = vim.api.nvim_create_augroup("QfQuit", { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "qf",
+  callback = function(args)
+    local bufnr = args.buf
+    map { "q", "<cmd>:q<cr>", desc = "Close quickfix window", buffer = bufnr }
+  end,
+  group = qfQuit,
 })
 
 -- Array of file names indicating root directory. Modify to your liking.

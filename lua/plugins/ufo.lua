@@ -12,8 +12,8 @@ return {
     vim.o.foldenable = true
 
     map {
-      { "<localleader>fc", "zc", desc = "Close folds" },
-      { "<localleader>fo", "zo", desc = "Open folds" },
+      { "<localleader>fc", "zc", mode = { "n", "v", "x" }, desc = "Close folds" },
+      { "<localleader>fo", "zo", mode = { "n", "v", "x" }, desc = "Open folds" },
       { "<localleader>fO", "zO", desc = "Open all folds" },
       { "<localleader>fr", require("ufo").openFoldsExceptKinds, desc = "UFO | Open folds except kinds" },
       { "<localleader>fR", require("ufo").openAllFolds, desc = "UFO | Open all folds" },

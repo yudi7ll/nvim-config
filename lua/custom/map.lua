@@ -1,20 +1,7 @@
----@class Map
+---@class Mapping : vim.keymap.set.Opts
 ---@field [1] string lhs
 ---@field [2] string|function rhs
 ---@field mode? string|string[]
----@field noremap? boolean
----@field nowait? boolean
----@field silent? boolean
----@field script? boolean
----@field expr? boolean
----@field unique? boolean
----@field callback? function
----@field desc? string
----@field replace_keycodes? boolean
----Creates buffer-local mapping, `0` or `true` for current buffer.
----@field buffer? integer|boolean
----(Default: `false`)
----@field remap? boolean
 
 ---@type vim.keymap.set.Opts
 local default_opts = {
@@ -22,8 +9,8 @@ local default_opts = {
   noremap = true,
 }
 
----@param mapping Map
----@param global_opts vim.keymap.set.Opts
+---@param mapping Mapping
+---@param global_opts? vim.keymap.set.Opts
 local set = function(mapping, global_opts)
   if type(mapping) ~= "table" then
     error "Parameter mapping must be a table"
@@ -42,10 +29,11 @@ local set = function(mapping, global_opts)
   vim.keymap.set(mode, keys, func, opts)
 end
 
----@param mapping Map|Map[]
----@param global_opts vim.keymap.set.Opts
+---@param mapping Mapping|Mapping[]
+---@param global_opts? vim.keymap.set.Opts
 return function(mapping, global_opts)
-  if type(mapping) == "table" and #mapping > 0 then
+  if #mapping > 0 and type(mapping[1]) == "table" then
+    ---@cast mapping Mapping[]
     for _, map in ipairs(mapping) do
       set(map, global_opts)
     end
