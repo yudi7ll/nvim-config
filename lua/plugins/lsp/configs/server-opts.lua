@@ -3,7 +3,7 @@ local M = {}
 M.on_attach = function(_, bufnr)
   local map = require "custom.map"
 
-  map {
+  map({
     { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
     { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
     { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
@@ -27,7 +27,14 @@ M.on_attach = function(_, bufnr)
     { "<leader>ac", vim.lsp.buf.code_action, desc = "LSP | Code Action", mode = { "n", "v" } },
     { "<leader>al", vim.lsp.codelens.run, desc = "LSP | Run Codelens", mode = { "n", "v" } },
     { "<leader>cL", vim.lsp.codelens.refresh, desc = "LSP | Refresh & Display Codelens", mode = { "n" } },
-    { "<leader>ar", vim.lsp.buf.rename, desc = "LSP | Rename" },
+    {
+      "<leader>ar",
+      function()
+        return ":IncRename " .. vim.fn.expand "<cword>"
+      end,
+      desc = "LSP | Rename",
+      expr = true,
+    },
     {
       "<leader>ao",
       function()
@@ -45,7 +52,7 @@ M.on_attach = function(_, bufnr)
       end,
       desc = "UFO or Hover | Hover",
     },
-  }
+  }, { buffer = bufnr })
 
   -- map {
   --   { "<leader>ac", "<cmd>Lspsaga code_action<cr>", desc = "Lspsaga | Code Action" },
