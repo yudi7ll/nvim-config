@@ -1,3 +1,5 @@
+local map = require "custom.map"
+
 ---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
@@ -82,6 +84,24 @@ return {
           return false
         end, -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
       },
+    },
+    {
+      enabled = false,
+      "github/copilot.vim",
+      config = function()
+        vim.g.copilot_no_tab_map = true
+        map {
+          {
+            "<A-f>",
+            'copilot#Accept("\\<CR>")',
+            desc = "Accept copilot suggestion",
+            mode = "i",
+            expr = true,
+            replace_keycodes = false,
+          },
+          -- TODO: add dismiss, next, previous, mapping
+        }
+      end,
     },
   },
   config = function()

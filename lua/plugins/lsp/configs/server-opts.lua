@@ -4,6 +4,20 @@ M.on_attach = function(_, bufnr)
   local map = require "custom.map"
 
   map({
+    {
+      "gn",
+      function()
+        vim.diagnostic.goto_next { float = false }
+      end,
+      desc = "Next Diagnostic",
+    },
+    {
+      "gN",
+      function()
+        vim.diagnostic.goto_prev { float = false }
+      end,
+      desc = "Prev Diagnostic",
+    },
     { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
     { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
     { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
