@@ -62,7 +62,7 @@ return {
         lualine_a = {
           { "mode", separator = { left = "" }, right_padding = 2 },
         },
-        lualine_b = { utils.filename_with_icon, "branch" },
+        lualine_b = { "branch" },
         lualine_c = {},
         lualine_x = { "diagnostics" },
         lualine_y = {
@@ -74,14 +74,6 @@ return {
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
         },
-      },
-      inactive_sections = {
-        lualine_a = { "filetype" },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
       },
     }
   end,
