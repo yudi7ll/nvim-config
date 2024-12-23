@@ -2,6 +2,7 @@
 ---@type LazySpec
 return {
   "voldikss/vim-floaterm",
+  cmd = { "FloatermToggle", "FloatermNew", "FloatermKill", "FloatermNext", "FloatermPrev" },
   keys = {
     { "<localleader>t,", "<cmd>FloatermToggle<cr>", mode = { "n", "t" }, desc = "Floaterm Toggle" },
     { "<localleader>m", "<cmd>FloatermToggle<cr>", mode = { "n", "t" }, desc = "Floaterm Toggle" },

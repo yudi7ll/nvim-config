@@ -10,7 +10,7 @@ return {
     "hrsh7th/cmp-buffer",
     "davidsierradz/cmp-conventionalcommits",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
+    -- "hrsh7th/cmp-nvim-lsp-signature-help",
     "SergioRibera/cmp-dotenv",
     { "hrsh7th/cmp-nvim-lua", ft = "lua" },
     {
@@ -199,18 +199,19 @@ return {
       },
 
       sources = cmp.config.sources {
+        { name = "nvim_lsp" },
         { name = "lazydev" },
         { name = "nvim_lua" },
-        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "dotenv" },
-        { name = "nvim_lsp_signature_help" },
+        -- { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "conventionalcommits" },
         { name = "buffer", keyword_length = 3, max_item_count = 5 },
       },
-      ---@diagnostic disable-next-line: missing-fields
       formatting = {
+        fields = { "abbr", "kind", "menu" },
+        expandable_indicator = true,
         format = lspkind.cmp_format {
           preset = "codicons",
           maxwidth = 50,

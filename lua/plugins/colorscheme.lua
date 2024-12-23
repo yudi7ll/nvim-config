@@ -125,6 +125,10 @@ return {
         -- Also can be set per plugin (see |MiniBase16.config|).
         plugins = { default = true },
       }
+
+      vim.g.mini_base16_use_cache = true
+      vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
     end,
   },
 }

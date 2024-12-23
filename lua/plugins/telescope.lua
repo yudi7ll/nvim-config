@@ -12,6 +12,7 @@ return {
     { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Telescope | Live Grep" },
     { "<leader>sh", "<cmd>Telescope highlights<cr>", desc = "Telescope | Highlights" },
     { "<leader>gc", "<cmd>Telescope conflicts<cr>", desc = "Telescope Git Conflicts" },
+    { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Telescope | Resume" },
   },
   config = function()
     local telescope = require "telescope"
@@ -40,6 +41,10 @@ return {
         },
         lsp_implementations = {
           theme = "dropdown",
+        },
+        lsp_references = {
+          theme = "cursor",
+          initial_mode = "normal",
         },
       },
       defaults = {

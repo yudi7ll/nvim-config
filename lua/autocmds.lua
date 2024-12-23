@@ -26,7 +26,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   callback = function(args)
     local bufnr = args.buf
-    map { "q", "<cmd>:q<cr>", desc = "Close quickfix window", buffer = bufnr }
+    map({
+      { "q", "<cmd>:q<cr>", desc = "Close quickfix window" },
+      { "<esc>", "<cmd>:q<cr>", desc = "Close quickfix window" },
+    }, { buffer = bufnr })
   end,
   group = qfQuit,
 })

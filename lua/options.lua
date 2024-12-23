@@ -3,11 +3,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 vim.o.background = "dark"
+vim.o.cmdheight = 2
 
 vim.opt.autoindent = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.backup = false
-vim.opt.cmdheight = 2
 -- vim.opt.colorcolumn = "80"
 vim.opt.compatible = false
 vim.opt.completeopt = "menu,menuone,noinsert"

@@ -1,16 +1,15 @@
 ---@type LazySpec
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
-    "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   cmd = "Neotree",
   keys = {
-    { "<C-n>", "<cmd> Neotree toggle <cr>", desc = "Neotree | Toggle", noremap = true },
+    { "<C-n>", "<cmd>Neotree toggle<cr>", desc = "Neotree | Toggle" },
   },
   config = function()
     require("neo-tree").setup {
@@ -173,7 +172,7 @@ return {
       nesting_rules = {},
       filesystem = {
         filtered_items = {
-          visible = false, -- when true, they will just be displayed differently than normal items
+          visible = true, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = true,
           hide_gitignored = true,
           hide_hidden = true, -- only works on Windows for hidden files/directories

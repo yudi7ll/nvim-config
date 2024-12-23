@@ -19,4 +19,11 @@ require("lazy").setup({ import = "plugins" }, {
   defaults = {
     lazy = true,
   },
+  ui = {
+    border = "rounded",
+    size = {
+      width = 0.8,
+      height = 0.8,
+    },
+  },
 })

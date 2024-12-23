@@ -25,6 +25,14 @@ return {
       virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
       delay = 300,
     },
+    preview_config = {
+      -- Options passed to nvim_open_win
+      border = "rounded",
+      style = "minimal",
+      relative = "cursor",
+      row = 0,
+      col = 1,
+    },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
       local map = require "custom.map"
