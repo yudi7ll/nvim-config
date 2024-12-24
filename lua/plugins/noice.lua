@@ -23,17 +23,17 @@ return {
       desc = "Noice | Show the last message in a popup",
     },
     {
-      "<leader>nr",
+      "<leader>nd",
       "<cmd>Noice dismiss<cr>",
       desc = "Noice | Dismiss Notification",
     },
     {
-      "<leader>nd",
+      "<leader>ntd",
       "<cmd>NoiceDisable<cr>",
       desc = "Noice | Disable",
     },
     {
-      "<leader>ne",
+      "<leader>nte",
       "<cmd>NoiceEnable<cr>",
       desc = "Noice | Enable",
     },
@@ -72,7 +72,7 @@ return {
         enabled = true, -- enables the Noice messages UI
         view = "mini", -- default view for messages
         view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
+        view_warn = "mini", -- view for warnings
         view_history = "messages", -- view for :messages
         view_search = false, -- view for search count messages. Set to `false` to disable
       },
