@@ -8,13 +8,13 @@ return {
     { "<leader>ws", "<cmd>SessionSave<CR>", desc = "Auto Session | Save session" },
     { "<leader>wa", "<cmd>SessionToggleAutoSave<CR>", desc = "Auto Session | Toggle autosave" },
     { "<leader>wd", "<cmd>SessionDelete<cr>", desc = "Auto Session | Delete" },
+    { "<leader>wf", "<cmd>SessionSearch<cr>", desc = "Auto Session | Search" },
   },
   config = function()
-    vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+    vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos"
     require("auto-session").setup {
-      suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-      -- log_level = 'debug',
-      bypass_save_filetypes = { "", "neo-tree", "alpha" },
+      use_git_branch = false,
+      bypass_save_filetypes = { "alpha" },
       auto_restore = false,
     }
   end,
