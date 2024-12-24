@@ -12,30 +12,34 @@ return {
     -- { "smjonas/inc-rename.nvim", config = true },
   },
   keys = {
+    { "<leader>nh", "<cmd>Noice pick<cr>", desc = "Noice | Notification History" },
+    { "<leader>nl", "<cmd>Noice last<cr>", desc = "Noice | Show the last message in a popup" },
+    { "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Noice | Dismiss Notification" },
+    { "<leader>ntd", "<cmd>NoiceDisable<cr>", desc = "Noice | Disable" },
+    { "<leader>nte", "<cmd>NoiceEnable<cr>", desc = "Noice | Enable" },
     {
-      "<leader>nh",
-      "<cmd>Noice pick<cr>",
-      desc = "Noice | Notification History",
+      "<Down>",
+      function()
+        if not require("noice.lsp").scroll(4) then
+          ---@diagnostic disable-next-line: redundant-return-value
+          return "<Down>"
+        end
+      end,
+      desc = "Noice | Scroll forward",
+      mode = { "n", "i", "s" },
+      expr = true,
     },
     {
-      "<leader>nl",
-      "<cmd>Noice last<cr>",
-      desc = "Noice | Show the last message in a popup",
-    },
-    {
-      "<leader>nd",
-      "<cmd>Noice dismiss<cr>",
-      desc = "Noice | Dismiss Notification",
-    },
-    {
-      "<leader>ntd",
-      "<cmd>NoiceDisable<cr>",
-      desc = "Noice | Disable",
-    },
-    {
-      "<leader>nte",
-      "<cmd>NoiceEnable<cr>",
-      desc = "Noice | Enable",
+      "<Up>",
+      function()
+        if not require("noice.lsp").scroll(-4) then
+          ---@diagnostic disable-next-line: redundant-return-value
+          return "<Up>"
+        end
+      end,
+      desc = "Noice | Scroll backward",
+      mode = { "n", "i", "s" },
+      expr = true,
     },
   },
   config = function()
