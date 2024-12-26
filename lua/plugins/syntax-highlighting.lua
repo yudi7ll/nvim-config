@@ -5,4 +5,5 @@ return {
   { "nikvdp/ejs-syntax", ft = "ejs" },
   { "chr4/nginx.vim", ft = "nginx" },
   { "styled-components/vim-styled-components", ft = { "javascriptreact", "typescriptreact" } },
+  { "fei6409/log-highlight.nvim", ft = "log" },
 }

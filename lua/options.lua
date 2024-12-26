@@ -11,7 +11,6 @@ vim.opt.backup = false
 -- vim.opt.colorcolumn = "80"
 vim.opt.compatible = false
 vim.opt.completeopt = "menu,menuone,noinsert"
-vim.opt.conceallevel = 2
 vim.opt.cursorline = true
 vim.opt.encoding = "UTF-8"
 vim.opt.expandtab = true

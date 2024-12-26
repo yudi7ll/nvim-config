@@ -14,6 +14,16 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  init = function()
+    local setConcealLevel = vim.api.nvim_create_augroup("setConcealLevel", { clear = true })
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+      pattern = "markdown",
+      callback = function()
+        vim.opt_local.conceallevel = 2
+      end,
+      group = setConcealLevel,
+    })
+  end,
   config = function()
     require("obsidian").setup {
       workspaces = {
