@@ -1,5 +1,6 @@
 return {
   {
+    enabled = false,
     dir = "~/.config/nvim/lua/custom",
     lazy = false,
     name = "float_terminal",

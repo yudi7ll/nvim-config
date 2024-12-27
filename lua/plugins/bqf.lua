@@ -85,7 +85,7 @@ return {
       -- make `drop` and `tab drop` to become preferred
       func_map = {
         drop = "o",
-        openc = "O",
+        openc = "<cr>",
         split = "<C-s>",
         tabdrop = "<C-t>",
         -- set to empty string to disable

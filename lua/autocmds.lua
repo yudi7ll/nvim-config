@@ -7,12 +7,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   group = json_to_jsonc,
 })
 
-local env_to_sh = vim.api.nvim_create_augroup("EnvToSh", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = ".env.*",
-  command = "set filetype=sh",
-  group = env_to_sh,
-})
+-- local env_to_sh = vim.api.nvim_create_augroup("EnvToSh", { clear = true })
+-- vim.api.nvim_create_autocmd({ "BufRead" }, {
+--   pattern = ".env.*",
+--   command = "set filetype=sh",
+--   group = env_to_sh,
+-- })
 
 local qf_quit = vim.api.nvim_create_augroup("QfQuit", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   group = qf_quit,
 })
 
-local auto_change_root = vim.api.nvim_create_augroup("AutoChRoot", { clear = true })
+--[[ local auto_change_root = vim.api.nvim_create_augroup("AutoChRoot", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
   group = auto_change_root,
   callback = function()
@@ -52,4 +52,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.fn.chdir(root)
     -- print("Project root changed to " .. root)
   end,
-})
+}) ]]
