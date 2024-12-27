@@ -1,4 +1,91 @@
 ---@type LazySpec
+-- return {
+--   "akinsho/bufferline.nvim",
+--   dependencies = { "theprimeagen/harpoon" },
+--   event = "VeryLazy",
+--   config = function()
+--     local bufferline = require "bufferline"
+--
+--     local function harpoon_lists()
+--       local harpoon = require "harpoon"
+--       local list = harpoon:list().items
+--       local buffers = {}
+--
+--       for _, mark in ipairs(list) do
+--         if mark.value ~= "" then
+--           table.insert(buffers, mark.value)
+--         end
+--       end
+--
+--       return buffers
+--     end
+--
+--     local function get_index_of_value(table, value)
+--       local index = nil
+--       for i, v in pairs(table) do
+--         if v == value then
+--           index = i
+--           break
+--         end
+--       end
+--
+--       return index
+--     end
+--
+--     bufferline.setup {
+--       options = {
+--         show_close_icon = false,
+--         show_buffer_close_icons = false,
+--         numbers = function(buffer)
+--           local buf_name = vim.fn.bufname(buffer.id)
+--           local harpoon_buffers = harpoon_lists()
+--
+--           return get_index_of_value(harpoon_buffers, buf_name) or ""
+--         end,
+--         custom_filter = function(buf)
+--           local harpoon_buffers = harpoon_lists()
+--           local buf_name = vim.fn.bufname(buf)
+--
+--           for _, buffer in ipairs(harpoon_buffers) do
+--             if buffer == buf_name then
+--               return true
+--             end
+--           end
+--         end,
+--         ---@diagnostic disable-next-line: assign-type-mismatch
+--         sort_by = function(buffer_a, buffer_b)
+--           -- get the harpoon buffers and the names of the buffers
+--           local harpoon_buffers = harpoon_lists()
+--           local buf_name_a = vim.fn.bufname(buffer_a.id)
+--           local buf_name_b = vim.fn.bufname(buffer_b.id)
+--
+--           local idx_a = get_index_of_value(harpoon_buffers, buf_name_a)
+--           local idx_b = get_index_of_value(harpoon_buffers, buf_name_b)
+--
+--           return idx_a < idx_b
+--         end,
+--         diagnostics = "nvim_lsp",
+--         always_show_bufferline = false,
+--       },
+--     }
+--
+--     local sync_opened_buffer_with_harpoon = vim.api.nvim_create_augroup("SyncBufferWithHarpoon", { clear = true })
+--     vim.api.nvim_create_autocmd({ "User" }, {
+--       pattern = "HarpoonListUpdated",
+--       callback = function()
+--         vim.defer_fn(function()
+--           for _, buf in ipairs(harpoon_lists()) do
+--             vim.api.nvim_list_bufs()
+--             vim.cmd("badd " .. buf)
+--           end
+--         end, 100)
+--       end,
+--       group = sync_opened_buffer_with_harpoon,
+--     })
+--   end,
+-- }
+
+---@type LazySpec
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",

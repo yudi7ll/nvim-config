@@ -3,7 +3,8 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "VeryLazy",
-  opts = function()
+  config = function()
+    local lualine = require "lualine"
     local theme = require "lualine.themes.onedark"
     local component = require "lualine.component"
     local filetype = require "lualine.components.filetype"
@@ -26,10 +27,10 @@ return {
     --   return M.filepath() ~= "."
     -- end
 
-    return {
+    lualine.setup {
       options = {
-        icons_enabled = true,
         theme = theme,
+        icons_enabled = true,
         component_separators = "|",
         section_separators = { left = "", right = "" },
         globalstatus = true,
@@ -57,6 +58,15 @@ return {
           "TelescopePrompt",
           "TelescopeResults",
         },
+      },
+      extensions = {
+        "quickfix",
+        "lazy",
+        "neo-tree",
+        "man",
+        "mason",
+        "trouble",
+        "symbols-outline",
       },
       sections = {
         lualine_a = {
