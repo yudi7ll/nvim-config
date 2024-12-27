@@ -99,6 +99,7 @@ return {
         palette = {
           base00 = "#1e222a",
           -- base01 = "#2d3139",
+          -- base01 = "#2e3140",
           base01 = "#23272f",
           base02 = "#3e4451",
           base03 = "#545862",
@@ -129,6 +130,14 @@ return {
       vim.g.mini_base16_use_cache = true
       vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
       vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" }) -- Transparent background for floating windows
+      -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" }) -- Transparent background for the main UI
+      -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" }) -- Transparent background for non-current windows
+
+      -- Optional: Set background to transparent for specific UI elements like line numbers, sign column, etc.
+      -- vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+      -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+      -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
     end,
   },
   {

@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   {
-    enabled = false,
     "vigoux/notifier.nvim",
     event = "VeryLazy",
     keys = {
@@ -19,7 +18,7 @@ return {
         min_level = vim.log.levels.INFO, -- Minimum log level to print the notification
       },
       component_name_recall = true, -- Whether to prefix the title of the notification by the component name
-      zindex = 50, -- The zindex to use for the floating window. Note that changing this value may cause visual bugs with other windows overlapping the notifier window.
+      zindex = 10, -- The zindex to use for the floating window. Note that changing this value may cause visual bugs with other windows overlapping the notifier window.
     },
   },
   {
