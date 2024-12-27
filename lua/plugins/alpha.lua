@@ -6,6 +6,7 @@ return {
   event = "VimEnter",
   config = function()
     local dashboard = require "alpha.themes.dashboard"
+
     -- available: devicons, mini, default is mini
     -- if provider not loaded and enabled is true, it will try to use another provider
     -- dashboard.file_icons.provider = "devicons"
@@ -44,6 +45,17 @@ return {
       -- dashboard.button("SPC pf", "  > Open Recent Projects", "<cmd>Telescope projects<CR>"),
       dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
     }
+
+    local function get_startup_time()
+      if vim.g.start_time then
+        local elapsed_ms = (vim.loop.hrtime() - vim.g.start_time) / 1e6
+        return string.format(" Startup Time: %.2f ms", elapsed_ms)
+      else
+        return " Startup Time: N/A"
+      end
+    end
+
+    dashboard.section.footer.val = { get_startup_time() }
 
     require("alpha").setup(dashboard.opts)
 

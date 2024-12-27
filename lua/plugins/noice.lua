@@ -8,7 +8,19 @@ return {
     -- OPTIONAL:
     --   `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
+    {
+      "rcarriga/nvim-notify",
+      config = function()
+        ---@diagnostic disable-next-line: missing-fields
+        require("notify").setup {
+          fps = 60,
+          top_down = false,
+          render = "minimal",
+          stages = "fade_in_slide_out",
+          timeout = 7000,
+        }
+      end,
+    },
     -- { "smjonas/inc-rename.nvim", config = true },
   },
   keys = {
@@ -61,6 +73,7 @@ return {
         },
         progress = {
           enabled = true,
+          view = "mini",
         },
         hover = {
           enabled = true,
@@ -74,9 +87,9 @@ return {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
         enabled = true, -- enables the Noice messages UI
-        view = "mini", -- default view for messages
+        view = "notify", -- default view for messages
         view_error = "notify", -- view for errors
-        view_warn = "mini", -- view for warnings
+        view_warn = "notify", -- view for warnings
         view_history = "messages", -- view for :messages
         view_search = false, -- view for search count messages. Set to `false` to disable
       },

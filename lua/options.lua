@@ -1,6 +1,7 @@
 vim.g.format_on_save = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.g.start_time = vim.loop.hrtime()
 
 vim.o.background = "dark"
 vim.o.cmdheight = 2
