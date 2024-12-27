@@ -3,6 +3,8 @@
 ![Last Commit](https://img.shields.io/github/last-commit/yudi7ll/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
 
 ![screenshot 1](https://github.com/user-attachments/assets/88d6cda2-3e99-4afe-8876-738c0eaa953e)
+  
+**Always WIP**
 
 </div>
 
@@ -11,7 +13,7 @@
 Neovim v0.10.2
 
 ## TODO:
-- [ ] LSP Support:
+- [ ] LSP Configured:
     - [x] typescript
       - [x] eslint
       - [x] prettier
