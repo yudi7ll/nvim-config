@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "leath-dub/snipe.nvim",
   keys = {
     {
