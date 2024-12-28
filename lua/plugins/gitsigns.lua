@@ -35,7 +35,7 @@ return {
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
-      local map = require "custom.map"
+      local map = require "utils.map"
 
       map({
         { "<leader>gs", gs.stage_hunk, desc = "Gitsigns | Stage Hunk" },

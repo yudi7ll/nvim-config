@@ -53,7 +53,7 @@ function M.open()
 end
 
 function M.setup()
-  local map = require "custom.map"
+  local map = require "utils.map"
   map { "<leader>t", M.toggle, desc = "Toggle Terminal", nowait = true, mode = { "n", "t" } }
 end
 

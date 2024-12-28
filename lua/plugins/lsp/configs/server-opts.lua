@@ -1,7 +1,7 @@
 local M = {}
 
 M.on_attach = function(_, bufnr)
-  local map = require "custom.map"
+  local map = require "utils.map"
 
   map({
     {

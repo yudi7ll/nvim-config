@@ -1,4 +1,4 @@
-local map = require "custom.map"
+local map = require "utils.map"
 
 local json_to_jsonc = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {

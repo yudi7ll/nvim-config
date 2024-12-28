@@ -26,7 +26,7 @@ return {
     },
   },
   init = function()
-    vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos"
+    vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
   end,
   config = true,
 }

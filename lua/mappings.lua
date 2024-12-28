@@ -1,4 +1,4 @@
-local map = require "custom.map"
+local map = require "utils.map"
 
 map {
   { "<leader>k", "<CMD>w<CR>", desc = "Write buffer" },

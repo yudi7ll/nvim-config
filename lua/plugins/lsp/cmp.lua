@@ -1,4 +1,4 @@
-local map = require "custom.map"
+local map = require "utils.map"
 
 ---@type LazySpec
 return {
