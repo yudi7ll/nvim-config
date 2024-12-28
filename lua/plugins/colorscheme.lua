@@ -1,4 +1,4 @@
-local sariaone = require "colors.sariaone"
+local colors = require "colors"
 
 ---@type LazySpec
 return {
@@ -13,7 +13,7 @@ return {
       local base16_colorscheme = require "base16-colorscheme"
 
       vim.cmd [[colorscheme base16-onedark]]
-      base16_colorscheme.setup(vim.tbl_deep_extend("force", base16_colorscheme.colors, sariaone))
+      base16_colorscheme.setup(vim.tbl_deep_extend("force", base16_colorscheme.colors, colors))
       base16_colorscheme.with_config {
         telescope = true,
         indentblankline = false,
@@ -24,6 +24,12 @@ return {
         dapui = false,
       }
 
+      local hl_group = {
+        FloatBorder = { fg = colors.base0E },
+        CmpItemAbbr = { bg = nil },
+      }
+
+      vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.base0E })
       vim.api.nvim_set_hl(0, "CmpItemAbbr", { bg = nil })
     end,
   },
