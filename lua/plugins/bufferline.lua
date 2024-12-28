@@ -26,26 +26,28 @@ return {
     "BufferLineCycleNext",
   },
   config = function()
-    -- local mocha = require("catppuccin.palettes").get_palette "mocha"
+    local map = require "utils.map"
+    local static_buffers = require "utils.static-buffers"
+    local stray_buf = nil
 
-    vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
+    -- local get_index_of_value = function(lists, value)
+    --   local index = nil
+    --
+    --   if type(lists) == "table" then
+    --     for i, v in pairs(lists) do
+    --       if v.name == value then
+    --         index = i
+    --         break
+    --       end
+    --     end
+    --   end
+    --
+    --   return index
+    -- end
 
     require("bufferline").setup {
-      -- highlights = require("catppuccin.groups.integrations.bufferline").get {
-      --   styles = { "italic", "bold" },
-      --   custom = {
-      --     all = {
-      --       fill = { bg = "#000000" },
-      --     },
-      --     mocha = {
-      --       background = { fg = mocha.text },
-      --     },
-      --     latte = {
-      --       background = { fg = "#000000" },
-      --     },
-      --   },
-      -- },
       options = {
+        pin_feature = true,
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
         diagnostics_indicator = function(count, level)
@@ -57,7 +59,6 @@ return {
         show_tab_indicators = true,
         persist_buffer_sort = false,
         separator_style = "thick",
-        sort_by = "insert_at_end",
         offsets = {
           {
             filetype = "NvimTree",
@@ -70,94 +71,54 @@ return {
             text_align = "center",
           },
         },
+        numbers = function(buffer)
+          for _, buf in ipairs(static_buffers.get_all()) do
+            ---@diagnostic disable-next-line: undefined-field
+            if buf.name == static_buffers.get_buffer_name(buffer.id) then
+              return "󰐃 "
+            end
+          end
+
+          return ""
+        end,
+        custom_filter = function(buf_number)
+          local current_buf = vim.api.nvim_get_current_buf()
+          local buf_name = static_buffers.get_buffer_name(buf_number)
+
+          if stray_buf == buf_name then
+            return true
+          end
+
+          for _, static_buffer in ipairs(static_buffers.get_all()) do
+            if static_buffer.name == buf_name then
+              return true
+            end
+          end
+
+          if buf_number == current_buf then
+            stray_buf = buf_name
+            return true
+          end
+
+          return false
+        end,
+        -- sort_by = function(buffer_a, buffer_b)
+        --   local static_buffer_lists = static_buffers.get_all()
+        --   local buf_name_a = static_buffers.get_buffer_name(buffer_a.id)
+        --   local buf_name_b = static_buffers.get_buffer_name(buffer_b.id)
+        --
+        --   local idx_a = get_index_of_value(static_buffer_lists, buf_name_a)
+        --   local idx_b = get_index_of_value(static_buffer_lists, buf_name_b)
+        --
+        --   if idx_a == nil or idx_b == nil then
+        --     return false
+        --   end
+        --
+        --   return idx_a < idx_b
+        -- end,
       },
     }
+
+    vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
   end,
 }
-
----@type LazySpec
--- return {
---   "akinsho/bufferline.nvim",
---   dependencies = { "theprimeagen/harpoon" },
---   event = "VeryLazy",
---   config = function()
---     local bufferline = require "bufferline"
---
---     local function harpoon_lists()
---       local harpoon = require "harpoon"
---       local list = harpoon:list().items
---       local buffers = {}
---
---       for _, mark in ipairs(list) do
---         if mark.value ~= "" then
---           table.insert(buffers, mark.value)
---         end
---       end
---
---       return buffers
---     end
---
---     local function get_index_of_value(table, value)
---       local index = nil
---       for i, v in pairs(table) do
---         if v == value then
---           index = i
---           break
---         end
---       end
---
---       return index
---     end
---
---     bufferline.setup {
---       options = {
---         show_close_icon = false,
---         show_buffer_close_icons = false,
---         numbers = function(buffer)
---           local buf_name = vim.fn.bufname(buffer.id)
---           local harpoon_buffers = harpoon_lists()
---
---           return get_index_of_value(harpoon_buffers, buf_name) or ""
---         end,
---         custom_filter = function(buf)
---           local harpoon_buffers = harpoon_lists()
---           local buf_name = vim.fn.bufname(buf)
---
---           for _, buffer in ipairs(harpoon_buffers) do
---             if buffer == buf_name then
---               return true
---             end
---           end
---         end,
---         ---@diagnostic disable-next-line: assign-type-mismatch
---         sort_by = function(buffer_a, buffer_b)
---           -- get the harpoon buffers and the names of the buffers
---           local harpoon_buffers = harpoon_lists()
---           local buf_name_a = vim.fn.bufname(buffer_a.id)
---           local buf_name_b = vim.fn.bufname(buffer_b.id)
---
---           local idx_a = get_index_of_value(harpoon_buffers, buf_name_a)
---           local idx_b = get_index_of_value(harpoon_buffers, buf_name_b)
---
---           return idx_a < idx_b
---         end,
---         diagnostics = "nvim_lsp",
---         always_show_bufferline = false,
---       },
---     }
---
---     local sync_opened_buffer_with_harpoon = vim.api.nvim_create_augroup("SyncBufferWithHarpoon", { clear = true })
---     vim.api.nvim_create_autocmd({ "User" }, {
---       pattern = "HarpoonListUpdated",
---       callback = function()
---         vim.defer_fn(function()
---           for _, buf in ipairs(harpoon_lists()) do
---             vim.api.nvim_list_bufs()
---             vim.cmd("badd " .. buf)
---           end
---         end, 100)
---       end,
---       group = sync_opened_buffer_with_harpoon,
---     })
---   end,
--- }
