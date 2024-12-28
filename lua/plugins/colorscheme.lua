@@ -87,6 +87,53 @@ return {
     end,
   },
   {
+    "RRethy/base16-nvim",
+    lazy = false,
+    priority = 1000,
+    init = function()
+      vim.env.BASE16_THEME = "onedark"
+    end,
+    config = function()
+      local base16_colorscheme = require "base16-colorscheme"
+
+      vim.cmd [[colorscheme base16-onedark]]
+
+      base16_colorscheme.setup(vim.tbl_deep_extend("force", base16_colorscheme.colors, {
+        base00 = "#1e222a",
+        -- base01 = "#2d3139",
+        -- base01 = "#2e3140",
+        base01 = "#23272f",
+        base02 = "#3e4451",
+        base03 = "#545862",
+        base04 = "#565c64",
+        base05 = "#abb2bf",
+        base06 = "#b6bdca",
+        base07 = "#c8ccd4",
+        base08 = "#e06c75",
+        base09 = "#d19a66",
+        base0A = "#e5c07b",
+        base0B = "#98c379",
+        base0C = "#56b6c2",
+        base0D = "#61afef",
+        base0E = "#c678dd",
+        base0F = "#be5046",
+      }))
+
+      base16_colorscheme.with_config {
+        telescope = true,
+        indentblankline = false,
+        notify = true,
+        ts_rainbow = false,
+        cmp = true,
+        illuminate = false,
+        dapui = false,
+      }
+
+      vim.api.nvim_set_hl(0, "CmpItemAbbr", { link = "FloatNormal" })
+    end,
+  },
+  {
+    enabled = false,
     "echasnovski/mini.base16",
     lazy = false,
     version = false,
@@ -211,7 +258,7 @@ return {
         },
         transparent_background = false,
         show_end_of_buffer = false,
-        integration_default = false,
+        integration_default = true,
         no_bold = true,
         no_italic = false,
         no_underline = true,
@@ -238,6 +285,15 @@ return {
             enabled = true,
             style = "nvchad",
           },
+          mini = {
+            enabled = true,
+          },
+          notify = true,
+          harpoon = true,
+          diffview = true,
+          noice = true,
+          notifier = true,
+          copilot_vim = true,
         },
         highlight_overrides = {
           all = function(colors)

@@ -5,7 +5,7 @@ return {
   event = "VeryLazy",
   config = function()
     local lualine = require "lualine"
-    local theme = require "lualine.themes.onedark"
+    local theme = require "lualine.themes.auto"
     local component = require "lualine.component"
     local filetype = require "lualine.components.filetype"
 

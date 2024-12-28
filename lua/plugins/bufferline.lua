@@ -1,4 +1,81 @@
 ---@type LazySpec
+return {
+  "akinsho/bufferline.nvim",
+  -- dir = "~/Dev/neovim-plugins/bufferline.nvim",
+  event = "VeryLazy",
+  keys = {
+    { "<c-q>", "<cmd>bp <bar> bd #<cr>", desc = "Bufferline | Close Buffer" },
+    { "<a-q>", "<cmd>bp <bar> bd #<cr>", desc = "Bufferline | Close Buffer" },
+    { "<a-,>", "<cmd>BufferLineCyclePrev<cr>", desc = "Bufferline | Cycle Left" },
+    { "<a-.>", "<cmd>BufferLineCycleNext<cr>", desc = "Bufferline | Cycle Right" },
+    {
+      "<a-a>",
+      function()
+        local curbufnr = vim.api.nvim_get_current_buf()
+        local buflist = vim.api.nvim_list_bufs()
+        for _, bufnr in ipairs(buflist) do
+          if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
+            vim.cmd("bd " .. tostring(bufnr))
+          end
+        end
+      end,
+    },
+  },
+  cmd = {
+    "BufferLineCyclePrev",
+    "BufferLineCycleNext",
+  },
+  config = function()
+    -- local mocha = require("catppuccin.palettes").get_palette "mocha"
+
+    vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
+
+    require("bufferline").setup {
+      -- highlights = require("catppuccin.groups.integrations.bufferline").get {
+      --   styles = { "italic", "bold" },
+      --   custom = {
+      --     all = {
+      --       fill = { bg = "#000000" },
+      --     },
+      --     mocha = {
+      --       background = { fg = mocha.text },
+      --     },
+      --     latte = {
+      --       background = { fg = "#000000" },
+      --     },
+      --   },
+      -- },
+      options = {
+        diagnostics = "nvim_lsp",
+        diagnostics_update_in_insert = false,
+        diagnostics_indicator = function(count, level)
+          local icon = level:match "error" and " " or " "
+          return " " .. icon .. count
+        end,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        show_tab_indicators = true,
+        persist_buffer_sort = false,
+        separator_style = "thick",
+        sort_by = "insert_at_end",
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
+            text_align = "center",
+          },
+          {
+            filetype = "neo-tree",
+            text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
+            text_align = "center",
+          },
+        },
+      },
+    }
+  end,
+}
+
+---@type LazySpec
 -- return {
 --   "akinsho/bufferline.nvim",
 --   dependencies = { "theprimeagen/harpoon" },
@@ -84,68 +161,3 @@
 --     })
 --   end,
 -- }
-
----@type LazySpec
-return {
-  -- "akinsho/bufferline.nvim",
-  dir = "~/Dev/neovim-plugins/bufferline.nvim",
-  event = "VeryLazy",
-  keys = {
-    { "<c-q>", "<cmd>bp <bar> bd #<cr>", desc = "Bufferline | Close Buffer" },
-    { "<a-q>", "<cmd>bp <bar> bd #<cr>", desc = "Bufferline | Close Buffer" },
-    { "<a-,>", "<cmd>BufferLineCyclePrev<cr>", desc = "Bufferline | Cycle Left" },
-    { "<a-.>", "<cmd>BufferLineCycleNext<cr>", desc = "Bufferline | Cycle Right" },
-    {
-      "<a-a>",
-      function()
-        local curbufnr = vim.api.nvim_get_current_buf()
-        local buflist = vim.api.nvim_list_bufs()
-        for _, bufnr in ipairs(buflist) do
-          if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
-            vim.cmd("bd " .. tostring(bufnr))
-          end
-        end
-      end,
-    },
-  },
-  cmd = {
-    "BufferLineCyclePrev",
-    "BufferLineCycleNext",
-  },
-  config = function()
-    vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
-    require("bufferline").setup {
-      highlights = {
-        fill = {
-          -- bg = "#111111",
-        },
-      },
-      options = {
-        diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = false,
-        diagnostics_indicator = function(count, level)
-          local icon = level:match "error" and " " or " "
-          return " " .. icon .. count
-        end,
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-        show_tab_indicators = true,
-        persist_buffer_sort = false,
-        separator_style = "thick",
-        sort_by = "insert_at_end",
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
-            text_align = "center",
-          },
-          {
-            filetype = "neo-tree",
-            text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
-            text_align = "center",
-          },
-        },
-      },
-    }
-  end,
-}
