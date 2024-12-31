@@ -26,7 +26,6 @@ return {
     "BufferLineCycleNext",
   },
   config = function()
-    local map = require "utils.map"
     local static_buffers = require "utils.static-buffers"
     local stray_buf = nil
 
@@ -34,8 +33,8 @@ return {
     --   local index = nil
     --
     --   if type(lists) == "table" then
-    --     for i, v in pairs(lists) do
-    --       if v.name == value then
+    --     for i, v in ipairs(lists) do
+    --       if type(v) == "table" and v.name == value then
     --         index = i
     --         break
     --       end
@@ -71,12 +70,17 @@ return {
             text_align = "center",
           },
         },
-        numbers = function(buffer)
-          for _, buf in ipairs(static_buffers.get_all()) do
-            ---@diagnostic disable-next-line: undefined-field
-            if buf.name == static_buffers.get_buffer_name(buffer.id) then
-              return "󰐃 "
-            end
+        numbers = function(_, bufnr)
+          -- for _, buf in ipairs(static_buffers.get_all()) do
+          ---@diagnostic disable-next-line: undefined-field
+          -- if buf.name == static_buffers.get_buffer_name(buffer.id) then
+          --   return "󰐃 "
+          -- end
+          -- end
+          ---@diagnostic disable-next-line: undefined-field
+          local bufname = static_buffers.get_buffer_name(bufnr)
+          if static_buffers.get_all()[bufname] then
+            return "󰐃 "
           end
 
           return ""
@@ -84,15 +88,10 @@ return {
         custom_filter = function(buf_number)
           local current_buf = vim.api.nvim_get_current_buf()
           local buf_name = static_buffers.get_buffer_name(buf_number)
+          local cached_buffers = static_buffers.get_all()
 
-          if stray_buf == buf_name then
+          if stray_buf == buf_name or cached_buffers[buf_name] then
             return true
-          end
-
-          for _, static_buffer in ipairs(static_buffers.get_all()) do
-            if static_buffer.name == buf_name then
-              return true
-            end
           end
 
           if buf_number == current_buf then
@@ -102,20 +101,22 @@ return {
 
           return false
         end,
-        -- sort_by = function(buffer_a, buffer_b)
-        --   local static_buffer_lists = static_buffers.get_all()
-        --   local buf_name_a = static_buffers.get_buffer_name(buffer_a.id)
-        --   local buf_name_b = static_buffers.get_buffer_name(buffer_b.id)
-        --
-        --   local idx_a = get_index_of_value(static_buffer_lists, buf_name_a)
-        --   local idx_b = get_index_of_value(static_buffer_lists, buf_name_b)
-        --
-        --   if idx_a == nil or idx_b == nil then
-        --     return false
-        --   end
-        --
-        --   return idx_a < idx_b
-        -- end,
+        sort_by = function(buffer_a, buffer_b)
+          return static_buffers.get_all()[buffer_a.name]
+          -- return get_index_of_value(static_buffers.get_all(), bufname) > 0
+          -- local static_buffer_lists = static_buffers.get_all()
+          -- local buf_name_a = static_buffers.get_buffer_name(buffer_a.id)
+          -- local buf_name_b = static_buffers.get_buffer_name(buffer_b.id)
+          --
+          -- local idx_a = get_index_of_value(static_buffer_lists, buf_name_a)
+          -- local idx_b = get_index_of_value(static_buffer_lists, buf_name_b)
+          --
+          -- if idx_a == nil or idx_b == nil then
+          --   return false
+          -- end
+          --
+          -- return idx_a < idx_b
+        end,
       },
     }
 
