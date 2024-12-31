@@ -29,21 +29,6 @@ return {
     local static_buffers = require "utils.static-buffers"
     local stray_buf = nil
 
-    -- local get_index_of_value = function(lists, value)
-    --   local index = nil
-    --
-    --   if type(lists) == "table" then
-    --     for i, v in ipairs(lists) do
-    --       if type(v) == "table" and v.name == value then
-    --         index = i
-    --         break
-    --       end
-    --     end
-    --   end
-    --
-    --   return index
-    -- end
-
     require("bufferline").setup {
       options = {
         pin_feature = true,

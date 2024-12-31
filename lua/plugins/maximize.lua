@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "declancm/maximize.nvim",
   cmd = { "Maximize" },
   keys = {
