@@ -70,15 +70,8 @@ return {
             text_align = "center",
           },
         },
-        numbers = function(buf)
-          -- for _, buf in ipairs(static_buffers.get_all()) do
-          ---@diagnostic disable-next-line: undefined-field
-          -- if buf.name == static_buffers.get_buffer_name(buffer.id) then
-          --   return "󰐃 "
-          -- end
-          -- end
-          ---@diagnostic disable-next-line: undefined-field
-          local bufname = static_buffers.get_buffer_name(buf.id)
+        numbers = function(opts)
+          local bufname = static_buffers.get_buffer_name(opts.id)
           if type(static_buffers.get_all()[bufname]) == "table" then
             return "󰐃 "
           end
@@ -102,20 +95,7 @@ return {
           return false
         end,
         sort_by = function(buffer_a, buffer_b)
-          return type(static_buffers.get_all()[buffer_a.name]) == "table"
-          -- return get_index_of_value(static_buffers.get_all(), bufname) > 0
-          -- local static_buffer_lists = static_buffers.get_all()
-          -- local buf_name_a = static_buffers.get_buffer_name(buffer_a.id)
-          -- local buf_name_b = static_buffers.get_buffer_name(buffer_b.id)
-          --
-          -- local idx_a = get_index_of_value(static_buffer_lists, buf_name_a)
-          -- local idx_b = get_index_of_value(static_buffer_lists, buf_name_b)
-          --
-          -- if idx_a == nil or idx_b == nil then
-          --   return false
-          -- end
-          --
-          -- return idx_a < idx_b
+          return not not static_buffers.get_all()[buffer_a.name] or not not static_buffers.get_all()[buffer_b.name]
         end,
       },
     }
