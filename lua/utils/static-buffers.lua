@@ -5,15 +5,17 @@ local db_path = Path:new(vim.fn.stdpath "data" .. "/static-buffers.json")
 local project_id = vim.fn.getcwd()
 
 local db_data = function()
-  return vim.json.decode(db_path:read()) or {}
+  return vim.fn.json_decode(db_path:read()) or {}
 end
 
 local M = {}
 
+---@param bufnr number
 M.get_buffer_name = function(bufnr)
-  if bufnr == nil then
-    return ""
+  if type(bufnr) ~= "number" or bufnr <= 0 then
+    return nil
   end
+
   local bufname = vim.api.nvim_buf_get_name(bufnr):gsub("^" .. vim.pesc(project_id) .. "/?", "")
   return vim.fn.fnameescape(bufname)
 end
@@ -27,11 +29,11 @@ M.save_current_buffer = function()
   local buffer_name = M.get_buffer_name(bufnr)
   local project_data = M.get_all()
 
-  if vim.api.nvim_get_option_value("buftype", { buf = bufnr }) ~= "" then
-    return false
-  end
-
-  if project_data[buffer_name] then
+  if
+    not buffer_name
+    or vim.api.nvim_get_option_value("buftype", { buf = bufnr }) ~= ""
+    or project_data[buffer_name]
+  then
     return false
   end
 
@@ -41,7 +43,7 @@ M.save_current_buffer = function()
 
   local result = vim.tbl_deep_extend("force", db_data(), { [project_id] = project_data })
 
-  db_path:write(vim.json.encode(result), "w")
+  db_path:write(vim.fn.json_encode(result), "w")
   print("Saved " .. buffer_name)
 
   return true
@@ -78,16 +80,22 @@ M.remove = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local buffer_name = M.get_buffer_name(bufnr)
   local project_data = M.get_all()
+  local new_project_data = {}
 
   if type(project_data) ~= "table" then
-    return
+    return false
   end
 
-  project_data[buffer_name] = nil
+  print(buffer_name)
+  for c_bufname, cursor_data in pairs(project_data) do
+    if c_bufname ~= buffer_name then
+      new_project_data[c_bufname] = cursor_data
+    end
+  end
 
-  db_path:write(vim.json.encode(db_data()), "w")
-  -- vim.cmd "bd"
-  -- vim.cmd "BufferLineCyclePrev"
+  local result = vim.tbl_extend("force", db_data(), { [project_id] = new_project_data })
+
+  db_path:write(vim.fn.json_encode(result), "w")
   print("Removed " .. buffer_name)
 end
 
@@ -107,7 +115,7 @@ end
 
 M.setup = function()
   if not db_path:exists() or type(db_data()) ~= "table" then
-    db_path:write(vim.json.encode {}, "w")
+    db_path:write(vim.fn.json_encode {}, "w")
   end
 
   -- local load_buffers = vim.api.nvim_create_augroup("StaticBufferLoad", { clear = true })
