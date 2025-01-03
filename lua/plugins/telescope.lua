@@ -77,8 +77,8 @@ return {
 
     hloverride {
       TelescopeNormal = { fg = colors.base05, bg = colors.base00 },
-      TelescopeBorder = { fg = colors.base0E, bg = colors.base00 },
-      TelescopePromptBorder = { fg = colors.base0E, bg = colors.base00 },
+      TelescopeBorder = { fg = colors.border, bg = colors.base00 },
+      TelescopePromptBorder = { fg = colors.border, bg = colors.base00 },
       TelescopePromptNormal = { fg = colors.base05, bg = colors.base00 },
       TelescopePromptPrefix = { fg = colors.base0D },
     }

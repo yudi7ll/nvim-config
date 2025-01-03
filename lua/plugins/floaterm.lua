@@ -41,7 +41,7 @@ return {
     })
 
     hloverride {
-      FloatermBorder = { fg = colors.base0E, bg = colors.base00 },
+      FloatermBorder = { fg = colors.border, bg = colors.base00 },
     }
   end,
 }

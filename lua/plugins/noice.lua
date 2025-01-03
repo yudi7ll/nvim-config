@@ -1,3 +1,6 @@
+local colors = require "colors"
+local hloverride = require "utils.hloverride"
+
 ---@type LazySpec
 return {
   "folke/noice.nvim",
@@ -100,6 +103,11 @@ return {
         -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
         -- kind_icons = {}, -- set to `false` to disable icons
       },
+    }
+
+    hloverride {
+      NoiceScrollbar = { bg = colors.base00, fg = colors.border },
+      NoiceScrollbarThumb = { bg = colors.border, fg = colors.border },
     }
   end,
 }

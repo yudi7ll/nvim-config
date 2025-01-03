@@ -26,7 +26,7 @@ return {
       }
 
       hloverride {
-        FloatBorder = { fg = colors.base0E },
+        FloatBorder = { fg = colors.border },
         CmpItemAbbr = { bg = nil },
         Error = { bg = nil },
         ErrorMsg = { bg = nil },

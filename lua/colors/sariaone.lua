@@ -1,4 +1,4 @@
-return {
+local base = {
   base00 = "#1e222a",
   base01 = "#2d3139",
   -- base01 = "#2e3140",
@@ -18,3 +18,7 @@ return {
   base0E = "#c678dd",
   base0F = "#be5046",
 }
+
+return vim.tbl_extend("force", base, {
+  border = base.base0E,
+})
