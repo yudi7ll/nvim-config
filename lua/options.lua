@@ -1,3 +1,16 @@
+vim.filetype.add {
+  filename = {
+    [".env"] = "sh",
+    [".envrc"] = "sh",
+  },
+  extension = {
+    ["json"] = "jsonc",
+  },
+  pattern = {
+    ["*.env.*"] = "sh",
+  },
+}
+
 vim.g.format_on_save = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","

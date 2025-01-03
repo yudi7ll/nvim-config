@@ -1,31 +1,13 @@
+local au = require "utils.au"
 local map = require "utils.map"
 
-local json_to_jsonc = vim.api.nvim_create_augroup("JsonToJsonc", { clear = true })
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "json" },
-  command = "set filetype=jsonc",
-  group = json_to_jsonc,
-})
-
--- local env_to_sh = vim.api.nvim_create_augroup("EnvToSh", { clear = true })
--- vim.api.nvim_create_autocmd({ "BufRead" }, {
---   pattern = ".env.*",
---   command = "set filetype=sh",
---   group = env_to_sh,
--- })
-
-local qf_quit = vim.api.nvim_create_augroup("QfQuit", { clear = true })
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = "qf",
-  callback = function(args)
-    local bufnr = args.buf
-    map({
-      { "q", "<cmd>:q<cr>", desc = "Close quickfix window" },
-      { "<esc>", "<cmd>:q<cr>", desc = "Close quickfix window" },
-    }, { buffer = bufnr })
-  end,
-  group = qf_quit,
-})
+au("FileType", "qf", function(args)
+  local bufnr = args.buf
+  map({
+    { "q", "<cmd>:q<cr>", desc = "Close quickfix window" },
+    { "<esc>", "<cmd>:q<cr>", desc = "Close quickfix window" },
+  }, { buffer = bufnr })
+end, "Close quickfix window")
 
 --[[ local auto_change_root = vim.api.nvim_create_augroup("AutoChRoot", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {

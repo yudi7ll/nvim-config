@@ -1,3 +1,4 @@
+local au = require "utils.au"
 local colors = require "colors"
 local hloverride = require "utils.hloverride"
 
@@ -21,24 +22,20 @@ return {
     { "<c-,>", "<cmd>FloatermPrev<cr>", desc = "Floaterm Prev", mode = { "n", "t" } },
     { "<c-.>", "<cmd>FloatermNext<cr>", desc = "Floaterm Next", mode = { "n", "t" } },
   },
+  init = function()
+    au("VimResized", "*", function(args)
+      local bufnr = args.buf
+      local ft = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+      if ft == "floaterm" then
+        vim.cmd "FloatermUpdate"
+      end
+    end, "Resize floaterm on VimResized")
+  end,
   config = function()
     vim.g.floaterm_title = "Terminal [$1/$2]"
     vim.g.floaterm_width = 0.9
     vim.g.floaterm_height = 0.9
     vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
-
-    local floatermResized = vim.api.nvim_create_augroup("FloatermResized", { clear = true })
-    vim.api.nvim_create_autocmd({ "VimResized" }, {
-      callback = function(args)
-        local bufnr = args.buf
-        local ft = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-        if ft == "floaterm" then
-          print "floaterm buffer updated"
-          vim.cmd "FloatermUpdate"
-        end
-      end,
-      group = floatermResized,
-    })
 
     hloverride {
       FloatermBorder = { fg = colors.border, bg = colors.base00 },
