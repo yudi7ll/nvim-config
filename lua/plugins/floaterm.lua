@@ -1,3 +1,6 @@
+local colors = require "colors"
+local hloverride = require "utils.hloverride"
+
 -- https://github.com/voldikss/vim-floaterm
 ---@type LazySpec
 return {
@@ -22,6 +25,7 @@ return {
     vim.g.floaterm_title = "Terminal [$1/$2]"
     vim.g.floaterm_width = 0.9
     vim.g.floaterm_height = 0.9
+    vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 
     local floatermResized = vim.api.nvim_create_augroup("FloatermResized", { clear = true })
     vim.api.nvim_create_autocmd({ "VimResized" }, {
@@ -35,5 +39,9 @@ return {
       end,
       group = floatermResized,
     })
+
+    hloverride {
+      FloatermBorder = { fg = colors.base0E, bg = colors.base00 },
+    }
   end,
 }
