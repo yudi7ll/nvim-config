@@ -3,9 +3,16 @@ local Path = require("plenary").path
 
 local db_path = Path:new(vim.fn.stdpath "data" .. "/static-buffers.json")
 local project_id = vim.fn.getcwd()
+local cached_db_data = nil
 
 local db_data = function()
-  return vim.fn.json_decode(db_path:read()) or {}
+  if cached_db_data then
+    return cached_db_data
+  end
+
+  cached_db_data = vim.fn.json_decode(db_path:read())
+
+  return cached_db_data
 end
 
 local M = {}
@@ -46,6 +53,7 @@ M.save_current_buffer = function()
   db_path:write(vim.fn.json_encode(result), "w")
   print("Saved " .. buffer_name)
 
+  cached_db_data = nil
   return true
 end
 
@@ -86,7 +94,6 @@ M.remove = function()
     return false
   end
 
-  print(buffer_name)
   for c_bufname, cursor_data in pairs(project_data) do
     if c_bufname ~= buffer_name then
       new_project_data[c_bufname] = cursor_data
@@ -97,6 +104,7 @@ M.remove = function()
 
   db_path:write(vim.fn.json_encode(result), "w")
   print("Removed " .. buffer_name)
+  cached_db_data = nil
 end
 
 M.toggle = function()

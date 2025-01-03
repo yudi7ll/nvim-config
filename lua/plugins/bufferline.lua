@@ -79,9 +79,9 @@ return {
 
           return false
         end,
-        sort_by = function(buffer_a, buffer_b)
-          return not not static_buffers.get_all()[buffer_a.name] or not not static_buffers.get_all()[buffer_b.name]
-        end,
+        -- sort_by = function(buffer_a, buffer_b)
+        --   return not not static_buffers.get_all()[buffer_a.name] or not not static_buffers.get_all()[buffer_b.name]
+        -- end,
       },
     }
 

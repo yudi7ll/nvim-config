@@ -1,3 +1,6 @@
+local colors = require "colors"
+local hloverride = require "utils.hloverride"
+
 ---@type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
@@ -71,5 +74,13 @@ return {
 
     telescope.load_extension "fzf"
     telescope.load_extension "conflicts"
+
+    hloverride {
+      TelescopeNormal = { fg = colors.base05, bg = colors.base00 },
+      TelescopeBorder = { fg = colors.base0E, bg = colors.base00 },
+      TelescopePromptBorder = { fg = colors.base0E, bg = colors.base00 },
+      TelescopePromptNormal = { fg = colors.base05, bg = colors.base00 },
+      TelescopePromptPrefix = { fg = colors.base0D },
+    }
   end,
 }

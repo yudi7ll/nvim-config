@@ -25,7 +25,14 @@ return {
 
     local floatermResized = vim.api.nvim_create_augroup("FloatermResized", { clear = true })
     vim.api.nvim_create_autocmd({ "VimResized" }, {
-      command = ":FloatermUpdate<CR>",
+      callback = function(args)
+        local bufnr = args.buf
+        local ft = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+        if ft == "floaterm" then
+          print "floaterm buffer updated"
+          vim.cmd "FloatermUpdate"
+        end
+      end,
       group = floatermResized,
     })
   end,
