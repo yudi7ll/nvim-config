@@ -30,12 +30,8 @@ return {
         CmpItemAbbr = { bg = nil },
         Error = { bg = nil },
         ErrorMsg = { bg = nil },
+        CursorLineNr = { bg = nil },
       }
-
-      -- vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.base0E })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbr", { bg = nil })
-      -- vim.api.nvim_set_hl(0, "Error", { bg = nil })
-      -- vim.api.nvim_set_hl(0, "ErrorMsg", { bg = nil })
     end,
   },
   {
