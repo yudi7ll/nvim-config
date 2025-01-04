@@ -7,36 +7,21 @@ return {
     "RRethy/base16-nvim",
     lazy = false,
     priority = 1000,
-    init = function()
-      vim.env.BASE16_THEME = "onedark"
-    end,
+    init = function() end,
     config = function()
-      local base16_colorscheme = require "base16-colorscheme"
-
-      base16_colorscheme.with_config {
-        telescope = true,
-        telescope_borders = true,
-        indentblankline = false,
-        notify = true,
-        ts_rainbow = true,
-        cmp = true,
-        illuminate = false,
-        dapui = false,
-        mini_completion = false,
-      }
-      vim.cmd [[colorscheme base16-onedark]]
-      base16_colorscheme.setup(vim.tbl_deep_extend("force", base16_colorscheme.colors, colors))
+      require("base16-colorscheme").setup()
+      vim.cmd [[colorscheme base16-sariaone]]
 
       hloverride {
         FloatBorder = { fg = colors.border },
         CmpItemAbbr = { bg = nil },
         Error = { bg = nil },
         ErrorMsg = { bg = nil },
-        CursorLineNr = { bg = nil },
-        GitGutterAdd = { bg = nil },
-        GitGutterChange = { bg = nil },
-        GitGutterDelete = { bg = nil },
-        GitGutterChangeDelete = { bg = nil },
+        CursorLineNr = { bg = nil, fg = colors.base04 },
+        GitGutterAdd = { bg = nil, fg = colors.base0B },
+        GitGutterChange = { bg = nil, fg = colors.base0D },
+        GitGutterDelete = { bg = nil, fg = colors.base08 },
+        GitGutterChangeDelete = { bg = nil, fg = colors.base0E },
       }
     end,
   },
@@ -61,6 +46,10 @@ return {
       }
 
       base46.load_theme(theme_opts)
+
+      hloverride {
+        FloatBorder = { fg = colors.border },
+      }
     end,
   },
   {

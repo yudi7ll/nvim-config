@@ -85,6 +85,6 @@ return {
       },
     }
 
-    vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
+    -- vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1115" })
   end,
 }
