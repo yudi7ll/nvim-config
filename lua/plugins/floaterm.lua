@@ -8,7 +8,6 @@ return {
   "voldikss/vim-floaterm",
   cmd = { "FloatermToggle", "FloatermNew", "FloatermKill", "FloatermNext", "FloatermPrev" },
   keys = {
-    { "<localleader>t,", "<cmd>FloatermToggle<cr>", mode = { "n", "t" }, desc = "Floaterm Toggle" },
     { "<localleader>m", "<cmd>FloatermToggle<cr>", mode = { "n", "t" }, desc = "Floaterm Toggle" },
     { "<localleader>tn", "<cmd>FloatermNew --autoclose=2<cr>", mode = { "n", "t" }, desc = "Floaterm New" },
     { "<localleader>tq", "<cmd>FloatermKill --autoclose=2<cr>", mode = { "n", "t" }, desc = "Floaterm Kill" },

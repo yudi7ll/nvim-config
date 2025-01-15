@@ -6,19 +6,19 @@ local formatters_by_ft = {
   go = { "gofumpt" },
   cs = { "csharpier" },
   yaml = { "yamlfmt" },
-  css = { "prettier" },
-  flow = { "prettier" },
-  graphql = { "prettier" },
-  html = { "prettier" },
-  json = { "prettier" },
-  javascriptreact = { "prettier" },
-  javascript = { "prettier" },
-  less = { "prettier" },
-  markdown = { "prettier" },
-  scss = { "prettier" },
-  typescript = { "prettier" },
-  typescriptreact = { "prettier" },
-  vue = { "prettier" },
+  css = { "prettierd" },
+  flow = { "prettierd" },
+  graphql = { "prettierd" },
+  html = { "prettierd" },
+  json = { "prettierd" },
+  less = { "prettierd" },
+  markdown = { "prettierd" },
+  scss = { "prettierd" },
+  javascriptreact = { "prettierd", "eslint" },
+  javascript = { "prettierd", "eslint" },
+  typescript = { "prettierd", "eslint" },
+  typescriptreact = { "prettierd", "eslint" },
+  vue = { "prettierd", "eslint" },
 }
 
 ---@type LazySpec
@@ -45,7 +45,7 @@ return {
         if bufname:match "/node_modules/" then
           return
         end
-        return { timeout_ms = 500, lsp_format = "fallback" }
+        return { timeout_ms = 2000, lsp_format = "fallback" }
       end,
       formatters_by_ft = formatters_by_ft,
     }

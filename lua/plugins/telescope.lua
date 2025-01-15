@@ -9,8 +9,10 @@ return {
     "Snikimonkd/telescope-git-conflicts.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
+  event = "VeryLazy",
   keys = {
-    { "<c-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
+    -- { "<c-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
+    { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
     { "<leader>st", "<cmd>Telescope<cr>", desc = "Telescope" },
     { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Telescope | Live Grep" },
     { "<leader>sh", "<cmd>Telescope highlights<cr>", desc = "Telescope | Highlights" },
@@ -74,5 +76,13 @@ return {
 
     telescope.load_extension "fzf"
     telescope.load_extension "conflicts"
+
+    hloverride {
+      TelescopeNormal = { bg = colors.base00 },
+      TelescopeBorder = { fg = colors.border, bg = colors.base00 },
+      TelescopePromptBorder = { fg = colors.border, bg = colors.base00 },
+      TelescopePromptNormal = { fg = colors.base05, bg = colors.base00 },
+      TelescopePromptPrefix = { fg = colors.base0D },
+    }
   end,
 }

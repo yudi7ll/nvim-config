@@ -29,12 +29,12 @@ return vim.tbl_deep_extend("force", vtslsDefaultConfig, {
     },
     typescript = {
       tsserver = {
-        maxTsServerMemory = 16000,
+        maxTsServerMemory = 10000,
       },
     },
     javascript = {
       tsserver = {
-        maxTsServerMemory = 16000,
+        maxTsServerMemory = 10000,
       },
     },
     vtsls = {
@@ -44,17 +44,17 @@ return vim.tbl_deep_extend("force", vtslsDefaultConfig, {
           enableServerSideFuzzyMatch = true,
         },
       },
-      tsserver = {
-        globalPlugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-            languages = { "vue" },
-            configNamespace = "typescript",
-            enableForWorkspaceTypeScriptVersions = true,
-          },
-        },
-      },
+      -- tsserver = {
+      --   globalPlugins = {
+      --     {
+      --       name = "@vue/typescript-plugin",
+      --       location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+      --       languages = { "vue" },
+      --       configNamespace = "typescript",
+      --       enableForWorkspaceTypeScriptVersions = true,
+      --     },
+      --   },
+      -- },
     },
   },
 })
