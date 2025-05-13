@@ -56,19 +56,17 @@ return {
         "taplo",
         "vtsls",
       },
-      automatic_installation = true,
+      automatic_enable = true,
     }
 
-    mason_lspconfig.setup_handlers {
-      function(server_name)
-        local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
-        if require_ok then
-          server_opts = vim.tbl_deep_extend("force", server, server_opts)
-        end
+    for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
+      local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
+      if require_ok then
+        server_opts = vim.tbl_deep_extend("force", server, server_opts)
+      end
 
-        require("lspconfig")[server_name].setup(server_opts)
-      end,
-    }
+      vim.lsp.config(server_name, server_opts)
+    end
 
     mason_tool_installer.setup {
       ensure_installed = {
