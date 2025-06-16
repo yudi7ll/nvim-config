@@ -18,7 +18,7 @@ return vim.tbl_deep_extend("force", vtslsDefaultConfig, {
       target = "es6",
       allowJs = true,
       checkJs = false,
-      maxNodeModuleJsDepth = 1,
+      maxNodeModuleJsDepth = false,
     },
     exclude = {
       "node_modules",
@@ -44,17 +44,17 @@ return vim.tbl_deep_extend("force", vtslsDefaultConfig, {
           enableServerSideFuzzyMatch = true,
         },
       },
-      -- tsserver = {
-      --   globalPlugins = {
-      --     {
-      --       name = "@vue/typescript-plugin",
-      --       location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-      --       languages = { "vue" },
-      --       configNamespace = "typescript",
-      --       enableForWorkspaceTypeScriptVersions = true,
-      --     },
-      --   },
-      -- },
+      tsserver = {
+        globalPlugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+            languages = { "vue" },
+            configNamespace = "typescript",
+            enableForWorkspaceTypeScriptVersions = true,
+          },
+        },
+      },
     },
   },
 })

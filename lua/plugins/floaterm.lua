@@ -35,6 +35,7 @@ return {
     vim.g.floaterm_width = 0.9
     vim.g.floaterm_height = 0.9
     vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+    vim.g.floaterm_autoinsert = 0
 
     hloverride {
       FloatermBorder = { fg = colors.border, bg = colors.base00 },

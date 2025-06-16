@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   {
+    enabled = false,
     "vigoux/notifier.nvim",
     event = "VeryLazy",
     keys = {
