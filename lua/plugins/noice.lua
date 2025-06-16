@@ -20,6 +20,10 @@ return {
           top_down = false,
           render = "minimal",
           stages = "fade_in_slide_out",
+          level = vim.log.levels.DEBUG,
+          on_open = function(win)
+            vim.api.nvim_win_set_config(win, { zindex = 200 })
+          end,
         }
       end,
     },
@@ -66,24 +70,49 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
-      lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-        progress = {
-          enabled = true,
-          view = "mini",
-        },
-        hover = {
-          enabled = true,
-          silent = true,
+      views = {
+        mini = {
+          backend = "mini",
+          relative = "win",
+          align = "messages-right",
+          timeout = 2000,
+          reverse = true,
+          focusable = false,
+          position = {
+            row = -3,
+            col = "100%",
+            -- col = 0,
+          },
+          size = {
+            width = "auto",
+            height = "auto",
+            max_height = 10,
+          },
+          border = {
+            style = "none",
+          },
+          zindex = 60,
+          win_options = {
+            winbar = "",
+            foldenable = false,
+            winblend = 30,
+            winhighlight = {
+              Normal = "NoiceMini",
+              IncSearch = "",
+              CurSearch = "",
+              Search = "",
+            },
+          },
         },
       },
       notify = {
+        -- Noice can be used as `vim.notify` so you can route any notification like other messages
+        -- Notification messages have their level and other properties set.
+        -- event is always "notify" and kind can be any log level as a string
+        -- The default routes will forward notifications to nvim-notify
+        -- Benefit of using Noice for this is the routing and consistent history view
         enabled = true,
+        view = "notify",
       },
       messages = {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
@@ -98,10 +127,36 @@ return {
       popupmenu = {
         enabled = true, -- enables the Noice popupmenu UI
         ---@type 'nui'|'cmp'
-        backend = "cmp", -- backend to use to show regular cmdline completions
+        backend = "nui", -- backend to use to show regular cmdline completions
         ---@type NoicePopupmenuItemKind|false
         -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
         -- kind_icons = {}, -- set to `false` to disable icons
+      },
+      health = {
+        checker = true, -- Disable if you don't want health checks to run
+      },
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+        progress = {
+          enabled = true,
+          -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
+          -- See the section on formatting for more details on how to customize.
+          --- @type NoiceFormat|string
+          format = "lsp_progress",
+          --- @type NoiceFormat|string
+          format_done = "lsp_progress_done",
+          throttle = 1000 / 30, -- frequency to update lsp progress message
+          view = "mini",
+        },
+        hover = {
+          enabled = true,
+          silent = true,
+        },
       },
     }
 

@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "utilyre/barbecue.nvim",
   version = "*",
   dependencies = {
