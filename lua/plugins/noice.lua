@@ -74,7 +74,7 @@ return {
         mini = {
           backend = "mini",
           relative = "win",
-          align = "messages-right",
+          align = "right",
           timeout = 2000,
           reverse = true,
           focusable = false,
@@ -91,7 +91,7 @@ return {
           border = {
             style = "none",
           },
-          zindex = 60,
+          zindex = 10,
           win_options = {
             winbar = "",
             foldenable = false,

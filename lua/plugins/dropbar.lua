@@ -1,3 +1,5 @@
+local map = require "utils.map"
+
 ---@type LazySpec
 return {
   "Bekaboo/dropbar.nvim",
@@ -9,7 +11,6 @@ return {
   },
   config = function()
     local dropbar_api = require "dropbar.api"
-    local map = require "utils.map"
 
     map {
       { "<localleader>bs", dropbar_api.pick, desc = "Pick symbols in winbar" },
