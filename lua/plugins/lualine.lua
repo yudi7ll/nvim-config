@@ -89,11 +89,11 @@ return {
             cond = require("noice").api.status.mode.has,
             color = { fg = colors.base08 },
           },
-          -- {
-          --   require("noice").api.status.search.get,
-          --   cond = require("noice").api.status.search.has,
-          --   color = { fg = "#ff9e64" },
-          -- },
+          {
+            require("noice").api.status.search.get,
+            cond = require("noice").api.status.search.has,
+            color = { fg = colors.base08 },
+          },
           "branch",
         },
         lualine_c = {},

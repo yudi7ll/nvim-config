@@ -54,7 +54,7 @@ return {
         "vimls",
         "prismals",
         "taplo",
-        "vtsls",
+        -- "vtsls",
       },
       automatic_enable = true,
     }

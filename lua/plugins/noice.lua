@@ -74,7 +74,7 @@ return {
         mini = {
           backend = "mini",
           relative = "win",
-          align = "right",
+          align = "messages-right",
           timeout = 2000,
           reverse = true,
           focusable = false,
@@ -105,6 +105,18 @@ return {
           },
         },
       },
+      ---@type NoiceRouteConfig[]
+      routes = {
+        -- {
+        --   filter = {
+        --     event = "lsp",
+        --     cond = function()
+        --       return vim.fn.win_gettype() ~= "popup" -- Disable in terminal windows
+        --     end,
+        --   },
+        --   view = "mini",
+        -- },
+      },
       notify = {
         -- Noice can be used as `vim.notify` so you can route any notification like other messages
         -- Notification messages have their level and other properties set.
@@ -122,7 +134,7 @@ return {
         view_error = "notify", -- view for errors
         view_warn = "notify", -- view for warnings
         view_history = "messages", -- view for :messages
-        view_search = "mini", -- view for search count messages. Set to `false` to disable
+        view_search = false, -- view for search count messages. Set to `false` to disable
       },
       popupmenu = {
         enabled = true, -- enables the Noice popupmenu UI

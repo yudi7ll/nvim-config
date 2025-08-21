@@ -16,10 +16,16 @@ local function get_flow_cmd()
   end
 end
 
+-- return {
+--   default_config = {
+--     cmd = get_flow_cmd(),
+--     filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
+--     root_dir = lspconfig.util.root_pattern ".flowconfig" or vim.fn.getcwd(),
+--   },
+-- }
+
 return {
-  default_config = {
-    cmd = get_flow_cmd(),
-    filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
-    root_dir = lspconfig.util.root_pattern ".flowconfig" or vim.fn.getcwd(),
-  },
+  cmd = { "flow", "lsp" },
+  filetypes = { "javascript", "javascriptreact" },
+  root_dir = require("lspconfig.util").root_pattern ".flowconfig",
 }

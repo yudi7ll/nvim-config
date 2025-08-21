@@ -7,7 +7,6 @@ local js_based_languages = {
 }
 
 return {
-  { "nvim-neotest/nvim-nio" },
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -80,6 +79,13 @@ return {
     end,
     keys = {
       {
+        "<leader>db",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Toggle Breakpoint",
+      },
+      {
         "<leader>dO",
         function()
           require("dap").step_out()
@@ -110,6 +116,8 @@ return {
       },
     },
     dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
       -- Install the vscode-js-debug adapter
       {
         "microsoft/vscode-js-debug",

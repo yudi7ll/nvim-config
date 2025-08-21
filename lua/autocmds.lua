@@ -9,6 +9,11 @@ au("FileType", "qf", function(args)
   }, { buffer = bufnr })
 end, "Close quickfix window")
 
+vim.api.nvim_create_user_command("LspLogClear", function()
+  vim.fn.writefile({}, vim.fn.stdpath "state" .. "/lsp.log")
+  print "LSP log cleared."
+end, {})
+
 --[[ local auto_change_root = vim.api.nvim_create_augroup("AutoChRoot", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
   group = auto_change_root,

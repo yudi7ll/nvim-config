@@ -10,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
+vim.env.NODE_OPTIONS = "--max-old-space-size=8192"
 
 require "autocmds"
 require "options"
