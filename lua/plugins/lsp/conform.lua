@@ -19,6 +19,7 @@ local formatters_by_ft = {
   typescript = { "prettierd", "eslint" },
   typescriptreact = { "prettierd", "eslint" },
   vue = { "prettierd", "eslint" },
+  php = { "pint" },
 }
 
 ---@type LazySpec

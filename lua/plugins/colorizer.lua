@@ -17,7 +17,7 @@ return {
         -- Expects a table of color name to #RRGGBB value pairs.  # is optional
         -- Example: { cool = "#107dac", ["notcool"] = "ee9240" }
         -- Set to false|nil to disable, for example when setting filetype options
-        names_custom = false, -- Custom names to be highlighted: table|function|false|nil
+        names_custom = false, -- Custom names to be highlighted: table|function|false
         RGB = true, -- #RGB hex codes
         RGBA = true, -- #RGBA hex codes
         RRGGBB = true, -- #RRGGBB hex codes
@@ -28,26 +28,32 @@ return {
         css = false, -- Enable all CSS *features*:
         -- names, RGB, RGBA, RRGGBB, RRGGBBAA, AARRGGBB, rgb_fn, hsl_fn
         css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        -- Tailwind colors.  boolean|'normal'|'lsp'|'both'.  True sets to 'normal'
+        tailwind = "both", -- Enable tailwind colors
+        tailwind_opts = { -- Options for highlighting tailwind names
+          update_names = true, -- When using tailwind = 'both', update tailwind names from LSP results.  See tailwind section
+        },
+        -- parsers can contain values used in `user_default_options`
+        sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
+        xterm = true, -- Enable xterm 256-color codes (#xNN, \e[38;5;NNNm)
         -- Highlighting mode.  'background'|'foreground'|'virtualtext'
         mode = "background", -- Set the display mode
-        -- Tailwind colors.  boolean|'normal'|'lsp'|'both'.  True is same as normal
-        tailwind = true, -- Enable tailwind colors
-        -- parsers can contain values used in |user_default_options|
-        sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
         -- Virtualtext character to use
         virtualtext = "■",
-        -- Display virtualtext inline with color
+        -- Display virtualtext inline with color.  boolean|'before'|'after'.  True sets to 'after'
         virtualtext_inline = false,
         -- Virtualtext highlight mode: 'background'|'foreground'
         virtualtext_mode = "foreground",
         -- update color values even if buffer is not focused
         -- example use: cmp_menu, cmp_docs
         always_update = false,
+        -- hooks to invert control of colorizer
+        hooks = {
+          -- called before line parsing.  Accepts boolean or function that returns boolean
+          -- see hooks section below
+          disable_line_highlight = false,
+        },
       },
-      -- all the sub-options of filetypes apply to buftypes
-      buftypes = {},
-      -- Boolean | List of usercommands to enable
-      user_commands = true, -- Enable all or some usercommands
     }
   end,
 }
