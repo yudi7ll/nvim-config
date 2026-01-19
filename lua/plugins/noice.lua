@@ -30,11 +30,11 @@ return {
     -- { "smjonas/inc-rename.nvim", config = true },
   },
   keys = {
-    { "<leader>nh", "<cmd>Noice pick<cr>", desc = "Noice | Notification History" },
-    { "<leader>nl", "<cmd>Noice last<cr>", desc = "Noice | Show the last message in a popup" },
-    { "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Noice | Dismiss Notification" },
-    { "<leader>ntd", "<cmd>NoiceDisable<cr>", desc = "Noice | Disable" },
-    { "<leader>nte", "<cmd>NoiceEnable<cr>", desc = "Noice | Enable" },
+    { "<leader>nh",  "<cmd>Noice pick<cr>",    desc = "Noice | Notification History" },
+    { "<leader>nl",  "<cmd>Noice last<cr>",    desc = "Noice | Show the last message in a popup" },
+    { "<leader>nd",  "<cmd>Noice dismiss<cr>", desc = "Noice | Dismiss Notification" },
+    { "<leader>ntd", "<cmd>NoiceDisable<cr>",  desc = "Noice | Disable" },
+    { "<leader>nte", "<cmd>NoiceEnable<cr>",   desc = "Noice | Enable" },
     {
       "<Down>",
       function()
@@ -64,11 +64,11 @@ return {
     require("noice").setup {
       -- you can enable a preset for easier configuration
       presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
+        bottom_search = false,        -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true,        -- add a border to hover docs and signature help
       },
       views = {
         mini = {
@@ -129,15 +129,15 @@ return {
       messages = {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
-        enabled = true, -- enables the Noice messages UI
-        view = "notify", -- default view for messages
-        view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
+        enabled = true,            -- enables the Noice messages UI
+        view = "notify",           -- default view for messages
+        view_error = "notify",     -- view for errors
+        view_warn = "notify",      -- view for warnings
         view_history = "messages", -- view for :messages
-        view_search = false, -- view for search count messages. Set to `false` to disable
+        view_search = false,       -- view for search count messages. Set to `false` to disable
       },
       popupmenu = {
-        enabled = true, -- enables the Noice popupmenu UI
+        enabled = true,  -- enables the Noice popupmenu UI
         ---@type 'nui'|'cmp'
         backend = "nui", -- backend to use to show regular cmdline completions
         ---@type NoicePopupmenuItemKind|false

@@ -47,7 +47,7 @@ return {
         "cssmodules_ls",
         "intelephense",
         "dockerls",
-        "lua_ls",
+        -- "lua_ls",
         "tailwindcss",
         "yamlls",
         "jsonls",

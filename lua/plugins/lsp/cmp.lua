@@ -15,7 +15,7 @@ return {
     { "hrsh7th/cmp-nvim-lua", ft = "lua" },
     {
       "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
+      ft = "lua",               -- only load on lua files
       dependencies = {
         "Bilal2453/luvit-meta", -- optional `vim.uv` typings
       },
@@ -33,11 +33,29 @@ return {
       "hrsh7th/cmp-cmdline",
       keys = { { ":" } },
       config = function()
-        require("cmp").setup.cmdline(":", {
+        local cmp = require('cmp')
+        local mapping = require("cmp.config.mapping")
+
+        cmp.setup.cmdline(":", {
           completion = {
-            completeopt = "menu,menuone,noselect",
+            completeopt = "menu,menuone,noinsert",
           },
-          mapping = require("cmp.config.mapping").preset.cmdline(),
+          -- sample: https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/mapping.lua
+          mapping = mapping.preset.cmdline({
+            ['<A-j>'] = mapping.preset.cmdline()['<Tab>'],
+            ['<C-j>'] = mapping.preset.cmdline()['<Tab>'],
+            ['<A-k>'] = mapping.preset.cmdline()['<S-Tab>'],
+            ['<C-k>'] = mapping.preset.cmdline()['<S-Tab>'],
+            ['<Tab>'] = {
+              c = function()
+                if cmp.visible() then
+                  cmp.confirm({ select = true })
+                else
+                  cmp.complete()
+                end
+              end,
+            },
+          }),
           sources = {
             { name = "cmdline" },
           },
@@ -77,9 +95,9 @@ return {
           suggestion_color = "#ffffff",
           cterm = 244,
         },
-        log_level = "info", -- set to "off" to disable logging completely
+        log_level = "info",                -- set to "off" to disable logging completely
         disable_inline_completion = false, -- disables inline completion for use with cmp
-        disable_keymaps = false, -- disables built in keymaps for more manual control
+        disable_keymaps = false,           -- disables built in keymaps for more manual control
         condition = function()
           return false
         end, -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
@@ -175,7 +193,7 @@ return {
           else
             fallback()
           end
-        end),
+        end, { "i", "c" }),
 
         ["<A-j>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -185,7 +203,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
 
         ["<A-k>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -195,7 +213,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
       },
 
       sources = cmp.config.sources {
@@ -207,7 +225,7 @@ return {
         -- { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "conventionalcommits" },
-        { name = "buffer", keyword_length = 3, max_item_count = 5 },
+        { name = "buffer",             keyword_length = 3, max_item_count = 5 },
       },
       formatting = {
         fields = { "abbr", "kind", "menu" },

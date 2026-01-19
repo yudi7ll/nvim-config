@@ -5,8 +5,10 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     { "windwp/nvim-ts-autotag", config = true },
   },
-  event = "BufReadPost",
+  lazy = false,
+  -- event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
+  branch = "master",
   config = function()
     require("nvim-treesitter.install").prefer_git = true
     require("nvim-treesitter.configs").setup {
