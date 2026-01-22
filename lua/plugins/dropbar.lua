@@ -2,7 +2,6 @@ local map = require "utils.map"
 
 ---@type LazySpec
 return {
-  enabled = false,
   "Bekaboo/dropbar.nvim",
   event = "BufReadPost",
   -- optional, but required for fuzzy finder support
