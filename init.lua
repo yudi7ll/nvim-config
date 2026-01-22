@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 vim.env.NODE_OPTIONS = "--max-old-space-size=8192"
+vim.cmd "filetype plugin indent on"
 
 require "autocmds"
 require "options"

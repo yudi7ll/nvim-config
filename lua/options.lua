@@ -18,7 +18,7 @@ vim.g.start_time = vim.loop.hrtime()
 
 vim.o.background = "dark"
 vim.o.cmdheight = 2
-vim.o.winborder = 'single'
+vim.o.winborder = "single"
 
 vim.opt.autoindent = true
 vim.opt.backspace = "indent,eol,start"
