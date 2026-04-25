@@ -7,7 +7,6 @@ return {
     "RRethy/base16-nvim",
     lazy = false,
     priority = 1000,
-    init = function() end,
     config = function()
       require("base16-colorscheme").setup()
       vim.cmd [[colorscheme base16-sariaone]]

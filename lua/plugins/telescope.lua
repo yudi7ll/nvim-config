@@ -8,13 +8,20 @@ return {
     "nvim-lua/plenary.nvim",
     "Snikimonkd/telescope-git-conflicts.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
   },
   event = "VeryLazy",
   keys = {
     -- { "<c-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
     { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Telescope | Find Files" },
     { "<leader>st", "<cmd>Telescope<cr>", desc = "Telescope" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Telescope | Live Grep" },
+    {
+      "<leader>sg",
+      function()
+        require("telescope").extensions.live_grep_args.live_grep_args()
+      end,
+      desc = "Telescope | Live Grep",
+    },
     { "<leader>sh", "<cmd>Telescope highlights<cr>", desc = "Telescope | Highlights" },
     { "<leader>gc", "<cmd>Telescope conflicts<cr>", desc = "Telescope Git Conflicts" },
     { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Telescope | Resume" },
@@ -22,6 +29,7 @@ return {
   config = function()
     local telescope = require "telescope"
     local actions = require "telescope.actions"
+    local lga_actions = require "telescope-live-grep-args.actions"
 
     telescope.setup {
       pickers = {
@@ -71,11 +79,23 @@ return {
           override_file_sorter = true, -- override the file sorter
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         },
+        live_grep_args = {
+          auto_quoting = true,
+          mappings = { -- extend mappings
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+              -- freeze the current list and start a fuzzy search in the frozen list
+              ["<C-space>"] = lga_actions.to_fuzzy_refine,
+            },
+          },
+        },
       },
     }
 
     telescope.load_extension "fzf"
     telescope.load_extension "conflicts"
+    telescope.load_extension "live_grep_args"
 
     hloverride {
       TelescopeNormal = { bg = colors.base00 },

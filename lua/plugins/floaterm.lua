@@ -27,18 +27,48 @@ return {
     "voldikss/vim-floaterm",
     cmd = { "FloatermToggle", "FloatermNew", "FloatermKill", "FloatermNext", "FloatermPrev" },
     keys = {
-      { "<localleader>m", "<cmd>FloatermToggle<cr>", mode = { "n", "t" }, desc = "Floaterm Toggle" },
-      { "<localleader>tn", "<cmd>FloatermNew --autoclose=2<cr>", mode = { "n", "t" }, desc = "Floaterm New" },
+      {
+        "<localleader>m",
+        function()
+          local winborder = vim.o.winborder
+          vim.o.winborder = "none"
+          vim.cmd "FloatermToggle"
+          vim.o.winborder = winborder
+        end,
+        mode = { "n", "t" },
+        desc = "Floaterm Toggle",
+      },
+      {
+        "<localleader>tn",
+        function()
+          local winborder = vim.o.winborder
+          vim.o.winborder = "none"
+          vim.cmd "FloatermNew --autoclose=2"
+          vim.o.winborder = winborder
+        end,
+        mode = { "n", "t" },
+        desc = "Floaterm New",
+      },
       { "<localleader>tq", "<cmd>FloatermKill --autoclose=2<cr>", mode = { "n", "t" }, desc = "Floaterm Kill" },
       {
         "<localleader>tg",
-        "<cmd>FloatermNew --autoclose=2 lazygit<cr>",
+        function()
+          local winborder = vim.o.winborder
+          vim.o.winborder = "none"
+          vim.cmd "FloatermNew --autoclose=2 lazygit"
+          vim.o.winborder = winborder
+        end,
         mode = { "n", "t" },
         desc = "Floaterm Lazygit",
       },
       {
         "<localleader>td",
-        "<cmd>FloatermNew --autoclose=2 lazydocker<cr>",
+        function()
+          local winborder = vim.o.winborder
+          vim.o.winborder = "none"
+          vim.cmd "FloatermNew --autoclose=2 lazydocker"
+          vim.o.winborder = winborder
+        end,
         mode = { "n", "t" },
         desc = "Floaterm Lazydocker",
       },
@@ -46,6 +76,13 @@ return {
       { "<c-.>", "<cmd>FloatermNext<cr>", desc = "Floaterm Next", mode = { "n", "t" } },
     },
     init = function()
+      vim.g.floaterm_title = "Terminal [$1/$2]"
+      vim.g.floaterm_width = 0.9
+      vim.g.floaterm_height = 0.9
+      vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+      vim.g.floaterm_autoinsert = 0
+      vim.g.floaterm_titleposition = "left"
+
       au("VimResized", "*", function(args)
         local bufnr = args.buf
         local ft = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
@@ -55,13 +92,8 @@ return {
       end, "Resize floaterm on VimResized")
     end,
     config = function()
-      vim.g.floaterm_title = "Terminal [$1/$2]"
-      vim.g.floaterm_width = 0.9
-      vim.g.floaterm_height = 0.9
-      vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
-      vim.g.floaterm_autoinsert = 0
-
       hloverride {
+        Floaterm = { bg = colors.base00 },
         FloatermBorder = { fg = colors.border, bg = colors.base00 },
       }
     end,
