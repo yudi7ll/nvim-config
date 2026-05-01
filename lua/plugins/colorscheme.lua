@@ -10,6 +10,10 @@ return {
     config = function()
       require("base16-colorscheme").setup()
       vim.cmd [[colorscheme base16-sariaone]]
+      -- transparent background
+      -- vim.cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
+      -- vim.cmd [[highlight NormalNC guibg=NONE ctermbg=NONE]]
+      -- vim.cmd [[highlight EndOfBuffer guibg=NONE ctermbg=NONE]]
 
       hloverride {
         FloatBorder = { fg = colors.border },

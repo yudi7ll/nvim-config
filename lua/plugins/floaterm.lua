@@ -24,6 +24,7 @@ return {
   },
   {
     -- https://github.com/voldikss/vim-floaterm
+    enabled = false,
     "voldikss/vim-floaterm",
     cmd = { "FloatermToggle", "FloatermNew", "FloatermKill", "FloatermNext", "FloatermPrev" },
     keys = {

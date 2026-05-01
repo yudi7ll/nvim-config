@@ -54,6 +54,7 @@ return {
         "vimdoc",
         "vue",
         "yaml",
+        "tmux",
       },
       ignore_install = {},
       modules = {},

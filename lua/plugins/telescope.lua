@@ -83,7 +83,7 @@ return {
           auto_quoting = true,
           mappings = { -- extend mappings
             i = {
-              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-u>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
               -- freeze the current list and start a fuzzy search in the frozen list
               ["<C-space>"] = lga_actions.to_fuzzy_refine,
