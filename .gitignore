@@ -13,3 +13,4 @@ plugin
 .vim
 lazy-lock.json
 Session.vim
+.gitnexus

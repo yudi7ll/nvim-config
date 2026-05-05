@@ -44,9 +44,7 @@ return {
           },
           -- sample: https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/mapping.lua
           mapping = mapping.preset.cmdline {
-            ["<A-j>"] = mapping.preset.cmdline()["<Tab>"],
             ["<C-j>"] = mapping.preset.cmdline()["<Tab>"],
-            ["<A-k>"] = mapping.preset.cmdline()["<S-Tab>"],
             ["<C-k>"] = mapping.preset.cmdline()["<S-Tab>"],
             ["<Tab>"] = {
               c = function()
@@ -302,7 +300,7 @@ return {
           end
         end, { "i", "c" }),
 
-        ["<A-j>"] = cmp.mapping(function(fallback)
+        ["<C-j>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.jumpable(1) then
@@ -312,7 +310,7 @@ return {
           end
         end, { "i", "s", "c" }),
 
-        ["<A-k>"] = cmp.mapping(function(fallback)
+        ["<C-k>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then

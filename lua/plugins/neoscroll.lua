@@ -5,7 +5,7 @@ return {
   opts = {
     easing = "quadratic",
     performance_mods = true,
-    duration_multiplier = 0.5,
+    duration_multiplier = 0.1,
     respect_scrolloff = true,
     stop_eof = false,
   },
