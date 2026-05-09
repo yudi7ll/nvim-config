@@ -1,3 +1,5 @@
+local hloverride = require "utils.hloverride"
+
 ---@type LazySpec
 return {
   "kevinhwang91/nvim-ufo",

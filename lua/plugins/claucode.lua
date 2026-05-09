@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "avifenesh/claucode.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   lazy = false,

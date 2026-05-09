@@ -25,6 +25,7 @@ return {
         GitGutterChange = { bg = nil, fg = colors.base0D },
         GitGutterDelete = { bg = nil, fg = colors.base08 },
         GitGutterChangeDelete = { bg = nil, fg = colors.base0E },
+        Folded = { bg = "" },
       }
     end,
   },

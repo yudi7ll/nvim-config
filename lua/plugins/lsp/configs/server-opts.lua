@@ -42,6 +42,7 @@ M.on_attach = function(_, bufnr)
     { "<leader>ac", vim.lsp.buf.code_action, desc = "LSP | Code Action", mode = { "n", "v" } },
     { "<leader>al", vim.lsp.codelens.run, desc = "LSP | Run Codelens", mode = { "n", "v" } },
     { "<leader>cL", vim.lsp.codelens.refresh, desc = "LSP | Refresh & Display Codelens", mode = { "n" } },
+    -- { "<leader>ar", vim.lsp.buf.rename, desc = "LSP | Rename", expr = true },
     { "<leader>ar", vim.lsp.buf.rename, desc = "LSP | Rename", expr = true },
     {
       "<leader>ao",
@@ -53,12 +54,20 @@ M.on_attach = function(_, bufnr)
     {
       "K",
       function()
-        local winid = require("ufo").peekFoldedLinesUnderCursor()
-        if not winid then
-          vim.lsp.buf.hover()
+        -- Try UFO first, fall back to LSP hover if UFO fails
+        local success, result = pcall(function()
+          local winid = require("ufo").peekFoldedLinesUnderCursor()
+          return winid
+        end)
+        if not success or not result then
+          -- UFO failed, try LSP hover
+          local lsp_success = pcall(vim.lsp.buf.hover)
+          if not lsp_success then
+            vim.notify("No documentation available", vim.log.levels.INFO)
+          end
         end
       end,
-      desc = "UFO or Hover | Hover",
+      desc = "Documentation | Show documentation or peek folded lines",
     },
   }, { buffer = bufnr })
 
@@ -79,12 +88,14 @@ M.on_attach = function(_, bufnr)
   --   { "gD", vim.lsp.buf.declaration, desc = "LSP | Goto Declaration" },
   --   { "K", ufo_peek, desc = "UFO or Lspsaga | Hover" },
   -- }
+
+  vim.treesitter.start()
 end
 
 M.on_init = function(client, _)
-  if client.supports_method "textDocument/semanticTokens" then
-    client.server_capabilities.semanticTokensProvider = nil
-  end
+  -- if client.supports_method "textDocument/semanticTokens" then
+  --   client.server_capabilities.semanticTokensProvider = nil
+  -- end
 end
 
 M.capabilities = function()

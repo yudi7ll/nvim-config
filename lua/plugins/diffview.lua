@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewClose" },
   keys = {

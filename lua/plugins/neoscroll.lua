@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  enabled = false,
   "karb94/neoscroll.nvim",
   event = "VeryLazy",
   opts = {
