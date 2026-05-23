@@ -14,9 +14,14 @@ return {
     { "<c-w>_", "<cmd>WindowsMaximizeVertically<cr>", desc = "Windows | Maximize Vertically" },
   },
   config = function()
-    vim.o.winwidth = 10
-    vim.o.winminwidth = 10
-    vim.o.equalalways = false
-    require("windows").setup()
+    vim.o.winwidth = 5
+    vim.o.winminwidth = 5
+    vim.o.equalalways = true
+    require("windows").setup {
+      -- BUG: enabling this cause some issues related to virutaledit
+      autowidth = {
+        enable = false,
+      },
+    }
   end,
 }

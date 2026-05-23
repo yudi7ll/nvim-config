@@ -3,13 +3,32 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  -- init = function()
+  --   local map = require "utils.map"
+  --   map {
+  --     {
+  --       "<leader>sf",
+  --       function()
+  --         Snacks.picker.pick "files"
+  --       end,
+  --       desc = "Snacks | Pick Files",
+  --     },
+  --   }
+  -- end,
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dim = { enabled = true },
-    explorer = { enabled = true },
     input = { enabled = true },
-    picker = { enabled = true },
+    -- picker = {
+    --   enabled = true,
+    --   win = {
+    --     input = {
+    --       keys = {
+    --         -- ["<Esc>"] = { "close", mode = { "n", "i" } },
+    --       },
+    --     },
+    --   },
+    -- },
     notifier = {
       enabled = true,
       top_down = false,
@@ -20,6 +39,5 @@ return {
       timeout = 7000,
     },
     quickfile = { enabled = true },
-    scope = { enabled = true },
   },
 }

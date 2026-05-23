@@ -2,6 +2,7 @@ local au = require "utils.au"
 
 ---@type LazySpec
 return {
+  enabled = false,
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   ft = "markdown",

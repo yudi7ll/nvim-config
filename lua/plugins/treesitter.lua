@@ -86,7 +86,6 @@ return {
       "tmux",
     }
 
-    -- Auto-start treesitter for all filetypes (silently ignore failures)
     vim.api.nvim_create_autocmd("FileType", {
       group = vim.api.nvim_create_augroup("AutoStartTreesitter", { clear = true }),
       pattern = "*",

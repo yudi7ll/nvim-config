@@ -37,23 +37,23 @@ return {
           prompt_title = "Recent Files",
         },
         find_files = {
-          theme = "dropdown",
+          theme = "ivy",
           hidden = true,
         },
         live_grep = {
           theme = "ivy",
         },
         current_buffer_fuzzy_find = {
-          theme = "dropdown",
+          theme = "ivy",
         },
         lsp_definitions = {
-          theme = "dropdown",
+          theme = "ivy",
         },
         lsp_type_definitions = {
-          theme = "dropdown",
+          theme = "ivy",
         },
         lsp_implementations = {
-          theme = "dropdown",
+          theme = "ivy",
         },
         lsp_references = {
           theme = "cursor",

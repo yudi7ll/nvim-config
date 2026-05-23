@@ -1,5 +1,3 @@
-local map = require "utils.map"
-
 ---@type LazySpec
 return {
   "Bekaboo/dropbar.nvim",
@@ -9,6 +7,10 @@ return {
     build = "make",
   },
   config = function()
+    -- Initialize dropbar with default configuration
+    require("dropbar").setup()
+
+    local map = require "utils.map"
     local dropbar_api = require "dropbar.api"
 
     map {
